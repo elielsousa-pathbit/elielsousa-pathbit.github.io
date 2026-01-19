@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuracoes - Parceiro - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar sidebar-green">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="logo" style="color: white;">CrowdInvest</a>
+        <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
+        <li><a href="investidores.html"><i class="bi bi-people"></i> Investidores</a></li>
+        <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
+        <li><a href="configuracoes.html" class="active"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <main class="main-content">
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i> Menu</button>
+
+      <div class="page-header">
+        <h1 class="page-title">Configuracoes</h1>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab(this, 'empresa')">Dados da Empresa</button>
+        <button class="tab" onclick="switchTab(this, 'conta')">Conta de Acesso</button>
+        <button class="tab" onclick="switchTab(this, 'notif')">Notificacoes</button>
+      </div>
+
+      <!-- Empresa -->
+      <div id="empresa" class="tab-content">
+        <div class="card">
+          <h3 style="margin-bottom: 20px;">Dados da Empresa</h3>
+          <form>
+            <div class="grid-2">
+              <div class="form-group">
+                <label class="form-label">Razao Social</label>
+                <input type="text" class="form-input" value="TechStart Inovacao LTDA" readonly style="background: var(--bg);">
+              </div>
+              <div class="form-group">
+                <label class="form-label">CNPJ</label>
+                <input type="text" class="form-input" value="12.345.678/0001-90" readonly style="background: var(--bg);">
+              </div>
+              <div class="form-group">
+                <label class="form-label">E-mail de Contato</label>
+                <input type="email" class="form-input" value="contato@techstart.com.br">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Telefone</label>
+                <input type="tel" class="form-input" value="(11) 3456-7890">
+              </div>
+              <div class="form-group" style="grid-column: span 2;">
+                <label class="form-label">Endereco</label>
+                <input type="text" class="form-input" value="Av. Paulista, 1000, Sala 501 - Sao Paulo/SP">
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="showModal('dadosSalvosModal')">Salvar Alteracoes</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Conta -->
+      <div id="conta" class="tab-content" style="display: none;">
+        <div class="card">
+          <h3 style="margin-bottom: 20px;">Dados de Acesso</h3>
+          <form>
+            <div class="form-group">
+              <label class="form-label">E-mail de Login</label>
+              <input type="email" class="form-input" value="contato@techstart.com.br">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Senha Atual</label>
+              <input type="password" class="form-input" placeholder="Digite para alterar">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Nova Senha</label>
+              <input type="password" class="form-input" placeholder="Minimo 8 caracteres">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="showModal('senhaAlteradaModal')">Alterar Senha</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom: 20px;">Verificacao em Duas Etapas</h3>
+          <div class="alert alert-success">
+            <strong><i class="bi bi-shield-check"></i> Verificacao Ativada</strong> - Metodo: E-mail
+          </div>
+          <div class="method-options">
+            <label class="method-option selected" onclick="selectMethod(this)">
+              <input type="radio" name="2fa" value="email" checked>
+              <div class="method-info">
+                <h4>E-mail</h4>
+                <p>contato@techstart.com.br</p>
+              </div>
+            </label>
+            <label class="method-option" onclick="selectMethod(this)">
+              <input type="radio" name="2fa" value="sms">
+              <div class="method-info">
+                <h4>SMS</h4>
+                <p>(11) 98765-1234</p>
+              </div>
+            </label>
+            <label class="method-option" onclick="selectMethod(this)">
+              <input type="radio" name="2fa" value="whatsapp">
+              <div class="method-info">
+                <h4>WhatsApp</h4>
+                <p>(11) 98765-1234</p>
+              </div>
+            </label>
+          </div>
+          <button type="button" class="btn btn-primary mt-20" onclick="showModal('verificacaoSalvaModal')">Salvar Verificacao</button>
+        </div>
+      </div>
+
+      <!-- Notificacoes -->
+      <div id="notif" class="tab-content" style="display: none;">
+        <div class="card">
+          <h3 style="margin-bottom: 20px;">Preferencias de Notificacao</h3>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <label class="toggle">
+              <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
+              <span>Novos investimentos</span>
+            </label>
+            <label class="toggle">
+              <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
+              <span>Desistencias</span>
+            </label>
+            <label class="toggle">
+              <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
+              <span>Resumo diario</span>
+            </label>
+            <label class="toggle">
+              <div class="toggle-switch" onclick="toggleSwitch(this)"></div>
+              <span>Resumo semanal</span>
+            </label>
+            <label class="toggle">
+              <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
+              <span>Alertas de prazo (oferta)</span>
+            </label>
+          </div>
+          <button type="button" class="btn btn-primary mt-20" onclick="showModal('preferenciasSalvasModal')">Salvar Preferencias</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal Dados Salvos -->
+  <div class="modal-overlay" id="dadosSalvosModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 400px;">
+      <div style="padding: 30px;">
+        <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
+        <h3 style="margin: 15px 0;">Dados Salvos!</h3>
+        <p class="text-muted">As alteracoes foram salvas com sucesso.</p>
+        <button class="btn btn-primary mt-20" onclick="hideModal('dadosSalvosModal')">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Senha Alterada -->
+  <div class="modal-overlay" id="senhaAlteradaModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 400px;">
+      <div style="padding: 30px;">
+        <i class="bi bi-shield-check" style="font-size: 3rem; color: var(--success);"></i>
+        <h3 style="margin: 15px 0;">Senha Alterada!</h3>
+        <p class="text-muted">Sua senha foi alterada com sucesso.</p>
+        <button class="btn btn-primary mt-20" onclick="hideModal('senhaAlteradaModal')">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Verificacao Salva -->
+  <div class="modal-overlay" id="verificacaoSalvaModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 400px;">
+      <div style="padding: 30px;">
+        <i class="bi bi-shield-lock" style="font-size: 3rem; color: var(--success);"></i>
+        <h3 style="margin: 15px 0;">Verificacao Atualizada!</h3>
+        <p class="text-muted">Suas configuracoes de verificacao foram salvas.</p>
+        <button class="btn btn-primary mt-20" onclick="hideModal('verificacaoSalvaModal')">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Preferencias Salvas -->
+  <div class="modal-overlay" id="preferenciasSalvasModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 400px;">
+      <div style="padding: 30px;">
+        <i class="bi bi-bell-fill" style="font-size: 3rem; color: var(--success);"></i>
+        <h3 style="margin: 15px 0;">Preferencias Salvas!</h3>
+        <p class="text-muted">Suas preferencias de notificacao foram atualizadas.</p>
+        <button class="btn btn-primary mt-20" onclick="hideModal('preferenciasSalvasModal')">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/app.js"></script>
+</body>
+</html>

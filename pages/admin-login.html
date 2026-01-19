@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="auth-page" style="background: linear-gradient(135deg, #1e293b, #334155);">
+    <div class="auth-box">
+      <div class="auth-logo">
+        <a href="../index.html" class="logo">CrowdInvest</a>
+        <p class="text-muted" style="margin-top: 5px;">Painel Administrativo</p>
+      </div>
+      <h1 class="auth-title">Login Admin</h1>
+      <p class="auth-subtitle">Acesso restrito a administradores</p>
+
+      <div class="alert alert-warning">
+        <strong><i class="bi bi-shield-lock"></i> Verificacao por Aplicativo Obrigatoria</strong><br>
+        Este acesso requer Google Authenticator ou similar.
+      </div>
+
+      <form id="adminLoginForm" onsubmit="return submitForm('adminLoginForm', 'admin-totp.html')">
+        <div class="form-group">
+          <label class="form-label">E-mail Corporativo</label>
+          <input type="email" class="form-input" placeholder="admin@crowdinvest.com.br" value="admin@crowdinvest.com.br" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Senha</label>
+          <input type="password" class="form-input" placeholder="********" value="12345678" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Continuar</button>
+      </form>
+
+      <div class="text-center mt-20">
+        <a href="portal.html" style="color: var(--text-muted); text-decoration: none;">
+          <i class="bi bi-arrow-left"></i> Outros portais
+        </a>
+      </div>
+
+      <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border);">
+        <p class="text-center text-muted" style="font-size: 0.75rem;">
+          Primeiro acesso? <a href="admin-setup-totp.html" style="color: var(--primary);">Configurar Authenticator</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

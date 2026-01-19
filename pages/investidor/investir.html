@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investir - TechStart - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="logo">CrowdInvest</a>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li><a href="ofertas.html" class="active"><i class="bi bi-megaphone"></i> Ofertas</a></li>
+        <li><a href="minhas-ordens.html"><i class="bi bi-clock-history"></i> Minhas Ordens</a></li>
+        <li><a href="meus-investimentos.html"><i class="bi bi-briefcase"></i> Meu Portfolio</a></li>
+        <li><a href="carteira.html"><i class="bi bi-wallet2"></i> Carteira</a></li>
+        <li><a href="extrato.html"><i class="bi bi-list-ul"></i> Extrato</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="../login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i> Menu</button>
+
+      <a href="oferta-detalhe.html?id=1" style="color: var(--text-muted); text-decoration: none; margin-bottom: 20px; display: inline-block;">&larr; Voltar para a oferta</a>
+
+      <div style="max-width: 800px; margin: 0 auto;">
+        <!-- Steps -->
+        <div class="steps mb-30">
+          <div class="step active">
+            <div class="step-number">1</div>
+            <div class="step-label">Valor</div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-label">Confirmar</div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-label">Pagamento</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 style="margin-bottom: 20px;">Investir em TechStart Inovacao</h2>
+
+          <!-- Offer Summary -->
+          <div style="background: var(--bg); padding: 20px; border-radius: var(--radius); margin-bottom: 30px;">
+            <div class="grid-2" style="gap: 20px;">
+              <div>
+                <p class="text-muted">Empresa</p>
+                <strong>TechStart Inovacao</strong>
+              </div>
+              <div>
+                <p class="text-muted">Setor</p>
+                <strong>Tecnologia</strong>
+              </div>
+              <div>
+                <p class="text-muted">Equity Oferecido</p>
+                <strong>15%</strong>
+              </div>
+              <div>
+                <p class="text-muted">Dias Restantes</p>
+                <strong>23 dias</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Investment Form -->
+          <form id="investForm" onsubmit="return submitForm('investForm', 'investir-confirmar.html')">
+            <div class="form-group">
+              <label class="form-label">Valor do Investimento</label>
+              <div style="position: relative;">
+                <span style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted);">R$</span>
+                <input type="text" class="form-input" style="padding-left: 40px;" placeholder="0,00" value="5.000,00" id="investmentValue">
+              </div>
+              <div class="flex-between mt-20">
+                <span class="form-hint">Minimo: R$ 1.000</span>
+                <span class="form-hint">Maximo disponivel: R$ 5.000</span>
+              </div>
+            </div>
+
+            <!-- Quick amounts -->
+            <div class="flex gap-10 mb-20" style="flex-wrap: wrap;">
+              <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('investmentValue').value = '1.000,00'">R$ 1.000</button>
+              <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('investmentValue').value = '2.500,00'">R$ 2.500</button>
+              <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('investmentValue').value = '5.000,00'">R$ 5.000</button>
+            </div>
+
+            <!-- Investor Limit -->
+            <div class="alert alert-info">
+              <strong>Seu limite anual (RCVM 88):</strong> R$ 20.000,00<br>
+              <strong>Ja investido em 2026:</strong> R$ 15.000,00<br>
+              <strong>Disponivel:</strong> R$ 5.000,00
+            </div>
+
+            <!-- Equity calculation -->
+            <div style="background: var(--bg); padding: 20px; border-radius: var(--radius); margin: 20px 0;">
+              <div class="flex-between">
+                <span>Valor do investimento:</span>
+                <strong>R$ 5.000,00</strong>
+              </div>
+              <div class="flex-between mt-20">
+                <span>Equity estimado:</span>
+                <strong style="color: var(--primary);">1,5%</strong>
+              </div>
+              <p class="text-muted" style="font-size: 0.75rem; margin-top: 10px;">
+                *O percentual final sera definido ao termino da oferta
+              </p>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Continuar</button>
+          </form>
+        </div>
+
+        <div class="alert alert-warning">
+          <strong>Aviso de Risco:</strong> Investimentos em startups sao de alto risco. Voce pode perder todo o capital investido. Leia atentamente o material da oferta.
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuracoes - Admin - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar sidebar-dark">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="logo" style="color: white;">CrowdInvest</a>
+        <span class="badge badge-warning" style="margin-left: 10px;">Admin</span>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li><a href="ofertas.html"><i class="bi bi-megaphone"></i> Ofertas</a></li>
+        <li><a href="investidores.html"><i class="bi bi-people"></i> Investidores</a></li>
+        <li><a href="kyc-fila.html"><i class="bi bi-person-check"></i> Validacao Cadastro</a></li>
+        <li><a href="moderacao.html"><i class="bi bi-shield-check"></i> Moderacao</a></li>
+        <li><a href="parceiros.html"><i class="bi bi-building"></i> Parceiros</a></li>
+        <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
+        <li><a href="configuracoes.html" class="active"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="../admin-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <main class="main-content">
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i> Menu</button>
+
+      <div class="page-header">
+        <h1 class="page-title">Configuracoes do Sistema</h1>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab(this, 'geral')">Geral</button>
+        <button class="tab" onclick="switchTab(this, 'usuarios')">Usuarios Admin</button>
+        <button class="tab" onclick="switchTab(this, 'integ')">Integracoes</button>
+      </div>
+
+      <!-- Geral -->
+      <div id="geral" class="tab-content">
+        <div class="card">
+          <h3 style="margin-bottom: 20px;">Parametros da Plataforma</h3>
+          <form>
+            <div class="grid-2">
+              <div class="form-group">
+                <label class="form-label">Limite Anual por Investidor (R$)</label>
+                <input type="text" class="form-input" value="20.000,00" readonly style="background: var(--bg);">
+                <p class="form-hint">Definido pela RCVM 88/2022</p>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Prazo Maximo de Oferta (dias)</label>
+                <input type="text" class="form-input" value="180" readonly style="background: var(--bg);">
+                <p class="form-hint">Definido pela RCVM 88/2022</p>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Periodo de Desistencia (dias)</label>
+                <input type="text" class="form-input" value="5" readonly style="background: var(--bg);">
+                <p class="form-hint">Definido pela RCVM 88/2022</p>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Valor Maximo por Oferta (R$)</label>
+                <input type="text" class="form-input" value="15.000.000,00" readonly style="background: var(--bg);">
+                <p class="form-hint">Definido pela RCVM 88/2022</p>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom: 20px;">Configuracoes de Seguranca</h3>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <label class="toggle">
+              <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
+              <span>Verificacao em duas etapas obrigatoria para investidores</span>
+            </label>
+            <label class="toggle">
+              <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
+              <span>Verificacao por aplicativo obrigatoria para admins</span>
+            </label>
+            <label class="toggle">
+              <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
+              <span>Validacao de cadastro automatica via Bureau</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Usuarios -->
+      <div id="usuarios" class="tab-content" style="display: none;">
+        <div class="card">
+          <div class="flex-between mb-20">
+            <h3>Usuarios Administradores</h3>
+            <button class="btn btn-primary btn-sm" onclick="showModal('novoAdminModal')">+ Novo Admin</button>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Email</th>
+                  <th>Verificacao</th>
+                  <th>Ultimo Acesso</th>
+                  <th>Acoes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Admin Principal</strong></td>
+                  <td>admin@crowdinvest.com.br</td>
+                  <td><span class="badge badge-success">Ativo</span></td>
+                  <td>19/01/2026 10:30</td>
+                  <td><button class="btn btn-outline btn-sm">Editar</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Operador 1</strong></td>
+                  <td>operador1@crowdinvest.com.br</td>
+                  <td><span class="badge badge-success">Ativo</span></td>
+                  <td>18/01/2026 16:45</td>
+                  <td><button class="btn btn-outline btn-sm">Editar</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Integracoes -->
+      <div id="integ" class="tab-content" style="display: none;">
+        <div class="card">
+          <h3 style="margin-bottom: 20px;">Integracoes Ativas</h3>
+          <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+              <div>
+                <strong>Bureau de Dados (Serasa/SPC)</strong>
+                <p class="text-muted" style="font-size: 0.875rem;">Validacao de cadastro automatica</p>
+              </div>
+              <span class="badge badge-success">Conectado</span>
+            </div>
+            <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+              <div>
+                <strong>Gateway PIX</strong>
+                <p class="text-muted" style="font-size: 0.875rem;">Pagamentos instantaneos</p>
+              </div>
+              <span class="badge badge-success">Conectado</span>
+            </div>
+            <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+              <div>
+                <strong>Email (SendGrid)</strong>
+                <p class="text-muted" style="font-size: 0.875rem;">Envio de emails e codigos de verificacao</p>
+              </div>
+              <span class="badge badge-success">Conectado</span>
+            </div>
+            <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+              <div>
+                <strong>SMS/WhatsApp (Twilio)</strong>
+                <p class="text-muted" style="font-size: 0.875rem;">Envio de codigos de verificacao</p>
+              </div>
+              <span class="badge badge-success">Conectado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal Novo Admin -->
+  <div class="modal-overlay" id="novoAdminModal" style="display: none;">
+    <div class="modal" style="max-width: 500px;">
+      <div class="modal-header">
+        <h3><i class="bi bi-person-plus"></i> Novo Administrador</h3>
+        <button class="modal-close" onclick="hideModal('novoAdminModal')">&times;</button>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Nome Completo</label>
+        <input type="text" class="form-input" placeholder="Nome do administrador">
+      </div>
+      <div class="form-group">
+        <label class="form-label">E-mail</label>
+        <input type="email" class="form-input" placeholder="email@crowdinvest.com.br">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Perfil de Acesso</label>
+        <select class="form-input">
+          <option>Administrador</option>
+          <option>Operador</option>
+          <option>Visualizador</option>
+        </select>
+      </div>
+
+      <div class="alert alert-info">
+        <i class="bi bi-info-circle"></i> O novo usuario recebera um e-mail para configurar sua senha e ativar a verificacao em duas etapas.
+      </div>
+
+      <div class="flex gap-10 mt-20">
+        <button class="btn btn-secondary" onclick="hideModal('novoAdminModal')" style="flex: 1;">Cancelar</button>
+        <button class="btn btn-primary" onclick="hideModal('novoAdminModal'); showModal('adminCriadoModal');" style="flex: 1;">
+          <i class="bi bi-plus"></i> Criar Usuario
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Admin Criado -->
+  <div class="modal-overlay" id="adminCriadoModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 400px;">
+      <div style="padding: 30px;">
+        <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
+        <h3 style="margin: 15px 0;">Usuario Criado!</h3>
+        <p class="text-muted">Um e-mail foi enviado para o novo administrador com instrucoes de acesso.</p>
+        <button class="btn btn-primary mt-20" onclick="hideModal('adminCriadoModal')">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/app.js"></script>
+</body>
+</html>

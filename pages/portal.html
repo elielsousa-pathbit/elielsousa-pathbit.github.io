@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selecionar Portal - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .portal-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+    }
+    .portal-header {
+      padding: 20px 0;
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
+    .portal-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .portal-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .portal-selection {
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+    .portal-selection h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .portal-selection .subtitle {
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+    .portal-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+    .portal-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      border: 2px solid transparent;
+    }
+    .portal-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .portal-card.investidor:hover {
+      border-color: var(--primary);
+    }
+    .portal-card.parceiro:hover {
+      border-color: #059669;
+    }
+    .portal-card.admin:hover {
+      border-color: #1e293b;
+    }
+    .portal-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 2rem;
+      color: white;
+    }
+    .portal-icon.investidor {
+      background: linear-gradient(135deg, var(--primary), #1d4ed8);
+    }
+    .portal-icon.parceiro {
+      background: linear-gradient(135deg, #059669, #047857);
+    }
+    .portal-icon.admin {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+    }
+    .portal-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+    .portal-card p {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      margin-bottom: 15px;
+      min-height: 40px;
+    }
+    .portal-card .portal-badge {
+      margin-bottom: 20px;
+    }
+    .portal-card .portal-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+    .portal-card.investidor .portal-btn {
+      background: var(--primary);
+      color: white;
+    }
+    .portal-card.parceiro .portal-btn {
+      background: #059669;
+      color: white;
+    }
+    .portal-card.admin .portal-btn {
+      background: #1e293b;
+      color: white;
+    }
+    .portal-footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: white;
+      border-top: 1px solid var(--border);
+    }
+    .portal-footer p {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+    .portal-footer a {
+      color: var(--primary);
+    }
+    .portal-info {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+    .portal-info .card {
+      background: white;
+    }
+
+    @media (max-width: 768px) {
+      .portal-cards {
+        grid-template-columns: 1fr;
+      }
+      .portal-selection h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="portal-page">
+    <!-- Header -->
+    <header class="portal-header">
+      <div class="container">
+        <a href="../index.html" class="logo">CrowdInvest</a>
+        <a href="../index.html" class="text-muted" style="text-decoration: none;">
+          <i class="bi bi-arrow-left"></i> Voltar ao site
+        </a>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="portal-content">
+      <div class="portal-selection">
+        <h1>Selecione seu Portal</h1>
+        <p class="subtitle">Escolha a area que deseja acessar</p>
+
+        <div class="portal-cards">
+          <!-- Investidor -->
+          <a href="login.html" class="portal-card investidor">
+            <div class="portal-icon investidor">
+              <i class="bi bi-wallet2"></i>
+            </div>
+            <h3>Investidor</h3>
+            <p>Acesse para ver ofertas, investir e acompanhar seu portfolio.</p>
+            <div class="portal-badge">
+              <span class="badge badge-info"><i class="bi bi-shield-check"></i> Verificacao por Email/SMS/WhatsApp</span>
+            </div>
+            <span class="portal-btn">
+              <i class="bi bi-box-arrow-in-right"></i> Acessar Portal
+            </span>
+          </a>
+
+          <!-- Parceiro -->
+          <a href="parceiro-login.html" class="portal-card parceiro">
+            <div class="portal-icon parceiro">
+              <i class="bi bi-building"></i>
+            </div>
+            <h3>Parceiro / Empresa</h3>
+            <p>Gerencie sua oferta, acompanhe investidores e captacao.</p>
+            <div class="portal-badge">
+              <span class="badge badge-success"><i class="bi bi-shield-check"></i> Verificacao por Email/SMS/WhatsApp</span>
+            </div>
+            <span class="portal-btn">
+              <i class="bi bi-box-arrow-in-right"></i> Acessar Portal
+            </span>
+          </a>
+
+          <!-- Admin -->
+          <a href="admin-login.html" class="portal-card admin">
+            <div class="portal-icon admin">
+              <i class="bi bi-shield-lock"></i>
+            </div>
+            <h3>Administrador</h3>
+            <p>Painel administrativo da plataforma. Acesso restrito.</p>
+            <div class="portal-badge">
+              <span class="badge badge-warning"><i class="bi bi-phone"></i> Verificacao por Aplicativo</span>
+            </div>
+            <span class="portal-btn">
+              <i class="bi bi-box-arrow-in-right"></i> Acessar Portal
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="portal-info">
+      <div class="card">
+        <h4 style="margin-bottom: 15px;"><i class="bi bi-info-circle"></i> Sobre os Portais</h4>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Portal</th>
+                <th>Descricao</th>
+                <th>Verificacao de Acesso</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong><i class="bi bi-wallet2" style="color: var(--primary);"></i> Investidor</strong></td>
+                <td>Pessoas fisicas que desejam investir em startups</td>
+                <td>Codigo por Email, SMS ou WhatsApp</td>
+              </tr>
+              <tr>
+                <td><strong><i class="bi bi-building" style="color: #059669;"></i> Parceiro</strong></td>
+                <td>Empresas emissoras de ofertas na plataforma</td>
+                <td>Codigo por Email, SMS ou WhatsApp</td>
+              </tr>
+              <tr>
+                <td><strong><i class="bi bi-shield-lock" style="color: #1e293b;"></i> Admin</strong></td>
+                <td>Equipe de operacoes da plataforma</td>
+                <td>Codigo por aplicativo (Google/Microsoft Authenticator)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="portal-footer">
+      <p>Novo na plataforma? <a href="cadastro.html">Criar conta de investidor</a></p>
+      <p style="margin-top: 10px;">2026 CrowdInvest - Plataforma regulamentada pela CVM (RCVM 88/2022)</p>
+    </footer>
+  </div>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

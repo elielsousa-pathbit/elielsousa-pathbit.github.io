@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comunicados aos Investidores - Parceiro - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .comunicado-card {
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 20px;
+      margin-bottom: 15px;
+      transition: all 0.2s;
+    }
+    .comunicado-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+    .comunicado-card.pendente { border-left: 4px solid var(--warning); }
+    .comunicado-card.aprovado { border-left: 4px solid var(--success); }
+    .comunicado-card.rejeitado { border-left: 4px solid var(--danger); }
+    .comunicado-card.rascunho { border-left: 4px solid var(--secondary); }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar sidebar-green">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="logo" style="color: white;">CrowdInvest</a>
+        <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li><a href="comunicados.html" class="active"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
+        <li><a href="investidores.html"><i class="bi bi-people"></i> Investidores</a></li>
+        <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <main class="main-content">
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i> Menu</button>
+
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Comunicados aos Investidores</h1>
+          <p class="text-muted">Envie atualizacoes para seus investidores (com moderacao)</p>
+        </div>
+        <button class="btn btn-primary" onclick="showModal('novoComunicadoModal')">
+          <i class="bi bi-plus-lg"></i> Novo Comunicado
+        </button>
+      </div>
+
+      <!-- Info sobre Moderação -->
+      <div class="alert alert-info mb-20">
+        <i class="bi bi-shield-check"></i>
+        <div>
+          <strong>Comunicados Moderados:</strong> Todos os comunicados sao revisados pela equipe CrowdInvest antes de serem enviados aos investidores.
+          Prazo de analise: <strong>ate 24 horas</strong> em dias uteis.
+        </div>
+      </div>
+
+      <!-- KPIs -->
+      <div class="kpi-grid mb-30">
+        <div class="kpi-card">
+          <div class="kpi-label">Aguardando Aprovacao</div>
+          <div class="kpi-value" style="color: var(--warning);">2</div>
+          <div class="kpi-change">Em analise</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Aprovados</div>
+          <div class="kpi-value" style="color: var(--success);">8</div>
+          <div class="kpi-change">Publicados</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Rejeitados</div>
+          <div class="kpi-value" style="color: var(--danger);">1</div>
+          <div class="kpi-change">Precisam revisao</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Rascunhos</div>
+          <div class="kpi-value" style="color: var(--secondary);">1</div>
+          <div class="kpi-change">Nao enviados</div>
+        </div>
+      </div>
+
+      <!-- Section: Aguardando Aprovação -->
+      <h3 style="margin-bottom: 15px;"><i class="bi bi-hourglass-split" style="color: var(--warning);"></i> Aguardando Aprovacao (2)</h3>
+
+      <div class="comunicado-card pendente">
+        <div class="flex-between" style="margin-bottom: 12px;">
+          <div>
+            <span class="badge badge-warning"><i class="bi bi-clock"></i> Em Analise</span>
+            <span class="text-muted" style="margin-left: 10px; font-size: 0.875rem;">Enviado em 18/01/2026 14:30</span>
+          </div>
+          <span class="badge badge-info">TechStart Inovacao</span>
+        </div>
+        <h4 style="margin-bottom: 8px;">Atualizacao: Nova parceria com BigCorp fechada!</h4>
+        <p class="text-muted" style="font-size: 0.9rem;">
+          Temos o prazer de anunciar que fechamos uma parceria estrategica com a BigCorp, que ira acelerar nosso crescimento em 2026...
+        </p>
+        <div class="flex gap-10 mt-20">
+          <button class="btn btn-outline btn-sm" onclick="showModal('verComunicadoModal')"><i class="bi bi-eye"></i> Ver Completo</button>
+          <button class="btn btn-outline btn-sm" onclick="showModal('editarComunicadoModal')"><i class="bi bi-pencil"></i> Editar</button>
+        </div>
+      </div>
+
+      <div class="comunicado-card pendente">
+        <div class="flex-between" style="margin-bottom: 12px;">
+          <div>
+            <span class="badge badge-warning"><i class="bi bi-clock"></i> Em Analise</span>
+            <span class="text-muted" style="margin-left: 10px; font-size: 0.875rem;">Enviado em 17/01/2026 09:15</span>
+          </div>
+          <span class="badge badge-info">TechStart Inovacao</span>
+        </div>
+        <h4 style="margin-bottom: 8px;">Milestone: 100 clientes ativos!</h4>
+        <p class="text-muted" style="font-size: 0.9rem;">
+          Atingimos a marca de 100 clientes ativos na plataforma, um crescimento de 40% em relacao ao mes anterior...
+        </p>
+        <div class="flex gap-10 mt-20">
+          <button class="btn btn-outline btn-sm" onclick="showModal('verComunicadoModal')"><i class="bi bi-eye"></i> Ver Completo</button>
+          <button class="btn btn-outline btn-sm" onclick="showModal('editarComunicadoModal')"><i class="bi bi-pencil"></i> Editar</button>
+        </div>
+      </div>
+
+      <!-- Section: Rejeitados -->
+      <h3 style="margin: 30px 0 15px;"><i class="bi bi-x-circle" style="color: var(--danger);"></i> Rejeitados - Precisam Revisao (1)</h3>
+
+      <div class="comunicado-card rejeitado">
+        <div class="flex-between" style="margin-bottom: 12px;">
+          <div>
+            <span class="badge badge-danger"><i class="bi bi-x-circle"></i> Rejeitado</span>
+            <span class="text-muted" style="margin-left: 10px; font-size: 0.875rem;">Rejeitado em 15/01/2026</span>
+          </div>
+          <span class="badge badge-info">TechStart Inovacao</span>
+        </div>
+        <h4 style="margin-bottom: 8px;">Projecao de crescimento 2026</h4>
+        <p class="text-muted" style="font-size: 0.9rem;">
+          Este comunicado continha projecoes financeiras que precisam ser ajustadas conforme regulamentacao...
+        </p>
+        <div class="alert alert-danger mt-20" style="margin-bottom: 15px;">
+          <strong>Motivo da rejeicao:</strong> Projecoes financeiras devem incluir disclaimer sobre riscos e nao podem ser apresentadas como garantias.
+        </div>
+        <div class="flex gap-10">
+          <button class="btn btn-primary btn-sm" onclick="showModal('editarComunicadoModal')"><i class="bi bi-pencil"></i> Corrigir e Reenviar</button>
+          <button class="btn btn-outline btn-sm" onclick="showModal('descartarModal')"><i class="bi bi-trash"></i> Descartar</button>
+        </div>
+      </div>
+
+      <!-- Section: Aprovados/Publicados -->
+      <h3 style="margin: 30px 0 15px;"><i class="bi bi-check-circle" style="color: var(--success);"></i> Publicados (8)</h3>
+
+      <div class="comunicado-card aprovado">
+        <div class="flex-between" style="margin-bottom: 12px;">
+          <div>
+            <span class="badge badge-success"><i class="bi bi-check-circle"></i> Publicado</span>
+            <span class="text-muted" style="margin-left: 10px; font-size: 0.875rem;">Publicado em 10/01/2026</span>
+          </div>
+          <span class="text-muted" style="font-size: 0.875rem;"><i class="bi bi-eye"></i> 89 visualizacoes</span>
+        </div>
+        <h4 style="margin-bottom: 8px;">Bem-vindos investidores! Inicio da captacao</h4>
+        <p class="text-muted" style="font-size: 0.9rem;">
+          Obrigado por acreditar na TechStart! Estamos iniciando nossa captacao e queremos compartilhar nossos proximos passos...
+        </p>
+        <div class="flex gap-10 mt-20">
+          <button class="btn btn-outline btn-sm" onclick="showModal('verComunicadoModal')"><i class="bi bi-eye"></i> Ver Completo</button>
+        </div>
+      </div>
+
+      <div class="comunicado-card aprovado">
+        <div class="flex-between" style="margin-bottom: 12px;">
+          <div>
+            <span class="badge badge-success"><i class="bi bi-check-circle"></i> Publicado</span>
+            <span class="text-muted" style="margin-left: 10px; font-size: 0.875rem;">Publicado em 05/01/2026</span>
+          </div>
+          <span class="text-muted" style="font-size: 0.875rem;"><i class="bi bi-eye"></i> 127 visualizacoes</span>
+        </div>
+        <h4 style="margin-bottom: 8px;">Lancamento do novo produto - TechStart Pro</h4>
+        <p class="text-muted" style="font-size: 0.9rem;">
+          Apresentamos o TechStart Pro, nossa nova versao premium com recursos avancados de IA para gestao empresarial...
+        </p>
+        <div class="flex gap-10 mt-20">
+          <button class="btn btn-outline btn-sm" onclick="showModal('verComunicadoModal')"><i class="bi bi-eye"></i> Ver Completo</button>
+        </div>
+      </div>
+
+      <div class="text-center mt-20">
+        <button class="btn btn-outline">Ver mais comunicados publicados</button>
+      </div>
+
+      <!-- Section: Rascunhos -->
+      <h3 style="margin: 30px 0 15px;"><i class="bi bi-file-earmark" style="color: var(--secondary);"></i> Rascunhos (1)</h3>
+
+      <div class="comunicado-card rascunho">
+        <div class="flex-between" style="margin-bottom: 12px;">
+          <div>
+            <span class="badge badge-secondary"><i class="bi bi-file-earmark"></i> Rascunho</span>
+            <span class="text-muted" style="margin-left: 10px; font-size: 0.875rem;">Criado em 19/01/2026</span>
+          </div>
+        </div>
+        <h4 style="margin-bottom: 8px;">Resultados Q1 2026 (rascunho)</h4>
+        <p class="text-muted" style="font-size: 0.9rem;">
+          Rascunho em andamento sobre os resultados do primeiro trimestre...
+        </p>
+        <div class="flex gap-10 mt-20">
+          <button class="btn btn-primary btn-sm" onclick="showModal('editarComunicadoModal')"><i class="bi bi-pencil"></i> Continuar Editando</button>
+          <button class="btn btn-outline btn-sm" onclick="showModal('enviarAprovacaoModal')"><i class="bi bi-send"></i> Enviar para Aprovacao</button>
+          <button class="btn btn-outline btn-sm" onclick="showModal('descartarModal')"><i class="bi bi-trash"></i> Descartar</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal Novo Comunicado -->
+  <div class="modal-overlay" id="novoComunicadoModal" style="display: none;">
+    <div class="modal" style="max-width: 650px;">
+      <div class="modal-header">
+        <h3><i class="bi bi-chat-square-text"></i> Novo Comunicado</h3>
+        <button class="modal-close" onclick="hideModal('novoComunicadoModal')">&times;</button>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Oferta Relacionada</label>
+        <select class="form-input">
+          <option>TechStart Inovacao (Ativa)</option>
+          <option>EcoFood Organicos (Encerrada)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Tipo de Comunicado</label>
+        <select class="form-input">
+          <option>Atualizacao de Progresso</option>
+          <option>Marco/Milestone Atingido</option>
+          <option>Novidades da Empresa</option>
+          <option>Relatorio Financeiro</option>
+          <option>Evento/Webinar</option>
+          <option>Outro</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Titulo do Comunicado</label>
+        <input type="text" class="form-input" placeholder="Ex: Atingimos 100 clientes ativos!">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Mensagem</label>
+        <textarea class="form-input" rows="6" placeholder="Escreva sua mensagem para os investidores..."></textarea>
+        <p class="form-hint">Maximo 2000 caracteres. Evite promessas de retorno ou projecoes financeiras sem disclaimers.</p>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Anexos (opcional)</label>
+        <div style="border: 2px dashed var(--border); border-radius: var(--radius); padding: 30px; text-align: center;">
+          <i class="bi bi-cloud-upload" style="font-size: 2rem; color: var(--text-muted);"></i>
+          <p class="text-muted mt-20">Arraste arquivos ou clique para selecionar</p>
+          <p class="text-muted" style="font-size: 0.75rem;">PDF, PNG, JPG ate 5MB</p>
+        </div>
+      </div>
+
+      <div class="alert alert-warning">
+        <i class="bi bi-exclamation-triangle"></i>
+        <div>
+          <strong>Lembre-se:</strong> O comunicado sera enviado para moderacao antes de ser publicado.
+          Nao inclua informacoes confidenciais, promessas de retorno garantido ou conteudo promocional excessivo.
+        </div>
+      </div>
+
+      <div class="flex gap-10 mt-20">
+        <button class="btn btn-secondary" onclick="hideModal('novoComunicadoModal')" style="flex: 1;">Cancelar</button>
+        <button class="btn btn-outline" onclick="hideModal('novoComunicadoModal'); showModal('rascunhoSalvoModal');" style="flex: 1;">
+          <i class="bi bi-file-earmark"></i> Salvar Rascunho
+        </button>
+        <button class="btn btn-primary" onclick="hideModal('novoComunicadoModal'); showModal('enviadoAprovacaoModal');" style="flex: 1;">
+          <i class="bi bi-send"></i> Enviar para Aprovacao
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Ver Comunicado -->
+  <div class="modal-overlay" id="verComunicadoModal" style="display: none;">
+    <div class="modal" style="max-width: 600px;">
+      <div class="modal-header">
+        <h3>Atualizacao: Nova parceria com BigCorp fechada!</h3>
+        <button class="modal-close" onclick="hideModal('verComunicadoModal')">&times;</button>
+      </div>
+      <div style="background: var(--bg); padding: 15px; border-radius: var(--radius); margin-bottom: 20px;">
+        <div class="flex-between text-muted" style="font-size: 0.875rem;">
+          <span><i class="bi bi-building"></i> TechStart Inovacao</span>
+          <span><i class="bi bi-calendar3"></i> 18/01/2026</span>
+        </div>
+      </div>
+      <p style="line-height: 1.7;">
+        Prezados investidores,
+        <br><br>
+        Temos o prazer de anunciar que fechamos uma parceria estrategica com a BigCorp, uma das maiores empresas de tecnologia do Brasil.
+        <br><br>
+        Esta parceria nos permitira:
+        <br>
+        - Acelerar o desenvolvimento de novos recursos<br>
+        - Expandir nossa base de clientes corporativos<br>
+        - Aumentar nossa visibilidade no mercado
+        <br><br>
+        Agradecemos a confianca de todos voces!
+        <br><br>
+        Atenciosamente,<br>
+        Equipe TechStart
+      </p>
+      <button class="btn btn-outline btn-block mt-20" onclick="hideModal('verComunicadoModal')">Fechar</button>
+    </div>
+  </div>
+
+  <!-- Modal Editar Comunicado -->
+  <div class="modal-overlay" id="editarComunicadoModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 400px;">
+      <div style="padding: 30px;">
+        <i class="bi bi-pencil-square" style="font-size: 3rem; color: var(--primary);"></i>
+        <h3 style="margin: 15px 0;">Editor de Comunicado</h3>
+        <p class="text-muted">Abrindo editor para modificar o comunicado.</p>
+        <button class="btn btn-primary mt-20" onclick="hideModal('editarComunicadoModal')">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Enviado para Aprovação -->
+  <div class="modal-overlay" id="enviadoAprovacaoModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 450px;">
+      <div style="padding: 30px;">
+        <i class="bi bi-send-check" style="font-size: 3rem; color: var(--success);"></i>
+        <h3 style="margin: 15px 0;">Comunicado Enviado!</h3>
+        <p class="text-muted">Seu comunicado foi enviado para moderacao.</p>
+        <div style="background: var(--bg); padding: 15px; border-radius: var(--radius); margin: 20px 0;">
+          <p class="text-muted" style="font-size: 0.875rem;">Prazo de analise: <strong>ate 24 horas</strong></p>
+          <p class="text-muted" style="font-size: 0.875rem;">Voce recebera um e-mail quando for aprovado ou se houver ajustes necessarios.</p>
+        </div>
+        <button class="btn btn-primary" onclick="hideModal('enviadoAprovacaoModal')">Entendi</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Rascunho Salvo -->
+  <div class="modal-overlay" id="rascunhoSalvoModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 400px;">
+      <div style="padding: 30px;">
+        <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
+        <h3 style="margin: 15px 0;">Rascunho Salvo!</h3>
+        <p class="text-muted">Seu comunicado foi salvo como rascunho. Voce pode continuar editando depois.</p>
+        <button class="btn btn-primary mt-20" onclick="hideModal('rascunhoSalvoModal')">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Descartar -->
+  <div class="modal-overlay" id="descartarModal" style="display: none;">
+    <div class="modal" style="max-width: 400px;">
+      <div class="modal-header">
+        <h3><i class="bi bi-trash" style="color: var(--danger);"></i> Descartar Comunicado</h3>
+        <button class="modal-close" onclick="hideModal('descartarModal')">&times;</button>
+      </div>
+      <p>Tem certeza que deseja descartar este comunicado? Esta acao nao pode ser desfeita.</p>
+      <div class="flex gap-10 mt-20">
+        <button class="btn btn-secondary" onclick="hideModal('descartarModal')" style="flex: 1;">Cancelar</button>
+        <button class="btn btn-danger" onclick="hideModal('descartarModal')" style="flex: 1;">Descartar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Enviar para Aprovação -->
+  <div class="modal-overlay" id="enviarAprovacaoModal" style="display: none;">
+    <div class="modal" style="max-width: 450px;">
+      <div class="modal-header">
+        <h3><i class="bi bi-send"></i> Enviar para Aprovacao</h3>
+        <button class="modal-close" onclick="hideModal('enviarAprovacaoModal')">&times;</button>
+      </div>
+      <p>O comunicado sera enviado para moderacao pela equipe CrowdInvest.</p>
+      <div class="alert alert-info mt-20">
+        <i class="bi bi-info-circle"></i> Apos aprovado, sera publicado para todos os investidores da oferta.
+      </div>
+      <div class="flex gap-10 mt-20">
+        <button class="btn btn-secondary" onclick="hideModal('enviarAprovacaoModal')" style="flex: 1;">Cancelar</button>
+        <button class="btn btn-primary" onclick="hideModal('enviarAprovacaoModal'); showModal('enviadoAprovacaoModal');" style="flex: 1;">
+          <i class="bi bi-send"></i> Enviar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/app.js"></script>
+</body>
+</html>

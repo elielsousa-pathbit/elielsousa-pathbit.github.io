@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .pie-chart {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: conic-gradient(
+        var(--primary) 0deg 120deg,
+        var(--success) 120deg 192deg,
+        var(--danger) 192deg 360deg
+      );
+      margin: 0 auto;
+    }
+    .pie-chart-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .pie-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 15px;
+    }
+    .pie-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+    }
+    .pie-legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="logo">CrowdInvest</a>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html" class="active"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li><a href="ofertas.html"><i class="bi bi-megaphone"></i> Ofertas</a></li>
+        <li><a href="minhas-ordens.html"><i class="bi bi-clock-history"></i> Minhas Ordens</a></li>
+        <li><a href="meus-investimentos.html"><i class="bi bi-briefcase"></i> Meu Portfolio</a></li>
+        <li><a href="carteira.html"><i class="bi bi-wallet2"></i> Carteira</a></li>
+        <li><a href="extrato.html"><i class="bi bi-list-ul"></i> Extrato</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="../login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i> Menu</button>
+
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Ola, Joao!</h1>
+          <p class="text-muted">Bem-vindo de volta ao seu painel</p>
+        </div>
+        <a href="ofertas.html" class="btn btn-primary">Novo Investimento</a>
+      </div>
+
+      <!-- KPIs -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">Total Investido</div>
+          <div class="kpi-value">R$ 15.000</div>
+          <div class="kpi-change positive">+R$ 5.000 este mes</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Limite Disponivel</div>
+          <div class="kpi-value">R$ 5.000</div>
+          <div class="kpi-change">de R$ 20.000/ano</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Empresas</div>
+          <div class="kpi-value">3</div>
+          <div class="kpi-change">portfolios ativos</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Ofertas Ativas</div>
+          <div class="kpi-value">2</div>
+          <div class="kpi-change">em andamento</div>
+        </div>
+      </div>
+
+      <!-- Alert for withdrawal period -->
+      <div class="alert alert-warning">
+        <strong>Atencao:</strong> Voce tem 1 investimento em periodo de desistencia (ate 24/01/2026).
+        <a href="meus-investimentos.html" style="color: inherit; margin-left: 10px;">Ver detalhes &rarr;</a>
+      </div>
+
+      <div class="grid-2">
+        <!-- Recent Investments -->
+        <div class="card">
+          <div class="card-header flex-between">
+            <h3 class="card-title">Investimentos Recentes</h3>
+            <a href="meus-investimentos.html" style="color: var(--primary);">Ver todos</a>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Empresa</th>
+                  <th>Valor</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>TechStart Inovacao</strong>
+                    <br><small class="text-muted">15/01/2026</small>
+                  </td>
+                  <td>R$ 5.000</td>
+                  <td><span class="badge badge-success">Confirmado</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>EcoFood Organicos</strong>
+                    <br><small class="text-muted">10/01/2026</small>
+                  </td>
+                  <td>R$ 3.000</td>
+                  <td><span class="badge badge-warning">Em desistencia</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>HealthTech Solutions</strong>
+                    <br><small class="text-muted">05/12/2026</small>
+                  </td>
+                  <td>R$ 7.000</td>
+                  <td><span class="badge badge-success">Confirmado</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Portfolio Pie Chart -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title"><i class="bi bi-pie-chart"></i> Distribuicao do Portfolio</h3>
+          </div>
+          <div class="text-center" style="padding: 20px;">
+            <div class="pie-chart">
+              <div class="pie-chart-center">
+                <strong style="font-size: 1.25rem;">R$ 15k</strong>
+                <small class="text-muted">Total</small>
+              </div>
+            </div>
+            <div class="pie-legend" style="max-width: 200px; margin: 20px auto 0;">
+              <div class="pie-legend-item">
+                <div class="pie-legend-color" style="background: var(--primary);"></div>
+                <span>TechStart - 33% (R$ 5.000)</span>
+              </div>
+              <div class="pie-legend-item">
+                <div class="pie-legend-color" style="background: var(--success);"></div>
+                <span>EcoFood - 20% (R$ 3.000)</span>
+              </div>
+              <div class="pie-legend-item">
+                <div class="pie-legend-color" style="background: var(--danger);"></div>
+                <span>HealthTech - 47% (R$ 7.000)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Distribuicao por Setor -->
+      <div class="card mt-20">
+        <div class="card-header">
+          <h3 class="card-title"><i class="bi bi-bar-chart"></i> Distribuicao por Setor</h3>
+        </div>
+        <div style="padding: 20px;">
+          <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div>
+              <div class="flex-between" style="margin-bottom: 5px;">
+                <span>Tecnologia</span>
+                <strong>R$ 5.000 (33%)</strong>
+              </div>
+              <div class="progress" style="height: 20px;">
+                <div class="progress-bar" style="width: 33%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex-between" style="margin-bottom: 5px;">
+                <span>Alimentacao</span>
+                <strong>R$ 3.000 (20%)</strong>
+              </div>
+              <div class="progress" style="height: 20px;">
+                <div class="progress-bar" style="width: 20%; background: var(--success);"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex-between" style="margin-bottom: 5px;">
+                <span>Saude</span>
+                <strong>R$ 7.000 (47%)</strong>
+              </div>
+              <div class="progress" style="height: 20px;">
+                <div class="progress-bar" style="width: 47%; background: var(--danger);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Offers -->
+      <div class="card mt-20">
+        <div class="card-header flex-between">
+          <h3 class="card-title">Ofertas das Minhas Empresas</h3>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Empresa</th>
+                <th>Captacao</th>
+                <th>Progresso</th>
+                <th>Dias Restantes</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>TechStart Inovacao</strong></td>
+                <td>R$ 375.000 / R$ 500.000</td>
+                <td>
+                  <div class="progress" style="width: 100px;">
+                    <div class="progress-bar" style="width: 75%;"></div>
+                  </div>
+                </td>
+                <td>23 dias</td>
+                <td><span class="badge badge-info">Em captacao</span></td>
+              </tr>
+              <tr>
+                <td><strong>HealthTech Solutions</strong></td>
+                <td>R$ 562.500 / R$ 750.000</td>
+                <td>
+                  <div class="progress" style="width: 100px;">
+                    <div class="progress-bar" style="width: 75%;"></div>
+                  </div>
+                </td>
+                <td>12 dias</td>
+                <td><span class="badge badge-warning">Finalizando</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/app.js"></script>
+</body>
+</html>

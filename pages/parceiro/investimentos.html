@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investimentos - Parceiro - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar sidebar-green">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="logo" style="color: white;">CrowdInvest</a>
+        <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
+        <li><a href="investidores.html"><i class="bi bi-people"></i> Investidores</a></li>
+        <li><a href="investimentos.html" class="active"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i> Menu</button>
+
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Investimentos Recebidos</h1>
+          <p class="text-muted">Acompanhe todas as transacoes de investimento na sua oferta</p>
+        </div>
+        <div class="flex gap-10">
+          <div class="dropdown" style="position: relative;">
+            <button class="btn btn-outline" onclick="toggleDropdown('exportDropdown')">
+              <i class="bi bi-download"></i> Exportar <i class="bi bi-chevron-down"></i>
+            </button>
+            <div id="exportDropdown" class="dropdown-menu" style="display: none; position: absolute; right: 0; top: 100%; background: white; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-width: 160px; z-index: 100;">
+              <a href="#" onclick="showModal('exportExcelModal'); return false;" style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; text-decoration: none; color: var(--text);">
+                <i class="bi bi-file-earmark-excel" style="color: #217346;"></i> Excel (.xlsx)
+              </a>
+              <a href="#" onclick="showModal('exportPdfModal'); return false;" style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; text-decoration: none; color: var(--text);">
+                <i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> PDF (.pdf)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPIs Financeiros -->
+      <div class="kpi-grid" style="margin-bottom: 30px;">
+        <div class="kpi-card">
+          <div class="kpi-label">Total Captado</div>
+          <div class="kpi-value" style="color: var(--success);">R$ 375.000</div>
+          <div class="kpi-change positive"><i class="bi bi-arrow-up"></i> +R$ 12.500 hoje</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Investimentos Confirmados</div>
+          <div class="kpi-value">118</div>
+          <div class="kpi-change">R$ 360.000</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Aguardando Pagamento</div>
+          <div class="kpi-value" style="color: var(--warning);">3</div>
+          <div class="kpi-change">R$ 8.500 pendente</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Em Periodo de Desistencia</div>
+          <div class="kpi-value" style="color: var(--info);">6</div>
+          <div class="kpi-change">R$ 15.000 em risco</div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs" style="margin-bottom: 20px;">
+        <button class="tab active" onclick="switchTab(this, 'todos')">Todos (127)</button>
+        <button class="tab" onclick="switchTab(this, 'confirmados')">Confirmados (118)</button>
+        <button class="tab" onclick="switchTab(this, 'pendentes')">Pendentes (3)</button>
+        <button class="tab" onclick="switchTab(this, 'desistencia')">Em Desistencia (6)</button>
+        <button class="tab" onclick="switchTab(this, 'cancelados')">Cancelados (3)</button>
+      </div>
+
+      <!-- Filtros -->
+      <div class="card mb-20">
+        <div class="flex gap-20" style="flex-wrap: wrap;">
+          <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 150px;">
+            <label class="form-label">Periodo</label>
+            <select class="form-input">
+              <option>Todo o periodo</option>
+              <option>Hoje</option>
+              <option>Ultimos 7 dias</option>
+              <option>Ultimos 30 dias</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 150px;">
+            <label class="form-label">Valor</label>
+            <select class="form-input">
+              <option>Todos os valores</option>
+              <option>Ate R$ 5.000</option>
+              <option>R$ 5.000 - R$ 10.000</option>
+              <option>Acima de R$ 10.000</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 150px;">
+            <label class="form-label">Forma de Pagamento</label>
+            <select class="form-input">
+              <option>Todas</option>
+              <option>PIX</option>
+              <option>TED</option>
+              <option>Boleto</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom: 0; flex: 2; min-width: 200px;">
+            <label class="form-label">Buscar</label>
+            <input type="text" class="form-input" placeholder="ID da transacao ou investidor...">
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content - Todos -->
+      <div id="todos" class="tab-content">
+        <div class="card">
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Investidor</th>
+                  <th>Valor</th>
+                  <th>Equity</th>
+                  <th>Pagamento</th>
+                  <th>Data</th>
+                  <th>Status</th>
+                  <th>Acoes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Aguardando Pagamento -->
+                <tr style="background: #fff7ed;">
+                  <td><code>#INV-2026-0130</code></td>
+                  <td>
+                    <strong>Lucas M.</strong>
+                    <br><small class="text-muted">lucas.m***@email.com</small>
+                  </td>
+                  <td><strong>R$ 3.000,00</strong></td>
+                  <td>0.9%</td>
+                  <td><span class="badge badge-secondary"><i class="bi bi-qr-code"></i> PIX</span></td>
+                  <td>19/01/2026<br><small class="text-muted">14:35</small></td>
+                  <td><span class="badge badge-warning"><i class="bi bi-clock"></i> Aguardando</span></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <!-- Em Desistencia -->
+                <tr style="background: #fef3c7;">
+                  <td><code>#INV-2026-0127</code></td>
+                  <td>
+                    <strong>Joao Carlos S.</strong>
+                    <br><small class="text-muted">joao.s***@email.com</small>
+                  </td>
+                  <td><strong>R$ 5.000,00</strong></td>
+                  <td>1.5%</td>
+                  <td><span class="badge badge-success"><i class="bi bi-check-circle"></i> PIX</span></td>
+                  <td>19/01/2026<br><small class="text-muted">10:22</small></td>
+                  <td>
+                    <span class="badge badge-info"><i class="bi bi-hourglass-split"></i> Desistencia</span>
+                    <br><small style="color: var(--warning);">ate 24/01</small>
+                  </td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <!-- Confirmado -->
+                <tr>
+                  <td><code>#INV-2026-0125</code></td>
+                  <td>
+                    <strong>Maria L.</strong>
+                    <br><small class="text-muted">maria.l***@email.com</small>
+                  </td>
+                  <td><strong>R$ 10.000,00</strong></td>
+                  <td>3.0%</td>
+                  <td><span class="badge badge-success"><i class="bi bi-check-circle"></i> PIX</span></td>
+                  <td>15/01/2026<br><small class="text-muted">09:15</small></td>
+                  <td><span class="badge badge-success"><i class="bi bi-check-circle"></i> Confirmado</span></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <!-- Confirmado -->
+                <tr>
+                  <td><code>#INV-2026-0124</code></td>
+                  <td>
+                    <strong>Pedro M.</strong>
+                    <br><small class="text-muted">pedro.m***@email.com</small>
+                  </td>
+                  <td><strong>R$ 2.000,00</strong></td>
+                  <td>0.6%</td>
+                  <td><span class="badge badge-success"><i class="bi bi-check-circle"></i> TED</span></td>
+                  <td>14/01/2026<br><small class="text-muted">16:42</small></td>
+                  <td><span class="badge badge-success"><i class="bi bi-check-circle"></i> Confirmado</span></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <!-- Confirmado -->
+                <tr>
+                  <td><code>#INV-2026-0120</code></td>
+                  <td>
+                    <strong>Fernanda C.</strong>
+                    <br><small class="text-muted">fernanda.c***@email.com</small>
+                  </td>
+                  <td><strong>R$ 7.500,00</strong></td>
+                  <td>2.25%</td>
+                  <td><span class="badge badge-success"><i class="bi bi-check-circle"></i> PIX</span></td>
+                  <td>12/01/2026<br><small class="text-muted">11:30</small></td>
+                  <td><span class="badge badge-success"><i class="bi bi-check-circle"></i> Confirmado</span></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <!-- Cancelado/Desistiu -->
+                <tr style="background: #fee2e2;">
+                  <td><code>#INV-2026-0098</code></td>
+                  <td>
+                    <strong>Roberto A.</strong>
+                    <br><small class="text-muted">roberto.a***@email.com</small>
+                  </td>
+                  <td><s style="color: var(--text-muted);">R$ 5.000,00</s></td>
+                  <td>-</td>
+                  <td><span class="badge badge-secondary"><i class="bi bi-arrow-return-left"></i> Estornado</span></td>
+                  <td>08/01/2026<br><small class="text-muted">14:20</small></td>
+                  <td><span class="badge badge-danger"><i class="bi bi-x-circle"></i> Desistiu</span></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pagination -->
+          <div class="flex-between mt-20">
+            <p class="text-muted">Mostrando 1-6 de 127 investimentos</p>
+            <div class="flex gap-10">
+              <button class="btn btn-outline btn-sm" disabled><i class="bi bi-chevron-left"></i> Anterior</button>
+              <button class="btn btn-outline btn-sm">Proximo <i class="bi bi-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content - Confirmados -->
+      <div id="confirmados" class="tab-content" style="display: none;">
+        <div class="card">
+          <p class="text-muted text-center" style="padding: 40px;">118 investimentos confirmados totalizando R$ 360.000,00</p>
+        </div>
+      </div>
+
+      <!-- Tab Content - Pendentes -->
+      <div id="pendentes" class="tab-content" style="display: none;">
+        <div class="card">
+          <div class="alert alert-warning">
+            <i class="bi bi-exclamation-triangle"></i> <strong>3 investimentos aguardando pagamento.</strong> PIX expira em 30 minutos apos geracao.
+          </div>
+          <p class="text-muted text-center" style="padding: 20px;">Listagem de investimentos pendentes de pagamento...</p>
+        </div>
+      </div>
+
+      <!-- Tab Content - Desistencia -->
+      <div id="desistencia" class="tab-content" style="display: none;">
+        <div class="card">
+          <div class="alert alert-info">
+            <i class="bi bi-info-circle"></i> <strong>RCVM 88/2022:</strong> Investidores tem 5 dias uteis para exercer o direito de desistencia apos o pagamento.
+          </div>
+          <p class="text-muted text-center" style="padding: 20px;">6 investimentos no periodo de desistencia - R$ 15.000 em risco</p>
+        </div>
+      </div>
+
+      <!-- Tab Content - Cancelados -->
+      <div id="cancelados" class="tab-content" style="display: none;">
+        <div class="card">
+          <p class="text-muted text-center" style="padding: 40px;">3 investimentos cancelados/desistencias confirmadas totalizando R$ 11.500,00</p>
+        </div>
+      </div>
+
+      <!-- Resumo Financeiro -->
+      <div class="card mt-20">
+        <div class="card-header">
+          <h3 class="card-title"><i class="bi bi-graph-up"></i> Resumo Financeiro da Oferta</h3>
+        </div>
+        <div class="grid-2" style="gap: 30px;">
+          <div>
+            <h4 style="margin-bottom: 15px; color: var(--text-muted);">Entradas</h4>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius);">
+                <span>Investimentos Confirmados</span>
+                <strong style="color: var(--success);">R$ 360.000,00</strong>
+              </div>
+              <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius);">
+                <span>Em Periodo de Desistencia</span>
+                <strong style="color: var(--info);">R$ 15.000,00</strong>
+              </div>
+              <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius);">
+                <span>Aguardando Pagamento</span>
+                <strong style="color: var(--warning);">R$ 8.500,00</strong>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 style="margin-bottom: 15px; color: var(--text-muted);">Saidas</h4>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius);">
+                <span>Desistencias Efetivadas</span>
+                <strong style="color: var(--danger);">- R$ 11.500,00</strong>
+              </div>
+              <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius);">
+                <span>Pagamentos Nao Identificados</span>
+                <strong style="color: var(--text-muted);">R$ 0,00</strong>
+              </div>
+            </div>
+            <hr style="margin: 15px 0; border: none; border-top: 2px solid var(--success);">
+            <div class="flex-between" style="padding: 10px;">
+              <strong>Saldo Liquido Confirmado</strong>
+              <strong style="color: var(--success); font-size: 1.25rem;">R$ 360.000,00</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal-overlay" id="exportExcelModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 400px;">
+      <div style="padding: 30px;">
+        <i class="bi bi-file-earmark-excel" style="font-size: 3rem; color: var(--success);"></i>
+        <h3 style="margin: 15px 0;">Exportando Excel</h3>
+        <p class="text-muted">O arquivo Excel esta sendo gerado para download.</p>
+        <button class="btn btn-primary mt-20" onclick="hideModal('exportExcelModal')">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="exportPdfModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 400px;">
+      <div style="padding: 30px;">
+        <i class="bi bi-file-earmark-pdf" style="font-size: 3rem; color: var(--success);"></i>
+        <h3 style="margin: 15px 0;">Exportando PDF</h3>
+        <p class="text-muted">O arquivo PDF esta sendo gerado para download.</p>
+        <button class="btn btn-primary mt-20" onclick="hideModal('exportPdfModal')">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/app.js"></script>
+</body>
+</html>

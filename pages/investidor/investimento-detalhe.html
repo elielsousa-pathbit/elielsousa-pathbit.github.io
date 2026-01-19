@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhe do Investimento - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="logo">CrowdInvest</a>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li><a href="ofertas.html"><i class="bi bi-megaphone"></i> Ofertas</a></li>
+        <li><a href="minhas-ordens.html"><i class="bi bi-clock-history"></i> Minhas Ordens</a></li>
+        <li><a href="meus-investimentos.html" class="active"><i class="bi bi-briefcase"></i> Meu Portfolio</a></li>
+        <li><a href="carteira.html"><i class="bi bi-wallet2"></i> Carteira</a></li>
+        <li><a href="extrato.html"><i class="bi bi-list-ul"></i> Extrato</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="../login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i> Menu</button>
+
+      <div class="page-header">
+        <div class="flex gap-10" style="align-items: center;">
+          <a href="meus-investimentos.html" class="btn btn-outline btn-sm"><i class="bi bi-arrow-left"></i></a>
+          <div>
+            <h1 class="page-title">TechStart Inovacao</h1>
+            <p class="text-muted">Detalhe do seu investimento</p>
+          </div>
+        </div>
+        <span class="badge badge-success" style="font-size: 1rem; padding: 10px 20px;"><i class="bi bi-check-circle"></i> Confirmado</span>
+      </div>
+
+      <!-- Investment Summary -->
+      <div class="card" style="background: linear-gradient(135deg, var(--primary), #1d4ed8); color: white; margin-bottom: 20px;">
+        <div class="grid-2" style="gap: 30px; align-items: center;">
+          <div>
+            <p style="opacity: 0.9; margin-bottom: 5px;">Seu investimento</p>
+            <h2 style="font-size: 2.5rem; margin-bottom: 15px;">R$ 5.000,00</h2>
+            <div class="flex gap-20">
+              <div>
+                <p style="opacity: 0.8; font-size: 0.875rem;">Participacao</p>
+                <strong>0,60%</strong>
+              </div>
+              <div>
+                <p style="opacity: 0.8; font-size: 0.875rem;">Data</p>
+                <strong>15/01/2026</strong>
+              </div>
+              <div>
+                <p style="opacity: 0.8; font-size: 0.875rem;">Protocolo</p>
+                <strong>INV-2026-00156</strong>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <div style="width: 100px; height: 100px; background: rgba(255,255,255,0.2); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+              <span style="font-size: 2rem; font-weight: bold;">TS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="gap: 30px;">
+        <!-- Detalhes do Investimento -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title"><i class="bi bi-info-circle"></i> Detalhes do Investimento</h3>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div class="flex-between">
+              <span class="text-muted">Valor Investido:</span>
+              <strong>R$ 5.000,00</strong>
+            </div>
+            <div class="flex-between">
+              <span class="text-muted">Participacao (Equity):</span>
+              <strong>0,60%</strong>
+            </div>
+            <div class="flex-between">
+              <span class="text-muted">Data do Investimento:</span>
+              <strong>15/01/2026</strong>
+            </div>
+            <div class="flex-between">
+              <span class="text-muted">Status:</span>
+              <span class="badge badge-success">Confirmado</span>
+            </div>
+            <hr style="margin: 5px 0; border: none; border-top: 1px solid var(--border);">
+            <div class="flex-between">
+              <span class="text-muted">Tipo de Titulo:</span>
+              <strong>Participacao Societaria</strong>
+            </div>
+            <div class="flex-between">
+              <span class="text-muted">Valuation da Empresa:</span>
+              <strong>R$ 3.333.333,33</strong>
+            </div>
+            <div class="flex-between">
+              <span class="text-muted">Prazo de Desistencia:</span>
+              <strong style="color: var(--text-muted);">Expirado (20/01/2026)</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Empresa -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title"><i class="bi bi-building"></i> Sobre a Empresa</h3>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div class="flex-between">
+              <span class="text-muted">Razao Social:</span>
+              <strong>TechStart Inovacao LTDA</strong>
+            </div>
+            <div class="flex-between">
+              <span class="text-muted">CNPJ:</span>
+              <strong>12.345.678/0001-90</strong>
+            </div>
+            <div class="flex-between">
+              <span class="text-muted">Setor:</span>
+              <strong>Tecnologia / SaaS</strong>
+            </div>
+            <div class="flex-between">
+              <span class="text-muted">Localizacao:</span>
+              <strong>Sao Paulo/SP</strong>
+            </div>
+            <hr style="margin: 5px 0; border: none; border-top: 1px solid var(--border);">
+            <div class="flex-between">
+              <span class="text-muted">Status da Oferta:</span>
+              <span class="badge badge-info">Em Captacao (75%)</span>
+            </div>
+            <div class="flex-between">
+              <span class="text-muted">Total Captado:</span>
+              <strong>R$ 375.000,00</strong>
+            </div>
+            <div class="flex-between">
+              <span class="text-muted">Meta:</span>
+              <strong>R$ 500.000,00</strong>
+            </div>
+          </div>
+          <a href="oferta-detalhe.html" class="btn btn-outline btn-block mt-20">
+            <i class="bi bi-eye"></i> Ver Oferta Completa
+          </a>
+        </div>
+      </div>
+
+      <!-- Seus Direitos -->
+      <div class="card mt-20">
+        <div class="card-header">
+          <h3 class="card-title"><i class="bi bi-shield-check"></i> Seus Direitos como Investidor</h3>
+        </div>
+        <div class="grid-2" style="gap: 20px;">
+          <div class="flex gap-10" style="align-items: flex-start; padding: 15px; background: var(--bg); border-radius: var(--radius);">
+            <i class="bi bi-check-circle" style="color: var(--success); font-size: 1.25rem;"></i>
+            <div>
+              <strong>Tag-Along</strong>
+              <p class="text-muted" style="font-size: 0.875rem;">Direito de vender sua participacao junto aos fundadores em caso de venda da empresa</p>
+            </div>
+          </div>
+          <div class="flex gap-10" style="align-items: flex-start; padding: 15px; background: var(--bg); border-radius: var(--radius);">
+            <i class="bi bi-check-circle" style="color: var(--success); font-size: 1.25rem;"></i>
+            <div>
+              <strong>Voto em Assembleias</strong>
+              <p class="text-muted" style="font-size: 0.875rem;">Participar das decisoes importantes da empresa</p>
+            </div>
+          </div>
+          <div class="flex gap-10" style="align-items: flex-start; padding: 15px; background: var(--bg); border-radius: var(--radius);">
+            <i class="bi bi-check-circle" style="color: var(--success); font-size: 1.25rem;"></i>
+            <div>
+              <strong>Relatorios Trimestrais</strong>
+              <p class="text-muted" style="font-size: 0.875rem;">Receber atualizacoes periodicas sobre a empresa</p>
+            </div>
+          </div>
+          <div class="flex gap-10" style="align-items: flex-start; padding: 15px; background: var(--bg); border-radius: var(--radius);">
+            <i class="bi bi-check-circle" style="color: var(--success); font-size: 1.25rem;"></i>
+            <div>
+              <strong>Participacao nos Lucros</strong>
+              <p class="text-muted" style="font-size: 0.875rem;">Receber dividendos proporcionais a sua participacao</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rendimentos -->
+      <div class="card mt-20">
+        <div class="card-header flex-between">
+          <h3 class="card-title"><i class="bi bi-cash-coin"></i> Rendimentos Recebidos</h3>
+          <span class="badge badge-secondary">0 rendimentos</span>
+        </div>
+        <div class="alert alert-info">
+          <i class="bi bi-info-circle"></i> Voce ainda nao recebeu rendimentos desta empresa. Os dividendos serao distribuidos conforme politica da empresa apos o encerramento da captacao.
+        </div>
+      </div>
+
+      <!-- Documentos -->
+      <div class="card mt-20">
+        <div class="card-header">
+          <h3 class="card-title"><i class="bi bi-folder"></i> Documentos</h3>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div class="flex-between" style="padding: 12px; background: var(--bg); border-radius: var(--radius);">
+            <div class="flex gap-10" style="align-items: center;">
+              <i class="bi bi-file-earmark-pdf" style="font-size: 1.25rem; color: #dc3545;"></i>
+              <div>
+                <strong>Comprovante de Investimento</strong>
+                <p class="text-muted" style="font-size: 0.75rem;">INV-2026-00156.pdf</p>
+              </div>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="showModal('downloadingModal')"><i class="bi bi-download"></i></button>
+          </div>
+          <div class="flex-between" style="padding: 12px; background: var(--bg); border-radius: var(--radius);">
+            <div class="flex gap-10" style="align-items: center;">
+              <i class="bi bi-file-earmark-pdf" style="font-size: 1.25rem; color: #dc3545;"></i>
+              <div>
+                <strong>Termo de Investimento Assinado</strong>
+                <p class="text-muted" style="font-size: 0.75rem;">TERMO-2026-00156.pdf</p>
+              </div>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="showModal('downloadingModal')"><i class="bi bi-download"></i></button>
+          </div>
+          <div class="flex-between" style="padding: 12px; background: var(--bg); border-radius: var(--radius);">
+            <div class="flex gap-10" style="align-items: center;">
+              <i class="bi bi-file-earmark-pdf" style="font-size: 1.25rem; color: #dc3545;"></i>
+              <div>
+                <strong>Material da Oferta</strong>
+                <p class="text-muted" style="font-size: 0.75rem;">TechStart_Oferta_2026.pdf</p>
+              </div>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="showModal('downloadingModal')"><i class="bi bi-download"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Acoes -->
+      <div class="card mt-20">
+        <div class="card-header">
+          <h3 class="card-title"><i class="bi bi-gear"></i> Acoes</h3>
+        </div>
+        <div class="flex gap-10" style="flex-wrap: wrap;">
+          <a href="documentos.html" class="btn btn-outline">
+            <i class="bi bi-folder"></i> Ver Todos Documentos
+          </a>
+          <button class="btn btn-outline" onclick="showModal('emailEnviadoModal')">
+            <i class="bi bi-envelope"></i> Enviar por E-mail
+          </button>
+          <a href="imposto-renda.html" class="btn btn-outline">
+            <i class="bi bi-file-earmark-text"></i> Ver para IR
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal Download -->
+  <div class="modal-overlay" id="downloadingModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 400px;">
+      <div style="padding: 30px;">
+        <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
+        <h3 style="margin: 15px 0;">Download Iniciado</h3>
+        <p class="text-muted">O arquivo esta sendo baixado para seu dispositivo.</p>
+        <button class="btn btn-primary mt-20" onclick="hideModal('downloadingModal')">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Email Enviado -->
+  <div class="modal-overlay" id="emailEnviadoModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 400px;">
+      <div style="padding: 30px;">
+        <i class="bi bi-envelope-check" style="font-size: 3rem; color: var(--success);"></i>
+        <h3 style="margin: 15px 0;">E-mail Enviado!</h3>
+        <p class="text-muted">Os documentos foram enviados para o seu e-mail cadastrado.</p>
+        <button class="btn btn-primary mt-20" onclick="hideModal('emailEnviadoModal')">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Oferta - Parceiro - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar sidebar-green">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="logo" style="color: white;">CrowdInvest</a>
+        <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li><a href="minhas-ofertas.html" class="active"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
+        <li><a href="investidores.html"><i class="bi bi-people"></i> Investidores</a></li>
+        <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i> Menu</button>
+
+      <div class="page-header">
+        <div class="flex gap-10" style="align-items: center;">
+          <a href="minhas-ofertas.html" class="btn btn-outline btn-sm"><i class="bi bi-arrow-left"></i></a>
+          <div>
+            <h1 class="page-title">Nova Oferta de Captacao</h1>
+            <p class="text-muted">Preencha os dados para criar uma nova oferta</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress Steps -->
+      <div class="steps mb-30">
+        <div class="step active">
+          <div class="step-number">1</div>
+          <div class="step-label">Dados da Empresa</div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-label">Detalhes da Oferta</div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-label">Documentos</div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-label">Revisao</div>
+        </div>
+      </div>
+
+      <!-- Alert Info -->
+      <div class="alert alert-info mb-20">
+        <i class="bi bi-info-circle"></i> <strong>RCVM 88/2022:</strong> Voce so pode ter uma oferta ativa por vez. Esta oferta sera submetida para analise antes de ser publicada.
+      </div>
+
+      <!-- Form Step 1 -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title"><i class="bi bi-building"></i> Dados da Empresa</h3>
+        </div>
+
+        <form id="novaOfertaForm">
+          <div class="grid-2" style="gap: 20px;">
+            <div class="form-group">
+              <label class="form-label">Razao Social *</label>
+              <input type="text" class="form-input" value="TechStart Inovacao LTDA" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">CNPJ *</label>
+              <input type="text" class="form-input" value="12.345.678/0001-90" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Setor de Atuacao *</label>
+              <select class="form-input" required>
+                <option value="">Selecione...</option>
+                <option value="tecnologia" selected>Tecnologia / SaaS</option>
+                <option value="fintech">Fintech</option>
+                <option value="healthtech">Healthtech</option>
+                <option value="edtech">Edtech</option>
+                <option value="ecommerce">E-commerce</option>
+                <option value="foodtech">Foodtech</option>
+                <option value="outros">Outros</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Ano de Fundacao *</label>
+              <input type="number" class="form-input" value="2021" min="1900" max="2026" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Cidade/UF *</label>
+              <input type="text" class="form-input" value="Sao Paulo/SP" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Numero de Funcionarios *</label>
+              <input type="number" class="form-input" value="15" min="1" required>
+            </div>
+          </div>
+
+          <div class="form-group mt-20">
+            <label class="form-label">Descricao da Empresa *</label>
+            <textarea class="form-input" rows="4" required placeholder="Descreva brevemente o que sua empresa faz, seu modelo de negocio e diferenciais...">A TechStart Inovacao e uma empresa de tecnologia focada em solucoes SaaS para gestao de startups. Nossa plataforma ajuda empreendedores a gerenciar suas operacoes, metricas e relacionamento com investidores de forma integrada.</textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Website</label>
+            <input type="url" class="form-input" value="https://techstart.com.br" placeholder="https://seusite.com.br">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">LinkedIn da Empresa</label>
+            <input type="url" class="form-input" placeholder="https://linkedin.com/company/suaempresa">
+          </div>
+
+          <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
+
+          <div class="flex-between">
+            <a href="minhas-ofertas.html" class="btn btn-outline">Cancelar</a>
+            <a href="nova-oferta-step2.html" class="btn btn-primary">
+              Proximo: Detalhes da Oferta <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/app.js"></script>
+</body>
+</html>

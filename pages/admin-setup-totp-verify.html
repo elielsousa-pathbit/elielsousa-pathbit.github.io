@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificar TOTP - Admin - CrowdInvest</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="auth-page" style="background: linear-gradient(135deg, #1e293b, #334155);">
+    <div class="auth-box" style="max-width: 500px;">
+      <div class="auth-logo">
+        <a href="../index.html" class="logo">CrowdInvest</a>
+        <p class="text-muted" style="margin-top: 5px;">Configuracao Inicial - Admin</p>
+      </div>
+      <h1 class="auth-title">Verificar Configuracao</h1>
+      <p class="auth-subtitle">Digite o codigo do seu Authenticator para confirmar</p>
+
+      <!-- Steps -->
+      <div class="steps" style="margin-bottom: 30px;">
+        <div class="step completed">
+          <div class="step-number"></div>
+          <div class="step-label">QR Code</div>
+        </div>
+        <div class="step active">
+          <div class="step-number">2</div>
+          <div class="step-label">Verificar</div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-label">Backup</div>
+        </div>
+      </div>
+
+      <div class="alert alert-info">
+        <strong>Passo 2:</strong> Digite o codigo de 6 digitos que aparece no seu app
+      </div>
+
+      <form id="verifyForm" onsubmit="return submitForm('verifyForm', 'admin-setup-totp-backup.html')">
+        <div class="otp-container">
+          <input type="text" class="otp-input" maxlength="1" value="">
+          <input type="text" class="otp-input" maxlength="1" value="">
+          <input type="text" class="otp-input" maxlength="1" value="">
+          <input type="text" class="otp-input" maxlength="1" value="">
+          <input type="text" class="otp-input" maxlength="1" value="">
+          <input type="text" class="otp-input" maxlength="1" value="">
+        </div>
+
+        <p class="text-center text-muted mb-20" style="font-size: 0.875rem;">
+          O codigo muda a cada 30 segundos
+        </p>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Verificar e Continuar</button>
+      </form>
+
+      <div class="text-center mt-20">
+        <a href="admin-setup-totp.html" style="color: var(--text-muted);">&larr; Voltar ao QR Code</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmar Investimento - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="logo">CrowdInvest</a>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li><a href="ofertas.html" class="active"><i class="bi bi-megaphone"></i> Ofertas</a></li>
+        <li><a href="minhas-ordens.html"><i class="bi bi-clock-history"></i> Minhas Ordens</a></li>
+        <li><a href="meus-investimentos.html"><i class="bi bi-briefcase"></i> Meu Portfolio</a></li>
+        <li><a href="carteira.html"><i class="bi bi-wallet2"></i> Carteira</a></li>
+        <li><a href="extrato.html"><i class="bi bi-list-ul"></i> Extrato</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="../login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i> Menu</button>
+
+      <div style="max-width: 800px; margin: 0 auto;">
+        <!-- Steps -->
+        <div class="steps mb-30">
+          <div class="step completed">
+            <div class="step-number"></div>
+            <div class="step-label">Valor</div>
+          </div>
+          <div class="step active">
+            <div class="step-number">2</div>
+            <div class="step-label">Confirmar</div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-label">Pagamento</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 style="margin-bottom: 20px;">Confirmar Investimento</h2>
+
+          <!-- Summary -->
+          <div style="background: var(--bg); padding: 20px; border-radius: var(--radius); margin-bottom: 20px;">
+            <h4 style="margin-bottom: 15px;">Resumo do Investimento</h4>
+            <div class="flex-between" style="padding: 10px 0; border-bottom: 1px solid var(--border);">
+              <span>Empresa:</span>
+              <strong>TechStart Inovacao</strong>
+            </div>
+            <div class="flex-between" style="padding: 10px 0; border-bottom: 1px solid var(--border);">
+              <span>CNPJ:</span>
+              <strong>12.345.678/0001-90</strong>
+            </div>
+            <div class="flex-between" style="padding: 10px 0; border-bottom: 1px solid var(--border);">
+              <span>Valor:</span>
+              <strong style="font-size: 1.25rem; color: var(--primary);">R$ 5.000,00</strong>
+            </div>
+            <div class="flex-between" style="padding: 10px 0; border-bottom: 1px solid var(--border);">
+              <span>Equity estimado:</span>
+              <strong>1,5%</strong>
+            </div>
+            <div class="flex-between" style="padding: 10px 0;">
+              <span>Forma de pagamento:</span>
+              <strong>PIX</strong>
+            </div>
+          </div>
+
+          <!-- Terms -->
+          <div class="card" style="background: var(--bg); border: none;">
+            <h4 style="margin-bottom: 15px;">Termos e Condicoes</h4>
+            <div style="max-height: 200px; overflow-y: auto; padding: 15px; background: white; border-radius: var(--radius); font-size: 0.875rem; color: var(--text-muted);">
+              <p><strong>1. RISCO DO INVESTIMENTO</strong></p>
+              <p>Declaro estar ciente de que o investimento em sociedades empresarias de pequeno porte e de risco elevado, podendo resultar em perda total do capital investido.</p>
+              <br>
+              <p><strong>2. LIMITE ANUAL</strong></p>
+              <p>Declaro que meu investimento total em ofertas de crowdfunding nao ultrapassa R$ 20.000,00 no ano calendario, conforme estabelecido pela RCVM 88/2022.</p>
+              <br>
+              <p><strong>3. PRAZO DE DESISTENCIA</strong></p>
+              <p>Estou ciente de que posso desistir do investimento no prazo de 5 (cinco) dias contados da data de confirmacao do aporte, sem qualquer custo ou penalidade.</p>
+              <br>
+              <p><strong>4. LIQUIDEZ</strong></p>
+              <p>Entendo que nao ha garantia de liquidez para o investimento e que a rentabilidade passada nao e garantia de rentabilidade futura.</p>
+              <br>
+              <p><strong>5. MATERIAL DA OFERTA</strong></p>
+              <p>Declaro ter lido e compreendido o material da oferta disponibilizado pela plataforma.</p>
+            </div>
+          </div>
+
+          <div class="form-group mt-20">
+            <label style="display: flex; align-items: flex-start; gap: 10px;">
+              <input type="checkbox" style="margin-top: 4px;" id="acceptTerms" checked>
+              <span>Li e aceito os termos e condicoes acima, incluindo os riscos do investimento conforme RCVM 88/2022.</span>
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label style="display: flex; align-items: flex-start; gap: 10px;">
+              <input type="checkbox" style="margin-top: 4px;" id="acceptMaterial" checked>
+              <span>Declaro ter lido o material da oferta e estou ciente dos riscos envolvidos.</span>
+            </label>
+          </div>
+
+          <div class="alert alert-info">
+            <strong>Prazo de desistencia:</strong> Voce tera 5 dias uteis apos a confirmacao do pagamento para desistir do investimento sem custos.
+          </div>
+
+          <div class="flex gap-10">
+            <a href="investir.html?id=1" class="btn btn-secondary" style="flex: 1;">Voltar</a>
+            <button type="button" class="btn btn-primary btn-lg" style="flex: 2;" onclick="window.location.href='investir-pix.html'">Confirmar e Pagar</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validacao KYC - CrowdInvest</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="auth-page">
+    <div class="auth-box" style="max-width: 500px;">
+      <div class="auth-logo">
+        <a href="../index.html" class="logo">CrowdInvest</a>
+      </div>
+      <h1 class="auth-title">Validacao de Identidade</h1>
+      <p class="auth-subtitle">Validacao automatica via Bureau de Dados</p>
+
+      <!-- Steps -->
+      <div class="steps">
+        <div class="step completed">
+          <div class="step-number"></div>
+          <div class="step-label">Cadastro</div>
+        </div>
+        <div class="step active">
+          <div class="step-number">2</div>
+          <div class="step-label">Relacionamento</div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-label">Segurança</div>
+        </div>
+      </div>
+
+      <div class="card" id="validatingCard">
+        <div class="text-center" style="padding: 40px 0;">
+          <div style="font-size: 4rem; margin-bottom: 20px; animation: pulse 1.5s infinite;">&#128269;</div>
+          <h3>Validando seus dados...</h3>
+          <p class="text-muted mt-20">Estamos consultando o Bureau de Dados para validar sua identidade. Isso leva apenas alguns segundos.</p>
+          <div class="progress mt-20" style="max-width: 300px; margin: 20px auto;">
+            <div class="progress-bar" id="progressBar" style="width: 0%; transition: width 3s;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="successCard" style="display: none;">
+        <div class="text-center" style="padding: 40px 0;">
+          <div style="font-size: 4rem; margin-bottom: 20px; color: var(--success);">&#10004;</div>
+          <h3>Identidade Validada!</h3>
+          <p class="text-muted mt-20">Seus dados foram verificados com sucesso via Bureau de Dados.</p>
+
+          <div style="background: var(--bg); border-radius: var(--radius); padding: 20px; margin: 20px 0; text-align: left;">
+            <p><strong>Nome:</strong> Joao Carlos Silva</p>
+            <p><strong>CPF:</strong> 123.456.789-00</p>
+            <p><strong>Situacao:</strong> <span class="badge badge-success">Regular</span></p>
+            <p><strong>PEP:</strong> <span class="badge badge-secondary">Nao</span></p>
+          </div>
+
+          <a href="2fa-config.html" class="btn btn-primary btn-lg">Configurar 2FA</a>
+        </div>
+      </div>
+
+      <div class="card" id="errorCard" style="display: none;">
+        <div class="text-center" style="padding: 40px 0;">
+          <div style="font-size: 4rem; margin-bottom: 20px; color: var(--warning);">&#9888;</div>
+          <h3>Validacao Pendente</h3>
+          <p class="text-muted mt-20">Nao foi possivel validar automaticamente. Nossa equipe ira analisar manualmente.</p>
+
+          <div class="alert alert-warning mt-20">
+            Voce recebera um e-mail em ate 24 horas com o resultado da analise.
+          </div>
+
+          <a href="../index.html" class="btn btn-secondary btn-lg">Voltar ao Inicio</a>
+        </div>
+      </div>
+
+      <div class="text-center mt-20">
+        <p class="text-muted" style="font-size: 0.875rem;">
+          Utilizamos Serasa, SPC e Receita Federal para validacao automatica.<br>
+          Sem necessidade de envio de documentos.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+    // Simulate KYC validation
+    setTimeout(() => {
+      document.getElementById('progressBar').style.width = '100%';
+    }, 100);
+
+    setTimeout(() => {
+      document.getElementById('validatingCard').style.display = 'none';
+      // 90% success, 10% pending
+      if (Math.random() > 0.1) {
+        document.getElementById('successCard').style.display = 'block';
+      } else {
+        document.getElementById('errorCard').style.display = 'block';
+      }
+    }, 3500);
+  </script>
+
+  <style>
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+  </style>
+</body>
+</html>

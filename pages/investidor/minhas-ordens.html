@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minhas Ordens - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .order-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      padding: 24px;
+      margin-bottom: 16px;
+      border-left: 4px solid var(--border);
+      transition: all 0.2s;
+    }
+    .order-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .order-card.aguardando-pix { border-left-color: var(--warning); }
+    .order-card.processando { border-left-color: var(--primary); }
+    .order-card.desistencia { border-left-color: #f59e0b; }
+    .order-card.confirmado { border-left-color: var(--success); }
+    .order-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.25rem;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    .order-timeline {
+      display: flex;
+      gap: 4px;
+      margin-top: 15px;
+    }
+    .order-timeline-step {
+      flex: 1;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+    }
+    .order-timeline-step.active {
+      background: var(--primary);
+    }
+    .order-timeline-step.completed {
+      background: var(--success);
+    }
+    .countdown-box {
+      background: #fef3c7;
+      border: 1px solid #fbbf24;
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+    .countdown-timer {
+      font-family: monospace;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--warning);
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="logo">CrowdInvest</a>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li><a href="ofertas.html"><i class="bi bi-megaphone"></i> Ofertas</a></li>
+        <li><a href="minhas-ordens.html" class="active"><i class="bi bi-clock-history"></i> Minhas Ordens</a></li>
+        <li><a href="meus-investimentos.html"><i class="bi bi-briefcase"></i> Meu Portfolio</a></li>
+        <li><a href="carteira.html"><i class="bi bi-wallet2"></i> Carteira</a></li>
+        <li><a href="extrato.html"><i class="bi bi-list-ul"></i> Extrato</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="../login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i> Menu</button>
+
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Minhas Ordens</h1>
+          <p class="text-muted">Investimentos em andamento e pendentes</p>
+        </div>
+        <a href="ofertas.html" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Nova Ordem</a>
+      </div>
+
+      <!-- Status Cards -->
+      <div class="kpi-grid mb-30">
+        <div class="kpi-card">
+          <div class="kpi-label">Aguardando Pagamento</div>
+          <div class="kpi-value" style="color: var(--warning);">1</div>
+          <div class="kpi-change">R$ 2.000 reservado</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Processando</div>
+          <div class="kpi-value" style="color: var(--primary);">1</div>
+          <div class="kpi-change">Aguardando confirmacao</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Em Desistencia</div>
+          <div class="kpi-value" style="color: #f59e0b;">1</div>
+          <div class="kpi-change">2 dias restantes</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Concluidos Hoje</div>
+          <div class="kpi-value" style="color: var(--success);">0</div>
+          <div class="kpi-change">Transferidos ao portfolio</div>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="alert alert-info mb-20">
+        <i class="bi bi-info-circle"></i>
+        <div>
+          <strong>Como funciona:</strong> Apos o pagamento PIX, sua ordem fica em processamento.
+          Apos confirmacao, voce tem <strong>5 dias uteis</strong> para desistir (RCVM 88/2022).
+          Apos este prazo, o investimento e transferido para seu <a href="meus-investimentos.html" style="color: inherit; font-weight: bold;">Portfolio</a>.
+        </div>
+      </div>
+
+      <!-- Section: Aguardando Pagamento -->
+      <h3 style="margin-bottom: 15px;"><i class="bi bi-hourglass-split" style="color: var(--warning);"></i> Aguardando Pagamento (1)</h3>
+
+      <div class="order-card aguardando-pix">
+        <div class="flex-between" style="flex-wrap: wrap; gap: 20px;">
+          <div class="flex gap-20" style="align-items: center;">
+            <div class="order-logo" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">FT</div>
+            <div>
+              <h4 style="margin-bottom: 4px;">FinTech Solutions</h4>
+              <p class="text-muted" style="font-size: 0.875rem;">
+                <i class="bi bi-tag"></i> Financas &bull;
+                <i class="bi bi-calendar3"></i> Reserva: 19/01/2026 14:30
+              </p>
+              <p style="margin-top: 8px;">
+                <span class="badge badge-warning"><i class="bi bi-clock"></i> Aguardando PIX</span>
+              </p>
+            </div>
+          </div>
+          <div class="text-right">
+            <div style="font-size: 1.5rem; font-weight: 700;">R$ 2.000</div>
+            <p class="text-muted" style="font-size: 0.85rem;">Ordem #ORD-2026-00234</p>
+          </div>
+        </div>
+
+        <div class="order-timeline">
+          <div class="order-timeline-step active"></div>
+          <div class="order-timeline-step"></div>
+          <div class="order-timeline-step"></div>
+          <div class="order-timeline-step"></div>
+        </div>
+        <div class="flex-between text-muted" style="font-size: 0.75rem; margin-top: 8px;">
+          <span>1. Reserva</span>
+          <span>2. Pagamento</span>
+          <span>3. Desistencia</span>
+          <span>4. Portfolio</span>
+        </div>
+
+        <div class="flex-between mt-20" style="flex-wrap: wrap; gap: 15px; align-items: center;">
+          <div class="countdown-box">
+            <i class="bi bi-clock"></i>
+            Expira em: <span class="countdown-timer">23:45:12</span>
+          </div>
+          <div class="flex gap-10">
+            <a href="investir-pix.html" class="btn btn-primary"><i class="bi bi-qr-code"></i> Pagar Agora</a>
+            <button class="btn btn-outline" onclick="showModal('cancelarOrdemModal')"><i class="bi bi-x-circle"></i> Cancelar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Processando -->
+      <h3 style="margin: 30px 0 15px;"><i class="bi bi-arrow-repeat" style="color: var(--primary);"></i> Processando (1)</h3>
+
+      <div class="order-card processando">
+        <div class="flex-between" style="flex-wrap: wrap; gap: 20px;">
+          <div class="flex gap-20" style="align-items: center;">
+            <div class="order-logo" style="background: linear-gradient(135deg, var(--primary), #1d4ed8);">TS</div>
+            <div>
+              <h4 style="margin-bottom: 4px;">TechStart Inovacao</h4>
+              <p class="text-muted" style="font-size: 0.875rem;">
+                <i class="bi bi-tag"></i> Tecnologia &bull;
+                <i class="bi bi-calendar3"></i> Pagamento: 19/01/2026 15:22
+              </p>
+              <p style="margin-top: 8px;">
+                <span class="badge badge-info"><i class="bi bi-arrow-repeat"></i> Processando</span>
+              </p>
+            </div>
+          </div>
+          <div class="text-right">
+            <div style="font-size: 1.5rem; font-weight: 700;">R$ 5.000</div>
+            <p class="text-muted" style="font-size: 0.85rem;">Ordem #ORD-2026-00231</p>
+          </div>
+        </div>
+
+        <div class="order-timeline">
+          <div class="order-timeline-step completed"></div>
+          <div class="order-timeline-step active"></div>
+          <div class="order-timeline-step"></div>
+          <div class="order-timeline-step"></div>
+        </div>
+        <div class="flex-between text-muted" style="font-size: 0.75rem; margin-top: 8px;">
+          <span>1. Reserva</span>
+          <span>2. Pagamento</span>
+          <span>3. Desistencia</span>
+          <span>4. Portfolio</span>
+        </div>
+
+        <div class="alert alert-info mt-20" style="margin-bottom: 0;">
+          <i class="bi bi-clock"></i> Confirmacao em ate <strong>2 horas</strong>. Voce recebera um e-mail quando confirmado.
+        </div>
+      </div>
+
+      <!-- Section: Em Desistencia -->
+      <h3 style="margin: 30px 0 15px;"><i class="bi bi-shield-exclamation" style="color: #f59e0b;"></i> Periodo de Desistencia (1)</h3>
+
+      <div class="order-card desistencia">
+        <div class="flex-between" style="flex-wrap: wrap; gap: 20px;">
+          <div class="flex gap-20" style="align-items: center;">
+            <div class="order-logo" style="background: linear-gradient(135deg, #22c55e, #16a34a);">EF</div>
+            <div>
+              <h4 style="margin-bottom: 4px;">EcoFood Organicos</h4>
+              <p class="text-muted" style="font-size: 0.875rem;">
+                <i class="bi bi-tag"></i> Alimentacao &bull;
+                <i class="bi bi-calendar3"></i> Confirmado: 10/01/2026
+              </p>
+              <p style="margin-top: 8px;">
+                <span class="badge badge-warning"><i class="bi bi-shield-exclamation"></i> Desistencia ate 15/01</span>
+              </p>
+            </div>
+          </div>
+          <div class="text-right">
+            <div style="font-size: 1.5rem; font-weight: 700;">R$ 3.000</div>
+            <p class="text-muted" style="font-size: 0.85rem;">Ordem #ORD-2026-00189</p>
+          </div>
+        </div>
+
+        <div class="order-timeline">
+          <div class="order-timeline-step completed"></div>
+          <div class="order-timeline-step completed"></div>
+          <div class="order-timeline-step active"></div>
+          <div class="order-timeline-step"></div>
+        </div>
+        <div class="flex-between text-muted" style="font-size: 0.75rem; margin-top: 8px;">
+          <span>1. Reserva</span>
+          <span>2. Pagamento</span>
+          <span>3. Desistencia</span>
+          <span>4. Portfolio</span>
+        </div>
+
+        <div class="flex-between mt-20" style="flex-wrap: wrap; gap: 15px; align-items: center;">
+          <div class="alert alert-warning" style="margin: 0; flex: 1;">
+            <i class="bi bi-exclamation-triangle"></i> Voce tem ate <strong>15/01/2026</strong> (2 dias) para desistir e receber estorno integral.
+          </div>
+          <div class="flex gap-10">
+            <a href="investimento-detalhe.html" class="btn btn-outline"><i class="bi bi-eye"></i> Detalhes</a>
+            <button class="btn btn-danger" onclick="showModal('desistirOrdemModal')"><i class="bi bi-x-circle"></i> Desistir</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty State para Concluidos -->
+      <h3 style="margin: 30px 0 15px;"><i class="bi bi-check-circle" style="color: var(--success);"></i> Concluidos Hoje (0)</h3>
+
+      <div class="card text-center" style="padding: 40px;">
+        <i class="bi bi-inbox" style="font-size: 3rem; color: var(--text-muted); opacity: 0.5;"></i>
+        <p class="text-muted mt-20">Nenhum investimento finalizado hoje.</p>
+        <p class="text-muted" style="font-size: 0.875rem;">
+          Investimentos confirmados apos o periodo de desistencia aparecem em <a href="meus-investimentos.html" style="color: var(--primary);">Meu Portfolio</a>.
+        </p>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Modal Cancelar Ordem -->
+  <div class="modal-overlay" id="cancelarOrdemModal" style="display: none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h3><i class="bi bi-x-circle" style="color: var(--warning);"></i> Cancelar Ordem</h3>
+        <button class="modal-close" onclick="hideModal('cancelarOrdemModal')">&times;</button>
+      </div>
+      <p>Tem certeza que deseja cancelar a ordem de <strong>R$ 2.000,00</strong> na <strong>FinTech Solutions</strong>?</p>
+      <div class="alert alert-info mt-20">
+        A vaga sera liberada para outros investidores.
+      </div>
+      <div class="flex gap-10 mt-20">
+        <button class="btn btn-secondary" onclick="hideModal('cancelarOrdemModal')" style="flex: 1;">Voltar</button>
+        <button class="btn btn-danger" onclick="hideModal('cancelarOrdemModal'); showModal('ordemCanceladaModal');" style="flex: 1;">
+          Sim, Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Desistir Ordem -->
+  <div class="modal-overlay" id="desistirOrdemModal" style="display: none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h3><i class="bi bi-exclamation-triangle" style="color: var(--danger);"></i> Desistir do Investimento</h3>
+        <button class="modal-close" onclick="hideModal('desistirOrdemModal')">&times;</button>
+      </div>
+      <div class="alert alert-danger">
+        <strong>Atencao:</strong> Esta acao ira cancelar seu investimento em EcoFood Organicos.
+      </div>
+      <p>Confirma a desistencia do investimento de <strong>R$ 3.000,00</strong>?</p>
+      <p class="text-muted mt-20">O valor sera estornado em ate 5 dias uteis via PIX para a mesma conta de origem.</p>
+      <div class="flex gap-10 mt-20">
+        <button class="btn btn-secondary" onclick="hideModal('desistirOrdemModal')" style="flex: 1;">Voltar</button>
+        <a href="desistencia-confirmacao.html" class="btn btn-danger" style="flex: 1;">
+          <i class="bi bi-x-circle"></i> Confirmar Desistencia
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Ordem Cancelada -->
+  <div class="modal-overlay" id="ordemCanceladaModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 400px;">
+      <div style="padding: 30px;">
+        <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
+        <h3 style="margin: 15px 0;">Ordem Cancelada</h3>
+        <p class="text-muted">A ordem de investimento foi cancelada. A vaga foi liberada.</p>
+        <button class="btn btn-primary mt-20" onclick="hideModal('ordemCanceladaModal')">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/app.js"></script>
+</body>
+</html>

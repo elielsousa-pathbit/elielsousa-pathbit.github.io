@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CrowdInvest - Plataforma de Crowdfunding RCVM 88</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page">
+    <!-- Header -->
+    <header class="header">
+      <div class="container header-content">
+        <a href="index.html" class="logo">CrowdInvest</a>
+        <button class="menu-toggle" onclick="toggleMobileMenu()">&#9776;</button>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="pages/como-funciona.html">Como Funciona</a>
+          <a href="pages/portal.html">Portais</a>
+          <a href="pages/login.html" class="btn btn-outline">Entrar</a>
+          <a href="pages/cadastro.html" class="btn btn-primary">Cadastrar</a>
+        </nav>
+      </div>
+    </header>
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>Invista em Startups Brasileiras</h1>
+        <p>Plataforma de equity crowdfunding regulamentada pela CVM. Invista a partir de R$ 500 em empresas inovadoras.</p>
+        <div class="flex gap-10" style="justify-content: center;">
+          <a href="pages/cadastro.html" class="btn btn-lg" style="background: white; color: var(--primary);">Criar Conta Gratis</a>
+          <a href="pages/login.html" class="btn btn-lg btn-outline" style="border-color: white; color: white;">Ja tenho conta</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section style="padding: 60px 0; background: white;">
+      <div class="container">
+        <div class="kpi-grid">
+          <div class="kpi-card text-center">
+            <div class="kpi-value">R$ 15M+</div>
+            <div class="kpi-label">Total Captado</div>
+          </div>
+          <div class="kpi-card text-center">
+            <div class="kpi-value">2.500+</div>
+            <div class="kpi-label">Investidores</div>
+          </div>
+          <div class="kpi-card text-center">
+            <div class="kpi-value">45</div>
+            <div class="kpi-label">Ofertas Concluidas</div>
+          </div>
+          <div class="kpi-card text-center">
+            <div class="kpi-value">98%</div>
+            <div class="kpi-label">Taxa de Sucesso</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Offers Preview -->
+    <section style="padding: 60px 0;">
+      <div class="container">
+        <div class="flex-between mb-30">
+          <h2>Ofertas em Destaque</h2>
+          <a href="pages/login.html" class="btn btn-primary">Entrar para Ver Todas</a>
+        </div>
+
+        <div class="grid-3">
+          <!-- Offer 1 -->
+          <div class="offer-card">
+            <div class="offer-image">TS</div>
+            <div class="offer-content">
+              <span class="badge badge-info">Tecnologia</span>
+              <h3 class="offer-title">TechStart Inovacao</h3>
+              <p class="text-muted" style="margin-bottom: 15px;">Plataforma SaaS para gestao de pequenas empresas</p>
+              <div class="offer-stats">
+                <div class="offer-stat">
+                  <div class="offer-stat-value">75%</div>
+                  <div class="offer-stat-label">Captado</div>
+                </div>
+                <div class="offer-stat">
+                  <div class="offer-stat-value">23 dias</div>
+                  <div class="offer-stat-label">Restantes</div>
+                </div>
+              </div>
+              <div class="progress mb-20">
+                <div class="progress-bar" style="width: 75%;"></div>
+              </div>
+              <a href="pages/login.html" class="btn btn-primary btn-block">Entrar para Investir</a>
+            </div>
+          </div>
+
+          <!-- Offer 2 -->
+          <div class="offer-card">
+            <div class="offer-image" style="background: linear-gradient(135deg, #22c55e, #16a34a);">EF</div>
+            <div class="offer-content">
+              <span class="badge badge-success">Alimentacao</span>
+              <h3 class="offer-title">EcoFood Organicos</h3>
+              <p class="text-muted" style="margin-bottom: 15px;">Delivery de alimentos organicos e sustentaveis</p>
+              <div class="offer-stats">
+                <div class="offer-stat">
+                  <div class="offer-stat-value">60%</div>
+                  <div class="offer-stat-label">Captado</div>
+                </div>
+                <div class="offer-stat">
+                  <div class="offer-stat-value">45 dias</div>
+                  <div class="offer-stat-label">Restantes</div>
+                </div>
+              </div>
+              <div class="progress mb-20">
+                <div class="progress-bar success" style="width: 60%;"></div>
+              </div>
+              <a href="pages/login.html" class="btn btn-primary btn-block">Entrar para Investir</a>
+            </div>
+          </div>
+
+          <!-- Offer 3 -->
+          <div class="offer-card">
+            <div class="offer-image" style="background: linear-gradient(135deg, #ef4444, #dc2626);">HT</div>
+            <div class="offer-content">
+              <span class="badge badge-danger">Saude</span>
+              <h3 class="offer-title">HealthTech Solutions</h3>
+              <p class="text-muted" style="margin-bottom: 15px;">Telemedicina e monitoramento remoto de pacientes</p>
+              <div class="offer-stats">
+                <div class="offer-stat">
+                  <div class="offer-stat-value">75%</div>
+                  <div class="offer-stat-label">Captado</div>
+                </div>
+                <div class="offer-stat">
+                  <div class="offer-stat-value">12 dias</div>
+                  <div class="offer-stat-label">Restantes</div>
+                </div>
+              </div>
+              <div class="progress mb-20">
+                <div class="progress-bar" style="width: 75%; background: var(--danger);"></div>
+              </div>
+              <a href="pages/login.html" class="btn btn-primary btn-block">Entrar para Investir</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert-info mt-20 text-center">
+          <strong>Acesso exclusivo:</strong> Para ver detalhes das ofertas e investir, <a href="pages/cadastro.html" style="color: inherit; text-decoration: underline;">crie sua conta</a> ou <a href="pages/login.html" style="color: inherit; text-decoration: underline;">faca login</a>.
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section style="padding: 60px 0; background: white;">
+      <div class="container">
+        <h2 class="text-center mb-30">Como Funciona</h2>
+        <div class="grid-4">
+          <div class="text-center">
+            <div style="font-size: 3rem; margin-bottom: 15px;">1</div>
+            <h4>Cadastre-se</h4>
+            <p class="text-muted">Crie sua conta em minutos. Validacao automatica via bureau de dados.</p>
+          </div>
+          <div class="text-center">
+            <div style="font-size: 3rem; margin-bottom: 15px;">2</div>
+            <h4>Escolha uma Oferta</h4>
+            <p class="text-muted">Analise as empresas e escolha onde investir.</p>
+          </div>
+          <div class="text-center">
+            <div style="font-size: 3rem; margin-bottom: 15px;">3</div>
+            <h4>Invista via PIX</h4>
+            <p class="text-muted">Pagamento rapido e seguro. Investimento minimo de R$ 500.</p>
+          </div>
+          <div class="text-center">
+            <div style="font-size: 3rem; margin-bottom: 15px;">4</div>
+            <h4>Acompanhe</h4>
+            <p class="text-muted">Receba atualizacoes e acompanhe seus investimentos.</p>
+          </div>
+        </div>
+        <div class="text-center mt-20">
+          <a href="pages/como-funciona.html" class="btn btn-outline">Saiba mais</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RCVM 88 Info -->
+    <section style="padding: 60px 0;">
+      <div class="container">
+        <div class="card">
+          <div class="grid-2" style="align-items: center;">
+            <div>
+              <h2>Regulamentado pela CVM</h2>
+              <p class="text-muted mt-20">Nossa plataforma opera em conformidade com a Resolucao CVM 88/2022, garantindo seguranca e transparencia para investidores e empresas.</p>
+              <ul style="margin-top: 20px; margin-left: 20px;">
+                <li>Limite anual de R$ 20.000 por investidor</li>
+                <li>Ofertas de ate R$ 15 milhoes</li>
+                <li>Prazo maximo de 180 dias por oferta</li>
+                <li>5 dias para desistencia apos investimento</li>
+              </ul>
+              <a href="pages/cadastro.html" class="btn btn-primary mt-20">Comecar Agora</a>
+            </div>
+            <div class="text-center">
+              <div style="font-size: 6rem; color: var(--primary);">CVM</div>
+              <p class="text-muted">Resolucao RCVM 88/2022</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="padding: 60px 0; background: var(--primary); color: white; text-align: center;">
+      <div class="container">
+        <h2>Pronto para comecar a investir?</h2>
+        <p style="opacity: 0.9; margin: 20px 0;">Crie sua conta em minutos e tenha acesso a todas as ofertas.</p>
+        <div class="flex gap-10" style="justify-content: center;">
+          <a href="pages/cadastro.html" class="btn btn-lg" style="background: white; color: var(--primary);">Criar Conta Gratis</a>
+          <a href="pages/login.html" class="btn btn-lg btn-outline" style="border-color: white; color: white;">Ja tenho conta</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <h4>CrowdInvest</h4>
+            <p style="opacity: 0.7;">Plataforma de equity crowdfunding regulamentada pela CVM.</p>
+          </div>
+          <div>
+            <h4>Plataforma</h4>
+            <a href="pages/login.html">Acessar Plataforma</a>
+            <a href="pages/como-funciona.html">Como Funciona</a>
+            <a href="#">Taxas</a>
+          </div>
+          <div>
+            <h4>Empresa</h4>
+            <a href="#">Sobre Nos</a>
+            <a href="#">Contato</a>
+            <a href="#">Imprensa</a>
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Privacidade</a>
+            <a href="#">Regulamento</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>2026 CrowdInvest. Plataforma autorizada pela CVM conforme RCVM 88/2022.</p>
+          <p>Investimentos envolvem riscos. Leia o material da oferta antes de investir.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

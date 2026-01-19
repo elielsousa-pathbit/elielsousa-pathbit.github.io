@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Oferta - Parceiro - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar sidebar-green">
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="logo" style="color: white;">CrowdInvest</a>
+        <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li><a href="minhas-ofertas.html" class="active"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
+        <li><a href="investidores.html"><i class="bi bi-people"></i> Investidores</a></li>
+        <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <main class="main-content">
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i> Menu</button>
+
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Minhas Ofertas</h1>
+          <p class="text-muted">TechStart Inovacao</p>
+        </div>
+        <span class="badge badge-success" style="font-size: 1rem; padding: 10px 20px;">Ativa</span>
+      </div>
+
+      <!-- Status Card -->
+      <div class="card" style="background: linear-gradient(135deg, #059669, #047857); color: white; margin-bottom: 20px;">
+        <div class="grid-2" style="gap: 30px; align-items: center;">
+          <div>
+            <h2>TechStart Inovacao</h2>
+            <p style="opacity: 0.9;">CNPJ: 12.345.678/0001-90</p>
+            <div class="progress mt-20" style="height: 12px; background: rgba(255,255,255,0.3);">
+              <div class="progress-bar" style="width: 75%; background: white;"></div>
+            </div>
+            <div class="flex-between mt-20">
+              <span>R$ 375.000 captados</span>
+              <span>75% da meta</span>
+            </div>
+          </div>
+          <div class="text-center">
+            <div style="font-size: 3rem; font-weight: bold;">23</div>
+            <p>dias restantes</p>
+            <p style="font-size: 0.875rem; opacity: 0.8;">Encerra em 11/02/2026</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Details -->
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="margin-bottom: 20px;">Informacoes da Oferta</h3>
+          <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div class="flex-between">
+              <span class="text-muted">Meta de Captacao:</span>
+              <strong>R$ 500.000,00</strong>
+            </div>
+            <div class="flex-between">
+              <span class="text-muted">Equity Oferecido:</span>
+              <strong>15%</strong>
+            </div>
+            <div class="flex-between">
+              <span class="text-muted">Investimento Minimo:</span>
+              <strong>R$ 1.000,00</strong>
+            </div>
+            <div class="flex-between">
+              <span class="text-muted">Investimento Maximo:</span>
+              <strong>R$ 20.000,00</strong>
+            </div>
+            <div class="flex-between">
+              <span class="text-muted">Data de Inicio:</span>
+              <strong>01/01/2026</strong>
+            </div>
+            <div class="flex-between">
+              <span class="text-muted">Data de Encerramento:</span>
+              <strong>11/02/2026</strong>
+            </div>
+            <div class="flex-between">
+              <span class="text-muted">Setor:</span>
+              <strong>Tecnologia</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom: 20px;">Metricas</h3>
+          <div class="kpi-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="kpi-card">
+              <div class="kpi-label">Total Captado</div>
+              <div class="kpi-value" style="font-size: 1.5rem; color: var(--success);">R$ 375.000</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Investidores</div>
+              <div class="kpi-value" style="font-size: 1.5rem;">127</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Ticket Medio</div>
+              <div class="kpi-value" style="font-size: 1.5rem;">R$ 2.953</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Em Desistencia</div>
+              <div class="kpi-value" style="font-size: 1.5rem; color: var(--warning);">6</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Material da Oferta -->
+      <div class="card mt-20">
+        <div class="flex-between mb-20">
+          <h3>Material da Oferta</h3>
+          <button class="btn btn-outline btn-sm" onclick="showModal('editarMaterialModal')">Editar</button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div class="flex-between" style="padding: 12px; background: var(--bg); border-radius: var(--radius);">
+            <span>[PDF] Material Principal da Oferta</span>
+            <div class="flex gap-10">
+              <span class="text-muted">2.3 MB</span>
+              <button class="btn btn-outline btn-sm">Ver</button>
+            </div>
+          </div>
+          <div class="flex-between" style="padding: 12px; background: var(--bg); border-radius: var(--radius);">
+            <span>[PDF] Pitch Deck</span>
+            <div class="flex gap-10">
+              <span class="text-muted">5.1 MB</span>
+              <button class="btn btn-outline btn-sm">Ver</button>
+            </div>
+          </div>
+          <div class="flex-between" style="padding: 12px; background: var(--bg); border-radius: var(--radius);">
+            <span>[PDF] Contrato Social</span>
+            <div class="flex gap-10">
+              <span class="text-muted">450 KB</span>
+              <button class="btn btn-outline btn-sm">Ver</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal Editar Material -->
+  <div class="modal-overlay" id="editarMaterialModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 400px;">
+      <div style="padding: 30px;">
+        <i class="bi bi-pencil-square" style="font-size: 3rem; color: var(--primary);"></i>
+        <h3 style="margin: 15px 0;">Editar Material</h3>
+        <p class="text-muted">Abrindo editor de material da oferta.</p>
+        <button class="btn btn-primary mt-20" onclick="hideModal('editarMaterialModal')">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/app.js"></script>
+</body>
+</html>

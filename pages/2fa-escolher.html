@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escolher 2FA - CrowdInvest</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="auth-page">
+    <div class="auth-box">
+      <div class="auth-logo">
+        <a href="../index.html" class="logo">CrowdInvest</a>
+      </div>
+      <h1 class="auth-title">Verificacao em 2 Etapas</h1>
+      <p class="auth-subtitle">Escolha como deseja receber o codigo de verificacao</p>
+
+      <div class="alert alert-info">
+        <strong>Seguranca</strong><br>
+        A verificacao em duas etapas protege sua conta contra acessos nao autorizados.
+      </div>
+
+      <form id="methodForm" onsubmit="return submitForm('methodForm', '2fa-codigo.html')">
+        <div class="method-options">
+          <label class="method-option selected" onclick="selectMethod(this)">
+            <input type="radio" name="method" value="email" checked>
+            <span class="method-icon">&#9993;</span>
+            <div class="method-info">
+              <h4>E-mail</h4>
+              <p>Enviar codigo para j***@email.com</p>
+            </div>
+          </label>
+
+          <label class="method-option" onclick="selectMethod(this)">
+            <input type="radio" name="method" value="sms">
+            <span class="method-icon">&#128241;</span>
+            <div class="method-info">
+              <h4>SMS</h4>
+              <p>Enviar codigo para (11) 9****-8888</p>
+            </div>
+          </label>
+
+          <label class="method-option" onclick="selectMethod(this)">
+            <input type="radio" name="method" value="whatsapp">
+            <span class="method-icon">&#128172;</span>
+            <div class="method-info">
+              <h4>WhatsApp</h4>
+              <p>Enviar codigo para (11) 9****-8888</p>
+            </div>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Enviar Codigo</button>
+      </form>
+
+      <div class="text-center mt-20">
+        <a href="login.html" style="color: var(--text-muted);">&larr; Voltar ao login</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

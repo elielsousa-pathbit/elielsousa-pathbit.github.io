@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOTP - Admin - CrowdInvest</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="auth-page" style="background: linear-gradient(135deg, #1e293b, #334155);">
+    <div class="auth-box">
+      <div class="auth-logo">
+        <a href="../index.html" class="logo">CrowdInvest</a>
+        <p class="text-muted" style="margin-top: 5px;">Painel Administrativo</p>
+      </div>
+      <h1 class="auth-title">Codigo do Authenticator</h1>
+      <p class="auth-subtitle">Digite o codigo de 6 digitos do seu app</p>
+
+      <div style="text-align: center; margin: 20px 0;">
+        <span style="font-size: 3rem;">&#128274;</span>
+      </div>
+
+      <form id="totpForm" onsubmit="return submitForm('totpForm', 'admin/dashboard.html')">
+        <div class="otp-container">
+          <input type="text" class="otp-input" maxlength="1" value="4">
+          <input type="text" class="otp-input" maxlength="1" value="7">
+          <input type="text" class="otp-input" maxlength="1" value="2">
+          <input type="text" class="otp-input" maxlength="1" value="9">
+          <input type="text" class="otp-input" maxlength="1" value="1">
+          <input type="text" class="otp-input" maxlength="1" value="5">
+        </div>
+
+        <p class="text-center text-muted mb-20" style="font-size: 0.875rem;">
+          Abra o Google Authenticator ou Microsoft Authenticator e digite o codigo atual
+        </p>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Verificar</button>
+      </form>
+
+      <div class="text-center mt-20">
+        <a href="admin-login.html" style="color: var(--text-muted);">&larr; Voltar</a>
+      </div>
+
+      <div class="alert alert-info mt-20" style="font-size: 0.875rem;">
+        <strong>Problemas com o codigo?</strong><br>
+        Use um dos codigos de recuperacao offline ou entre em contato com o suporte.
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
