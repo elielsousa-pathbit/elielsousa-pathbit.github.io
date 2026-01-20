@@ -22,7 +22,7 @@ function renderPartnerMenu(activePage) {
   const menuItems = [
     { href: 'dashboard.html', icon: 'bi-speedometer2', label: 'Dashboard' },
     { href: 'minhas-ofertas.html', icon: 'bi-megaphone', label: 'Minhas Ofertas' },
-    { href: 'investidores.html', icon: 'bi-people', label: 'Investidores' },
+    { href: 'clientes.html', icon: 'bi-people', label: 'Clientes' },
     { href: 'documentos.html', icon: 'bi-folder', label: 'Documentos' },
     { href: 'relatorios.html', icon: 'bi-bar-chart', label: 'Relatorios' },
     { href: 'configuracoes.html', icon: 'bi-gear', label: 'Configuracoes' },
@@ -37,7 +37,7 @@ function renderAdminMenu(activePage) {
   const menuItems = [
     { href: 'dashboard.html', icon: 'bi-speedometer2', label: 'Dashboard' },
     { href: 'ofertas.html', icon: 'bi-megaphone', label: 'Ofertas' },
-    { href: 'investidores.html', icon: 'bi-people', label: 'Investidores' },
+    { href: 'clientes.html', icon: 'bi-people', label: 'Clientes' },
     { href: 'kyc-fila.html', icon: 'bi-person-check', label: 'Validacao Cadastro' },
     { href: 'parceiros.html', icon: 'bi-building', label: 'Parceiros' },
     { href: 'relatorios.html', icon: 'bi-bar-chart', label: 'Relatorios' },

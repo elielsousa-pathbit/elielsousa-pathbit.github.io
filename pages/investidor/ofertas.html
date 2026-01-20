@@ -9,7 +9,6 @@
 </head>
 <body>
   <div class="dashboard">
-    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-logo">
         <a href="../../index.html" class="logo">CrowdInvest</a>
@@ -18,8 +17,7 @@
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
         <li><a href="ofertas.html" class="active"><i class="bi bi-megaphone"></i> Ofertas</a></li>
         <li><a href="minhas-ordens.html"><i class="bi bi-clock-history"></i> Minhas Ordens</a></li>
-        <li><a href="meus-investimentos.html"><i class="bi bi-briefcase"></i> Meu Portfolio</a></li>
-        <li><a href="carteira.html"><i class="bi bi-wallet2"></i> Carteira</a></li>
+        <li><a href="carteira.html"><i class="bi bi-wallet2"></i> Minha Carteira</a></li>
         <li><a href="extrato.html"><i class="bi bi-list-ul"></i> Extrato</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
@@ -29,176 +27,372 @@
     </aside>
     <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
 
-    <!-- Main Content -->
     <main class="main-content">
       <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i> Menu</button>
 
       <div class="page-header">
         <div>
           <h1 class="page-title">Ofertas Disponiveis</h1>
-          <p class="text-muted">3 ofertas abertas para investimento</p>
+          <p class="text-muted">9 ofertas abertas para investimento</p>
         </div>
+        <span class="badge badge-info" style="font-size: 0.85rem; padding: 10px 14px;">
+          <i class="bi bi-wallet2"></i> Limite restante: <strong>R$ 5.000</strong>
+        </span>
       </div>
 
-      <!-- Limit Info -->
-      <div class="alert alert-info">
-        <strong>Seu limite:</strong> Voce ainda pode investir <strong>R$ 5.000</strong> este ano (de R$ 20.000 conforme RCVM 88/2022)
-      </div>
-
-      <!-- Filters -->
-      <div class="card mb-20">
-        <div class="flex gap-20" style="flex-wrap: wrap;">
-          <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 150px;">
-            <label class="form-label">Setor</label>
-            <select class="form-input">
-              <option>Todos os setores</option>
-              <option>Tecnologia</option>
-              <option>Alimentacao</option>
-              <option>Saude</option>
+      <!-- Filtros -->
+      <div class="card mb-20" style="padding: 16px;">
+        <div class="flex gap-15" style="flex-wrap: wrap; align-items: flex-end;">
+          <div style="flex: 1; min-width: 100px;">
+            <label class="form-label" style="font-size: 0.75rem; margin-bottom: 4px;">Tipo</label>
+            <select class="form-input" style="padding: 8px 10px; font-size: 0.85rem;">
+              <option>Todos</option>
+              <option>Equity</option>
+              <option>CRI</option>
+              <option>CRA</option>
+              <option>CR</option>
             </select>
           </div>
-          <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 150px;">
-            <label class="form-label">Ordenar por</label>
-            <select class="form-input">
+          <div style="flex: 1; min-width: 100px;">
+            <label class="form-label" style="font-size: 0.75rem; margin-bottom: 4px;">Setor</label>
+            <select class="form-input" style="padding: 8px 10px; font-size: 0.85rem;">
+              <option>Todos</option>
+              <option>Tecnologia</option>
+              <option>Saude</option>
+              <option>Imobiliario</option>
+              <option>Agro</option>
+              <option>Energia</option>
+            </select>
+          </div>
+          <div style="flex: 1; min-width: 100px;">
+            <label class="form-label" style="font-size: 0.75rem; margin-bottom: 4px;">Ordenar</label>
+            <select class="form-input" style="padding: 8px 10px; font-size: 0.85rem;">
               <option>Mais recentes</option>
               <option>Maior captacao</option>
-              <option>Menos dias restantes</option>
-              <option>Menor investimento</option>
+              <option>Menor prazo</option>
             </select>
           </div>
-          <div class="form-group" style="margin-bottom: 0; flex: 2; min-width: 200px;">
-            <label class="form-label">Buscar</label>
-            <input type="text" class="form-input" placeholder="Nome da empresa...">
+          <div style="flex: 2; min-width: 160px;">
+            <input type="text" class="form-input" placeholder="Buscar empresa..." style="padding: 8px 10px; font-size: 0.85rem;">
           </div>
         </div>
       </div>
 
-      <!-- Offers Grid -->
-      <div class="grid-3">
-        <!-- Offer 1 -->
-        <div class="offer-card">
-          <div class="offer-image">TS</div>
-          <div class="offer-content">
-            <div class="flex-between mb-20">
-              <span class="badge badge-info">Tecnologia</span>
-              <span class="badge badge-warning">23 dias</span>
-            </div>
-            <h3 class="offer-title">TechStart Inovacao</h3>
-            <p class="text-muted" style="margin-bottom: 15px;">Plataforma SaaS para gestao de pequenas empresas com IA integrada.</p>
+      <!-- Grid 3 colunas -->
+      <div class="grid-3-offers">
 
+        <!-- Offer 1 - EQUITY -->
+        <div class="offer-card">
+          <div class="offer-header" style="background: linear-gradient(135deg, var(--primary), #1d4ed8);">
+            <span class="badge-compact offer-type" style="background: #7c3aed; color: white;">Equity</span>
+            <span class="badge-compact offer-days badge-warning">23d</span>
+            TS
+          </div>
+          <div class="offer-body">
+            <div class="offer-title">TechStart Inovacao</div>
+            <div class="offer-sector">Tecnologia / SaaS</div>
             <div class="offer-stats">
               <div class="offer-stat">
                 <div class="offer-stat-value">15%</div>
                 <div class="offer-stat-label">Equity</div>
               </div>
               <div class="offer-stat">
-                <div class="offer-stat-value">R$ 1.000</div>
-                <div class="offer-stat-label">Min. Invest.</div>
+                <div class="offer-stat-value">R$ 1k</div>
+                <div class="offer-stat-label">Minimo</div>
               </div>
             </div>
-
-            <div class="progress mb-20">
-              <div class="progress-bar" style="width: 75%;"></div>
+            <div class="offer-progress">
+              <div class="offer-progress-info">
+                <span>R$ 375k / R$ 500k</span>
+                <span>75%</span>
+              </div>
+              <div class="offer-progress-bar">
+                <div class="offer-progress-fill" style="width: 75%;"></div>
+              </div>
             </div>
-
-            <div class="flex-between text-muted" style="font-size: 0.875rem; margin-bottom: 15px;">
-              <span>R$ 375.000 / R$ 500.000</span>
-              <span>75%</span>
-            </div>
-
-            <div class="flex-between text-muted" style="font-size: 0.875rem; margin-bottom: 15px;">
-              <span>127 investidores</span>
-              <span>23 dias restantes</span>
-            </div>
-
-            <a href="oferta-detalhe.html?id=1" class="btn btn-primary btn-block">Ver Oferta</a>
+            <a href="oferta-detalhe.html?type=equity" class="offer-btn">Ver Oferta</a>
           </div>
         </div>
 
-        <!-- Offer 2 -->
+        <!-- Offer 2 - CRI -->
         <div class="offer-card">
-          <div class="offer-image" style="background: linear-gradient(135deg, #22c55e, #16a34a);">EF</div>
-          <div class="offer-content">
-            <div class="flex-between mb-20">
-              <span class="badge badge-success">Alimentacao</span>
-              <span class="badge badge-secondary">45 dias</span>
-            </div>
-            <h3 class="offer-title">EcoFood Organicos</h3>
-            <p class="text-muted" style="margin-bottom: 15px;">Delivery de alimentos organicos e sustentaveis para familias.</p>
-
+          <div class="offer-header" style="background: linear-gradient(135deg, #0891b2, #0e7490);">
+            <span class="badge-compact offer-type" style="background: #0891b2; color: white;">CRI</span>
+            <span class="badge-compact offer-days badge-secondary">60d</span>
+            CRI
+          </div>
+          <div class="offer-body">
+            <div class="offer-title">Resid. Parque das Flores</div>
+            <div class="offer-sector">Imobiliario / Residencial</div>
             <div class="offer-stats">
               <div class="offer-stat">
-                <div class="offer-stat-value">10%</div>
-                <div class="offer-stat-label">Equity</div>
+                <div class="offer-stat-value" style="color: #0891b2;">IPCA+8%</div>
+                <div class="offer-stat-label">Taxa</div>
               </div>
               <div class="offer-stat">
-                <div class="offer-stat-value">R$ 500</div>
-                <div class="offer-stat-label">Min. Invest.</div>
+                <div class="offer-stat-value">36m</div>
+                <div class="offer-stat-label">Prazo</div>
               </div>
             </div>
-
-            <div class="progress mb-20">
-              <div class="progress-bar success" style="width: 60%;"></div>
+            <div class="offer-progress">
+              <div class="offer-progress-info">
+                <span>R$ 450k / R$ 1M</span>
+                <span>45%</span>
+              </div>
+              <div class="offer-progress-bar">
+                <div class="offer-progress-fill" style="width: 45%; background: #0891b2;"></div>
+              </div>
             </div>
-
-            <div class="flex-between text-muted" style="font-size: 0.875rem; margin-bottom: 15px;">
-              <span>R$ 180.000 / R$ 300.000</span>
-              <span>60%</span>
-            </div>
-
-            <div class="flex-between text-muted" style="font-size: 0.875rem; margin-bottom: 15px;">
-              <span>89 investidores</span>
-              <span>45 dias restantes</span>
-            </div>
-
-            <a href="oferta-detalhe.html?id=2" class="btn btn-primary btn-block">Ver Oferta</a>
+            <a href="oferta-detalhe-cri.html" class="offer-btn">Ver Oferta</a>
           </div>
         </div>
 
-        <!-- Offer 3 -->
+        <!-- Offer 3 - CRA -->
         <div class="offer-card">
-          <div class="offer-image" style="background: linear-gradient(135deg, #ef4444, #dc2626);">HT</div>
-          <div class="offer-content">
-            <div class="flex-between mb-20">
-              <span class="badge badge-danger">Saude</span>
-              <span class="badge badge-danger">12 dias</span>
+          <div class="offer-header" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
+            <span class="badge-compact offer-type" style="background: #22c55e; color: white;">CRA</span>
+            <span class="badge-compact offer-days badge-warning">30d</span>
+            CRA
+          </div>
+          <div class="offer-body">
+            <div class="offer-title">Cooperativa AgroVerde</div>
+            <div class="offer-sector">Agronegocio / Graos</div>
+            <div class="offer-stats">
+              <div class="offer-stat">
+                <div class="offer-stat-value" style="color: #22c55e;">CDI+4,5%</div>
+                <div class="offer-stat-label">Taxa</div>
+              </div>
+              <div class="offer-stat">
+                <div class="offer-stat-value">24m</div>
+                <div class="offer-stat-label">Prazo</div>
+              </div>
             </div>
-            <h3 class="offer-title">HealthTech Solutions</h3>
-            <p class="text-muted" style="margin-bottom: 15px;">Telemedicina e monitoramento remoto de pacientes cronicos.</p>
+            <div class="offer-progress">
+              <div class="offer-progress-info">
+                <span>R$ 656k / R$ 800k</span>
+                <span>82%</span>
+              </div>
+              <div class="offer-progress-bar">
+                <div class="offer-progress-fill" style="width: 82%; background: #22c55e;"></div>
+              </div>
+            </div>
+            <a href="oferta-detalhe-cra.html" class="offer-btn">Ver Oferta</a>
+          </div>
+        </div>
 
+        <!-- Offer 4 - CR -->
+        <div class="offer-card">
+          <div class="offer-header" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+            <span class="badge-compact offer-type" style="background: #8b5cf6; color: white;">CR</span>
+            <span class="badge-compact offer-days badge-danger">15d</span>
+            CR
+          </div>
+          <div class="offer-body">
+            <div class="offer-title">SolarTech Energia</div>
+            <div class="offer-sector">Energia / Solar</div>
+            <div class="offer-stats">
+              <div class="offer-stat">
+                <div class="offer-stat-value" style="color: #8b5cf6;">IPCA+10%</div>
+                <div class="offer-stat-label">Taxa</div>
+              </div>
+              <div class="offer-stat">
+                <div class="offer-stat-value">48m</div>
+                <div class="offer-stat-label">Prazo</div>
+              </div>
+            </div>
+            <div class="offer-progress">
+              <div class="offer-progress-info">
+                <span>R$ 340k / R$ 500k</span>
+                <span>68%</span>
+              </div>
+              <div class="offer-progress-bar">
+                <div class="offer-progress-fill" style="width: 68%; background: #8b5cf6;"></div>
+              </div>
+            </div>
+            <a href="oferta-detalhe-cr.html" class="offer-btn">Ver Oferta</a>
+          </div>
+        </div>
+
+        <!-- Offer 5 - EQUITY -->
+        <div class="offer-card">
+          <div class="offer-header" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
+            <span class="badge-compact offer-type" style="background: #7c3aed; color: white;">Equity</span>
+            <span class="badge-compact offer-days badge-danger">12d</span>
+            HT
+          </div>
+          <div class="offer-body">
+            <div class="offer-title">HealthTech Solutions</div>
+            <div class="offer-sector">Saude / Telemedicina</div>
             <div class="offer-stats">
               <div class="offer-stat">
                 <div class="offer-stat-value">20%</div>
                 <div class="offer-stat-label">Equity</div>
               </div>
               <div class="offer-stat">
-                <div class="offer-stat-value">R$ 2.000</div>
-                <div class="offer-stat-label">Min. Invest.</div>
+                <div class="offer-stat-value">R$ 2k</div>
+                <div class="offer-stat-label">Minimo</div>
               </div>
             </div>
-
-            <div class="progress mb-20">
-              <div class="progress-bar" style="width: 75%; background: var(--danger);"></div>
+            <div class="offer-progress">
+              <div class="offer-progress-info">
+                <span>R$ 562k / R$ 750k</span>
+                <span>75%</span>
+              </div>
+              <div class="offer-progress-bar">
+                <div class="offer-progress-fill" style="width: 75%; background: #ef4444;"></div>
+              </div>
             </div>
-
-            <div class="flex-between text-muted" style="font-size: 0.875rem; margin-bottom: 15px;">
-              <span>R$ 562.500 / R$ 750.000</span>
-              <span>75%</span>
-            </div>
-
-            <div class="flex-between text-muted" style="font-size: 0.875rem; margin-bottom: 15px;">
-              <span>203 investidores</span>
-              <span>12 dias restantes</span>
-            </div>
-
-            <a href="oferta-detalhe.html?id=3" class="btn btn-primary btn-block">Ver Oferta</a>
+            <a href="oferta-detalhe.html?type=equity" class="offer-btn">Ver Oferta</a>
           </div>
+        </div>
+
+        <!-- Offer 6 - CRI -->
+        <div class="offer-card">
+          <div class="offer-header" style="background: linear-gradient(135deg, #0891b2, #0e7490);">
+            <span class="badge-compact offer-type" style="background: #0891b2; color: white;">CRI</span>
+            <span class="badge-compact offer-days badge-secondary">45d</span>
+            CRI
+          </div>
+          <div class="offer-body">
+            <div class="offer-title">Comercial Prime Tower</div>
+            <div class="offer-sector">Imobiliario / Comercial</div>
+            <div class="offer-stats">
+              <div class="offer-stat">
+                <div class="offer-stat-value" style="color: #0891b2;">CDI+3,5%</div>
+                <div class="offer-stat-label">Taxa</div>
+              </div>
+              <div class="offer-stat">
+                <div class="offer-stat-value">60m</div>
+                <div class="offer-stat-label">Prazo</div>
+              </div>
+            </div>
+            <div class="offer-progress">
+              <div class="offer-progress-info">
+                <span>R$ 700k / R$ 2M</span>
+                <span>35%</span>
+              </div>
+              <div class="offer-progress-bar">
+                <div class="offer-progress-fill" style="width: 35%; background: #0891b2;"></div>
+              </div>
+            </div>
+            <a href="oferta-detalhe-cri.html" class="offer-btn">Ver Oferta</a>
+          </div>
+        </div>
+
+        <!-- Offer 7 - EQUITY -->
+        <div class="offer-card">
+          <div class="offer-header" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+            <span class="badge-compact offer-type" style="background: #7c3aed; color: white;">Equity</span>
+            <span class="badge-compact offer-days badge-warning">28d</span>
+            EF
+          </div>
+          <div class="offer-body">
+            <div class="offer-title">EcoFood Organicos</div>
+            <div class="offer-sector">Alimentacao / Organicos</div>
+            <div class="offer-stats">
+              <div class="offer-stat">
+                <div class="offer-stat-value">12%</div>
+                <div class="offer-stat-label">Equity</div>
+              </div>
+              <div class="offer-stat">
+                <div class="offer-stat-value">R$ 500</div>
+                <div class="offer-stat-label">Minimo</div>
+              </div>
+            </div>
+            <div class="offer-progress">
+              <div class="offer-progress-info">
+                <span>R$ 165k / R$ 300k</span>
+                <span>55%</span>
+              </div>
+              <div class="offer-progress-bar">
+                <div class="offer-progress-fill" style="width: 55%; background: #f59e0b;"></div>
+              </div>
+            </div>
+            <a href="oferta-detalhe.html?type=equity" class="offer-btn">Ver Oferta</a>
+          </div>
+        </div>
+
+        <!-- Offer 8 - CRA -->
+        <div class="offer-card">
+          <div class="offer-header" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
+            <span class="badge-compact offer-type" style="background: #22c55e; color: white;">CRA</span>
+            <span class="badge-compact offer-days badge-secondary">50d</span>
+            CRA
+          </div>
+          <div class="offer-body">
+            <div class="offer-title">Fazenda Boa Vista</div>
+            <div class="offer-sector">Agronegocio / Cafe</div>
+            <div class="offer-stats">
+              <div class="offer-stat">
+                <div class="offer-stat-value" style="color: #22c55e;">CDI+5%</div>
+                <div class="offer-stat-label">Taxa</div>
+              </div>
+              <div class="offer-stat">
+                <div class="offer-stat-value">18m</div>
+                <div class="offer-stat-label">Prazo</div>
+              </div>
+            </div>
+            <div class="offer-progress">
+              <div class="offer-progress-info">
+                <span>R$ 125k / R$ 500k</span>
+                <span>25%</span>
+              </div>
+              <div class="offer-progress-bar">
+                <div class="offer-progress-fill" style="width: 25%; background: #22c55e;"></div>
+              </div>
+            </div>
+            <a href="oferta-detalhe-cra.html" class="offer-btn">Ver Oferta</a>
+          </div>
+        </div>
+
+        <!-- Offer 9 - EQUITY -->
+        <div class="offer-card">
+          <div class="offer-header" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">
+            <span class="badge-compact offer-type" style="background: #7c3aed; color: white;">Equity</span>
+            <span class="badge-compact offer-days badge-secondary">40d</span>
+            FT
+          </div>
+          <div class="offer-body">
+            <div class="offer-title">FinTech Solutions</div>
+            <div class="offer-sector">Financas / Pagamentos</div>
+            <div class="offer-stats">
+              <div class="offer-stat">
+                <div class="offer-stat-value">18%</div>
+                <div class="offer-stat-label">Equity</div>
+              </div>
+              <div class="offer-stat">
+                <div class="offer-stat-value">R$ 1,5k</div>
+                <div class="offer-stat-label">Minimo</div>
+              </div>
+            </div>
+            <div class="offer-progress">
+              <div class="offer-progress-info">
+                <span>R$ 280k / R$ 600k</span>
+                <span>47%</span>
+              </div>
+              <div class="offer-progress-bar">
+                <div class="offer-progress-fill" style="width: 47%;"></div>
+              </div>
+            </div>
+            <a href="oferta-detalhe.html?type=equity" class="offer-btn">Ver Oferta</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Legenda -->
+      <div class="card mt-20" style="padding: 14px;">
+        <div class="flex gap-20" style="flex-wrap: wrap; justify-content: center; font-size: 0.8rem;">
+          <span class="flex gap-5" style="align-items: center;"><span style="width: 10px; height: 10px; background: #7c3aed; border-radius: 50%;"></span> <strong>Equity</strong> - Participacao</span>
+          <span class="flex gap-5" style="align-items: center;"><span style="width: 10px; height: 10px; background: #0891b2; border-radius: 50%;"></span> <strong>CRI</strong> - Imobiliario</span>
+          <span class="flex gap-5" style="align-items: center;"><span style="width: 10px; height: 10px; background: #22c55e; border-radius: 50%;"></span> <strong>CRA</strong> - Agro</span>
+          <span class="flex gap-5" style="align-items: center;"><span style="width: 10px; height: 10px; background: #8b5cf6; border-radius: 50%;"></span> <strong>CR</strong> - Outros</span>
         </div>
       </div>
 
-      <!-- Info -->
-      <div class="alert alert-warning mt-20">
-        <strong>Atencao:</strong> Investimentos em startups sao de alto risco. Leia o material da oferta antes de investir.
+      <!-- Warning -->
+      <div class="alert alert-warning mt-15" style="font-size: 0.85rem;">
+        <i class="bi bi-exclamation-triangle"></i> Investimentos via crowdfunding sao de alto risco. Leia o material da oferta antes de investir.
       </div>
     </main>
   </div>

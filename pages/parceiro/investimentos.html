@@ -19,7 +19,7 @@
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
         <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
         <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
-        <li><a href="investidores.html"><i class="bi bi-people"></i> Investidores</a></li>
+        <li><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
         <li><a href="investimentos.html" class="active"><i class="bi bi-wallet2"></i> Investimentos</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
@@ -261,34 +261,350 @@
       <!-- Tab Content - Confirmados -->
       <div id="confirmados" class="tab-content" style="display: none;">
         <div class="card">
-          <p class="text-muted text-center" style="padding: 40px;">118 investimentos confirmados totalizando R$ 360.000,00</p>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Cliente</th>
+                  <th>Valor</th>
+                  <th>Equity</th>
+                  <th>Pagamento</th>
+                  <th>Data Confirmacao</th>
+                  <th>Acoes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>#INV-2026-0125</code></td>
+                  <td>
+                    <strong>Maria L.</strong>
+                    <br><small class="text-muted">maria.l***@email.com</small>
+                  </td>
+                  <td><strong>R$ 10.000,00</strong></td>
+                  <td>3.0%</td>
+                  <td><span class="badge badge-success"><i class="bi bi-check-circle"></i> PIX</span></td>
+                  <td>15/01/2026<br><small class="text-muted">09:15</small></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>#INV-2026-0124</code></td>
+                  <td>
+                    <strong>Pedro M.</strong>
+                    <br><small class="text-muted">pedro.m***@email.com</small>
+                  </td>
+                  <td><strong>R$ 2.000,00</strong></td>
+                  <td>0.6%</td>
+                  <td><span class="badge badge-success"><i class="bi bi-check-circle"></i> TED</span></td>
+                  <td>14/01/2026<br><small class="text-muted">16:42</small></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>#INV-2026-0120</code></td>
+                  <td>
+                    <strong>Fernanda C.</strong>
+                    <br><small class="text-muted">fernanda.c***@email.com</small>
+                  </td>
+                  <td><strong>R$ 7.500,00</strong></td>
+                  <td>2.25%</td>
+                  <td><span class="badge badge-success"><i class="bi bi-check-circle"></i> PIX</span></td>
+                  <td>12/01/2026<br><small class="text-muted">11:30</small></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>#INV-2026-0115</code></td>
+                  <td>
+                    <strong>Carlos R.</strong>
+                    <br><small class="text-muted">carlos.r***@email.com</small>
+                  </td>
+                  <td><strong>R$ 5.000,00</strong></td>
+                  <td>1.5%</td>
+                  <td><span class="badge badge-success"><i class="bi bi-check-circle"></i> PIX</span></td>
+                  <td>10/01/2026<br><small class="text-muted">14:20</small></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>#INV-2026-0108</code></td>
+                  <td>
+                    <strong>Ana Paula S.</strong>
+                    <br><small class="text-muted">ana.s***@email.com</small>
+                  </td>
+                  <td><strong>R$ 3.500,00</strong></td>
+                  <td>1.05%</td>
+                  <td><span class="badge badge-success"><i class="bi bi-check-circle"></i> TED</span></td>
+                  <td>08/01/2026<br><small class="text-muted">09:45</small></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="flex-between mt-20">
+            <p class="text-muted">Mostrando 1-5 de 118 investimentos confirmados</p>
+            <div class="flex gap-10">
+              <button class="btn btn-outline btn-sm" disabled><i class="bi bi-chevron-left"></i> Anterior</button>
+              <button class="btn btn-outline btn-sm">Proximo <i class="bi bi-chevron-right"></i></button>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Tab Content - Pendentes -->
       <div id="pendentes" class="tab-content" style="display: none;">
         <div class="card">
-          <div class="alert alert-warning">
+          <div class="alert alert-warning mb-20">
             <i class="bi bi-exclamation-triangle"></i> <strong>3 investimentos aguardando pagamento.</strong> PIX expira em 30 minutos apos geracao.
           </div>
-          <p class="text-muted text-center" style="padding: 20px;">Listagem de investimentos pendentes de pagamento...</p>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Cliente</th>
+                  <th>Valor</th>
+                  <th>Forma Pagamento</th>
+                  <th>Gerado em</th>
+                  <th>Expira em</th>
+                  <th>Acoes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background: #fff7ed;">
+                  <td><code>#INV-2026-0130</code></td>
+                  <td>
+                    <strong>Lucas M.</strong>
+                    <br><small class="text-muted">lucas.m***@email.com</small>
+                  </td>
+                  <td><strong>R$ 3.000,00</strong></td>
+                  <td><span class="badge badge-secondary"><i class="bi bi-qr-code"></i> PIX</span></td>
+                  <td>19/01/2026<br><small class="text-muted">14:35</small></td>
+                  <td><strong style="color: var(--danger);">15 min</strong></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr style="background: #fff7ed;">
+                  <td><code>#INV-2026-0129</code></td>
+                  <td>
+                    <strong>Patricia A.</strong>
+                    <br><small class="text-muted">patricia.a***@email.com</small>
+                  </td>
+                  <td><strong>R$ 2.500,00</strong></td>
+                  <td><span class="badge badge-secondary"><i class="bi bi-qr-code"></i> PIX</span></td>
+                  <td>19/01/2026<br><small class="text-muted">14:20</small></td>
+                  <td><strong style="color: var(--warning);">22 min</strong></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr style="background: #fff7ed;">
+                  <td><code>#INV-2026-0128</code></td>
+                  <td>
+                    <strong>Marcos V.</strong>
+                    <br><small class="text-muted">marcos.v***@email.com</small>
+                  </td>
+                  <td><strong>R$ 3.000,00</strong></td>
+                  <td><span class="badge badge-secondary"><i class="bi bi-upc-scan"></i> Boleto</span></td>
+                  <td>19/01/2026<br><small class="text-muted">10:00</small></td>
+                  <td>20/01/2026</td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
       <!-- Tab Content - Desistencia -->
       <div id="desistencia" class="tab-content" style="display: none;">
         <div class="card">
-          <div class="alert alert-info">
-            <i class="bi bi-info-circle"></i> <strong>RCVM 88/2022:</strong> Investidores tem 5 dias uteis para exercer o direito de desistencia apos o pagamento.
+          <div class="alert alert-info mb-20">
+            <i class="bi bi-info-circle"></i> <strong>RCVM 88/2022:</strong> Clientes tem 5 dias uteis para exercer o direito de desistencia apos o pagamento.
           </div>
-          <p class="text-muted text-center" style="padding: 20px;">6 investimentos no periodo de desistencia - R$ 15.000 em risco</p>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Cliente</th>
+                  <th>Valor</th>
+                  <th>Data Pagamento</th>
+                  <th>Prazo Desistencia</th>
+                  <th>Dias Restantes</th>
+                  <th>Acoes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background: #fef3c7;">
+                  <td><code>#INV-2026-0127</code></td>
+                  <td>
+                    <strong>Joao Carlos S.</strong>
+                    <br><small class="text-muted">joao.s***@email.com</small>
+                  </td>
+                  <td><strong>R$ 5.000,00</strong></td>
+                  <td>19/01/2026<br><small class="text-muted">10:22</small></td>
+                  <td>24/01/2026</td>
+                  <td><span class="badge badge-warning"><i class="bi bi-clock"></i> 5 dias</span></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr style="background: #fef3c7;">
+                  <td><code>#INV-2026-0126</code></td>
+                  <td>
+                    <strong>Renata F.</strong>
+                    <br><small class="text-muted">renata.f***@email.com</small>
+                  </td>
+                  <td><strong>R$ 2.000,00</strong></td>
+                  <td>18/01/2026<br><small class="text-muted">15:30</small></td>
+                  <td>23/01/2026</td>
+                  <td><span class="badge badge-warning"><i class="bi bi-clock"></i> 4 dias</span></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr style="background: #fef3c7;">
+                  <td><code>#INV-2026-0123</code></td>
+                  <td>
+                    <strong>Bruno G.</strong>
+                    <br><small class="text-muted">bruno.g***@email.com</small>
+                  </td>
+                  <td><strong>R$ 3.000,00</strong></td>
+                  <td>17/01/2026<br><small class="text-muted">11:45</small></td>
+                  <td>22/01/2026</td>
+                  <td><span class="badge badge-info"><i class="bi bi-clock"></i> 3 dias</span></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr style="background: #fef3c7;">
+                  <td><code>#INV-2026-0121</code></td>
+                  <td>
+                    <strong>Amanda L.</strong>
+                    <br><small class="text-muted">amanda.l***@email.com</small>
+                  </td>
+                  <td><strong>R$ 1.500,00</strong></td>
+                  <td>16/01/2026<br><small class="text-muted">09:10</small></td>
+                  <td>21/01/2026</td>
+                  <td><span class="badge badge-info"><i class="bi bi-clock"></i> 2 dias</span></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr style="background: #fef3c7;">
+                  <td><code>#INV-2026-0119</code></td>
+                  <td>
+                    <strong>Felipe S.</strong>
+                    <br><small class="text-muted">felipe.s***@email.com</small>
+                  </td>
+                  <td><strong>R$ 2.000,00</strong></td>
+                  <td>15/01/2026<br><small class="text-muted">14:00</small></td>
+                  <td>20/01/2026</td>
+                  <td><span class="badge" style="background: var(--danger); color: white;"><i class="bi bi-exclamation-triangle"></i> 1 dia</span></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr style="background: #fef3c7;">
+                  <td><code>#INV-2026-0117</code></td>
+                  <td>
+                    <strong>Juliana M.</strong>
+                    <br><small class="text-muted">juliana.m***@email.com</small>
+                  </td>
+                  <td><strong>R$ 1.500,00</strong></td>
+                  <td>14/01/2026<br><small class="text-muted">16:30</small></td>
+                  <td>19/01/2026</td>
+                  <td><span class="badge" style="background: var(--danger); color: white;"><i class="bi bi-exclamation-triangle"></i> Hoje</span></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="alert alert-warning mt-20">
+            <strong><i class="bi bi-exclamation-triangle"></i> Atencao:</strong> R$ 15.000,00 em investimentos podem ser cancelados se os clientes exercerem o direito de desistencia.
+          </div>
         </div>
       </div>
 
       <!-- Tab Content - Cancelados -->
       <div id="cancelados" class="tab-content" style="display: none;">
         <div class="card">
-          <p class="text-muted text-center" style="padding: 40px;">3 investimentos cancelados/desistencias confirmadas totalizando R$ 11.500,00</p>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Cliente</th>
+                  <th>Valor</th>
+                  <th>Data Original</th>
+                  <th>Data Cancelamento</th>
+                  <th>Motivo</th>
+                  <th>Acoes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background: #fee2e2;">
+                  <td><code>#INV-2026-0098</code></td>
+                  <td>
+                    <strong>Roberto A.</strong>
+                    <br><small class="text-muted">roberto.a***@email.com</small>
+                  </td>
+                  <td><s style="color: var(--text-muted);">R$ 5.000,00</s></td>
+                  <td>08/01/2026<br><small class="text-muted">14:20</small></td>
+                  <td>12/01/2026<br><small class="text-muted">10:15</small></td>
+                  <td><span class="badge badge-danger"><i class="bi bi-x-circle"></i> Desistencia</span></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr style="background: #fee2e2;">
+                  <td><code>#INV-2026-0085</code></td>
+                  <td>
+                    <strong>Camila D.</strong>
+                    <br><small class="text-muted">camila.d***@email.com</small>
+                  </td>
+                  <td><s style="color: var(--text-muted);">R$ 3.500,00</s></td>
+                  <td>05/01/2026<br><small class="text-muted">09:30</small></td>
+                  <td>08/01/2026<br><small class="text-muted">14:45</small></td>
+                  <td><span class="badge badge-danger"><i class="bi bi-x-circle"></i> Desistencia</span></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr style="background: #fee2e2;">
+                  <td><code>#INV-2026-0072</code></td>
+                  <td>
+                    <strong>Eduardo P.</strong>
+                    <br><small class="text-muted">eduardo.p***@email.com</small>
+                  </td>
+                  <td><s style="color: var(--text-muted);">R$ 3.000,00</s></td>
+                  <td>03/01/2026<br><small class="text-muted">16:00</small></td>
+                  <td>04/01/2026<br><small class="text-muted">11:20</small></td>
+                  <td><span class="badge badge-secondary"><i class="bi bi-clock"></i> Pagamento Expirado</span></td>
+                  <td>
+                    <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="flex-between mt-20" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+            <span class="text-muted">Total de investimentos cancelados/desistencias:</span>
+            <strong style="color: var(--danger);">R$ 11.500,00</strong>
+          </div>
         </div>
       </div>
 

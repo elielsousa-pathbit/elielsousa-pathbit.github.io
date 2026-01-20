@@ -18,7 +18,7 @@
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
         <li><a href="minhas-ofertas.html" class="active"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
         <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
-        <li><a href="investidores.html"><i class="bi bi-people"></i> Investidores</a></li>
+        <li><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
         <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
@@ -106,7 +106,7 @@
               <div class="kpi-value" style="font-size: 1.5rem; color: var(--success);">R$ 375.000</div>
             </div>
             <div class="kpi-card">
-              <div class="kpi-label">Investidores</div>
+              <div class="kpi-label">Clientes</div>
               <div class="kpi-value" style="font-size: 1.5rem;">127</div>
             </div>
             <div class="kpi-card">
@@ -129,24 +129,35 @@
         </div>
         <div style="display: flex; flex-direction: column; gap: 10px;">
           <div class="flex-between" style="padding: 12px; background: var(--bg); border-radius: var(--radius);">
-            <span>[PDF] Material Principal da Oferta</span>
+            <span><i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> Material Principal da Oferta</span>
             <div class="flex gap-10">
               <span class="text-muted">2.3 MB</span>
-              <button class="btn btn-outline btn-sm">Ver</button>
+              <button class="btn btn-outline btn-sm" onclick="showModal('visualizarDocModal')"><i class="bi bi-eye"></i> Ver</button>
+              <button class="btn btn-outline btn-sm" onclick="showModal('downloadDocModal')"><i class="bi bi-download"></i></button>
             </div>
           </div>
           <div class="flex-between" style="padding: 12px; background: var(--bg); border-radius: var(--radius);">
-            <span>[PDF] Pitch Deck</span>
+            <span><i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> Pitch Deck</span>
             <div class="flex gap-10">
               <span class="text-muted">5.1 MB</span>
-              <button class="btn btn-outline btn-sm">Ver</button>
+              <button class="btn btn-outline btn-sm" onclick="showModal('visualizarDocModal')"><i class="bi bi-eye"></i> Ver</button>
+              <button class="btn btn-outline btn-sm" onclick="showModal('downloadDocModal')"><i class="bi bi-download"></i></button>
             </div>
           </div>
           <div class="flex-between" style="padding: 12px; background: var(--bg); border-radius: var(--radius);">
-            <span>[PDF] Contrato Social</span>
+            <span><i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> Contrato Social</span>
             <div class="flex gap-10">
               <span class="text-muted">450 KB</span>
-              <button class="btn btn-outline btn-sm">Ver</button>
+              <button class="btn btn-outline btn-sm" onclick="showModal('visualizarDocModal')"><i class="bi bi-eye"></i> Ver</button>
+              <button class="btn btn-outline btn-sm" onclick="showModal('downloadDocModal')"><i class="bi bi-download"></i></button>
+            </div>
+          </div>
+          <div class="flex-between" style="padding: 12px; background: var(--bg); border-radius: var(--radius);">
+            <span><i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> Demonstracoes Financeiras 2024</span>
+            <div class="flex gap-10">
+              <span class="text-muted">1.8 MB</span>
+              <button class="btn btn-outline btn-sm" onclick="showModal('visualizarDocModal')"><i class="bi bi-eye"></i> Ver</button>
+              <button class="btn btn-outline btn-sm" onclick="showModal('downloadDocModal')"><i class="bi bi-download"></i></button>
             </div>
           </div>
         </div>
@@ -156,12 +167,91 @@
 
   <!-- Modal Editar Material -->
   <div class="modal-overlay" id="editarMaterialModal" style="display: none;">
+    <div class="modal" style="max-width: 600px;">
+      <div class="modal-header">
+        <h3><i class="bi bi-pencil-square"></i> Editar Material da Oferta</h3>
+        <button class="modal-close" onclick="hideModal('editarMaterialModal')">&times;</button>
+      </div>
+      <div class="alert alert-info mb-20">
+        <i class="bi bi-info-circle"></i> Alteracoes nos materiais precisam de aprovacao da plataforma antes de serem publicadas.
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <div style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+          <div class="flex-between">
+            <span><i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> Material Principal da Oferta</span>
+            <div class="flex gap-10">
+              <button class="btn btn-outline btn-sm"><i class="bi bi-upload"></i> Substituir</button>
+              <button class="btn btn-outline btn-sm"><i class="bi bi-trash" style="color: var(--danger);"></i></button>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+          <div class="flex-between">
+            <span><i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> Pitch Deck</span>
+            <div class="flex gap-10">
+              <button class="btn btn-outline btn-sm"><i class="bi bi-upload"></i> Substituir</button>
+              <button class="btn btn-outline btn-sm"><i class="bi bi-trash" style="color: var(--danger);"></i></button>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 15px; border: 2px dashed var(--border); border-radius: var(--radius); text-align: center;">
+          <i class="bi bi-cloud-upload" style="font-size: 2rem; color: var(--text-muted);"></i>
+          <p class="text-muted">Arraste arquivos ou <a href="#" style="color: var(--primary);">clique para selecionar</a></p>
+          <small class="text-muted">PDF, PPTX ou DOCX - Maximo 30MB</small>
+        </div>
+      </div>
+      <div class="flex gap-10 mt-20">
+        <button class="btn btn-outline" onclick="hideModal('editarMaterialModal')" style="flex: 1;">Cancelar</button>
+        <button class="btn btn-primary" onclick="hideModal('editarMaterialModal'); showModal('materialEnviadoModal');" style="flex: 1;">Salvar Alteracoes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Visualizar Documento -->
+  <div class="modal-overlay" id="visualizarDocModal" style="display: none;">
+    <div class="modal" style="max-width: 900px; max-height: 90vh;">
+      <div class="modal-header">
+        <h3><i class="bi bi-file-earmark-pdf"></i> Material Principal da Oferta</h3>
+        <button class="modal-close" onclick="hideModal('visualizarDocModal')">&times;</button>
+      </div>
+      <div style="background: #f3f4f6; padding: 40px; text-align: center; border-radius: var(--radius); min-height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <i class="bi bi-file-earmark-pdf" style="font-size: 4rem; color: #dc3545; margin-bottom: 20px;"></i>
+        <h4>Visualizador de PDF</h4>
+        <p class="text-muted">Material_Principal_TechStart_Inovacao.pdf</p>
+        <p class="text-muted" style="font-size: 0.875rem;">2.3 MB - 15 paginas</p>
+        <div class="flex gap-10 mt-20">
+          <button class="btn btn-outline"><i class="bi bi-zoom-out"></i></button>
+          <span style="padding: 8px 16px; background: white; border-radius: var(--radius);">100%</span>
+          <button class="btn btn-outline"><i class="bi bi-zoom-in"></i></button>
+        </div>
+      </div>
+      <div class="flex gap-10 mt-20" style="justify-content: flex-end;">
+        <button class="btn btn-outline" onclick="showModal('downloadDocModal'); hideModal('visualizarDocModal');"><i class="bi bi-download"></i> Baixar</button>
+        <button class="btn btn-primary" onclick="hideModal('visualizarDocModal')">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Download -->
+  <div class="modal-overlay" id="downloadDocModal" style="display: none;">
     <div class="modal text-center" style="max-width: 400px;">
       <div style="padding: 30px;">
-        <i class="bi bi-pencil-square" style="font-size: 3rem; color: var(--primary);"></i>
-        <h3 style="margin: 15px 0;">Editar Material</h3>
-        <p class="text-muted">Abrindo editor de material da oferta.</p>
-        <button class="btn btn-primary mt-20" onclick="hideModal('editarMaterialModal')">OK</button>
+        <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
+        <h3 style="margin: 15px 0;">Download Iniciado</h3>
+        <p class="text-muted">O arquivo esta sendo baixado para seu dispositivo.</p>
+        <button class="btn btn-primary mt-20" onclick="hideModal('downloadDocModal')">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Material Enviado -->
+  <div class="modal-overlay" id="materialEnviadoModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 400px;">
+      <div style="padding: 30px;">
+        <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
+        <h3 style="margin: 15px 0;">Material Atualizado!</h3>
+        <p class="text-muted">As alteracoes foram enviadas para aprovacao da plataforma.</p>
+        <button class="btn btn-primary mt-20" onclick="hideModal('materialEnviadoModal')">OK</button>
       </div>
     </div>
   </div>

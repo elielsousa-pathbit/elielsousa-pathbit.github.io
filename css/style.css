@@ -1925,3 +1925,491 @@ tr:last-child td {
   gap: 10px;
   flex-wrap: wrap;
 }
+
+/* ========================================
+   COMPACT CARDS - Ofertas, Ordens, Carteira
+   ======================================== */
+
+/* Grid 3 colunas para Ofertas */
+.grid-3-offers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1100px) {
+  .grid-3-offers { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px) {
+  .grid-3-offers { grid-template-columns: 1fr; }
+}
+
+/* Offer Card - Retangular (altura > largura) */
+.offer-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+
+.offer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.offer-card .offer-header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 800;
+  position: relative;
+}
+
+.offer-card .offer-body {
+  padding: 14px;
+}
+
+.offer-card .offer-type {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.offer-card .offer-days {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.offer-card .offer-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+
+.offer-card .offer-sector {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.offer-card .offer-stats {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.offer-card .offer-stat {
+  flex: 1;
+  text-align: center;
+  padding: 8px 4px;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+}
+
+.offer-card .offer-stat-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.offer-card .offer-stat-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.offer-card .offer-progress {
+  margin-bottom: 10px;
+}
+
+.offer-card .offer-progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.offer-card .offer-progress-bar {
+  height: 5px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.offer-card .offer-progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+.offer-card .offer-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.offer-card .offer-btn:hover {
+  background: var(--primary-dark);
+}
+
+/* Badge Compacto */
+.badge-compact {
+  padding: 3px 8px;
+  font-size: 0.65rem;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* ========================================
+   ORDER ROW - Linha fina tipo tabela
+   ======================================== */
+.order-row {
+  background: var(--card);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-left: 3px solid var(--border);
+  transition: all 0.15s;
+  cursor: pointer;
+}
+
+.order-row:hover {
+  background: var(--bg);
+}
+
+.order-row.status-aguardando { border-left-color: var(--warning); }
+.order-row.status-processando { border-left-color: var(--primary); }
+.order-row.status-desistencia { border-left-color: #f59e0b; }
+.order-row.status-confirmado { border-left-color: var(--success); }
+.order-row.status-cancelado { border-left-color: var(--danger); }
+
+.order-row .order-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.order-row .order-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.order-row .order-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.order-row .order-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.order-row .order-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  min-width: 80px;
+  text-align: right;
+}
+
+.order-row .order-status {
+  min-width: 100px;
+  text-align: center;
+}
+
+.order-row .order-timeline {
+  display: flex;
+  gap: 2px;
+  width: 60px;
+}
+
+.order-row .order-timeline-step {
+  flex: 1;
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.order-row .order-timeline-step.done { background: var(--success); }
+.order-row .order-timeline-step.active { background: var(--primary); }
+
+.order-row .order-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.order-row .order-actions .btn {
+  padding: 4px 10px;
+  font-size: 0.75rem;
+}
+
+/* Filter Buttons para Ordens */
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.filter-btn {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filter-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filter-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.filter-btn .count {
+  background: rgba(0,0,0,0.1);
+  padding: 1px 6px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  margin-left: 4px;
+}
+
+.filter-btn.active .count {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Investment Item Compacto para Carteira */
+.investment-item-compact {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-left: 3px solid var(--border);
+  margin-bottom: 10px;
+}
+
+.investment-item-compact:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateX(4px);
+}
+
+.investment-item-compact.success { border-left-color: var(--success); }
+.investment-item-compact.info { border-left-color: var(--info); }
+.investment-item-compact.warning { border-left-color: var(--warning); }
+
+.investment-item-compact .inv-logo-compact {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.investment-item-compact .inv-info-compact {
+  flex: 1;
+  min-width: 0;
+}
+
+.investment-item-compact .inv-title-compact {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.investment-item-compact .inv-meta-compact {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.investment-item-compact .inv-values-compact {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.investment-item-compact .inv-value-item-compact {
+  text-align: center;
+  min-width: 60px;
+}
+
+.investment-item-compact .inv-value-label-compact {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.investment-item-compact .inv-value-number-compact {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* KPI Cards Compactos */
+.kpi-grid-compact {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.kpi-card-compact {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 14px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.kpi-card-compact .kpi-label-compact {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.kpi-card-compact .kpi-value-compact {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.kpi-card-compact .kpi-change-compact {
+  font-size: 0.7rem;
+  margin-top: 4px;
+}
+
+/* Tabs Compactas */
+.tabs-compact {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+  gap: 4px;
+}
+
+.tab-compact {
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  position: relative;
+}
+
+.tab-compact.active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.tab-compact.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+}
+
+/* Responsivo para grids compactos */
+@media (max-width: 1400px) {
+  .grid-5 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  .grid-5,
+  .grid-4-compact {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .grid-5,
+  .grid-4-compact {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .kpi-grid-compact {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .grid-5,
+  .grid-4-compact {
+    grid-template-columns: 1fr;
+  }
+  .kpi-grid-compact {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Utilitarios adicionais */
+.gap-15 {
+  gap: 15px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -6,74 +6,9 @@
   <title>Minha Carteira - CrowdInvest</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../../css/style.css">
-  <style>
-    .balance-card {
-      background: linear-gradient(135deg, var(--primary), #1d4ed8);
-      color: white;
-      border-radius: var(--radius);
-      padding: 30px;
-      margin-bottom: 20px;
-    }
-    .balance-label {
-      font-size: 0.875rem;
-      opacity: 0.9;
-    }
-    .balance-value {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin: 10px 0;
-    }
-    .balance-actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
-    }
-    .balance-actions .btn {
-      background: rgba(255,255,255,0.2);
-      border: 1px solid rgba(255,255,255,0.3);
-      color: white;
-    }
-    .balance-actions .btn:hover {
-      background: rgba(255,255,255,0.3);
-    }
-    .transaction-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .transaction-item:last-child {
-      border-bottom: none;
-    }
-    .transaction-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 15px;
-    }
-    .transaction-icon.in { background: #dcfce7; color: var(--success); }
-    .transaction-icon.out { background: #fee2e2; color: var(--danger); }
-    .transaction-icon.pending { background: #fef3c7; color: var(--warning); }
-    .pending-card {
-      background: #fffbeb;
-      border: 1px solid #fbbf24;
-      border-radius: var(--radius);
-      padding: 20px;
-      margin-bottom: 15px;
-    }
-    .pending-card.processing {
-      background: #eff6ff;
-      border-color: var(--info);
-    }
-  </style>
 </head>
 <body>
   <div class="dashboard">
-    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-logo">
         <a href="../../index.html" class="logo">CrowdInvest</a>
@@ -82,8 +17,7 @@
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
         <li><a href="ofertas.html"><i class="bi bi-megaphone"></i> Ofertas</a></li>
         <li><a href="minhas-ordens.html"><i class="bi bi-clock-history"></i> Minhas Ordens</a></li>
-        <li><a href="meus-investimentos.html"><i class="bi bi-briefcase"></i> Meu Portfolio</a></li>
-        <li><a href="carteira.html" class="active"><i class="bi bi-wallet2"></i> Carteira</a></li>
+        <li><a href="carteira.html" class="active"><i class="bi bi-wallet2"></i> Minha Carteira</a></li>
         <li><a href="extrato.html"><i class="bi bi-list-ul"></i> Extrato</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
@@ -93,340 +27,560 @@
     </aside>
     <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
 
-    <!-- Main Content -->
     <main class="main-content">
       <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i> Menu</button>
 
       <div class="page-header">
         <div>
-          <h1 class="page-title">Carteira</h1>
-          <p class="text-muted">Saldo, dividendos e saques</p>
+          <h1 class="page-title">Minha Carteira</h1>
+          <p class="text-muted">Investimentos, saldo e rendimentos</p>
         </div>
+        <a href="ofertas.html" class="btn btn-primary btn-sm"><i class="bi bi-plus-lg"></i> Investir</a>
       </div>
 
-      <!-- Balance Card -->
-      <div class="balance-card">
-        <div class="balance-label">Saldo Disponivel para Saque</div>
-        <div class="balance-value">R$ 2.350,00</div>
-        <p style="opacity: 0.8; font-size: 0.875rem;">
-          <i class="bi bi-info-circle"></i> Valores de estornos e dividendos recebidos
-        </p>
-        <div class="balance-actions">
-          <a href="deposito.html" class="btn">
-            <i class="bi bi-plus-circle"></i> Depositar
-          </a>
-          <a href="saque.html" class="btn">
-            <i class="bi bi-arrow-up-circle"></i> Solicitar Saque
-          </a>
-        </div>
-      </div>
-
-      <!-- KPIs -->
-      <div class="kpi-grid mb-30">
-        <div class="kpi-card">
-          <div class="kpi-label">Total Investido</div>
-          <div class="kpi-value">R$ 15.000</div>
-          <div class="kpi-change">Em 3 empresas</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Dividendos Recebidos</div>
-          <div class="kpi-value">R$ 850</div>
-          <div class="kpi-change positive">+R$ 350 este mes</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Estornos (Desistencias)</div>
-          <div class="kpi-value">R$ 1.500</div>
-          <div class="kpi-change">1 desistencia</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Total Sacado</div>
-          <div class="kpi-value">R$ 0</div>
-          <div class="kpi-change">Nenhum saque</div>
-        </div>
-      </div>
-
-      <!-- Pending Transactions -->
-      <div class="card mb-20">
-        <div class="card-header">
-          <h3 class="card-title"><i class="bi bi-clock-history"></i> Transacoes em Andamento</h3>
-        </div>
-
-        <div class="pending-card processing">
-          <div class="flex-between" style="flex-wrap: wrap; gap: 15px;">
-            <div class="flex gap-15" style="align-items: center;">
-              <div class="transaction-icon pending">
-                <i class="bi bi-hourglass-split"></i>
-              </div>
-              <div>
-                <strong>Estorno - Desistencia EcoFood</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Solicitado em 20/01/2026</p>
-              </div>
-            </div>
-            <div class="text-right">
-              <strong style="color: var(--success);">+ R$ 3.000,00</strong>
-              <p style="font-size: 0.75rem;"><span class="badge badge-info">Processando</span></p>
+      <!-- Balance Card Compacto -->
+      <div style="background: linear-gradient(135deg, var(--primary), #1d4ed8); color: white; border-radius: var(--radius); padding: 20px; margin-bottom: 16px;">
+        <div class="flex-between" style="flex-wrap: wrap; gap: 16px;">
+          <div>
+            <div style="font-size: 0.8rem; opacity: 0.9;">Patrimonio Total</div>
+            <div style="font-size: 2rem; font-weight: 700;">R$ 20.850,00</div>
+            <div style="font-size: 0.85rem; opacity: 0.9; margin-top: 4px;">
+              <i class="bi bi-briefcase"></i> R$ 18.500 investido &nbsp;•&nbsp;
+              <i class="bi bi-cash"></i> R$ 2.350 saldo livre
             </div>
           </div>
-          <div class="progress mt-20" style="height: 6px;">
-            <div class="progress-bar" style="width: 60%; background: var(--info);"></div>
-          </div>
-          <p class="text-muted mt-20" style="font-size: 0.75rem;">
-            <i class="bi bi-calendar3"></i> Previsao de credito: <strong>22/01/2026</strong> (1-2 dias uteis)
-          </p>
-        </div>
-
-        <div class="alert alert-info" style="margin-top: 15px;">
-          <i class="bi bi-info-circle"></i> Estornos por desistencia sao processados em ate <strong>2 dias uteis</strong> apos a solicitacao.
-        </div>
-      </div>
-
-      <div class="grid-2">
-        <!-- Recent Transactions -->
-        <div class="card">
-          <div class="card-header flex-between">
-            <h3 class="card-title">Movimentacoes Recentes</h3>
-            <a href="extrato.html" style="color: var(--primary);">Ver todas</a>
-          </div>
-
-          <div class="transaction-item">
-            <div class="flex" style="align-items: center;">
-              <div class="transaction-icon in">
-                <i class="bi bi-arrow-down"></i>
-              </div>
-              <div>
-                <strong>Dividendo HealthTech</strong>
-                <p class="text-muted" style="font-size: 0.75rem;">15/01/2026</p>
-              </div>
-            </div>
-            <strong style="color: var(--success);">+ R$ 350,00</strong>
-          </div>
-
-          <div class="transaction-item">
-            <div class="flex" style="align-items: center;">
-              <div class="transaction-icon in">
-                <i class="bi bi-arrow-down"></i>
-              </div>
-              <div>
-                <strong>Estorno - GreenTech</strong>
-                <p class="text-muted" style="font-size: 0.75rem;">10/01/2026</p>
-              </div>
-            </div>
-            <strong style="color: var(--success);">+ R$ 1.500,00</strong>
-          </div>
-
-          <div class="transaction-item">
-            <div class="flex" style="align-items: center;">
-              <div class="transaction-icon in">
-                <i class="bi bi-arrow-down"></i>
-              </div>
-              <div>
-                <strong>Dividendo HealthTech</strong>
-                <p class="text-muted" style="font-size: 0.75rem;">01/01/2026</p>
-              </div>
-            </div>
-            <strong style="color: var(--success);">+ R$ 500,00</strong>
-          </div>
-        </div>
-
-        <!-- Withdrawal Info -->
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"><i class="bi bi-bank"></i> Dados para Saque</h3>
-          </div>
-
-          <div style="background: var(--bg); padding: 15px; border-radius: var(--radius); margin-bottom: 20px;">
-            <p class="text-muted" style="font-size: 0.75rem;">CHAVE PIX CADASTRADA</p>
-            <div class="flex-between" style="margin-top: 5px;">
-              <strong>joao.silva@email.com</strong>
-              <button class="btn btn-outline btn-sm" onclick="showModal('copiadoModal')"><i class="bi bi-copy"></i></button>
-            </div>
-          </div>
-
-          <div style="background: var(--bg); padding: 15px; border-radius: var(--radius);">
-            <p class="text-muted" style="font-size: 0.75rem;">BANCO ASSOCIADO</p>
-            <p><strong>Banco Inter</strong></p>
-            <p class="text-muted" style="font-size: 0.875rem;">Joao Carlos Silva</p>
-            <p class="text-muted" style="font-size: 0.875rem;">CPF: ***.***.789-00</p>
-          </div>
-
-          <button class="btn btn-outline btn-block mt-20" onclick="showModal('editarPixModal')">
-            <i class="bi bi-pencil"></i> Alterar Dados de Saque
-          </button>
-
-          <div class="alert alert-warning mt-20" style="font-size: 0.875rem;">
-            <i class="bi bi-exclamation-triangle"></i> Saques so podem ser feitos para contas de mesma titularidade (CPF).
+          <div class="flex gap-10">
+            <a href="deposito.html" class="btn btn-sm" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); color: white;"><i class="bi bi-arrow-down-circle"></i> Depositar</a>
+            <a href="saque.html" class="btn btn-sm" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); color: white;"><i class="bi bi-arrow-up-circle"></i> Sacar</a>
           </div>
         </div>
       </div>
 
-      <!-- Link para Ordens -->
-      <div class="alert alert-info mt-20">
-        <i class="bi bi-info-circle"></i>
-        Para ver reservas pendentes de pagamento ou investimentos em periodo de desistencia, acesse <a href="minhas-ordens.html" style="color: inherit; font-weight: bold;">Minhas Ordens</a>.
+      <!-- KPIs Compactos -->
+      <div class="kpi-grid-compact mb-15">
+        <div class="kpi-card-compact">
+          <div class="kpi-label-compact">Investido</div>
+          <div class="kpi-value-compact">R$ 18.500</div>
+          <div class="kpi-change-compact text-muted">5 ativos</div>
+        </div>
+        <div class="kpi-card-compact">
+          <div class="kpi-label-compact">Saldo Disponivel</div>
+          <div class="kpi-value-compact" style="color: var(--success);">R$ 2.350</div>
+          <div class="kpi-change-compact text-muted">Dividendos + Estornos</div>
+        </div>
+        <div class="kpi-card-compact">
+          <div class="kpi-label-compact">Rendimentos 2026</div>
+          <div class="kpi-value-compact" style="color: var(--success);">R$ 850</div>
+          <div class="kpi-change-compact positive">+R$ 350 este mes</div>
+        </div>
+        <div class="kpi-card-compact">
+          <div class="kpi-label-compact">Limite 2026</div>
+          <div class="kpi-value-compact">R$ 1.500</div>
+          <div class="kpi-change-compact text-muted">de R$ 20.000</div>
+        </div>
+      </div>
+
+      <!-- Tabs Compactas -->
+      <div class="tabs-compact mb-15">
+        <button class="tab-compact active" onclick="switchTab(this, 'investimentos')">
+          <i class="bi bi-briefcase"></i> Investimentos (5)
+        </button>
+        <button class="tab-compact" onclick="switchTab(this, 'saldo')">
+          <i class="bi bi-cash-stack"></i> Saldo
+        </button>
+        <button class="tab-compact" onclick="switchTab(this, 'composicao')">
+          <i class="bi bi-pie-chart"></i> Composicao
+        </button>
+      </div>
+
+      <!-- Tab: Investimentos -->
+      <div id="investimentos" class="tab-content">
+        <!-- Filtro rapido -->
+        <div class="flex gap-10 mb-15" style="flex-wrap: wrap;">
+          <button class="btn btn-outline btn-sm active">Todos (5)</button>
+          <button class="btn btn-outline btn-sm">Equity (2)</button>
+          <button class="btn btn-outline btn-sm">Renda Fixa (3)</button>
+          <button class="btn btn-outline btn-sm" style="color: var(--success);">Com Resgate (1)</button>
+        </div>
+
+        <!-- Investment Items Compactos -->
+        <div class="investment-item-compact success" onclick="showModal('detalheTechStartModal')">
+          <div class="inv-logo-compact" style="background: linear-gradient(135deg, var(--primary), #1d4ed8);">TS</div>
+          <div class="inv-info-compact">
+            <div class="inv-title-compact">TechStart Inovacao</div>
+            <div class="inv-meta-compact">
+              <span class="badge-compact" style="background: #7c3aed; color: white;">Equity</span> Tecnologia • 15/01/2026
+            </div>
+          </div>
+          <div class="inv-values-compact">
+            <div class="inv-value-item-compact">
+              <div class="inv-value-label-compact">Valor</div>
+              <div class="inv-value-number-compact">R$ 5.000</div>
+            </div>
+            <div class="inv-value-item-compact">
+              <div class="inv-value-label-compact">Equity</div>
+              <div class="inv-value-number-compact">1.5%</div>
+            </div>
+          </div>
+          <span class="badge-compact badge-success"><i class="bi bi-check"></i></span>
+          <i class="bi bi-chevron-right text-muted"></i>
+        </div>
+
+        <div class="investment-item-compact info" onclick="showModal('detalheHealthTechModal')">
+          <div class="inv-logo-compact" style="background: linear-gradient(135deg, #ef4444, #dc2626);">HT</div>
+          <div class="inv-info-compact">
+            <div class="inv-title-compact">HealthTech Solutions</div>
+            <div class="inv-meta-compact">
+              <span class="badge-compact" style="background: #7c3aed; color: white;">Equity</span> Saude • 05/12/2025
+            </div>
+          </div>
+          <div class="inv-values-compact">
+            <div class="inv-value-item-compact">
+              <div class="inv-value-label-compact">Valor</div>
+              <div class="inv-value-number-compact">R$ 7.000</div>
+            </div>
+            <div class="inv-value-item-compact">
+              <div class="inv-value-label-compact">Dividendos</div>
+              <div class="inv-value-number-compact" style="color: var(--success);">+R$ 850</div>
+            </div>
+          </div>
+          <span class="badge-compact badge-info"><i class="bi bi-trophy"></i></span>
+          <i class="bi bi-chevron-right text-muted"></i>
+        </div>
+
+        <div class="investment-item-compact success" onclick="showModal('detalheCRAModal')">
+          <div class="inv-logo-compact" style="background: linear-gradient(135deg, #22c55e, #16a34a);">CRA</div>
+          <div class="inv-info-compact">
+            <div class="inv-title-compact">Cooperativa AgroVerde</div>
+            <div class="inv-meta-compact">
+              <span class="badge-compact" style="background: #22c55e; color: white;">CRA</span> Agro • Venc. 01/2028
+            </div>
+          </div>
+          <div class="inv-values-compact">
+            <div class="inv-value-item-compact">
+              <div class="inv-value-label-compact">Valor</div>
+              <div class="inv-value-number-compact">R$ 3.500</div>
+            </div>
+            <div class="inv-value-item-compact">
+              <div class="inv-value-label-compact">Taxa</div>
+              <div class="inv-value-number-compact" style="color: #22c55e;">CDI+4,5%</div>
+            </div>
+          </div>
+          <span class="badge-compact badge-success"><i class="bi bi-check"></i></span>
+          <i class="bi bi-chevron-right text-muted"></i>
+        </div>
+
+        <!-- Item com RESGATE DISPONIVEL -->
+        <div class="investment-item-compact warning" onclick="showModal('detalheCRIModal')" style="border-left-color: #f59e0b;">
+          <div class="inv-logo-compact" style="background: linear-gradient(135deg, #0891b2, #0e7490);">CRI</div>
+          <div class="inv-info-compact">
+            <div class="inv-title-compact">Residencial Parque das Flores</div>
+            <div class="inv-meta-compact">
+              <span class="badge-compact" style="background: #0891b2; color: white;">CRI</span> Imobiliario • Venc. 01/2029
+            </div>
+          </div>
+          <div class="inv-values-compact">
+            <div class="inv-value-item-compact">
+              <div class="inv-value-label-compact">Valor</div>
+              <div class="inv-value-number-compact">R$ 3.000</div>
+            </div>
+            <div class="inv-value-item-compact">
+              <div class="inv-value-label-compact">Taxa</div>
+              <div class="inv-value-number-compact" style="color: #0891b2;">IPCA+8%</div>
+            </div>
+          </div>
+          <span class="badge-compact" style="background: #fef3c7; color: #92400e;"><i class="bi bi-unlock"></i> Resgate</span>
+          <i class="bi bi-chevron-right text-muted"></i>
+        </div>
+
+        <div class="investment-item-compact success" onclick="showModal('detalheCRModal')">
+          <div class="inv-logo-compact" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">CR</div>
+          <div class="inv-info-compact">
+            <div class="inv-title-compact">SolarTech Energia</div>
+            <div class="inv-meta-compact">
+              <span class="badge-compact" style="background: #8b5cf6; color: white;">CR</span> Energia • Venc. 12/2029
+            </div>
+          </div>
+          <div class="inv-values-compact">
+            <div class="inv-value-item-compact">
+              <div class="inv-value-label-compact">Valor</div>
+              <div class="inv-value-number-compact">R$ 0</div>
+            </div>
+            <div class="inv-value-item-compact">
+              <div class="inv-value-label-compact">Taxa</div>
+              <div class="inv-value-number-compact" style="color: #8b5cf6;">IPCA+10%</div>
+            </div>
+          </div>
+          <span class="badge-compact badge-secondary">Em Captacao</span>
+          <i class="bi bi-chevron-right text-muted"></i>
+        </div>
+
+        <div class="alert alert-info mt-15" style="font-size: 0.85rem; padding: 12px;">
+          <i class="bi bi-info-circle"></i> Ordens pendentes (aguardando PIX, processando ou desistencia) estao em <a href="minhas-ordens.html" style="color: inherit; font-weight: bold;">Minhas Ordens</a>.
+        </div>
+      </div>
+
+      <!-- Tab: Saldo -->
+      <div id="saldo" class="tab-content" style="display: none;">
+        <div class="grid-2" style="gap: 16px;">
+          <!-- Saldo Card -->
+          <div class="card" style="padding: 16px;">
+            <h4 style="font-size: 0.9rem; margin-bottom: 12px;"><i class="bi bi-cash-stack"></i> Saldo Disponivel</h4>
+            <div style="background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 16px; border-radius: var(--radius); margin-bottom: 12px;">
+              <div style="font-size: 0.8rem; opacity: 0.9;">Disponivel para saque</div>
+              <div style="font-size: 1.75rem; font-weight: 700;">R$ 2.350,00</div>
+            </div>
+            <div style="font-size: 0.85rem;">
+              <div class="flex-between" style="padding: 8px; background: var(--bg); border-radius: var(--radius); margin-bottom: 6px;">
+                <span class="text-muted">Dividendos</span>
+                <strong style="color: var(--success);">R$ 850</strong>
+              </div>
+              <div class="flex-between" style="padding: 8px; background: var(--bg); border-radius: var(--radius); margin-bottom: 6px;">
+                <span class="text-muted">Estornos</span>
+                <strong style="color: var(--success);">R$ 1.500</strong>
+              </div>
+              <div class="flex-between" style="padding: 8px; background: var(--bg); border-radius: var(--radius);">
+                <span class="text-muted">Sacado</span>
+                <strong>R$ 0</strong>
+              </div>
+            </div>
+            <a href="saque.html" class="btn btn-primary btn-sm btn-block mt-15"><i class="bi bi-arrow-up-circle"></i> Solicitar Saque</a>
+          </div>
+
+          <!-- Dados Saque -->
+          <div class="card" style="padding: 16px;">
+            <h4 style="font-size: 0.9rem; margin-bottom: 12px;"><i class="bi bi-bank"></i> Dados para Saque</h4>
+            <div style="background: var(--bg); padding: 12px; border-radius: var(--radius); margin-bottom: 10px;">
+              <div class="text-muted" style="font-size: 0.7rem;">CHAVE PIX</div>
+              <div class="flex-between mt-5">
+                <strong style="font-size: 0.9rem;">joao.silva@email.com</strong>
+                <button class="btn btn-outline btn-sm" style="padding: 2px 8px;" onclick="showModal('copiadoModal')"><i class="bi bi-copy"></i></button>
+              </div>
+            </div>
+            <div style="background: var(--bg); padding: 12px; border-radius: var(--radius);">
+              <div class="text-muted" style="font-size: 0.7rem;">BANCO</div>
+              <div style="font-size: 0.9rem;"><strong>Banco Inter</strong></div>
+              <div class="text-muted" style="font-size: 0.8rem;">Joao Carlos Silva</div>
+            </div>
+            <button class="btn btn-outline btn-sm btn-block mt-15" onclick="showModal('editarPixModal')"><i class="bi bi-pencil"></i> Alterar</button>
+          </div>
+        </div>
+
+        <!-- Movimentacoes -->
+        <div class="card mt-15" style="padding: 16px;">
+          <div class="flex-between mb-10">
+            <h4 style="font-size: 0.9rem;"><i class="bi bi-arrow-left-right"></i> Movimentacoes Recentes</h4>
+            <a href="extrato.html" style="color: var(--primary); font-size: 0.8rem;">Ver todas</a>
+          </div>
+          <div style="font-size: 0.85rem;">
+            <div class="flex-between" style="padding: 10px 0; border-bottom: 1px solid var(--border);">
+              <div class="flex gap-10" style="align-items: center;">
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: #dcfce7; color: var(--success); display: flex; align-items: center; justify-content: center;"><i class="bi bi-arrow-down"></i></div>
+                <div>
+                  <strong>Dividendo HealthTech</strong>
+                  <div class="text-muted" style="font-size: 0.75rem;">15/01/2026</div>
+                </div>
+              </div>
+              <strong style="color: var(--success);">+ R$ 350</strong>
+            </div>
+            <div class="flex-between" style="padding: 10px 0; border-bottom: 1px solid var(--border);">
+              <div class="flex gap-10" style="align-items: center;">
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: #dcfce7; color: var(--success); display: flex; align-items: center; justify-content: center;"><i class="bi bi-arrow-down"></i></div>
+                <div>
+                  <strong>Estorno - GreenTech Solar</strong>
+                  <div class="text-muted" style="font-size: 0.75rem;">10/01/2026</div>
+                </div>
+              </div>
+              <strong style="color: var(--success);">+ R$ 1.500</strong>
+            </div>
+            <div class="flex-between" style="padding: 10px 0;">
+              <div class="flex gap-10" style="align-items: center;">
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: #dcfce7; color: var(--success); display: flex; align-items: center; justify-content: center;"><i class="bi bi-arrow-down"></i></div>
+                <div>
+                  <strong>Dividendo HealthTech</strong>
+                  <div class="text-muted" style="font-size: 0.75rem;">01/01/2026</div>
+                </div>
+              </div>
+              <strong style="color: var(--success);">+ R$ 500</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Composicao -->
+      <div id="composicao" class="tab-content" style="display: none;">
+        <div class="grid-2" style="gap: 16px;">
+          <div class="card" style="padding: 16px;">
+            <h4 style="font-size: 0.9rem; margin-bottom: 12px;"><i class="bi bi-pie-chart"></i> Por Tipo</h4>
+            <div style="font-size: 0.85rem;">
+              <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius); border-left: 3px solid #7c3aed; margin-bottom: 8px;">
+                <div><strong style="color: #7c3aed;">Equity</strong><br><small class="text-muted">2 participacoes</small></div>
+                <strong>R$ 12.000 (65%)</strong>
+              </div>
+              <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius); border-left: 3px solid #22c55e; margin-bottom: 8px;">
+                <div><strong style="color: #22c55e;">CRA</strong><br><small class="text-muted">1 titulo</small></div>
+                <strong>R$ 3.500 (19%)</strong>
+              </div>
+              <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius); border-left: 3px solid #0891b2;">
+                <div><strong style="color: #0891b2;">CRI</strong><br><small class="text-muted">1 titulo</small></div>
+                <strong>R$ 3.000 (16%)</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 16px;">
+            <h4 style="font-size: 0.9rem; margin-bottom: 12px;"><i class="bi bi-graph-up"></i> Grafico</h4>
+            <div style="text-align: center;">
+              <div style="position: relative; width: 140px; height: 140px; margin: 0 auto;">
+                <div style="width: 100%; height: 100%; border-radius: 50%; background: conic-gradient(#7c3aed 0deg 234deg, #22c55e 234deg 302deg, #0891b2 302deg 360deg);"></div>
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                  <strong style="font-size: 1rem;">R$ 18,5k</strong>
+                  <small class="text-muted" style="font-size: 0.65rem;">Investido</small>
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-10 mt-15" style="justify-content: center; flex-wrap: wrap; font-size: 0.8rem;">
+              <span class="flex gap-5" style="align-items: center;"><span style="width: 10px; height: 10px; background: #7c3aed; border-radius: 50%;"></span> Equity</span>
+              <span class="flex gap-5" style="align-items: center;"><span style="width: 10px; height: 10px; background: #22c55e; border-radius: 50%;"></span> CRA</span>
+              <span class="flex gap-5" style="align-items: center;"><span style="width: 10px; height: 10px; background: #0891b2; border-radius: 50%;"></span> CRI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Por Setor -->
+        <div class="card mt-15" style="padding: 16px;">
+          <h4 style="font-size: 0.9rem; margin-bottom: 12px;"><i class="bi bi-building"></i> Por Setor</h4>
+          <div class="table-container">
+            <table style="font-size: 0.85rem;">
+              <thead><tr><th>Setor</th><th>Qtd</th><th>Valor</th><th>%</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Saude</strong></td><td>1</td><td>R$ 7.000</td><td>38%</td></tr>
+                <tr><td><strong>Tecnologia</strong></td><td>1</td><td>R$ 5.000</td><td>27%</td></tr>
+                <tr><td><strong>Agronegocio</strong></td><td>1</td><td>R$ 3.500</td><td>19%</td></tr>
+                <tr><td><strong>Imobiliario</strong></td><td>1</td><td>R$ 3.000</td><td>16%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </main>
   </div>
 
-  <!-- Modal Saque -->
-  <div class="modal-overlay" id="saqueModal" style="display: none;">
-    <div class="modal">
-      <div class="modal-header">
-        <h3><i class="bi bi-arrow-up-circle"></i> Solicitar Saque</h3>
-        <button class="modal-close" onclick="hideModal('saqueModal')">&times;</button>
-      </div>
-
-      <div style="background: var(--bg); padding: 15px; border-radius: var(--radius); margin-bottom: 20px;">
-        <div class="flex-between">
-          <span>Saldo disponivel:</span>
-          <strong style="color: var(--success);">R$ 2.350,00</strong>
+  <!-- Modals Compactos -->
+  <div class="modal-overlay" id="detalheTechStartModal" style="display: none;">
+    <div class="modal" style="max-width: 550px;">
+      <div class="modal-header" style="padding: 16px;">
+        <div class="flex gap-10" style="align-items: center;">
+          <div style="width: 40px; height: 40px; border-radius: 8px; background: linear-gradient(135deg, var(--primary), #1d4ed8); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold;">TS</div>
+          <div>
+            <h3 style="margin: 0; font-size: 1rem;">TechStart Inovacao</h3>
+            <p class="text-muted" style="margin: 0; font-size: 0.8rem;">Equity • Tecnologia</p>
+          </div>
         </div>
+        <button class="modal-close" onclick="hideModal('detalheTechStartModal')">&times;</button>
       </div>
-
-      <div class="form-group">
-        <label class="form-label">Valor do Saque</label>
-        <div style="position: relative;">
-          <span style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted);">R$</span>
-          <input type="text" class="form-input" style="padding-left: 40px;" placeholder="0,00" value="2.350,00">
+      <div style="padding: 0 16px 16px;">
+        <div class="alert alert-success mb-15" style="padding: 10px; font-size: 0.85rem;">
+          <i class="bi bi-check-circle"></i> <strong>Confirmado</strong> - Desistencia encerrou 20/01/2026
         </div>
-        <div class="flex gap-10 mt-20">
-          <button class="btn btn-outline btn-sm" onclick="this.closest('.form-group').querySelector('input').value = '500,00'">R$ 500</button>
-          <button class="btn btn-outline btn-sm" onclick="this.closest('.form-group').querySelector('input').value = '1.000,00'">R$ 1.000</button>
-          <button class="btn btn-outline btn-sm" onclick="this.closest('.form-group').querySelector('input').value = '2.350,00'">Tudo</button>
+        <div class="grid-2" style="gap: 12px; margin-bottom: 12px; font-size: 0.85rem;">
+          <div style="background: var(--bg); padding: 12px; border-radius: var(--radius);">
+            <div class="flex-between mb-5"><span class="text-muted">Valor:</span> <strong>R$ 5.000</strong></div>
+            <div class="flex-between mb-5"><span class="text-muted">Equity:</span> <strong>1.5%</strong></div>
+            <div class="flex-between"><span class="text-muted">Data:</span> <strong>15/01/2026</strong></div>
+          </div>
+          <div style="background: var(--bg); padding: 12px; border-radius: var(--radius);">
+            <div class="flex-between mb-5"><span class="text-muted">Meta:</span> <strong>R$ 500k</strong></div>
+            <div class="flex-between mb-5"><span class="text-muted">Captado:</span> <strong style="color: var(--success);">75%</strong></div>
+            <div class="flex-between"><span class="text-muted">Prazo:</span> <strong>23 dias</strong></div>
+          </div>
         </div>
-      </div>
-
-      <div style="background: var(--bg); padding: 15px; border-radius: var(--radius); margin: 20px 0;">
-        <p class="text-muted" style="font-size: 0.75rem;">TRANSFERIR PARA</p>
-        <p><strong>PIX: joao.silva@email.com</strong></p>
-        <p class="text-muted" style="font-size: 0.875rem;">Banco Inter - Joao Carlos Silva</p>
-      </div>
-
-      <div class="alert alert-info" style="font-size: 0.875rem;">
-        <i class="bi bi-clock"></i> O saque sera processado em ate <strong>1-2 dias uteis</strong>.
-      </div>
-
-      <div class="flex gap-10 mt-20">
-        <button class="btn btn-secondary" onclick="hideModal('saqueModal')" style="flex: 1;">Cancelar</button>
-        <button class="btn btn-primary" onclick="hideModal('saqueModal'); showModal('saqueSucessoModal');" style="flex: 1;">
-          <i class="bi bi-check"></i> Confirmar Saque
-        </button>
+        <div class="flex gap-10">
+          <a href="investimento-detalhe.html" class="btn btn-primary btn-sm" style="flex: 1;"><i class="bi bi-eye"></i> Ver Detalhes</a>
+          <button class="btn btn-outline btn-sm" onclick="hideModal('detalheTechStartModal')">Fechar</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Modal Cancelar Reserva -->
-  <div class="modal-overlay" id="cancelarReservaModal" style="display: none;">
-    <div class="modal">
-      <div class="modal-header">
-        <h3><i class="bi bi-exclamation-triangle" style="color: var(--warning);"></i> Cancelar Reserva</h3>
-        <button class="modal-close" onclick="hideModal('cancelarReservaModal')">&times;</button>
+  <div class="modal-overlay" id="detalheHealthTechModal" style="display: none;">
+    <div class="modal" style="max-width: 550px;">
+      <div class="modal-header" style="padding: 16px;">
+        <div class="flex gap-10" style="align-items: center;">
+          <div style="width: 40px; height: 40px; border-radius: 8px; background: linear-gradient(135deg, #ef4444, #dc2626); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold;">HT</div>
+          <div>
+            <h3 style="margin: 0; font-size: 1rem;">HealthTech Solutions</h3>
+            <p class="text-muted" style="margin: 0; font-size: 0.8rem;">Equity • Saude</p>
+          </div>
+        </div>
+        <button class="modal-close" onclick="hideModal('detalheHealthTechModal')">&times;</button>
       </div>
-
-      <p>Tem certeza que deseja cancelar a reserva de <strong>R$ 2.000,00</strong> na <strong>FinTech Solutions</strong>?</p>
-
-      <div class="alert alert-warning mt-20">
-        <strong>Importante:</strong> Ao cancelar, a vaga sera liberada para outros investidores.
-      </div>
-
-      <div class="flex gap-10 mt-20">
-        <button class="btn btn-secondary" onclick="hideModal('cancelarReservaModal')" style="flex: 1;">Voltar</button>
-        <button class="btn btn-danger" onclick="hideModal('cancelarReservaModal'); showModal('reservaCanceladaModal');" style="flex: 1;">
-          Sim, Cancelar
-        </button>
+      <div style="padding: 0 16px 16px;">
+        <div class="alert alert-info mb-15" style="padding: 10px; font-size: 0.85rem;">
+          <i class="bi bi-trophy"></i> <strong>Oferta Concluida!</strong> - 234 investidores
+        </div>
+        <div class="grid-2" style="gap: 12px; margin-bottom: 12px; font-size: 0.85rem;">
+          <div style="background: var(--bg); padding: 12px; border-radius: var(--radius);">
+            <div class="flex-between mb-5"><span class="text-muted">Valor:</span> <strong>R$ 7.000</strong></div>
+            <div class="flex-between mb-5"><span class="text-muted">Equity:</span> <strong>1.87%</strong></div>
+            <div class="flex-between"><span class="text-muted">Data:</span> <strong>05/12/2025</strong></div>
+          </div>
+          <div style="background: #dcfce7; padding: 12px; border-radius: var(--radius);">
+            <div class="flex-between mb-5"><span class="text-muted">Dividendos:</span> <strong style="color: var(--success);">R$ 850</strong></div>
+            <div class="flex-between"><span class="text-muted">Prox. Relatorio:</span> <strong>Mar/2026</strong></div>
+          </div>
+        </div>
+        <div class="flex gap-10">
+          <a href="investimento-detalhe.html" class="btn btn-primary btn-sm" style="flex: 1;"><i class="bi bi-eye"></i> Ver Detalhes</a>
+          <button class="btn btn-outline btn-sm" onclick="hideModal('detalheHealthTechModal')">Fechar</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Modal Copiado -->
+  <div class="modal-overlay" id="detalheCRAModal" style="display: none;">
+    <div class="modal" style="max-width: 550px;">
+      <div class="modal-header" style="padding: 16px;">
+        <div class="flex gap-10" style="align-items: center;">
+          <div style="width: 40px; height: 40px; border-radius: 8px; background: linear-gradient(135deg, #22c55e, #16a34a); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8rem;">CRA</div>
+          <div>
+            <h3 style="margin: 0; font-size: 1rem;">Cooperativa AgroVerde</h3>
+            <p class="text-muted" style="margin: 0; font-size: 0.8rem;">CRA • Agronegocio</p>
+          </div>
+        </div>
+        <button class="modal-close" onclick="hideModal('detalheCRAModal')">&times;</button>
+      </div>
+      <div style="padding: 0 16px 16px;">
+        <div class="grid-2" style="gap: 12px; margin-bottom: 12px; font-size: 0.85rem;">
+          <div style="background: var(--bg); padding: 12px; border-radius: var(--radius);">
+            <div class="flex-between mb-5"><span class="text-muted">Valor:</span> <strong>R$ 3.500</strong></div>
+            <div class="flex-between mb-5"><span class="text-muted">Taxa:</span> <strong style="color: #22c55e;">CDI + 4,5%</strong></div>
+            <div class="flex-between"><span class="text-muted">Vencimento:</span> <strong>01/2028</strong></div>
+          </div>
+          <div style="background: #f0fdf4; padding: 12px; border-radius: var(--radius); border-left: 3px solid #22c55e;">
+            <div style="font-size: 0.8rem;"><strong><i class="bi bi-shield-check"></i> Garantias</strong></div>
+            <div class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Penhor de Safra + Aval + Seguro</div>
+          </div>
+        </div>
+        <div class="flex gap-10">
+          <a href="oferta-detalhe-cra.html" class="btn btn-primary btn-sm" style="flex: 1;"><i class="bi bi-eye"></i> Ver Detalhes</a>
+          <button class="btn btn-outline btn-sm" onclick="hideModal('detalheCRAModal')">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="detalheCRIModal" style="display: none;">
+    <div class="modal" style="max-width: 550px;">
+      <div class="modal-header" style="padding: 16px;">
+        <div class="flex gap-10" style="align-items: center;">
+          <div style="width: 40px; height: 40px; border-radius: 8px; background: linear-gradient(135deg, #0891b2, #0e7490); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8rem;">CRI</div>
+          <div>
+            <h3 style="margin: 0; font-size: 1rem;">Residencial Parque das Flores</h3>
+            <p class="text-muted" style="margin: 0; font-size: 0.8rem;">CRI • Imobiliario</p>
+          </div>
+        </div>
+        <button class="modal-close" onclick="hideModal('detalheCRIModal')">&times;</button>
+      </div>
+      <div style="padding: 0 16px 16px;">
+        <!-- Resgate Disponivel -->
+        <div class="alert" style="background: #fef3c7; border: 1px solid #f59e0b; padding: 10px; margin-bottom: 12px; font-size: 0.85rem;">
+          <strong><i class="bi bi-unlock"></i> Resgate Disponivel!</strong>
+          <p style="margin: 4px 0 0;">Voce pode solicitar o resgate antecipado deste titulo.</p>
+        </div>
+        <div class="grid-2" style="gap: 12px; margin-bottom: 12px; font-size: 0.85rem;">
+          <div style="background: var(--bg); padding: 12px; border-radius: var(--radius);">
+            <div class="flex-between mb-5"><span class="text-muted">Valor:</span> <strong>R$ 3.000</strong></div>
+            <div class="flex-between mb-5"><span class="text-muted">Taxa:</span> <strong style="color: #0891b2;">IPCA + 8%</strong></div>
+            <div class="flex-between"><span class="text-muted">Vencimento:</span> <strong>01/2029</strong></div>
+          </div>
+          <div style="background: #ecfeff; padding: 12px; border-radius: var(--radius); border-left: 3px solid #0891b2;">
+            <div style="font-size: 0.8rem;"><strong><i class="bi bi-shield-check"></i> Garantias</strong></div>
+            <div class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Alienacao Fiduciaria + Fundo de Reserva</div>
+          </div>
+        </div>
+        <div class="flex gap-10">
+          <button class="btn btn-warning btn-sm" style="flex: 1;" onclick="hideModal('detalheCRIModal'); showModal('resgateModal');"><i class="bi bi-unlock"></i> Solicitar Resgate</button>
+          <a href="oferta-detalhe-cri.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
+          <button class="btn btn-outline btn-sm" onclick="hideModal('detalheCRIModal')">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="resgateModal" style="display: none;">
+    <div class="modal" style="max-width: 450px;">
+      <div class="modal-header" style="padding: 16px;">
+        <h3 style="font-size: 1rem;"><i class="bi bi-unlock" style="color: #f59e0b;"></i> Solicitar Resgate</h3>
+        <button class="modal-close" onclick="hideModal('resgateModal')">&times;</button>
+      </div>
+      <div style="padding: 0 16px 16px;">
+        <div class="alert alert-warning" style="padding: 10px; font-size: 0.85rem; margin-bottom: 12px;">
+          <strong>Atencao:</strong> O resgate antecipado pode estar sujeito a deducoes e taxas previstas no regulamento da oferta.
+        </div>
+        <div style="background: var(--bg); padding: 12px; border-radius: var(--radius); margin-bottom: 12px; font-size: 0.85rem;">
+          <div class="flex-between mb-5"><span class="text-muted">Valor Investido:</span> <strong>R$ 3.000,00</strong></div>
+          <div class="flex-between mb-5"><span class="text-muted">Rendimento Acum.:</span> <strong style="color: var(--success);">R$ 180,00</strong></div>
+          <div class="flex-between mb-5"><span class="text-muted">Taxa Resgate:</span> <strong style="color: var(--danger);">- R$ 90,00</strong></div>
+          <hr style="margin: 10px 0; border: none; border-top: 1px solid var(--border);">
+          <div class="flex-between"><span class="text-muted">Valor Estimado:</span> <strong style="font-size: 1.1rem;">R$ 3.090,00</strong></div>
+        </div>
+        <p class="text-muted" style="font-size: 0.8rem; margin-bottom: 12px;">O valor sera creditado em ate 5 dias uteis apos aprovacao.</p>
+        <div class="flex gap-10">
+          <button class="btn btn-secondary btn-sm" onclick="hideModal('resgateModal')" style="flex: 1;">Cancelar</button>
+          <button class="btn btn-warning btn-sm" onclick="hideModal('resgateModal'); showModal('resgateConfirmadoModal');" style="flex: 1;"><i class="bi bi-check"></i> Confirmar Resgate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="resgateConfirmadoModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 350px;">
+      <div style="padding: 24px;">
+        <i class="bi bi-check-circle" style="font-size: 2.5rem; color: var(--success);"></i>
+        <h3 style="margin: 12px 0; font-size: 1rem;">Resgate Solicitado!</h3>
+        <p class="text-muted" style="font-size: 0.85rem;">Sua solicitacao sera analisada e o valor creditado em ate 5 dias uteis.</p>
+        <button class="btn btn-primary btn-sm mt-15" onclick="hideModal('resgateConfirmadoModal')">OK</button>
+      </div>
+    </div>
+  </div>
+
   <div class="modal-overlay" id="copiadoModal" style="display: none;">
-    <div class="modal text-center" style="max-width: 400px;">
-      <div style="padding: 30px;">
-        <i class="bi bi-clipboard-check" style="font-size: 3rem; color: var(--success);"></i>
-        <h3 style="margin: 15px 0;">Copiado!</h3>
-        <p class="text-muted">A chave PIX foi copiada para a area de transferencia.</p>
-        <button class="btn btn-primary mt-20" onclick="hideModal('copiadoModal')">OK</button>
+    <div class="modal text-center" style="max-width: 300px;">
+      <div style="padding: 24px;">
+        <i class="bi bi-clipboard-check" style="font-size: 2.5rem; color: var(--success);"></i>
+        <h3 style="margin: 12px 0; font-size: 1rem;">Copiado!</h3>
+        <button class="btn btn-primary btn-sm mt-10" onclick="hideModal('copiadoModal')">OK</button>
       </div>
     </div>
   </div>
 
-  <!-- Modal Saque Sucesso -->
-  <div class="modal-overlay" id="saqueSucessoModal" style="display: none;">
-    <div class="modal text-center" style="max-width: 450px;">
-      <div style="padding: 30px;">
-        <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
-        <h3 style="margin: 15px 0;">Saque Solicitado!</h3>
-        <p class="text-muted">Sua solicitacao de saque foi registrada com sucesso.</p>
-        <div style="background: var(--bg); padding: 15px; border-radius: var(--radius); margin: 20px 0;">
-          <div class="flex-between">
-            <span class="text-muted">Valor:</span>
-            <strong>R$ 2.350,00</strong>
-          </div>
-          <div class="flex-between mt-20">
-            <span class="text-muted">Previsao:</span>
-            <strong>1-2 dias uteis</strong>
-          </div>
-        </div>
-        <button class="btn btn-primary" onclick="hideModal('saqueSucessoModal')">Entendi</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Reserva Cancelada -->
-  <div class="modal-overlay" id="reservaCanceladaModal" style="display: none;">
-    <div class="modal text-center" style="max-width: 400px;">
-      <div style="padding: 30px;">
-        <i class="bi bi-x-circle" style="font-size: 3rem; color: var(--warning);"></i>
-        <h3 style="margin: 15px 0;">Reserva Cancelada</h3>
-        <p class="text-muted">A reserva de investimento foi cancelada. A vaga foi liberada para outros investidores.</p>
-        <button class="btn btn-primary mt-20" onclick="hideModal('reservaCanceladaModal')">OK</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Editar Pix -->
   <div class="modal-overlay" id="editarPixModal" style="display: none;">
-    <div class="modal" style="max-width: 500px;">
-      <div class="modal-header">
-        <h3><i class="bi bi-pencil"></i> Alterar Dados de Saque</h3>
+    <div class="modal" style="max-width: 400px;">
+      <div class="modal-header" style="padding: 16px;">
+        <h3 style="font-size: 1rem;"><i class="bi bi-pencil"></i> Alterar Dados de Saque</h3>
         <button class="modal-close" onclick="hideModal('editarPixModal')">&times;</button>
       </div>
-
-      <div class="form-group">
-        <label class="form-label">Tipo de Chave PIX</label>
-        <select class="form-input">
-          <option selected>E-mail</option>
-          <option>CPF</option>
-          <option>Telefone</option>
-          <option>Chave Aleatoria</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Chave PIX</label>
-        <input type="text" class="form-input" value="joao.silva@email.com">
-      </div>
-
-      <div class="alert alert-warning">
-        <i class="bi bi-exclamation-triangle"></i> A chave PIX deve estar vinculada a uma conta de mesma titularidade (CPF).
-      </div>
-
-      <div class="flex gap-10 mt-20">
-        <button class="btn btn-secondary" onclick="hideModal('editarPixModal')" style="flex: 1;">Cancelar</button>
-        <button class="btn btn-primary" onclick="hideModal('editarPixModal'); showModal('pixAtualizadoModal');" style="flex: 1;">
-          <i class="bi bi-check"></i> Salvar
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Pix Atualizado -->
-  <div class="modal-overlay" id="pixAtualizadoModal" style="display: none;">
-    <div class="modal text-center" style="max-width: 400px;">
-      <div style="padding: 30px;">
-        <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
-        <h3 style="margin: 15px 0;">Dados Atualizados!</h3>
-        <p class="text-muted">Sua chave PIX foi atualizada com sucesso.</p>
-        <button class="btn btn-primary mt-20" onclick="hideModal('pixAtualizadoModal')">OK</button>
+      <div style="padding: 0 16px 16px;">
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label class="form-label" style="font-size: 0.8rem;">Tipo de Chave</label>
+          <select class="form-input" style="padding: 8px; font-size: 0.85rem;">
+            <option selected>E-mail</option>
+            <option>CPF</option>
+            <option>Telefone</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label class="form-label" style="font-size: 0.8rem;">Chave PIX</label>
+          <input type="text" class="form-input" value="joao.silva@email.com" style="padding: 8px; font-size: 0.85rem;">
+        </div>
+        <div class="alert alert-warning" style="padding: 8px; font-size: 0.8rem;">
+          <i class="bi bi-exclamation-triangle"></i> A chave deve ser de mesma titularidade (CPF).
+        </div>
+        <div class="flex gap-10 mt-15">
+          <button class="btn btn-secondary btn-sm" onclick="hideModal('editarPixModal')" style="flex: 1;">Cancelar</button>
+          <button class="btn btn-primary btn-sm" onclick="hideModal('editarPixModal');" style="flex: 1;"><i class="bi bi-check"></i> Salvar</button>
+        </div>
       </div>
     </div>
   </div>

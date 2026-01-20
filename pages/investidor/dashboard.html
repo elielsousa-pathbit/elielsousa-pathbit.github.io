@@ -63,8 +63,7 @@
         <li><a href="dashboard.html" class="active"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
         <li><a href="ofertas.html"><i class="bi bi-megaphone"></i> Ofertas</a></li>
         <li><a href="minhas-ordens.html"><i class="bi bi-clock-history"></i> Minhas Ordens</a></li>
-        <li><a href="meus-investimentos.html"><i class="bi bi-briefcase"></i> Meu Portfolio</a></li>
-        <li><a href="carteira.html"><i class="bi bi-wallet2"></i> Carteira</a></li>
+        <li><a href="carteira.html"><i class="bi bi-wallet2"></i> Minha Carteira</a></li>
         <li><a href="extrato.html"><i class="bi bi-list-ul"></i> Extrato</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
@@ -90,30 +89,30 @@
       <div class="kpi-grid">
         <div class="kpi-card">
           <div class="kpi-label">Total Investido</div>
-          <div class="kpi-value">R$ 15.000</div>
-          <div class="kpi-change positive">+R$ 5.000 este mes</div>
+          <div class="kpi-value">R$ 18.500</div>
+          <div class="kpi-change positive">+R$ 6.500 este mes</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">Limite Disponivel</div>
-          <div class="kpi-value">R$ 5.000</div>
+          <div class="kpi-value">R$ 1.500</div>
           <div class="kpi-change">de R$ 20.000/ano</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Empresas</div>
-          <div class="kpi-value">3</div>
-          <div class="kpi-change">portfolios ativos</div>
+          <div class="kpi-label">Em Equity</div>
+          <div class="kpi-value">R$ 12.000</div>
+          <div class="kpi-change">3 participacoes</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Ofertas Ativas</div>
-          <div class="kpi-value">2</div>
-          <div class="kpi-change">em andamento</div>
+          <div class="kpi-label">Em Renda Fixa</div>
+          <div class="kpi-value">R$ 6.500</div>
+          <div class="kpi-change positive">CRI, CRA</div>
         </div>
       </div>
 
       <!-- Alert for withdrawal period -->
       <div class="alert alert-warning">
         <strong>Atencao:</strong> Voce tem 1 investimento em periodo de desistencia (ate 24/01/2026).
-        <a href="meus-investimentos.html" style="color: inherit; margin-left: 10px;">Ver detalhes &rarr;</a>
+        <a href="carteira.html" style="color: inherit; margin-left: 10px;">Ver detalhes &rarr;</a>
       </div>
 
       <div class="grid-2">
@@ -121,13 +120,14 @@
         <div class="card">
           <div class="card-header flex-between">
             <h3 class="card-title">Investimentos Recentes</h3>
-            <a href="meus-investimentos.html" style="color: var(--primary);">Ver todos</a>
+            <a href="carteira.html" style="color: var(--primary);">Ver todos</a>
           </div>
           <div class="table-container">
             <table>
               <thead>
                 <tr>
-                  <th>Empresa</th>
+                  <th>Investimento</th>
+                  <th>Tipo</th>
                   <th>Valor</th>
                   <th>Status</th>
                 </tr>
@@ -138,7 +138,17 @@
                     <strong>TechStart Inovacao</strong>
                     <br><small class="text-muted">15/01/2026</small>
                   </td>
+                  <td><span class="badge" style="background: #7c3aed; color: white; font-size: 0.65rem;">Equity</span></td>
                   <td>R$ 5.000</td>
+                  <td><span class="badge badge-success">Confirmado</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Residencial Parque das Flores</strong>
+                    <br><small class="text-muted">12/01/2026</small>
+                  </td>
+                  <td><span class="badge" style="background: #0891b2; color: white; font-size: 0.65rem;">CRI</span></td>
+                  <td>R$ 3.000</td>
                   <td><span class="badge badge-success">Confirmado</span></td>
                 </tr>
                 <tr>
@@ -146,15 +156,17 @@
                     <strong>EcoFood Organicos</strong>
                     <br><small class="text-muted">10/01/2026</small>
                   </td>
+                  <td><span class="badge" style="background: #7c3aed; color: white; font-size: 0.65rem;">Equity</span></td>
                   <td>R$ 3.000</td>
-                  <td><span class="badge badge-warning">Em desistencia</span></td>
+                  <td><span class="badge badge-warning">Desistencia</span></td>
                 </tr>
                 <tr>
                   <td>
-                    <strong>HealthTech Solutions</strong>
-                    <br><small class="text-muted">05/12/2026</small>
+                    <strong>Cooperativa AgroVerde</strong>
+                    <br><small class="text-muted">08/01/2026</small>
                   </td>
-                  <td>R$ 7.000</td>
+                  <td><span class="badge" style="background: #22c55e; color: white; font-size: 0.65rem;">CRA</span></td>
+                  <td>R$ 3.500</td>
                   <td><span class="badge badge-success">Confirmado</span></td>
                 </tr>
               </tbody>
@@ -162,111 +174,163 @@
           </div>
         </div>
 
-        <!-- Portfolio Pie Chart -->
+        <!-- Portfolio Pie Chart por Tipo -->
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title"><i class="bi bi-pie-chart"></i> Distribuicao do Portfolio</h3>
+            <h3 class="card-title"><i class="bi bi-pie-chart"></i> Por Tipo de Investimento</h3>
           </div>
           <div class="text-center" style="padding: 20px;">
-            <div class="pie-chart">
+            <div class="pie-chart" style="background: conic-gradient(#7c3aed 0deg 234deg, #22c55e 234deg 302deg, #0891b2 302deg 360deg);">
               <div class="pie-chart-center">
-                <strong style="font-size: 1.25rem;">R$ 15k</strong>
+                <strong style="font-size: 1.25rem;">R$ 18,5k</strong>
                 <small class="text-muted">Total</small>
               </div>
             </div>
-            <div class="pie-legend" style="max-width: 200px; margin: 20px auto 0;">
+            <div class="pie-legend" style="max-width: 220px; margin: 20px auto 0;">
               <div class="pie-legend-item">
-                <div class="pie-legend-color" style="background: var(--primary);"></div>
-                <span>TechStart - 33% (R$ 5.000)</span>
+                <div class="pie-legend-color" style="background: #7c3aed;"></div>
+                <span>Equity - 65% (R$ 12.000)</span>
               </div>
               <div class="pie-legend-item">
-                <div class="pie-legend-color" style="background: var(--success);"></div>
-                <span>EcoFood - 20% (R$ 3.000)</span>
+                <div class="pie-legend-color" style="background: #22c55e;"></div>
+                <span>CRA - 19% (R$ 3.500)</span>
               </div>
               <div class="pie-legend-item">
-                <div class="pie-legend-color" style="background: var(--danger);"></div>
-                <span>HealthTech - 47% (R$ 7.000)</span>
+                <div class="pie-legend-color" style="background: #0891b2;"></div>
+                <span>CRI - 16% (R$ 3.000)</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Distribuicao por Setor -->
+      <!-- Distribuicao por Tipo -->
       <div class="card mt-20">
         <div class="card-header">
-          <h3 class="card-title"><i class="bi bi-bar-chart"></i> Distribuicao por Setor</h3>
+          <h3 class="card-title"><i class="bi bi-bar-chart"></i> Distribuicao por Tipo</h3>
         </div>
         <div style="padding: 20px;">
           <div style="display: flex; flex-direction: column; gap: 15px;">
             <div>
               <div class="flex-between" style="margin-bottom: 5px;">
-                <span>Tecnologia</span>
-                <strong>R$ 5.000 (33%)</strong>
+                <span><span class="badge" style="background: #7c3aed; color: white; font-size: 0.65rem;">Equity</span> Participacao em Empresas</span>
+                <strong>R$ 12.000 (65%)</strong>
               </div>
               <div class="progress" style="height: 20px;">
-                <div class="progress-bar" style="width: 33%;"></div>
+                <div class="progress-bar" style="width: 65%; background: #7c3aed;"></div>
               </div>
             </div>
             <div>
               <div class="flex-between" style="margin-bottom: 5px;">
-                <span>Alimentacao</span>
-                <strong>R$ 3.000 (20%)</strong>
+                <span><span class="badge" style="background: #22c55e; color: white; font-size: 0.65rem;">CRA</span> Agronegocio</span>
+                <strong>R$ 3.500 (19%)</strong>
               </div>
               <div class="progress" style="height: 20px;">
-                <div class="progress-bar" style="width: 20%; background: var(--success);"></div>
+                <div class="progress-bar" style="width: 19%; background: #22c55e;"></div>
               </div>
             </div>
             <div>
               <div class="flex-between" style="margin-bottom: 5px;">
-                <span>Saude</span>
-                <strong>R$ 7.000 (47%)</strong>
+                <span><span class="badge" style="background: #0891b2; color: white; font-size: 0.65rem;">CRI</span> Imobiliario</span>
+                <strong>R$ 3.000 (16%)</strong>
               </div>
               <div class="progress" style="height: 20px;">
-                <div class="progress-bar" style="width: 47%; background: var(--danger);"></div>
+                <div class="progress-bar" style="width: 16%; background: #0891b2;"></div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Proximos Pagamentos (Renda Fixa) -->
+      <div class="card mt-20">
+        <div class="card-header flex-between">
+          <h3 class="card-title"><i class="bi bi-calendar-check"></i> Proximos Pagamentos</h3>
+          <span class="badge badge-info">Renda Fixa</span>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Investimento</th>
+                <th>Tipo</th>
+                <th>Data Prevista</th>
+                <th>Valor Estimado</th>
+                <th>Tipo Pagamento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Residencial Parque das Flores</strong></td>
+                <td><span class="badge" style="background: #0891b2; color: white; font-size: 0.65rem;">CRI</span></td>
+                <td>12/02/2026</td>
+                <td style="color: var(--success);">~R$ 24,00</td>
+                <td>Juros</td>
+              </tr>
+              <tr>
+                <td><strong>Cooperativa AgroVerde</strong></td>
+                <td><span class="badge" style="background: #22c55e; color: white; font-size: 0.65rem;">CRA</span></td>
+                <td>08/07/2026</td>
+                <td style="color: var(--success);">~R$ 105,00</td>
+                <td>Juros Semestral</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
       <!-- Active Offers -->
       <div class="card mt-20">
         <div class="card-header flex-between">
-          <h3 class="card-title">Ofertas das Minhas Empresas</h3>
+          <h3 class="card-title">Status das Minhas Ofertas</h3>
         </div>
         <div class="table-container">
           <table>
             <thead>
               <tr>
-                <th>Empresa</th>
+                <th>Investimento</th>
+                <th>Tipo</th>
                 <th>Captacao</th>
                 <th>Progresso</th>
-                <th>Dias Restantes</th>
+                <th>Dias</th>
                 <th>Status</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><strong>TechStart Inovacao</strong></td>
-                <td>R$ 375.000 / R$ 500.000</td>
+                <td><span class="badge" style="background: #7c3aed; color: white; font-size: 0.65rem;">Equity</span></td>
+                <td>R$ 375k / R$ 500k</td>
                 <td>
-                  <div class="progress" style="width: 100px;">
+                  <div class="progress" style="width: 80px;">
                     <div class="progress-bar" style="width: 75%;"></div>
                   </div>
                 </td>
-                <td>23 dias</td>
+                <td>23</td>
                 <td><span class="badge badge-info">Em captacao</span></td>
               </tr>
               <tr>
-                <td><strong>HealthTech Solutions</strong></td>
-                <td>R$ 562.500 / R$ 750.000</td>
+                <td><strong>Residencial Parque das Flores</strong></td>
+                <td><span class="badge" style="background: #0891b2; color: white; font-size: 0.65rem;">CRI</span></td>
+                <td>R$ 450k / R$ 1M</td>
                 <td>
-                  <div class="progress" style="width: 100px;">
-                    <div class="progress-bar" style="width: 75%;"></div>
+                  <div class="progress" style="width: 80px;">
+                    <div class="progress-bar" style="width: 45%; background: #0891b2;"></div>
                   </div>
                 </td>
-                <td>12 dias</td>
+                <td>60</td>
+                <td><span class="badge badge-info">Em captacao</span></td>
+              </tr>
+              <tr>
+                <td><strong>Cooperativa AgroVerde</strong></td>
+                <td><span class="badge" style="background: #22c55e; color: white; font-size: 0.65rem;">CRA</span></td>
+                <td>R$ 656k / R$ 800k</td>
+                <td>
+                  <div class="progress" style="width: 80px;">
+                    <div class="progress-bar" style="width: 82%; background: #22c55e;"></div>
+                  </div>
+                </td>
+                <td>30</td>
                 <td><span class="badge badge-warning">Finalizando</span></td>
               </tr>
             </tbody>
