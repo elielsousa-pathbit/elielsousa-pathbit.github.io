@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../../css/style.css">
 </head>
-<body>
+<body class="theme-investidor">
   <div class="dashboard">
     <aside class="sidebar">
       <div class="sidebar-logo">
@@ -28,7 +28,7 @@
     <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
 
     <main class="main-content">
-      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i> Menu</button>
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
 
       <div class="page-header">
         <div>
@@ -83,14 +83,20 @@
 
         <!-- Offer 1 - EQUITY -->
         <div class="offer-card">
-          <div class="offer-header" style="background: linear-gradient(135deg, var(--primary), #1d4ed8);">
+          <div class="offer-header" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark));">
             <span class="badge-compact offer-type" style="background: #7c3aed; color: white;">Equity</span>
             <span class="badge-compact offer-days badge-warning">23d</span>
             TS
           </div>
           <div class="offer-body">
             <div class="offer-title">TechStart Inovacao</div>
-            <div class="offer-sector">Tecnologia / SaaS</div>
+            <div class="offer-sector"><i class="bi bi-geo-alt"></i> Sao Paulo, SP • Tecnologia / SaaS</div>
+            <div class="offer-description">Plataforma SaaS para gestao de startups com mais de 500 clientes ativos em 12 paises.</div>
+            <div class="offer-tags">
+              <span class="offer-tag highlight"><i class="bi bi-graph-up"></i> +200% YoY</span>
+              <span class="offer-tag"><i class="bi bi-people"></i> 500 clientes</span>
+              <span class="offer-tag"><i class="bi bi-globe"></i> 12 paises</span>
+            </div>
             <div class="offer-stats">
               <div class="offer-stat">
                 <div class="offer-stat-value">15%</div>
@@ -101,6 +107,12 @@
                 <div class="offer-stat-label">Minimo</div>
               </div>
             </div>
+            <div class="offer-info">
+              <div class="offer-info-row"><span>Emissor:</span> <strong>TechStart S.A.</strong></div>
+              <div class="offer-info-row"><span>Investidores:</span> <strong>142 pessoas</strong></div>
+              <div class="offer-info-row"><span>Valuation:</span> <strong>R$ 3.3M (pre-money)</strong></div>
+              <div class="offer-info-row"><span>Ticket medio:</span> <strong>R$ 2.640</strong></div>
+            </div>
             <div class="offer-progress">
               <div class="offer-progress-info">
                 <span>R$ 375k / R$ 500k</span>
@@ -110,7 +122,7 @@
                 <div class="offer-progress-fill" style="width: 75%;"></div>
               </div>
             </div>
-            <a href="oferta-detalhe.html?type=equity" class="offer-btn">Ver Oferta</a>
+            <a href="oferta-detalhe.html?type=equity" class="offer-btn"><i class="bi bi-arrow-right-circle"></i> Ver Oferta</a>
           </div>
         </div>
 
@@ -123,16 +135,32 @@
           </div>
           <div class="offer-body">
             <div class="offer-title">Resid. Parque das Flores</div>
-            <div class="offer-sector">Imobiliario / Residencial</div>
+            <div class="offer-sector"><i class="bi bi-geo-alt"></i> Campinas, SP • Imobiliario / Residencial</div>
+            <div class="offer-description">Empreendimento residencial com 120 unidades em Campinas-SP. Entrega prevista para 2027.</div>
+            <div class="offer-tags">
+              <span class="offer-tag highlight"><i class="bi bi-shield-check"></i> Alienacao Fiduc.</span>
+              <span class="offer-tag"><i class="bi bi-building"></i> 120 unidades</span>
+              <span class="offer-tag"><i class="bi bi-calendar-check"></i> 2027</span>
+            </div>
+            <div class="offer-highlight">
+              <span class="offer-highlight-label"><i class="bi bi-percent"></i> Taxa</span>
+              <span class="offer-highlight-value">IPCA + 8% a.a.</span>
+            </div>
             <div class="offer-stats">
-              <div class="offer-stat">
-                <div class="offer-stat-value" style="color: #0891b2;">IPCA+8%</div>
-                <div class="offer-stat-label">Taxa</div>
-              </div>
               <div class="offer-stat">
                 <div class="offer-stat-value">36m</div>
                 <div class="offer-stat-label">Prazo</div>
               </div>
+              <div class="offer-stat">
+                <div class="offer-stat-value">R$ 1k</div>
+                <div class="offer-stat-label">Minimo</div>
+              </div>
+            </div>
+            <div class="offer-info">
+              <div class="offer-info-row"><span>Emissor:</span> <strong>Construtora XYZ</strong></div>
+              <div class="offer-info-row"><span>Garantia:</span> <strong>Alienacao Fiduciaria</strong></div>
+              <div class="offer-info-row"><span>Rating:</span> <strong>A- (Agencia ABC)</strong></div>
+              <div class="offer-info-row"><span>Pagamento:</span> <strong>Mensal</strong></div>
             </div>
             <div class="offer-progress">
               <div class="offer-progress-info">
@@ -143,7 +171,7 @@
                 <div class="offer-progress-fill" style="width: 45%; background: #0891b2;"></div>
               </div>
             </div>
-            <a href="oferta-detalhe-cri.html" class="offer-btn">Ver Oferta</a>
+            <a href="oferta-detalhe-cri.html" class="offer-btn"><i class="bi bi-arrow-right-circle"></i> Ver Oferta</a>
           </div>
         </div>
 
@@ -156,16 +184,32 @@
           </div>
           <div class="offer-body">
             <div class="offer-title">Cooperativa AgroVerde</div>
-            <div class="offer-sector">Agronegocio / Graos</div>
+            <div class="offer-sector"><i class="bi bi-geo-alt"></i> Ribeirao Preto, SP • Agronegocio / Graos</div>
+            <div class="offer-description">Cooperativa com 200 produtores associados. Exporta soja e milho para Asia e Europa.</div>
+            <div class="offer-tags">
+              <span class="offer-tag highlight"><i class="bi bi-shield-check"></i> CPR + Aval</span>
+              <span class="offer-tag"><i class="bi bi-people"></i> 200 produtores</span>
+              <span class="offer-tag"><i class="bi bi-box-seam"></i> Exportacao</span>
+            </div>
+            <div class="offer-highlight">
+              <span class="offer-highlight-label"><i class="bi bi-percent"></i> Taxa</span>
+              <span class="offer-highlight-value">CDI + 4,5% a.a.</span>
+            </div>
             <div class="offer-stats">
-              <div class="offer-stat">
-                <div class="offer-stat-value" style="color: #22c55e;">CDI+4,5%</div>
-                <div class="offer-stat-label">Taxa</div>
-              </div>
               <div class="offer-stat">
                 <div class="offer-stat-value">24m</div>
                 <div class="offer-stat-label">Prazo</div>
               </div>
+              <div class="offer-stat">
+                <div class="offer-stat-value">R$ 500</div>
+                <div class="offer-stat-label">Minimo</div>
+              </div>
+            </div>
+            <div class="offer-info">
+              <div class="offer-info-row"><span>Emissor:</span> <strong>AgroVerde COOP</strong></div>
+              <div class="offer-info-row"><span>Garantia:</span> <strong>CPR + Aval Solidario</strong></div>
+              <div class="offer-info-row"><span>Pagamento:</span> <strong>Semestral</strong></div>
+              <div class="offer-info-row"><span>Investidores:</span> <strong>312 pessoas</strong></div>
             </div>
             <div class="offer-progress">
               <div class="offer-progress-info">
@@ -176,7 +220,7 @@
                 <div class="offer-progress-fill" style="width: 82%; background: #22c55e;"></div>
               </div>
             </div>
-            <a href="oferta-detalhe-cra.html" class="offer-btn">Ver Oferta</a>
+            <a href="oferta-detalhe-cra.html" class="offer-btn"><i class="bi bi-arrow-right-circle"></i> Ver Oferta</a>
           </div>
         </div>
 
@@ -189,16 +233,32 @@
           </div>
           <div class="offer-body">
             <div class="offer-title">SolarTech Energia</div>
-            <div class="offer-sector">Energia / Solar</div>
+            <div class="offer-sector"><i class="bi bi-geo-alt"></i> Uberlandia, MG • Energia / Solar</div>
+            <div class="offer-description">Usina solar de 5MW em Minas Gerais com contrato de venda garantido por 20 anos.</div>
+            <div class="offer-tags">
+              <span class="offer-tag highlight"><i class="bi bi-lightning"></i> 5MW</span>
+              <span class="offer-tag"><i class="bi bi-file-earmark-text"></i> PPA 20 anos</span>
+              <span class="offer-tag"><i class="bi bi-recycle"></i> Renovavel</span>
+            </div>
+            <div class="offer-highlight">
+              <span class="offer-highlight-label"><i class="bi bi-percent"></i> Taxa</span>
+              <span class="offer-highlight-value">IPCA + 10% a.a.</span>
+            </div>
             <div class="offer-stats">
-              <div class="offer-stat">
-                <div class="offer-stat-value" style="color: #8b5cf6;">IPCA+10%</div>
-                <div class="offer-stat-label">Taxa</div>
-              </div>
               <div class="offer-stat">
                 <div class="offer-stat-value">48m</div>
                 <div class="offer-stat-label">Prazo</div>
               </div>
+              <div class="offer-stat">
+                <div class="offer-stat-value">R$ 2k</div>
+                <div class="offer-stat-label">Minimo</div>
+              </div>
+            </div>
+            <div class="offer-info">
+              <div class="offer-info-row"><span>Emissor:</span> <strong>SolarTech Ltda</strong></div>
+              <div class="offer-info-row"><span>Garantia:</span> <strong>Recebiveis + Equipamentos</strong></div>
+              <div class="offer-info-row"><span>Pagamento:</span> <strong>Mensal</strong></div>
+              <div class="offer-info-row"><span>Investidores:</span> <strong>87 pessoas</strong></div>
             </div>
             <div class="offer-progress">
               <div class="offer-progress-info">
@@ -209,7 +269,7 @@
                 <div class="offer-progress-fill" style="width: 68%; background: #8b5cf6;"></div>
               </div>
             </div>
-            <a href="oferta-detalhe-cr.html" class="offer-btn">Ver Oferta</a>
+            <a href="oferta-detalhe-cr.html" class="offer-btn"><i class="bi bi-arrow-right-circle"></i> Ver Oferta</a>
           </div>
         </div>
 
@@ -222,7 +282,13 @@
           </div>
           <div class="offer-body">
             <div class="offer-title">HealthTech Solutions</div>
-            <div class="offer-sector">Saude / Telemedicina</div>
+            <div class="offer-sector"><i class="bi bi-geo-alt"></i> Rio de Janeiro, RJ • Saude / Telemedicina</div>
+            <div class="offer-description">App de telemedicina com 50k usuarios ativos. Faturamento cresceu 200% no ultimo ano.</div>
+            <div class="offer-tags">
+              <span class="offer-tag highlight"><i class="bi bi-graph-up"></i> +200% YoY</span>
+              <span class="offer-tag"><i class="bi bi-phone"></i> 50k usuarios</span>
+              <span class="offer-tag"><i class="bi bi-heart-pulse"></i> HealthTech</span>
+            </div>
             <div class="offer-stats">
               <div class="offer-stat">
                 <div class="offer-stat-value">20%</div>
@@ -233,6 +299,12 @@
                 <div class="offer-stat-label">Minimo</div>
               </div>
             </div>
+            <div class="offer-info">
+              <div class="offer-info-row"><span>Emissor:</span> <strong>HealthTech S.A.</strong></div>
+              <div class="offer-info-row"><span>Investidores:</span> <strong>89 pessoas</strong></div>
+              <div class="offer-info-row"><span>Valuation:</span> <strong>R$ 3.75M (pre-money)</strong></div>
+              <div class="offer-info-row"><span>MRR:</span> <strong>R$ 120k</strong></div>
+            </div>
             <div class="offer-progress">
               <div class="offer-progress-info">
                 <span>R$ 562k / R$ 750k</span>
@@ -242,7 +314,7 @@
                 <div class="offer-progress-fill" style="width: 75%; background: #ef4444;"></div>
               </div>
             </div>
-            <a href="oferta-detalhe.html?type=equity" class="offer-btn">Ver Oferta</a>
+            <a href="oferta-detalhe.html?type=equity" class="offer-btn"><i class="bi bi-arrow-right-circle"></i> Ver Oferta</a>
           </div>
         </div>
 
@@ -255,16 +327,32 @@
           </div>
           <div class="offer-body">
             <div class="offer-title">Comercial Prime Tower</div>
-            <div class="offer-sector">Imobiliario / Comercial</div>
+            <div class="offer-sector"><i class="bi bi-geo-alt"></i> Sao Paulo, SP • Imobiliario / Comercial</div>
+            <div class="offer-description">Torre comercial classe A em Sao Paulo com 95% de ocupacao e inquilinos AAA.</div>
+            <div class="offer-tags">
+              <span class="offer-tag highlight"><i class="bi bi-shield-check"></i> Alienacao Fiduc.</span>
+              <span class="offer-tag"><i class="bi bi-building"></i> 95% ocupado</span>
+              <span class="offer-tag"><i class="bi bi-award"></i> Rating AA</span>
+            </div>
+            <div class="offer-highlight">
+              <span class="offer-highlight-label"><i class="bi bi-percent"></i> Taxa</span>
+              <span class="offer-highlight-value">CDI + 3,5% a.a.</span>
+            </div>
             <div class="offer-stats">
-              <div class="offer-stat">
-                <div class="offer-stat-value" style="color: #0891b2;">CDI+3,5%</div>
-                <div class="offer-stat-label">Taxa</div>
-              </div>
               <div class="offer-stat">
                 <div class="offer-stat-value">60m</div>
                 <div class="offer-stat-label">Prazo</div>
               </div>
+              <div class="offer-stat">
+                <div class="offer-stat-value">R$ 5k</div>
+                <div class="offer-stat-label">Minimo</div>
+              </div>
+            </div>
+            <div class="offer-info">
+              <div class="offer-info-row"><span>Emissor:</span> <strong>Prime Imoveis</strong></div>
+              <div class="offer-info-row"><span>Garantia:</span> <strong>Alienacao Fiduciaria</strong></div>
+              <div class="offer-info-row"><span>Rating:</span> <strong>AA (Fitch)</strong></div>
+              <div class="offer-info-row"><span>Pagamento:</span> <strong>Mensal</strong></div>
             </div>
             <div class="offer-progress">
               <div class="offer-progress-info">
@@ -275,7 +363,7 @@
                 <div class="offer-progress-fill" style="width: 35%; background: #0891b2;"></div>
               </div>
             </div>
-            <a href="oferta-detalhe-cri.html" class="offer-btn">Ver Oferta</a>
+            <a href="oferta-detalhe-cri.html" class="offer-btn"><i class="bi bi-arrow-right-circle"></i> Ver Oferta</a>
           </div>
         </div>
 
@@ -288,7 +376,13 @@
           </div>
           <div class="offer-body">
             <div class="offer-title">EcoFood Organicos</div>
-            <div class="offer-sector">Alimentacao / Organicos</div>
+            <div class="offer-sector"><i class="bi bi-geo-alt"></i> Curitiba, PR • Alimentacao / Organicos</div>
+            <div class="offer-description">Delivery de alimentos organicos presente em 8 cidades. Meta de 20 cidades ate 2027.</div>
+            <div class="offer-tags">
+              <span class="offer-tag highlight"><i class="bi bi-graph-up"></i> +150% YoY</span>
+              <span class="offer-tag"><i class="bi bi-geo-alt"></i> 8 cidades</span>
+              <span class="offer-tag"><i class="bi bi-leaf"></i> Organicos</span>
+            </div>
             <div class="offer-stats">
               <div class="offer-stat">
                 <div class="offer-stat-value">12%</div>
@@ -299,6 +393,12 @@
                 <div class="offer-stat-label">Minimo</div>
               </div>
             </div>
+            <div class="offer-info">
+              <div class="offer-info-row"><span>Emissor:</span> <strong>EcoFood Ltda</strong></div>
+              <div class="offer-info-row"><span>Investidores:</span> <strong>234 pessoas</strong></div>
+              <div class="offer-info-row"><span>Valuation:</span> <strong>R$ 2.5M (pre-money)</strong></div>
+              <div class="offer-info-row"><span>GMV mensal:</span> <strong>R$ 450k</strong></div>
+            </div>
             <div class="offer-progress">
               <div class="offer-progress-info">
                 <span>R$ 165k / R$ 300k</span>
@@ -308,7 +408,7 @@
                 <div class="offer-progress-fill" style="width: 55%; background: #f59e0b;"></div>
               </div>
             </div>
-            <a href="oferta-detalhe.html?type=equity" class="offer-btn">Ver Oferta</a>
+            <a href="oferta-detalhe.html?type=equity" class="offer-btn"><i class="bi bi-arrow-right-circle"></i> Ver Oferta</a>
           </div>
         </div>
 
@@ -321,16 +421,32 @@
           </div>
           <div class="offer-body">
             <div class="offer-title">Fazenda Boa Vista</div>
-            <div class="offer-sector">Agronegocio / Cafe</div>
+            <div class="offer-sector"><i class="bi bi-geo-alt"></i> Patrocinio, MG • Agronegocio / Cafe</div>
+            <div class="offer-description">Producao premium de cafe especial para exportacao. Certificacao Rainforest Alliance.</div>
+            <div class="offer-tags">
+              <span class="offer-tag highlight"><i class="bi bi-shield-check"></i> CPR + Penhor</span>
+              <span class="offer-tag"><i class="bi bi-award"></i> Rainforest</span>
+              <span class="offer-tag"><i class="bi bi-box-seam"></i> Exportacao</span>
+            </div>
+            <div class="offer-highlight">
+              <span class="offer-highlight-label"><i class="bi bi-percent"></i> Taxa</span>
+              <span class="offer-highlight-value">CDI + 5% a.a.</span>
+            </div>
             <div class="offer-stats">
-              <div class="offer-stat">
-                <div class="offer-stat-value" style="color: #22c55e;">CDI+5%</div>
-                <div class="offer-stat-label">Taxa</div>
-              </div>
               <div class="offer-stat">
                 <div class="offer-stat-value">18m</div>
                 <div class="offer-stat-label">Prazo</div>
               </div>
+              <div class="offer-stat">
+                <div class="offer-stat-value">R$ 1k</div>
+                <div class="offer-stat-label">Minimo</div>
+              </div>
+            </div>
+            <div class="offer-info">
+              <div class="offer-info-row"><span>Emissor:</span> <strong>Boa Vista Agro</strong></div>
+              <div class="offer-info-row"><span>Garantia:</span> <strong>CPR + Penhor Agricola</strong></div>
+              <div class="offer-info-row"><span>Pagamento:</span> <strong>Trimestral</strong></div>
+              <div class="offer-info-row"><span>Investidores:</span> <strong>54 pessoas</strong></div>
             </div>
             <div class="offer-progress">
               <div class="offer-progress-info">
@@ -341,7 +457,7 @@
                 <div class="offer-progress-fill" style="width: 25%; background: #22c55e;"></div>
               </div>
             </div>
-            <a href="oferta-detalhe-cra.html" class="offer-btn">Ver Oferta</a>
+            <a href="oferta-detalhe-cra.html" class="offer-btn"><i class="bi bi-arrow-right-circle"></i> Ver Oferta</a>
           </div>
         </div>
 
@@ -354,7 +470,13 @@
           </div>
           <div class="offer-body">
             <div class="offer-title">FinTech Solutions</div>
-            <div class="offer-sector">Financas / Pagamentos</div>
+            <div class="offer-sector"><i class="bi bi-geo-alt"></i> Sao Paulo, SP • Financas / Pagamentos</div>
+            <div class="offer-description">Gateway de pagamentos com foco em PMEs. Processa R$ 50M/mes com 2000 clientes.</div>
+            <div class="offer-tags">
+              <span class="offer-tag highlight"><i class="bi bi-graph-up"></i> +180% YoY</span>
+              <span class="offer-tag"><i class="bi bi-credit-card"></i> R$ 50M/mes</span>
+              <span class="offer-tag"><i class="bi bi-shop"></i> 2000 PMEs</span>
+            </div>
             <div class="offer-stats">
               <div class="offer-stat">
                 <div class="offer-stat-value">18%</div>
@@ -365,6 +487,12 @@
                 <div class="offer-stat-label">Minimo</div>
               </div>
             </div>
+            <div class="offer-info">
+              <div class="offer-info-row"><span>Emissor:</span> <strong>FinTech S.A.</strong></div>
+              <div class="offer-info-row"><span>Investidores:</span> <strong>67 pessoas</strong></div>
+              <div class="offer-info-row"><span>Valuation:</span> <strong>R$ 3.33M (pre-money)</strong></div>
+              <div class="offer-info-row"><span>Take rate:</span> <strong>2,5% do TPV</strong></div>
+            </div>
             <div class="offer-progress">
               <div class="offer-progress-info">
                 <span>R$ 280k / R$ 600k</span>
@@ -374,7 +502,7 @@
                 <div class="offer-progress-fill" style="width: 47%;"></div>
               </div>
             </div>
-            <a href="oferta-detalhe.html?type=equity" class="offer-btn">Ver Oferta</a>
+            <a href="oferta-detalhe.html?type=equity" class="offer-btn"><i class="bi bi-arrow-right-circle"></i> Ver Oferta</a>
           </div>
         </div>
 

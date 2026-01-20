@@ -7,12 +7,30 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../../css/style.css">
 </head>
-<body>
+<body class="theme-parceiro">
   <div class="dashboard">
     <aside class="sidebar sidebar-green">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo" style="color: white;">CrowdInvest</a>
+        <a href="../../index.html" class="logo">CrowdInvest</a>
         <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
+      </div>
+      <!-- Profile Mode Card - Elegante -->
+      <div class="profile-mode-card" id="profileModeCard">
+        <div class="profile-mode-current">
+          <div class="profile-mode-icon emissor" id="profileIcon">
+            <i class="bi bi-broadcast"></i>
+          </div>
+          <div class="profile-mode-info">
+            <div class="profile-mode-label">Visualizando como</div>
+            <div class="profile-mode-name" id="profileName">Emissor</div>
+          </div>
+          <span class="profile-mode-tag emissor" id="profileTag">
+            <i class="bi bi-broadcast"></i> Emissor
+          </span>
+        </div>
+        <button class="profile-mode-switch-btn" onclick="showModal('selecionarPerfilModal')">
+          <i class="bi bi-arrow-left-right"></i> Trocar modo de acesso
+        </button>
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
@@ -30,7 +48,7 @@
     <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
 
     <main class="main-content">
-      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i> Menu</button>
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
 
       <div class="page-header">
         <div>
@@ -407,5 +425,71 @@
   </div>
 
   <script src="../../js/app.js"></script>
+
+<!-- Modal Selecionar Perfil -->
+<div class="modal-overlay" id="selecionarPerfilModal" style="display: none;">
+  <div class="modal profile-select-modal">
+    <div class="modal-header">
+      <h3><i class="bi bi-person-gear"></i> Modo de Acesso</h3>
+      <button class="modal-close" onclick="hideModal('selecionarPerfilModal')">&times;</button>
+    </div>
+    <p class="text-muted mb-20">Escolha como deseja visualizar e operar na plataforma.</p>
+    <!-- Opcao Emissor -->
+    <div class="profile-option emissor active" id="optionEmissor" onclick="selectProfileOption('emissor')">
+      <div class="profile-option-icon emissor"><i class="bi bi-broadcast"></i></div>
+      <div class="profile-option-content">
+        <div class="profile-option-title">Emissor</div>
+        <p class="profile-option-desc">Crie e gerencie suas proprias ofertas de investimento.</p>
+      </div>
+      <div class="profile-option-check"><i class="bi bi-check"></i></div>
+    </div>
+    <!-- Opcao Distribuidor -->
+    <div class="profile-option distribuidor" id="optionDistribuidor" onclick="selectProfileOption('distribuidor')">
+      <div class="profile-option-icon distribuidor"><i class="bi bi-diagram-3"></i></div>
+      <div class="profile-option-content">
+        <div class="profile-option-title">Distribuidor</div>
+        <p class="profile-option-desc">Distribua ofertas de terceiros para seus clientes.</p>
+      </div>
+      <div class="profile-option-check"><i class="bi bi-check"></i></div>
+    </div>
+    <div class="flex gap-10 mt-20">
+      <button class="btn btn-outline" onclick="hideModal('selecionarPerfilModal')" style="flex: 1;">Cancelar</button>
+      <button class="btn btn-primary" onclick="confirmarPerfil()" style="flex: 1;"><i class="bi bi-check-lg"></i> Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let selectedProfile = localStorage.getItem('parceiro_profile') || 'emissor';
+  function selectProfileOption(profile) {
+    selectedProfile = profile;
+    document.querySelectorAll('.profile-option').forEach(opt => opt.classList.remove('active'));
+    document.getElementById('option' + profile.charAt(0).toUpperCase() + profile.slice(1)).classList.add('active');
+  }
+  function confirmarPerfil() {
+    const icon = document.getElementById('profileIcon');
+    const name = document.getElementById('profileName');
+    const tag = document.getElementById('profileTag');
+    if (selectedProfile === 'emissor') {
+      icon.className = 'profile-mode-icon emissor';
+      icon.innerHTML = '<i class="bi bi-broadcast"></i>';
+      name.textContent = 'Emissor';
+      tag.className = 'profile-mode-tag emissor';
+      tag.innerHTML = '<i class="bi bi-broadcast"></i> Emissor';
+    } else {
+      icon.className = 'profile-mode-icon distribuidor';
+      icon.innerHTML = '<i class="bi bi-diagram-3"></i>';
+      name.textContent = 'Distribuidor';
+      tag.className = 'profile-mode-tag distribuidor';
+      tag.innerHTML = '<i class="bi bi-diagram-3"></i> Distrib.';
+    }
+    hideModal('selecionarPerfilModal');
+    localStorage.setItem('parceiro_profile', selectedProfile);
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    selectProfileOption(selectedProfile);
+    if (selectedProfile === 'distribuidor') confirmarPerfil();
+  });
+</script>
 </body>
 </html>

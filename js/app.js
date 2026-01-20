@@ -84,6 +84,48 @@ function switchTab(el, tabId) {
   document.getElementById(tabId).style.display = 'block';
 }
 
+// Profile Switcher (Emissor/Distribuidor)
+function switchProfile(profile, btn) {
+  // Update button states
+  document.querySelectorAll('.sidebar-profile-switcher .switcher-btn, .profile-switcher .switcher-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  // Toggle content based on profile
+  const emissorContent = document.querySelectorAll('.emissor-content, [data-profile="emissor"]');
+  const distribuidorContent = document.querySelectorAll('.distribuidor-content, [data-profile="distribuidor"]');
+
+  if (profile === 'emissor') {
+    emissorContent.forEach(el => el.style.display = '');
+    distribuidorContent.forEach(el => el.style.display = 'none');
+    // Update menu items for emissor
+    updateMenuForProfile('emissor');
+  } else {
+    emissorContent.forEach(el => el.style.display = 'none');
+    distribuidorContent.forEach(el => el.style.display = '');
+    // Update menu items for distribuidor
+    updateMenuForProfile('distribuidor');
+  }
+
+  // Store preference
+  localStorage.setItem('parceiro_profile', profile);
+}
+
+// Update menu items based on profile
+function updateMenuForProfile(profile) {
+  const menuItems = document.querySelectorAll('.sidebar-menu li');
+  // Example: hide/show specific menu items based on profile
+  // This can be customized based on which features are available for each profile
+}
+
+// Initialize profile on page load
+function initProfile() {
+  const savedProfile = localStorage.getItem('parceiro_profile') || 'emissor';
+  const activeBtn = document.querySelector(`.sidebar-profile-switcher .switcher-btn[onclick*="${savedProfile}"]`);
+  if (activeBtn) {
+    switchProfile(savedProfile, activeBtn);
+  }
+}
+
 // Simulate navigation with loading
 function navigateTo(url, delay = 300) {
   document.body.style.opacity = '0.7';

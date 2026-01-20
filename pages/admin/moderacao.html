@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moderacao de Comunicados - Admin - CrowdInvest</title>
+  <title>Moderacao - Admin - CrowdInvest</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../../css/style.css">
   <style>
@@ -41,7 +41,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: linear-gradient(135deg, var(--primary), #1d4ed8);
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
       padding: 6px 12px;
       border-radius: 20px;
@@ -61,9 +61,84 @@
       flex-wrap: wrap;
       margin-bottom: 25px;
     }
+    /* Tabs de moderacao */
+    .moderacao-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 25px;
+    }
+    .moderacao-tab {
+      padding: 12px 24px;
+      font-weight: 500;
+      color: var(--text-muted);
+      border: none;
+      background: none;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .moderacao-tab:hover {
+      color: var(--text);
+    }
+    .moderacao-tab.active {
+      color: var(--primary);
+    }
+    .moderacao-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--primary);
+    }
+    .moderacao-tab .tab-count {
+      background: var(--warning);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.75rem;
+    }
+    .moderacao-tab.active .tab-count {
+      background: var(--primary);
+    }
+    /* Editor inline */
+    .edit-inline-area {
+      background: #f0fdf4;
+      border: 2px solid #22c55e;
+      border-radius: var(--radius);
+      padding: 15px;
+      margin: 15px 0;
+    }
+    .edit-inline-area textarea {
+      width: 100%;
+      min-height: 120px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      resize: vertical;
+    }
+    .edit-inline-area .edit-toolbar {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .edit-highlight {
+      background: #fef3c7;
+      padding: 2px 4px;
+      border-radius: 2px;
+    }
   </style>
 </head>
-<body>
+<body class="theme-admin">
   <div class="dashboard">
     <!-- Sidebar -->
     <aside class="sidebar sidebar-dark">
@@ -88,38 +163,58 @@
 
     <!-- Main Content -->
     <main class="main-content">
-      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i> Menu</button>
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
 
       <div class="page-header">
         <div>
-          <h1 class="page-title">Moderacao de Comunicados</h1>
-          <p class="text-muted">Aprove ou rejeite comunicados dos parceiros</p>
+          <h1 class="page-title">Central de Moderacao</h1>
+          <p class="text-muted">Analise, ajuste e aprove conteudos dos parceiros</p>
         </div>
         <span class="badge badge-warning" style="font-size: 1rem; padding: 10px 20px;">
-          <i class="bi bi-hourglass-split"></i> 5 pendentes
+          <i class="bi bi-hourglass-split"></i> 8 pendentes
         </span>
+      </div>
+
+      <!-- Tabs de Moderacao -->
+      <div class="moderacao-tabs">
+        <button class="moderacao-tab active" onclick="switchModeracaoTab('comunicados', this)">
+          <i class="bi bi-chat-square-text"></i> Comunicados
+          <span class="tab-count">5</span>
+        </button>
+        <button class="moderacao-tab" onclick="switchModeracaoTab('ofertas', this)">
+          <i class="bi bi-megaphone"></i> Ofertas
+          <span class="tab-count">2</span>
+        </button>
+        <button class="moderacao-tab" onclick="switchModeracaoTab('documentos', this)">
+          <i class="bi bi-file-earmark"></i> Documentos
+          <span class="tab-count">1</span>
+        </button>
+        <button class="moderacao-tab" onclick="switchModeracaoTab('ajustes', this)">
+          <i class="bi bi-arrow-repeat"></i> Em Ajuste
+          <span class="tab-count">3</span>
+        </button>
       </div>
 
       <!-- KPIs -->
       <div class="kpi-grid mb-30">
         <div class="kpi-card">
           <div class="kpi-label">Aguardando Analise</div>
-          <div class="kpi-value" style="color: var(--warning);">5</div>
+          <div class="kpi-value" style="color: var(--warning);">8</div>
           <div class="kpi-change">Prioridade alta: 2</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">Aprovados Hoje</div>
-          <div class="kpi-value" style="color: var(--success);">8</div>
-          <div class="kpi-change positive">+3 vs ontem</div>
+          <div class="kpi-value" style="color: var(--success);">12</div>
+          <div class="kpi-change positive">+5 vs ontem</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Rejeitados Hoje</div>
-          <div class="kpi-value" style="color: var(--danger);">1</div>
-          <div class="kpi-change">Motivo: projecoes</div>
+          <div class="kpi-label">Ajustados pelo Admin</div>
+          <div class="kpi-value" style="color: var(--info);">4</div>
+          <div class="kpi-change">Correcoes diretas</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">Tempo Medio</div>
-          <div class="kpi-value">4h</div>
+          <div class="kpi-value">2h</div>
           <div class="kpi-change positive">Meta: 24h</div>
         </div>
       </div>
@@ -131,6 +226,7 @@
           <option selected>Pendentes</option>
           <option>Aprovados</option>
           <option>Rejeitados</option>
+          <option>Em Ajuste</option>
         </select>
         <select class="form-input" style="width: auto;">
           <option>Todas as Empresas</option>
@@ -229,8 +325,8 @@
         </div>
       </div>
 
-      <!-- Comunicado 3 - Com alerta -->
-      <div class="moderacao-card" style="border: 2px solid var(--danger);">
+      <!-- Comunicado 3 - Com alerta e opcao de editar -->
+      <div class="moderacao-card" style="border: 2px solid var(--danger);" id="comunicado3">
         <div class="moderacao-header" style="background: #fef2f2;">
           <div class="flex gap-15" style="align-items: center;">
             <span class="empresa-badge" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
@@ -253,12 +349,36 @@
             </div>
           </div>
           <h4 style="margin-bottom: 10px;">Projecao de faturamento Q1 2026</h4>
-          <p class="text-muted" style="line-height: 1.6; margin-bottom: 15px;">
-            Com base no nosso crescimento atual, projetamos um faturamento de R$ 500.000 no primeiro trimestre de 2026,
-            representando um crescimento de 150% em relacao ao mesmo periodo do ano anterior...
-            <br><br>
-            <span style="color: var(--danger); font-weight: bold;">⚠️ Frase detectada: "projetamos um faturamento de R$ 500.000"</span>
-          </p>
+
+          <!-- Conteudo Original (visivel quando nao esta editando) -->
+          <div id="conteudoOriginal3">
+            <p class="text-muted" style="line-height: 1.6; margin-bottom: 15px;">
+              Com base no nosso crescimento atual, <span class="edit-highlight">projetamos um faturamento de R$ 500.000</span> no primeiro trimestre de 2026,
+              representando um crescimento de 150% em relacao ao mesmo periodo do ano anterior...
+            </p>
+            <div style="background: #fef2f2; border-radius: var(--radius-sm); padding: 10px; margin-bottom: 15px;">
+              <span style="color: var(--danger); font-size: 0.875rem;"><i class="bi bi-exclamation-triangle"></i> Frase detectada: "projetamos um faturamento de R$ 500.000" - falta disclaimer</span>
+            </div>
+          </div>
+
+          <!-- Area de Edicao (oculta por padrao) -->
+          <div id="areaEdicao3" class="edit-inline-area" style="display: none;">
+            <div class="flex-between mb-10">
+              <strong><i class="bi bi-pencil-square" style="color: #22c55e;"></i> Modo de Edicao - Admin</strong>
+              <span class="badge badge-info">Ajuste direto</span>
+            </div>
+            <textarea id="textareaEdicao3">Com base no nosso crescimento atual, projetamos um faturamento de R$ 500.000 no primeiro trimestre de 2026, representando um crescimento de 150% em relacao ao mesmo periodo do ano anterior.
+
+⚠️ IMPORTANTE: As projecoes apresentadas sao estimativas baseadas em dados atuais e nao constituem garantia de resultados futuros. Investimentos em startups envolvem riscos e podem resultar em perdas parciais ou totais do capital investido.</textarea>
+            <div class="edit-toolbar">
+              <button class="btn btn-outline btn-sm" onclick="inserirDisclaimer()"><i class="bi bi-shield-check"></i> Inserir Disclaimer Padrao</button>
+              <button class="btn btn-outline btn-sm"><i class="bi bi-arrow-counterclockwise"></i> Desfazer</button>
+            </div>
+            <p class="text-muted" style="font-size: 0.8rem; margin-top: 10px;">
+              <i class="bi bi-info-circle"></i> Suas alteracoes serao registradas como "Ajuste Admin" no historico.
+            </p>
+          </div>
+
           <div class="preview-box">
             <strong><i class="bi bi-eye"></i> Preview para Clientes:</strong>
             <p style="margin-top: 10px; font-size: 0.9rem;">Este comunicado sera enviado para <strong>89 investidores</strong> da oferta EcoFood Organicos.</p>
@@ -269,10 +389,64 @@
             <button class="btn btn-outline btn-sm"><i class="bi bi-clock-history"></i> Historico</button>
             <button class="btn btn-outline btn-sm"><i class="bi bi-person"></i> Perfil Empresa</button>
           </div>
-          <div class="flex gap-10">
-            <button class="btn btn-warning" onclick="showModal('solicitarAjusteModal')"><i class="bi bi-pencil"></i> Solicitar Ajuste</button>
+          <div class="flex gap-10" id="acoes3">
+            <button class="btn btn-info" onclick="toggleEdicao(3)"><i class="bi bi-pencil-square"></i> Editar e Aprovar</button>
+            <button class="btn btn-warning" onclick="showModal('solicitarAjusteModal')"><i class="bi bi-send"></i> Solicitar Ajuste</button>
             <button class="btn btn-danger" onclick="showModal('rejeitarModal')"><i class="bi bi-x-circle"></i> Rejeitar</button>
-            <button class="btn btn-success" onclick="showModal('aprovarModal')"><i class="bi bi-check-circle"></i> Aprovar</button>
+          </div>
+          <!-- Acoes quando esta editando -->
+          <div class="flex gap-10" id="acoesEdicao3" style="display: none;">
+            <button class="btn btn-secondary" onclick="cancelarEdicao(3)"><i class="bi bi-x"></i> Cancelar Edicao</button>
+            <button class="btn btn-success" onclick="showModal('aprovarComAjusteModal')"><i class="bi bi-check-circle"></i> Salvar e Aprovar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comunicado 4 - Ja em ajuste pelo parceiro -->
+      <div class="moderacao-card" style="border: 2px solid var(--info);">
+        <div class="moderacao-header" style="background: #eff6ff;">
+          <div class="flex gap-15" style="align-items: center;">
+            <span class="empresa-badge" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+              <span style="width: 24px; height: 24px; background: white; border-radius: 4px; color: #d97706; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem;">HT</span>
+              HealthTech Solutions
+            </span>
+            <span class="badge badge-info"><i class="bi bi-arrow-repeat"></i> Aguardando Revisao</span>
+            <span class="text-muted" style="font-size: 0.875rem;"><i class="bi bi-clock"></i> ha 1 hora</span>
+          </div>
+          <div class="flex gap-10">
+            <span class="badge badge-success">Marco Atingido</span>
+          </div>
+        </div>
+        <div class="moderacao-body">
+          <div class="alert alert-info mb-20">
+            <i class="bi bi-arrow-repeat"></i>
+            <div>
+              <strong>Revisao:</strong> O parceiro corrigiu o comunicado conforme solicitado. Verifique as alteracoes.
+            </div>
+          </div>
+          <h4 style="margin-bottom: 10px;">Novo marco: 1.000 usuarios ativos!</h4>
+          <p class="text-muted" style="line-height: 1.6; margin-bottom: 15px;">
+            Atingimos a marca de 1.000 usuarios ativos na plataforma HealthTech. Este e um marco importante que demonstra a aceitacao do mercado.
+            <br><br>
+            <span style="color: var(--success);">✓ Disclaimer adicionado conforme solicitado</span>
+          </p>
+          <div style="background: #f0fdf4; border: 1px solid #22c55e; border-radius: var(--radius-sm); padding: 10px; margin-bottom: 15px;">
+            <strong style="color: #16a34a;"><i class="bi bi-check-circle"></i> Alteracao feita pelo parceiro:</strong>
+            <p style="font-size: 0.875rem; margin-top: 5px;">Adicionado disclaimer sobre riscos de investimento conforme solicitacao do moderador.</p>
+          </div>
+          <div class="preview-box">
+            <strong><i class="bi bi-eye"></i> Preview para Clientes:</strong>
+            <p style="margin-top: 10px; font-size: 0.9rem;">Este comunicado sera enviado para <strong>45 investidores</strong> da oferta HealthTech Solutions.</p>
+          </div>
+        </div>
+        <div class="moderacao-actions">
+          <div class="flex gap-10">
+            <button class="btn btn-outline btn-sm"><i class="bi bi-clock-history"></i> Ver Historico</button>
+            <button class="btn btn-outline btn-sm"><i class="bi bi-file-diff"></i> Comparar Versoes</button>
+          </div>
+          <div class="flex gap-10">
+            <button class="btn btn-warning" onclick="showModal('solicitarAjusteModal')"><i class="bi bi-send"></i> Pedir Mais Ajustes</button>
+            <button class="btn btn-success" onclick="showModal('aprovarModal')"><i class="bi bi-check-circle"></i> Aprovar Revisao</button>
           </div>
         </div>
       </div>
@@ -480,6 +654,124 @@
     </div>
   </div>
 
+  <!-- Modal Aprovar com Ajuste -->
+  <div class="modal-overlay" id="aprovarComAjusteModal" style="display: none;">
+    <div class="modal" style="max-width: 550px;">
+      <div class="modal-header">
+        <h3><i class="bi bi-check-circle" style="color: var(--success);"></i> Aprovar com Ajustes</h3>
+        <button class="modal-close" onclick="hideModal('aprovarComAjusteModal')">&times;</button>
+      </div>
+      <div class="alert alert-info mb-20">
+        <i class="bi bi-pencil-square"></i>
+        <div>
+          <strong>Voce fez ajustes neste comunicado.</strong><br>
+          Suas alteracoes serao salvas e o comunicado sera publicado.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Resumo do ajuste (registrado no historico)</label>
+        <textarea class="form-input" rows="2" placeholder="Ex: Adicionado disclaimer sobre projecoes financeiras">Adicionado disclaimer padrao sobre riscos e projecoes.</textarea>
+      </div>
+      <div class="form-group">
+        <label class="checkbox-label">
+          <input type="checkbox" checked>
+          <span>Notificar parceiro sobre o ajuste realizado</span>
+        </label>
+      </div>
+      <div class="alert alert-success">
+        <i class="bi bi-send"></i> 89 investidores serao notificados apos aprovacao.
+      </div>
+      <div class="flex gap-10 mt-20">
+        <button class="btn btn-secondary" onclick="hideModal('aprovarComAjusteModal')" style="flex: 1;">Cancelar</button>
+        <button class="btn btn-success" onclick="hideModal('aprovarComAjusteModal'); showModal('ajusteAprovadoModal');" style="flex: 1;">
+          <i class="bi bi-check-circle"></i> Salvar e Aprovar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Ajuste Aprovado com Sucesso -->
+  <div class="modal-overlay" id="ajusteAprovadoModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 400px;">
+      <div style="padding: 30px;">
+        <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
+        <h3 style="margin: 15px 0;">Ajuste Salvo e Aprovado!</h3>
+        <p class="text-muted">O comunicado foi ajustado e publicado. O parceiro foi notificado sobre as alteracoes.</p>
+        <div style="background: var(--bg); padding: 10px; border-radius: var(--radius-sm); margin: 15px 0; font-size: 0.875rem;">
+          <strong>Registro:</strong> Ajuste Admin - Maria Silva - 19/01/2026 15:30
+        </div>
+        <button class="btn btn-primary mt-20" onclick="hideModal('ajusteAprovadoModal')">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Comparar Versoes -->
+  <div class="modal-overlay" id="compararVersoesModal" style="display: none;">
+    <div class="modal" style="max-width: 700px;">
+      <div class="modal-header">
+        <h3><i class="bi bi-file-diff"></i> Comparar Versoes</h3>
+        <button class="modal-close" onclick="hideModal('compararVersoesModal')">&times;</button>
+      </div>
+      <div class="grid-2" style="gap: 20px;">
+        <div>
+          <h4 style="margin-bottom: 10px; color: var(--danger);"><i class="bi bi-x-circle"></i> Versao Original</h4>
+          <div style="background: #fef2f2; padding: 15px; border-radius: var(--radius); font-size: 0.9rem; line-height: 1.6;">
+            Atingimos a marca de 1.000 usuarios ativos na plataforma HealthTech. Este e um marco importante que demonstra a aceitacao do mercado.
+          </div>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 10px; color: var(--success);"><i class="bi bi-check-circle"></i> Versao Revisada</h4>
+          <div style="background: #f0fdf4; padding: 15px; border-radius: var(--radius); font-size: 0.9rem; line-height: 1.6;">
+            Atingimos a marca de 1.000 usuarios ativos na plataforma HealthTech. Este e um marco importante que demonstra a aceitacao do mercado.
+            <br><br>
+            <span style="background: #bbf7d0; padding: 2px 4px;">Importante: Investimentos em startups envolvem riscos e podem resultar em perdas.</span>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-outline btn-block mt-20" onclick="hideModal('compararVersoesModal')">Fechar</button>
+    </div>
+  </div>
+
   <script src="../../js/app.js"></script>
+  <script>
+    // Toggle edicao inline
+    function toggleEdicao(id) {
+      document.getElementById('conteudoOriginal' + id).style.display = 'none';
+      document.getElementById('areaEdicao' + id).style.display = 'block';
+      document.getElementById('acoes' + id).style.display = 'none';
+      document.getElementById('acoesEdicao' + id).style.display = 'flex';
+
+      // Mudar borda do card para indicar modo edicao
+      document.getElementById('comunicado' + id).style.borderColor = '#22c55e';
+      document.getElementById('comunicado' + id).querySelector('.moderacao-header').style.background = '#f0fdf4';
+    }
+
+    function cancelarEdicao(id) {
+      document.getElementById('conteudoOriginal' + id).style.display = 'block';
+      document.getElementById('areaEdicao' + id).style.display = 'none';
+      document.getElementById('acoes' + id).style.display = 'flex';
+      document.getElementById('acoesEdicao' + id).style.display = 'none';
+
+      // Restaurar borda original
+      document.getElementById('comunicado' + id).style.borderColor = 'var(--danger)';
+      document.getElementById('comunicado' + id).querySelector('.moderacao-header').style.background = '#fef2f2';
+    }
+
+    function inserirDisclaimer() {
+      const textarea = document.getElementById('textareaEdicao3');
+      const disclaimer = '\n\n⚠️ IMPORTANTE: As projecoes apresentadas sao estimativas baseadas em dados atuais e nao constituem garantia de resultados futuros. Investimentos em startups envolvem riscos e podem resultar em perdas parciais ou totais do capital investido.';
+      if (!textarea.value.includes('IMPORTANTE:')) {
+        textarea.value += disclaimer;
+      }
+    }
+
+    // Switch tabs de moderacao
+    function switchModeracaoTab(tab, btn) {
+      document.querySelectorAll('.moderacao-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      // Aqui poderia mostrar/ocultar diferentes secoes
+      // Por enquanto apenas visual
+    }
+  </script>
 </body>
 </html>

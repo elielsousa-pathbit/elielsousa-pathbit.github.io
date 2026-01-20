@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../../css/style.css">
 </head>
-<body>
+<body class="theme-admin">
   <div class="dashboard">
     <aside class="sidebar sidebar-dark">
       <div class="sidebar-logo">
@@ -30,7 +30,7 @@
     <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
 
     <main class="main-content">
-      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i> Menu</button>
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
 
       <div class="page-header">
         <div>
@@ -274,7 +274,7 @@
                 <tr style="background: #fef3c7;">
                   <td>
                     <div class="flex gap-10" style="align-items: center;">
-                      <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #3b82f6, #2563eb); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">HT</div>
+                      <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">HT</div>
                       <div>
                         <strong>HealthTech Solutions</strong>
                         <br><small class="text-muted">Saude</small>
@@ -366,12 +366,15 @@
               </tbody>
             </table>
           </div>
-          <div class="flex-between mt-20">
-            <p class="text-muted">Mostrando 3 de 42 ofertas concluidas</p>
-            <div class="flex gap-10">
-              <button class="btn btn-outline btn-sm" disabled>Anterior</button>
-              <button class="btn btn-outline btn-sm">Proximo</button>
-            </div>
+          <div class="pagination-wrapper">
+            <span class="pagination-info">Mostrando <strong>1-3</strong> de <strong>42</strong></span>
+            <nav class="pagination-minimal">
+              <button class="page-item nav-arrow disabled"><i class="bi bi-chevron-left"></i></button>
+              <button class="page-item active">1</button>
+              <button class="page-item">2</button>
+              <button class="page-item">3</button>
+              <button class="page-item nav-arrow"><i class="bi bi-chevron-right"></i></button>
+            </nav>
           </div>
         </div>
       </div>
