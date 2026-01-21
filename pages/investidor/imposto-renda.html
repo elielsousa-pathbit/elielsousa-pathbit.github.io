@@ -9,6 +9,10 @@
 </head>
 <body class="theme-investidor">
   <div class="dashboard">
+    <div class="mobile-header">
+      <a href="../../index.html" class="logo">CrowdInvest</a>
+    </div>
+
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-logo">
@@ -147,41 +151,41 @@
             </thead>
             <tbody>
               <tr>
-                <td>
+                <td data-label="Empresa">
                   <strong>TechStart Inovacao S.A.</strong>
                   <br><small class="text-muted">Participacao: 0.5%</small>
                 </td>
-                <td>12.345.678/0001-90</td>
-                <td>15/03/2024</td>
-                <td>R$ 5.000,00</td>
-                <td>R$ 5.000,00</td>
+                <td data-label="CNPJ">12.345.678/0001-90</td>
+                <td data-label="Data Aquisicao">15/03/2024</td>
+                <td data-label="Valor Investido">R$ 5.000,00</td>
+                <td data-label="Situacao 31/12">R$ 5.000,00</td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Empresa">
                   <strong>EcoFood Delivery Ltda.</strong>
                   <br><small class="text-muted">Participacao: 0.3%</small>
                 </td>
-                <td>98.765.432/0001-10</td>
-                <td>10/06/2024</td>
-                <td>R$ 3.000,00</td>
-                <td>R$ 3.000,00</td>
+                <td data-label="CNPJ">98.765.432/0001-10</td>
+                <td data-label="Data Aquisicao">10/06/2024</td>
+                <td data-label="Valor Investido">R$ 3.000,00</td>
+                <td data-label="Situacao 31/12">R$ 3.000,00</td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Empresa">
                   <strong>FinTech Solutions S.A.</strong>
                   <br><small class="text-muted">Participacao: 1.2%</small>
                 </td>
-                <td>11.222.333/0001-44</td>
-                <td>20/09/2024</td>
-                <td>R$ 10.000,00</td>
-                <td>R$ 10.000,00</td>
+                <td data-label="CNPJ">11.222.333/0001-44</td>
+                <td data-label="Data Aquisicao">20/09/2024</td>
+                <td data-label="Valor Investido">R$ 10.000,00</td>
+                <td data-label="Situacao 31/12">R$ 10.000,00</td>
               </tr>
             </tbody>
             <tfoot>
               <tr style="background: var(--bg);">
-                <td colspan="3"><strong>Total</strong></td>
-                <td><strong>R$ 18.000,00</strong></td>
-                <td><strong>R$ 18.000,00</strong></td>
+                <td data-label="Total" colspan="3"><strong>Total</strong></td>
+                <td data-label="Total Investido"><strong>R$ 18.000,00</strong></td>
+                <td data-label="Total 31/12"><strong>R$ 18.000,00</strong></td>
               </tr>
             </tfoot>
           </table>
@@ -218,36 +222,36 @@
             </thead>
             <tbody>
               <tr>
-                <td><span class="badge badge-success">Dividendos</span></td>
-                <td>TechStart Inovacao S.A.</td>
-                <td>12.345.678/0001-90</td>
-                <td>R$ 1.500,00</td>
-                <td>R$ 225,00</td>
-                <td>R$ 1.275,00</td>
+                <td data-label="Tipo"><span class="badge badge-success">Dividendos</span></td>
+                <td data-label="Fonte Pagadora">TechStart Inovacao S.A.</td>
+                <td data-label="CNPJ">12.345.678/0001-90</td>
+                <td data-label="Rendimento Bruto">R$ 1.500,00</td>
+                <td data-label="IRRF">R$ 225,00</td>
+                <td data-label="Rendimento Liquido">R$ 1.275,00</td>
               </tr>
               <tr>
-                <td><span class="badge badge-info">Amortizacao</span></td>
-                <td>EcoFood Delivery Ltda.</td>
-                <td>98.765.432/0001-10</td>
-                <td>R$ 750,00</td>
-                <td>R$ 112,50</td>
-                <td>R$ 637,50</td>
+                <td data-label="Tipo"><span class="badge badge-info">Amortizacao</span></td>
+                <td data-label="Fonte Pagadora">EcoFood Delivery Ltda.</td>
+                <td data-label="CNPJ">98.765.432/0001-10</td>
+                <td data-label="Rendimento Bruto">R$ 750,00</td>
+                <td data-label="IRRF">R$ 112,50</td>
+                <td data-label="Rendimento Liquido">R$ 637,50</td>
               </tr>
               <tr>
-                <td><span class="badge badge-success">Dividendos</span></td>
-                <td>FinTech Solutions S.A.</td>
-                <td>11.222.333/0001-44</td>
-                <td>R$ 1.000,00</td>
-                <td>R$ 150,00</td>
-                <td>R$ 850,00</td>
+                <td data-label="Tipo"><span class="badge badge-success">Dividendos</span></td>
+                <td data-label="Fonte Pagadora">FinTech Solutions S.A.</td>
+                <td data-label="CNPJ">11.222.333/0001-44</td>
+                <td data-label="Rendimento Bruto">R$ 1.000,00</td>
+                <td data-label="IRRF">R$ 150,00</td>
+                <td data-label="Rendimento Liquido">R$ 850,00</td>
               </tr>
             </tbody>
             <tfoot>
               <tr style="background: var(--bg);">
-                <td colspan="3"><strong>Total</strong></td>
-                <td><strong>R$ 3.250,00</strong></td>
-                <td><strong>R$ 487,50</strong></td>
-                <td><strong>R$ 2.762,50</strong></td>
+                <td data-label="Total" colspan="3"><strong>Total</strong></td>
+                <td data-label="Total Bruto"><strong>R$ 3.250,00</strong></td>
+                <td data-label="Total IRRF"><strong>R$ 487,50</strong></td>
+                <td data-label="Total Liquido"><strong>R$ 2.762,50</strong></td>
               </tr>
             </tfoot>
           </table>
@@ -292,6 +296,15 @@
 
         <div class="alert alert-warning mt-20">
           <i class="bi bi-exclamation-triangle"></i> <strong>Importante:</strong> As informacoes acima sao apenas orientativas. Consulte sempre um contador ou profissional de sua confianca para orientacoes especificas sobre sua declaracao de IR.
+        </div>
+      </div>
+      <!-- Disclaimer Regulatorio CVM -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <div class="warning-text">
+          <i class="bi bi-exclamation-triangle"></i>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>

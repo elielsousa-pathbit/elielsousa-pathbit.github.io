@@ -9,6 +9,10 @@
 </head>
 <body class="theme-parceiro">
   <div class="dashboard">
+    <div class="mobile-header">
+      <a href="../../index.html" class="logo">CrowdInvest</a>
+    </div>
+
     <!-- Sidebar -->
     <aside class="sidebar sidebar-green">
       <div class="sidebar-logo">
@@ -35,10 +39,11 @@
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponiveis</span></a></li>
         <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
-        <li><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
+        <li><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
         <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissoes</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html" class="active"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
         <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
@@ -52,304 +57,644 @@
     <main class="main-content">
       <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
 
-      <div class="page-header">
-        <div>
-          <h1 class="page-title">Imposto de Renda</h1>
-          <p class="text-muted">Documentos fiscais da sua captacao</p>
-        </div>
-        <div style="min-width: 180px;">
-          <select class="form-input" style="padding: 10px 14px; font-size: 0.95rem;">
-            <option value="2025" selected>2025 (IRPF 2026)</option>
-            <option value="2024">2024 (IRPF 2025)</option>
-            <option value="2023">2023 (IRPF 2024)</option>
-            <option value="2022">2022 (IRPF 2023)</option>
-            <option value="2021">2021 (IRPF 2022)</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Alert -->
-      <div class="alert alert-info mb-20">
-        <i class="bi bi-info-circle"></i> <strong>Obrigacao Fiscal:</strong> Como empresa captadora, voce deve informar aos investidores os rendimentos distribuidos e fornecer documentacao para suas declaracoes de IR.
-      </div>
-
-      <!-- KPIs -->
-      <div class="kpi-grid mb-30">
-        <div class="kpi-card">
-          <div class="kpi-label">Total Captado</div>
-          <div class="kpi-value">R$ 375.000</div>
-          <div class="kpi-change">em 2025</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Clientes</div>
-          <div class="kpi-value">127</div>
-          <div class="kpi-change">na sua oferta</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Dividendos Distribuidos</div>
-          <div class="kpi-value" style="color: var(--success);">R$ 0</div>
-          <div class="kpi-change">em 2025</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">IRRF Retido</div>
-          <div class="kpi-value" style="color: var(--warning);">R$ 0</div>
-          <div class="kpi-change">a recolher</div>
-        </div>
-      </div>
-
-      <div class="grid-2" style="gap: 30px;">
-        <!-- Documentos Fiscais -->
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"><i class="bi bi-file-earmark-text"></i> Documentos Fiscais</h3>
+      <!-- ========================================= -->
+      <!-- CONTEUDO EMISSOR -->
+      <!-- ========================================= -->
+      <div class="emissor-content">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Imposto de Renda</h1>
+            <p class="text-muted">Documentos fiscais da sua captacao</p>
           </div>
-
-          <div style="display: flex; flex-direction: column; gap: 15px;">
-            <!-- Relatorio de Captacao -->
-            <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
-              <div class="flex-between" style="margin-bottom: 10px;">
-                <div class="flex gap-10" style="align-items: center;">
-                  <i class="bi bi-file-earmark-spreadsheet" style="font-size: 1.5rem; color: var(--primary);"></i>
-                  <div>
-                    <strong>Relatorio de Captacao 2025</strong>
-                    <p class="text-muted" style="font-size: 0.875rem;">Detalhamento dos valores captados</p>
-                  </div>
-                </div>
-                <span class="badge badge-success"><i class="bi bi-check"></i> Disponivel</span>
-              </div>
-              <div class="flex gap-10">
-                <button class="btn btn-outline btn-sm" onclick="showModal('visualizarModal')">
-                  <i class="bi bi-eye"></i> Visualizar
-                </button>
-                <button class="btn btn-outline btn-sm" onclick="showModal('downloadPdfModal')">
-                  <i class="bi bi-download"></i> PDF
-                </button>
-                <button class="btn btn-outline btn-sm" onclick="showModal('downloadExcelModal')">
-                  <i class="bi bi-file-earmark-excel"></i> Excel
-                </button>
-              </div>
-            </div>
-
-            <!-- Lista de Clientes -->
-            <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
-              <div class="flex-between" style="margin-bottom: 10px;">
-                <div class="flex gap-10" style="align-items: center;">
-                  <i class="bi bi-people" style="font-size: 1.5rem; color: var(--success);"></i>
-                  <div>
-                    <strong>Lista de Clientes com CPF</strong>
-                    <p class="text-muted" style="font-size: 0.875rem;">Para declaracao de participacoes</p>
-                  </div>
-                </div>
-                <span class="badge badge-success"><i class="bi bi-check"></i> Disponivel</span>
-              </div>
-              <div class="flex gap-10">
-                <button class="btn btn-outline btn-sm" onclick="showModal('visualizarModal')">
-                  <i class="bi bi-eye"></i> Visualizar
-                </button>
-                <button class="btn btn-outline btn-sm" onclick="showModal('downloadPdfModal')">
-                  <i class="bi bi-download"></i> PDF
-                </button>
-                <button class="btn btn-outline btn-sm" onclick="showModal('downloadExcelModal')">
-                  <i class="bi bi-file-earmark-excel"></i> Excel
-                </button>
-              </div>
-            </div>
-
-            <!-- Comprovante de Dividendos -->
-            <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
-              <div class="flex-between" style="margin-bottom: 10px;">
-                <div class="flex gap-10" style="align-items: center;">
-                  <i class="bi bi-cash-coin" style="font-size: 1.5rem; color: var(--warning);"></i>
-                  <div>
-                    <strong>Comprovantes de Dividendos</strong>
-                    <p class="text-muted" style="font-size: 0.875rem;">Distribuicoes realizadas aos investidores</p>
-                  </div>
-                </div>
-                <span class="badge badge-secondary"><i class="bi bi-dash"></i> Sem distribuicoes</span>
-              </div>
-              <p class="text-muted" style="font-size: 0.875rem;">
-                Nenhuma distribuicao de dividendos foi realizada em 2025. Quando houver, os comprovantes ficarao disponiveis aqui.
-              </p>
-            </div>
+          <div style="min-width: 180px;">
+            <select class="form-input" style="padding: 10px 14px; font-size: 0.95rem;">
+              <option value="2025" selected>2025 (IRPF 2026)</option>
+              <option value="2024">2024 (IRPF 2025)</option>
+              <option value="2023">2023 (IRPF 2024)</option>
+            </select>
           </div>
         </div>
 
-        <!-- Obrigacoes e Orientacoes -->
-        <div>
-          <!-- Suas Obrigacoes -->
-          <div class="card mb-20">
+        <!-- Alert Emissor -->
+        <div class="alert alert-info mb-20">
+          <i class="bi bi-info-circle"></i> <strong>Obrigacao Fiscal:</strong> Como empresa captadora, voce deve informar aos investidores os rendimentos distribuidos e fornecer documentacao para suas declaracoes de IR.
+        </div>
+
+        <!-- KPIs Emissor -->
+        <div class="kpi-grid mb-30">
+          <div class="kpi-card">
+            <div class="kpi-label">Total Captado</div>
+            <div class="kpi-value">R$ 375.000</div>
+            <div class="kpi-change">em 2025</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Investidores</div>
+            <div class="kpi-value">127</div>
+            <div class="kpi-change">na sua oferta</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Dividendos Distribuidos</div>
+            <div class="kpi-value" style="color: var(--success);">R$ 0</div>
+            <div class="kpi-change">em 2025</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">IRRF Retido</div>
+            <div class="kpi-value" style="color: var(--warning);">R$ 0</div>
+            <div class="kpi-change">a recolher</div>
+          </div>
+        </div>
+
+        <div class="grid-2" style="gap: 30px;">
+          <!-- Documentos Fiscais Emissor -->
+          <div class="card">
             <div class="card-header">
-              <h3 class="card-title"><i class="bi bi-clipboard-check"></i> Suas Obrigacoes Fiscais</h3>
+              <h3 class="card-title"><i class="bi bi-file-earmark-text"></i> Documentos Fiscais</h3>
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 15px;">
-              <div class="flex gap-10" style="align-items: flex-start;">
-                <div style="width: 28px; height: 28px; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  <i class="bi bi-check" style="color: var(--success);"></i>
+              <!-- Relatorio de Captacao -->
+              <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
+                <div class="flex-between" style="margin-bottom: 10px;">
+                  <div class="flex gap-10" style="align-items: center;">
+                    <i class="bi bi-file-earmark-spreadsheet" style="font-size: 1.5rem; color: var(--primary);"></i>
+                    <div>
+                      <strong>Relatorio de Captacao 2025</strong>
+                      <p class="text-muted" style="font-size: 0.875rem;">Detalhamento dos valores captados</p>
+                    </div>
+                  </div>
+                  <span class="badge badge-success"><i class="bi bi-check"></i> Disponivel</span>
                 </div>
-                <div>
-                  <strong>Registro dos Clientes</strong>
-                  <p class="text-muted" style="font-size: 0.875rem;">Manter cadastro atualizado de todos os socios minoritarios</p>
-                </div>
-              </div>
-
-              <div class="flex gap-10" style="align-items: flex-start;">
-                <div style="width: 28px; height: 28px; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  <i class="bi bi-check" style="color: var(--success);"></i>
-                </div>
-                <div>
-                  <strong>Contrato Social Atualizado</strong>
-                  <p class="text-muted" style="font-size: 0.875rem;">Refletir a participacao dos novos socios</p>
-                </div>
-              </div>
-
-              <div class="flex gap-10" style="align-items: flex-start;">
-                <div style="width: 28px; height: 28px; background: #fef3c7; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  <i class="bi bi-clock" style="color: var(--warning);"></i>
-                </div>
-                <div>
-                  <strong>Informes de Rendimentos</strong>
-                  <p class="text-muted" style="font-size: 0.875rem;">Fornecer ate 28/02 (quando houver distribuicao)</p>
+                <div class="flex gap-10">
+                  <button class="btn btn-outline btn-sm" onclick="showModal('visualizarModal')">
+                    <i class="bi bi-eye"></i> Visualizar
+                  </button>
+                  <button class="btn btn-outline btn-sm" onclick="showModal('downloadPdfModal')">
+                    <i class="bi bi-download"></i> PDF
+                  </button>
+                  <button class="btn btn-outline btn-sm" onclick="showModal('downloadExcelModal')">
+                    <i class="bi bi-file-earmark-excel"></i> Excel
+                  </button>
                 </div>
               </div>
 
-              <div class="flex gap-10" style="align-items: flex-start;">
-                <div style="width: 28px; height: 28px; background: #fef3c7; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  <i class="bi bi-clock" style="color: var(--warning);"></i>
+              <!-- Lista de Investidores -->
+              <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
+                <div class="flex-between" style="margin-bottom: 10px;">
+                  <div class="flex gap-10" style="align-items: center;">
+                    <i class="bi bi-people" style="font-size: 1.5rem; color: var(--success);"></i>
+                    <div>
+                      <strong>Lista de Investidores com CPF</strong>
+                      <p class="text-muted" style="font-size: 0.875rem;">Para declaracao de participacoes</p>
+                    </div>
+                  </div>
+                  <span class="badge badge-success"><i class="bi bi-check"></i> Disponivel</span>
                 </div>
-                <div>
-                  <strong>Retencao de IRRF</strong>
-                  <p class="text-muted" style="font-size: 0.875rem;">Reter e recolher IR sobre dividendos distribuidos</p>
+                <div class="flex gap-10">
+                  <button class="btn btn-outline btn-sm" onclick="showModal('visualizarModal')">
+                    <i class="bi bi-eye"></i> Visualizar
+                  </button>
+                  <button class="btn btn-outline btn-sm" onclick="showModal('downloadPdfModal')">
+                    <i class="bi bi-download"></i> PDF
+                  </button>
+                  <button class="btn btn-outline btn-sm" onclick="showModal('downloadExcelModal')">
+                    <i class="bi bi-file-earmark-excel"></i> Excel
+                  </button>
+                </div>
+              </div>
+
+              <!-- Comprovante de Dividendos -->
+              <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
+                <div class="flex-between" style="margin-bottom: 10px;">
+                  <div class="flex gap-10" style="align-items: center;">
+                    <i class="bi bi-cash-coin" style="font-size: 1.5rem; color: var(--warning);"></i>
+                    <div>
+                      <strong>Comprovantes de Dividendos</strong>
+                      <p class="text-muted" style="font-size: 0.875rem;">Distribuicoes realizadas aos investidores</p>
+                    </div>
+                  </div>
+                  <span class="badge badge-secondary"><i class="bi bi-dash"></i> Sem distribuicoes</span>
+                </div>
+                <p class="text-muted" style="font-size: 0.875rem;">
+                  Nenhuma distribuicao de dividendos foi realizada em 2025.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Obrigacoes Emissor -->
+          <div>
+            <div class="card mb-20">
+              <div class="card-header">
+                <h3 class="card-title"><i class="bi bi-clipboard-check"></i> Suas Obrigacoes Fiscais</h3>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div class="flex gap-10" style="align-items: flex-start;">
+                  <div style="width: 28px; height: 28px; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="bi bi-check" style="color: var(--success);"></i>
+                  </div>
+                  <div>
+                    <strong>Registro dos Investidores</strong>
+                    <p class="text-muted" style="font-size: 0.875rem;">Manter cadastro atualizado de todos os socios minoritarios</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-10" style="align-items: flex-start;">
+                  <div style="width: 28px; height: 28px; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="bi bi-check" style="color: var(--success);"></i>
+                  </div>
+                  <div>
+                    <strong>Contrato Social Atualizado</strong>
+                    <p class="text-muted" style="font-size: 0.875rem;">Refletir a participacao dos novos socios</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-10" style="align-items: flex-start;">
+                  <div style="width: 28px; height: 28px; background: #fef3c7; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="bi bi-clock" style="color: var(--warning);"></i>
+                  </div>
+                  <div>
+                    <strong>Informes de Rendimentos</strong>
+                    <p class="text-muted" style="font-size: 0.875rem;">Fornecer ate 28/02 (quando houver distribuicao)</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-10" style="align-items: flex-start;">
+                  <div style="width: 28px; height: 28px; background: #fef3c7; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="bi bi-clock" style="color: var(--warning);"></i>
+                  </div>
+                  <div>
+                    <strong>Retencao de IRRF</strong>
+                    <p class="text-muted" style="font-size: 0.875rem;">Reter e recolher IR sobre dividendos distribuidos</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ Emissor -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title"><i class="bi bi-question-circle"></i> Duvidas Frequentes</h3>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <details style="background: var(--bg); border-radius: var(--radius); padding: 12px;">
+                  <summary style="cursor: pointer; font-weight: 600; font-size: 0.875rem;">Preciso emitir informe para todos investidores?</summary>
+                  <p class="text-muted" style="margin-top: 10px; padding-left: 15px; font-size: 0.875rem;">
+                    Apenas quando houver distribuicao de rendimentos. Enquanto nao houver distribuicao, nao ha obrigacao de emissao de informe.
+                  </p>
+                </details>
+
+                <details style="background: var(--bg); border-radius: var(--radius); padding: 12px;">
+                  <summary style="cursor: pointer; font-weight: 600; font-size: 0.875rem;">Como funciona a retencao de IRRF?</summary>
+                  <p class="text-muted" style="margin-top: 10px; padding-left: 15px; font-size: 0.875rem;">
+                    Ao distribuir dividendos, voce deve reter 15% de IRRF e recolher via DARF ate o ultimo dia util do mes seguinte.
+                  </p>
+                </details>
+
+                <details style="background: var(--bg); border-radius: var(--radius); padding: 12px;">
+                  <summary style="cursor: pointer; font-weight: 600; font-size: 0.875rem;">Quando atualizo o contrato social?</summary>
+                  <p class="text-muted" style="margin-top: 10px; padding-left: 15px; font-size: 0.875rem;">
+                    Apos o encerramento da oferta, o contrato social deve ser alterado para incluir os novos socios, com registro na Junta Comercial.
+                  </p>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quadro de Investidores -->
+        <div class="card mt-20">
+          <div class="card-header flex-between">
+            <h3 class="card-title"><i class="bi bi-people"></i> Quadro de Investidores - Ano 2025</h3>
+            <div class="flex gap-10">
+              <button class="btn btn-outline btn-sm" onclick="showModal('downloadPdfModal')">
+                <i class="bi bi-download"></i> Baixar PDF
+              </button>
+              <button class="btn btn-outline btn-sm" onclick="showModal('downloadExcelModal')">
+                <i class="bi bi-file-earmark-excel"></i> Exportar Excel
+              </button>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Investidor</th>
+                  <th>CPF/CNPJ</th>
+                  <th>Valor Investido</th>
+                  <th>Participacao (%)</th>
+                  <th>Data Entrada</th>
+                  <th>Situacao</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Investidor">
+                    <strong>Joao Carlos Silva</strong>
+                    <br><small class="text-muted">joao.silva@email.com</small>
+                  </td>
+                  <td data-label="CPF/CNPJ">123.456.789-00</td>
+                  <td data-label="Valor Investido">R$ 5.000,00</td>
+                  <td data-label="Participacao">1,00%</td>
+                  <td data-label="Data Entrada">15/01/2026</td>
+                  <td data-label="Situacao"><span class="badge badge-success">Confirmado</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Investidor">
+                    <strong>Maria Santos Lima</strong>
+                    <br><small class="text-muted">maria.lima@email.com</small>
+                  </td>
+                  <td data-label="CPF/CNPJ">987.654.321-00</td>
+                  <td data-label="Valor Investido">R$ 2.000,00</td>
+                  <td data-label="Participacao">0,40%</td>
+                  <td data-label="Data Entrada">16/01/2026</td>
+                  <td data-label="Situacao"><span class="badge badge-success">Confirmado</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Investidor">
+                    <strong>Pedro Oliveira</strong>
+                    <br><small class="text-muted">pedro.o@email.com</small>
+                  </td>
+                  <td data-label="CPF/CNPJ">456.789.123-00</td>
+                  <td data-label="Valor Investido">R$ 10.000,00</td>
+                  <td data-label="Participacao">2,00%</td>
+                  <td data-label="Data Entrada">17/01/2026</td>
+                  <td data-label="Situacao"><span class="badge badge-success">Confirmado</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Investidor">
+                    <strong>Ana Paula Costa</strong>
+                    <br><small class="text-muted">ana.costa@email.com</small>
+                  </td>
+                  <td data-label="CPF/CNPJ">321.654.987-00</td>
+                  <td data-label="Valor Investido">R$ 3.000,00</td>
+                  <td data-label="Participacao">0,60%</td>
+                  <td data-label="Data Entrada">18/01/2026</td>
+                  <td data-label="Situacao"><span class="badge badge-warning">Em Desistencia</span></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr style="background: var(--bg);">
+                  <td colspan="2"><strong>Total (127 investidores)</strong></td>
+                  <td><strong>R$ 375.000,00</strong></td>
+                  <td><strong>15,00%</strong></td>
+                  <td colspan="2"></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="pagination-wrapper">
+            <span class="pagination-info">Mostrando <strong>1-4</strong> de <strong>127</strong></span>
+            <nav class="pagination-minimal">
+              <button class="page-item nav-arrow disabled"><i class="bi bi-chevron-left"></i></button>
+              <button class="page-item active">1</button>
+              <button class="page-item">2</button>
+              <button class="page-item">3</button>
+              <button class="page-item nav-arrow"><i class="bi bi-chevron-right"></i></button>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================= -->
+      <!-- CONTEUDO DISTRIBUIDOR -->
+      <!-- ========================================= -->
+      <div class="distribuidor-content" style="display: none;">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Imposto de Renda</h1>
+            <p class="text-muted">Documentos fiscais das suas comissoes</p>
+          </div>
+          <div style="min-width: 180px;">
+            <select class="form-input" style="padding: 10px 14px; font-size: 0.95rem;">
+              <option value="2025" selected>2025 (IRPF 2026)</option>
+              <option value="2024">2024 (IRPF 2025)</option>
+              <option value="2023">2023 (IRPF 2024)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Alert Distribuidor -->
+        <div class="alert alert-info mb-20">
+          <i class="bi bi-info-circle"></i> <strong>Informacao Fiscal:</strong> As comissoes de distribuicao sao consideradas rendimentos tributaveis e devem ser declaradas no seu Imposto de Renda.
+        </div>
+
+        <!-- KPIs Distribuidor -->
+        <div class="kpi-grid mb-30">
+          <div class="kpi-card">
+            <div class="kpi-label">Total de Comissoes</div>
+            <div class="kpi-value" style="color: var(--success);">R$ 28.750</div>
+            <div class="kpi-change">recebidas em 2025</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">IRRF Retido na Fonte</div>
+            <div class="kpi-value" style="color: var(--warning);">R$ 4.312,50</div>
+            <div class="kpi-change">15% sobre comissoes</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Liquido Recebido</div>
+            <div class="kpi-value">R$ 24.437,50</div>
+            <div class="kpi-change">apos retencoes</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Ofertas Distribuidas</div>
+            <div class="kpi-value">3</div>
+            <div class="kpi-change">com comissoes</div>
+          </div>
+        </div>
+
+        <div class="grid-2" style="gap: 30px;">
+          <!-- Documentos Fiscais Distribuidor -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title"><i class="bi bi-file-earmark-text"></i> Documentos Fiscais</h3>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <!-- Informe de Rendimentos -->
+              <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
+                <div class="flex-between" style="margin-bottom: 10px;">
+                  <div class="flex gap-10" style="align-items: center;">
+                    <i class="bi bi-file-earmark-text" style="font-size: 1.5rem; color: var(--primary);"></i>
+                    <div>
+                      <strong>Informe de Rendimentos 2025</strong>
+                      <p class="text-muted" style="font-size: 0.875rem;">Comissoes recebidas para declarar no IR</p>
+                    </div>
+                  </div>
+                  <span class="badge badge-success"><i class="bi bi-check"></i> Disponivel</span>
+                </div>
+                <div class="flex gap-10">
+                  <button class="btn btn-outline btn-sm" onclick="showModal('visualizarModal')">
+                    <i class="bi bi-eye"></i> Visualizar
+                  </button>
+                  <button class="btn btn-outline btn-sm" onclick="showModal('downloadPdfModal')">
+                    <i class="bi bi-download"></i> PDF
+                  </button>
+                </div>
+              </div>
+
+              <!-- Comprovantes de Pagamento -->
+              <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
+                <div class="flex-between" style="margin-bottom: 10px;">
+                  <div class="flex gap-10" style="align-items: center;">
+                    <i class="bi bi-receipt" style="font-size: 1.5rem; color: var(--success);"></i>
+                    <div>
+                      <strong>Comprovantes de Pagamento</strong>
+                      <p class="text-muted" style="font-size: 0.875rem;">12 pagamentos realizados em 2025</p>
+                    </div>
+                  </div>
+                  <span class="badge badge-success"><i class="bi bi-check"></i> Disponivel</span>
+                </div>
+                <div class="flex gap-10">
+                  <button class="btn btn-outline btn-sm" onclick="showModal('visualizarModal')">
+                    <i class="bi bi-eye"></i> Visualizar
+                  </button>
+                  <button class="btn btn-outline btn-sm" onclick="showModal('downloadPdfModal')">
+                    <i class="bi bi-download"></i> Baixar Todos
+                  </button>
+                </div>
+              </div>
+
+              <!-- DARF de IRRF -->
+              <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
+                <div class="flex-between" style="margin-bottom: 10px;">
+                  <div class="flex gap-10" style="align-items: center;">
+                    <i class="bi bi-bank" style="font-size: 1.5rem; color: var(--warning);"></i>
+                    <div>
+                      <strong>Comprovantes de IRRF</strong>
+                      <p class="text-muted" style="font-size: 0.875rem;">IR retido pela fonte pagadora</p>
+                    </div>
+                  </div>
+                  <span class="badge badge-success"><i class="bi bi-check"></i> Disponivel</span>
+                </div>
+                <div class="flex gap-10">
+                  <button class="btn btn-outline btn-sm" onclick="showModal('visualizarModal')">
+                    <i class="bi bi-eye"></i> Visualizar
+                  </button>
+                  <button class="btn btn-outline btn-sm" onclick="showModal('downloadPdfModal')">
+                    <i class="bi bi-download"></i> PDF
+                  </button>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- FAQ -->
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title"><i class="bi bi-question-circle"></i> Duvidas Frequentes</h3>
+          <!-- Como Declarar -->
+          <div>
+            <div class="card mb-20">
+              <div class="card-header">
+                <h3 class="card-title"><i class="bi bi-clipboard-check"></i> Como Declarar</h3>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div class="flex gap-10" style="align-items: flex-start;">
+                  <div style="width: 28px; height: 28px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold; font-size: 0.875rem;">1</div>
+                  <div>
+                    <strong>Rendimentos Tributaveis</strong>
+                    <p class="text-muted" style="font-size: 0.875rem;">Declare as comissoes na ficha "Rendimentos Tributaveis Recebidos de PJ"</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-10" style="align-items: flex-start;">
+                  <div style="width: 28px; height: 28px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold; font-size: 0.875rem;">2</div>
+                  <div>
+                    <strong>CNPJ da Fonte Pagadora</strong>
+                    <p class="text-muted" style="font-size: 0.875rem;">Informe o CNPJ da CrowdInvest como fonte pagadora</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-10" style="align-items: flex-start;">
+                  <div style="width: 28px; height: 28px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold; font-size: 0.875rem;">3</div>
+                  <div>
+                    <strong>IRRF Retido</strong>
+                    <p class="text-muted" style="font-size: 0.875rem;">Informe o valor de IR retido na fonte para abater do imposto devido</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-10" style="align-items: flex-start;">
+                  <div style="width: 28px; height: 28px; background: var(--success); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <i class="bi bi-check" style="font-size: 0.875rem;"></i>
+                  </div>
+                  <div>
+                    <strong>Confira o Informe</strong>
+                    <p class="text-muted" style="font-size: 0.875rem;">Use o informe de rendimentos para preencher os valores exatos</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div style="display: flex; flex-direction: column; gap: 12px;">
-              <details style="background: var(--bg); border-radius: var(--radius); padding: 12px;">
-                <summary style="cursor: pointer; font-weight: 600; font-size: 0.875rem;">Preciso emitir informe para todos investidores?</summary>
-                <p class="text-muted" style="margin-top: 10px; padding-left: 15px; font-size: 0.875rem;">
-                  Apenas quando houver distribuicao de rendimentos (dividendos, juros, etc.). Enquanto nao houver distribuicao, nao ha obrigacao de emissao de informe.
-                </p>
-              </details>
+            <!-- FAQ Distribuidor -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title"><i class="bi bi-question-circle"></i> Duvidas Frequentes</h3>
+              </div>
 
-              <details style="background: var(--bg); border-radius: var(--radius); padding: 12px;">
-                <summary style="cursor: pointer; font-weight: 600; font-size: 0.875rem;">Como funciona a retencao de IRRF?</summary>
-                <p class="text-muted" style="margin-top: 10px; padding-left: 15px; font-size: 0.875rem;">
-                  Ao distribuir dividendos, voce deve reter 15% de IRRF e recolher via DARF ate o ultimo dia util do mes seguinte. A plataforma pode auxiliar neste calculo.
-                </p>
-              </details>
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <details style="background: var(--bg); border-radius: var(--radius); padding: 12px;">
+                  <summary style="cursor: pointer; font-weight: 600; font-size: 0.875rem;">Por que ha retencao de IR nas comissoes?</summary>
+                  <p class="text-muted" style="margin-top: 10px; padding-left: 15px; font-size: 0.875rem;">
+                    Por lei, pagamentos a pessoas fisicas/juridicas por servicos estao sujeitos a retencao de 15% de IRRF na fonte.
+                  </p>
+                </details>
 
-              <details style="background: var(--bg); border-radius: var(--radius); padding: 12px;">
-                <summary style="cursor: pointer; font-weight: 600; font-size: 0.875rem;">Os investidores precisam atualizar contrato social?</summary>
-                <p class="text-muted" style="margin-top: 10px; padding-left: 15px; font-size: 0.875rem;">
-                  Sim. Apos o encerramento da oferta, o contrato social deve ser alterado para incluir os novos socios, com registro na Junta Comercial.
-                </p>
-              </details>
+                <details style="background: var(--bg); border-radius: var(--radius); padding: 12px;">
+                  <summary style="cursor: pointer; font-weight: 600; font-size: 0.875rem;">Posso recuperar o IR retido?</summary>
+                  <p class="text-muted" style="margin-top: 10px; padding-left: 15px; font-size: 0.875rem;">
+                    Sim, o IR retido na fonte pode ser abatido do imposto devido na sua declaracao anual. Se retido a mais, voce recebe restituicao.
+                  </p>
+                </details>
+
+                <details style="background: var(--bg); border-radius: var(--radius); padding: 12px;">
+                  <summary style="cursor: pointer; font-weight: 600; font-size: 0.875rem;">Quando recebo o informe de rendimentos?</summary>
+                  <p class="text-muted" style="margin-top: 10px; padding-left: 15px; font-size: 0.875rem;">
+                    O informe de rendimentos e disponibilizado ate 28 de fevereiro do ano seguinte ao recebimento das comissoes.
+                  </p>
+                </details>
+              </div>
             </div>
+          </div>
+        </div>
 
-            <div class="alert alert-warning mt-20" style="font-size: 0.875rem;">
-              <i class="bi bi-exclamation-triangle"></i> <strong>Importante:</strong> Consulte sempre seu contador para orientacoes especificas sobre obrigacoes fiscais da sua empresa.
+        <!-- Extrato de Comissoes para IR -->
+        <div class="card mt-20">
+          <div class="card-header flex-between">
+            <h3 class="card-title"><i class="bi bi-cash-stack"></i> Extrato de Comissoes - Ano 2025</h3>
+            <div class="flex gap-10">
+              <button class="btn btn-outline btn-sm" onclick="showModal('downloadPdfModal')">
+                <i class="bi bi-download"></i> Baixar PDF
+              </button>
+              <button class="btn btn-outline btn-sm" onclick="showModal('downloadExcelModal')">
+                <i class="bi bi-file-earmark-excel"></i> Exportar Excel
+              </button>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Mes</th>
+                  <th>Oferta</th>
+                  <th>Comissao Bruta</th>
+                  <th>IRRF (15%)</th>
+                  <th>Liquido</th>
+                  <th>Data Pagamento</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Mes"><strong>Janeiro/2026</strong></td>
+                  <td data-label="Oferta">
+                    <span class="badge badge-secondary">TechStart</span>
+                    <span class="badge badge-secondary">GreenSolar</span>
+                  </td>
+                  <td data-label="Comissao Bruta">R$ 4.500,00</td>
+                  <td data-label="IRRF (15%)" style="color: var(--danger);">- R$ 675,00</td>
+                  <td data-label="Liquido"><strong style="color: var(--success);">R$ 3.825,00</strong></td>
+                  <td data-label="Data Pagamento">25/01/2026 <span class="badge badge-warning">Agendado</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Mes"><strong>Dezembro/2025</strong></td>
+                  <td data-label="Oferta">
+                    <span class="badge badge-secondary">TechStart</span>
+                    <span class="badge badge-secondary">GreenSolar</span>
+                  </td>
+                  <td data-label="Comissao Bruta">R$ 3.200,00</td>
+                  <td data-label="IRRF (15%)" style="color: var(--danger);">- R$ 480,00</td>
+                  <td data-label="Liquido"><strong>R$ 2.720,00</strong></td>
+                  <td data-label="Data Pagamento">25/12/2025</td>
+                </tr>
+                <tr>
+                  <td data-label="Mes"><strong>Novembro/2025</strong></td>
+                  <td data-label="Oferta">
+                    <span class="badge badge-secondary">TechStart</span>
+                    <span class="badge badge-secondary">EcoFood</span>
+                  </td>
+                  <td data-label="Comissao Bruta">R$ 2.800,00</td>
+                  <td data-label="IRRF (15%)" style="color: var(--danger);">- R$ 420,00</td>
+                  <td data-label="Liquido"><strong>R$ 2.380,00</strong></td>
+                  <td data-label="Data Pagamento">25/11/2025</td>
+                </tr>
+                <tr>
+                  <td data-label="Mes"><strong>Outubro/2025</strong></td>
+                  <td data-label="Oferta">
+                    <span class="badge badge-secondary">EcoFood</span>
+                  </td>
+                  <td data-label="Comissao Bruta">R$ 3.500,00</td>
+                  <td data-label="IRRF (15%)" style="color: var(--danger);">- R$ 525,00</td>
+                  <td data-label="Liquido"><strong>R$ 2.975,00</strong></td>
+                  <td data-label="Data Pagamento">25/10/2025</td>
+                </tr>
+                <tr>
+                  <td data-label="Mes"><strong>Setembro/2025</strong></td>
+                  <td data-label="Oferta">
+                    <span class="badge badge-secondary">EcoFood</span>
+                  </td>
+                  <td data-label="Comissao Bruta">R$ 4.100,00</td>
+                  <td data-label="IRRF (15%)" style="color: var(--danger);">- R$ 615,00</td>
+                  <td data-label="Liquido"><strong>R$ 3.485,00</strong></td>
+                  <td data-label="Data Pagamento">25/09/2025</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr style="background: var(--bg);">
+                  <td colspan="2"><strong>Total Ano 2025</strong></td>
+                  <td><strong>R$ 28.750,00</strong></td>
+                  <td><strong style="color: var(--danger);">- R$ 4.312,50</strong></td>
+                  <td><strong style="color: var(--success);">R$ 24.437,50</strong></td>
+                  <td></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="pagination-wrapper">
+            <span class="pagination-info">Mostrando <strong>1-5</strong> de <strong>12</strong></span>
+            <nav class="pagination-minimal">
+              <button class="page-item nav-arrow disabled"><i class="bi bi-chevron-left"></i></button>
+              <button class="page-item active">1</button>
+              <button class="page-item">2</button>
+              <button class="page-item">3</button>
+              <button class="page-item nav-arrow"><i class="bi bi-chevron-right"></i></button>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Dados para Declaracao -->
+        <div class="card mt-20" style="border: 2px solid var(--primary);">
+          <div class="card-header">
+            <h3 class="card-title"><i class="bi bi-info-circle"></i> Dados para sua Declaracao de IR</h3>
+          </div>
+          <div class="grid-2" style="gap: 20px;">
+            <div style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+              <p class="text-muted" style="font-size: 0.75rem; margin-bottom: 5px;">Fonte Pagadora</p>
+              <strong>CrowdInvest Plataforma de Investimentos Ltda</strong>
+              <p class="text-muted" style="font-size: 0.875rem; margin-top: 5px;">CNPJ: 12.345.678/0001-99</p>
+            </div>
+            <div style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+              <div class="flex-between mb-10">
+                <span class="text-muted">Rendimentos Tributaveis:</span>
+                <strong>R$ 28.750,00</strong>
+              </div>
+              <div class="flex-between">
+                <span class="text-muted">IRRF Retido:</span>
+                <strong style="color: var(--success);">R$ 4.312,50</strong>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Quadro de Clientes para IR -->
-      <div class="card mt-20">
-        <div class="card-header flex-between">
-          <h3 class="card-title"><i class="bi bi-people"></i> Quadro de Clientes - Ano 2025</h3>
-          <div class="flex gap-10">
-            <button class="btn btn-outline btn-sm" onclick="showModal('downloadPdfModal')">
-              <i class="bi bi-download"></i> Baixar PDF
-            </button>
-            <button class="btn btn-outline btn-sm" onclick="showModal('downloadExcelModal')">
-              <i class="bi bi-file-earmark-excel"></i> Exportar Excel
-            </button>
-          </div>
-        </div>
-
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Investidor</th>
-                <th>CPF/CNPJ</th>
-                <th>Valor Investido</th>
-                <th>Participacao (%)</th>
-                <th>Data Entrada</th>
-                <th>Situacao</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <strong>Joao Carlos Silva</strong>
-                  <br><small class="text-muted">joao.silva@email.com</small>
-                </td>
-                <td>123.456.789-00</td>
-                <td>R$ 5.000,00</td>
-                <td>1,00%</td>
-                <td>15/01/2026</td>
-                <td><span class="badge badge-success">Confirmado</span></td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Maria Santos Lima</strong>
-                  <br><small class="text-muted">maria.lima@email.com</small>
-                </td>
-                <td>987.654.321-00</td>
-                <td>R$ 2.000,00</td>
-                <td>0,40%</td>
-                <td>16/01/2026</td>
-                <td><span class="badge badge-success">Confirmado</span></td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Pedro Oliveira</strong>
-                  <br><small class="text-muted">pedro.o@email.com</small>
-                </td>
-                <td>456.789.123-00</td>
-                <td>R$ 10.000,00</td>
-                <td>2,00%</td>
-                <td>17/01/2026</td>
-                <td><span class="badge badge-success">Confirmado</span></td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Ana Paula Costa</strong>
-                  <br><small class="text-muted">ana.costa@email.com</small>
-                </td>
-                <td>321.654.987-00</td>
-                <td>R$ 3.000,00</td>
-                <td>0,60%</td>
-                <td>18/01/2026</td>
-                <td><span class="badge badge-warning">Em Desistencia</span></td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr style="background: var(--bg);">
-                <td colspan="2"><strong>Total (127 investidores)</strong></td>
-                <td><strong>R$ 375.000,00</strong></td>
-                <td><strong>15,00%</strong></td>
-                <td colspan="2"></td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-
-        <div class="flex-between mt-20">
-          <p class="text-muted">Mostrando 1-4 de 127 investidores</p>
-          <div class="flex gap-10">
-            <button class="btn btn-outline btn-sm" disabled>Anterior</button>
-            <button class="btn btn-outline btn-sm">Proximo</button>
-          </div>
+      <!-- Disclaimer Regulatorio CVM -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <div class="warning-text">
+          <i class="bi bi-exclamation-triangle"></i>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
@@ -424,37 +769,5 @@
   </div>
 </div>
 
-<script>
-  let selectedProfile = localStorage.getItem('parceiro_profile') || 'emissor';
-  function selectProfileOption(profile) {
-    selectedProfile = profile;
-    document.querySelectorAll('.profile-option').forEach(opt => opt.classList.remove('active'));
-    document.getElementById('option' + profile.charAt(0).toUpperCase() + profile.slice(1)).classList.add('active');
-  }
-  function confirmarPerfil() {
-    const icon = document.getElementById('profileIcon');
-    const name = document.getElementById('profileName');
-    const tag = document.getElementById('profileTag');
-    if (selectedProfile === 'emissor') {
-      icon.className = 'profile-mode-icon emissor';
-      icon.innerHTML = '<i class="bi bi-broadcast"></i>';
-      name.textContent = 'Emissor';
-      tag.className = 'profile-mode-tag emissor';
-      tag.innerHTML = '<i class="bi bi-broadcast"></i> Emissor';
-    } else {
-      icon.className = 'profile-mode-icon distribuidor';
-      icon.innerHTML = '<i class="bi bi-diagram-3"></i>';
-      name.textContent = 'Distribuidor';
-      tag.className = 'profile-mode-tag distribuidor';
-      tag.innerHTML = '<i class="bi bi-diagram-3"></i> Distrib.';
-    }
-    hideModal('selecionarPerfilModal');
-    localStorage.setItem('parceiro_profile', selectedProfile);
-  }
-  document.addEventListener('DOMContentLoaded', function() {
-    selectProfileOption(selectedProfile);
-    if (selectedProfile === 'distribuidor') confirmarPerfil();
-  });
-</script>
 </body>
 </html>

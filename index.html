@@ -3,255 +3,1711 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CrowdInvest - Plataforma de Crowdfunding RCVM 88</title>
+  <meta name="description" content="CrowdInvest - Plataforma de Equity Crowdfunding regulamentada pela CVM. Capte recursos ou invista em startups brasileiras com seguranca e transparencia.">
+  <title>CrowdInvest - Plataforma de Crowdfunding RCVM 88 | Investimentos e Captacao</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ========================================
+       REDESIGN 2026 - MODERN PREMIUM
+       ======================================== */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Announcement Bar */
+    .announcement-bar {
+      background: linear-gradient(90deg, #1e40af 0%, #7c3aed 50%, #1e40af 100%);
+      background-size: 200% 100%;
+      animation: gradientFlow 8s ease infinite;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .announcement-bar a {
+      color: #fbbf24;
+      text-decoration: underline;
+      margin-left: 8px;
+    }
+
+    @keyframes gradientFlow {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* Sticky Header */
+    .header-2026 {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .header-2026.scrolled {
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-content-2026 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .logo-2026 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    .nav-2026 {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-2026 a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-2026 a:hover {
+      color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    /* Hero 2026 */
+    .hero-2026 {
+      background: linear-gradient(165deg, #0a1628 0%, #1e3a8a 40%, #2563eb 100%);
+      color: white;
+      padding: 100px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-2026::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+      animation: float 15s ease-in-out infinite;
+    }
+
+    .hero-2026::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+      animation: float 20s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge-2026 {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 10px 20px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      margin-bottom: 28px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-badge-2026 i {
+      color: #fbbf24;
+    }
+
+    .hero-title-2026 {
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: 24px;
+      letter-spacing: -2px;
+    }
+
+    .hero-title-2026 .highlight {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      line-height: 1.8;
+      margin-bottom: 36px;
+      max-width: 540px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .btn-glow {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #0f172a;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-size: 1rem;
+      box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-glow:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 50px rgba(245, 158, 11, 0.7);
+    }
+
+    .btn-glass {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-glass:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+    }
+
+    .hero-stat {
+      text-align: left;
+    }
+
+    .hero-stat-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fbbf24;
+    }
+
+    .hero-stat-label {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+
+    /* Hero Visual */
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card-preview {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 24px;
+      padding: 32px;
+      position: relative;
+      transform: perspective(1000px) rotateY(-5deg);
+      transition: transform 0.5s ease;
+    }
+
+    .hero-card-preview:hover {
+      transform: perspective(1000px) rotateY(0deg);
+    }
+
+    .preview-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .preview-logo {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.25rem;
+    }
+
+    .preview-info h4 {
+      margin: 0 0 4px;
+      font-size: 1.1rem;
+    }
+
+    .preview-info span {
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    .preview-badge {
+      margin-left: auto;
+      background: rgba(52, 211, 153, 0.2);
+      color: #34d399;
+      padding: 6px 12px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .preview-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .preview-metric {
+      text-align: center;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+    }
+
+    .preview-metric-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: white;
+    }
+
+    .preview-metric-label {
+      font-size: 0.7rem;
+      opacity: 0.6;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .preview-progress {
+      background: rgba(255, 255, 255, 0.1);
+      height: 8px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .preview-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #34d399, #10b981);
+      border-radius: 4px;
+      width: 78%;
+    }
+
+    .preview-cta {
+      display: block;
+      background: white;
+      color: #1e40af;
+      text-align: center;
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .preview-cta:hover {
+      background: #f8fafc;
+      transform: scale(1.02);
+    }
+
+    /* Floating elements */
+    .floating-tag {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 12px 16px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #1e293b;
+      font-weight: 600;
+      animation: bounce 3s ease-in-out infinite;
+    }
+
+    .floating-tag.top-right {
+      top: -20px;
+      right: -30px;
+      animation-delay: 0s;
+    }
+
+    .floating-tag.bottom-left {
+      bottom: 40px;
+      left: -40px;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .floating-tag i {
+      color: #10b981;
+    }
+
+    /* Trust Bar 2026 */
+    .trust-bar-2026 {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 24px 0;
+    }
+
+    .trust-items-2026 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item-2026 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .trust-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .trust-icon i {
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
+
+    /* Stats 2026 */
+    .stats-2026 {
+      padding: 100px 0;
+      background: linear-gradient(180deg, #f8fafc 0%, white 100%);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .stat-card-2026 {
+      background: white;
+      padding: 40px 24px;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card-2026::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--primary-gradient);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .stat-card-2026:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-card-2026:hover::before {
+      opacity: 1;
+    }
+
+    .stat-value-2026 {
+      font-size: 3rem;
+      font-weight: 800;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .stat-label-2026 {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Audience Section */
+    .audience-2026 {
+      padding: 100px 0;
+      background: white;
+    }
+
+    .section-header-2026 {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header-2026 h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .section-header-2026 p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .audience-card-2026 {
+      background: white;
+      border-radius: 24px;
+      padding: 48px;
+      border: 2px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .audience-card-2026::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+    }
+
+    .audience-card-2026.investor::before {
+      background: linear-gradient(90deg, #1e40af, #3b82f6);
+    }
+
+    .audience-card-2026.company::before {
+      background: linear-gradient(90deg, #047857, #10b981);
+    }
+
+    .audience-card-2026:hover {
+      border-color: transparent;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+      transform: translateY(-8px);
+    }
+
+    .audience-icon-2026 {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 28px;
+    }
+
+    .audience-card-2026.investor .audience-icon-2026 {
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+    }
+
+    .audience-card-2026.company .audience-icon-2026 {
+      background: linear-gradient(135deg, #047857, #10b981);
+    }
+
+    .audience-card-2026 h3 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .audience-card-2026 > p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 28px;
+      font-size: 1.05rem;
+    }
+
+    .audience-features-2026 {
+      margin-bottom: 32px;
+    }
+
+    .audience-feature-2026 {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .audience-feature-2026 i {
+      color: #10b981;
+      font-size: 1.1rem;
+      margin-top: 2px;
+    }
+
+    .audience-feature-2026 span {
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .btn-investor {
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+      color: white;
+      padding: 16px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+
+    .btn-investor:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(30, 64, 175, 0.3);
+    }
+
+    .btn-company {
+      background: linear-gradient(135deg, #047857, #10b981);
+      color: white;
+      padding: 16px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+
+    .btn-company:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(4, 120, 87, 0.3);
+    }
+
+    /* Offers Section */
+    .offers-2026 {
+      padding: 100px 0;
+      background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 100%);
+    }
+
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .offer-card-2026 {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      transition: all 0.4s ease;
+      border: 1px solid var(--border);
+    }
+
+    .offer-card-2026:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+    }
+
+    .offer-header-2026 {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      font-weight: 800;
+      color: white;
+      position: relative;
+    }
+
+    .offer-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .offer-body-2026 {
+      padding: 28px;
+    }
+
+    .offer-body-2026 h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .offer-body-2026 .description {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .offer-metrics-2026 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .offer-metric-2026 {
+      text-align: center;
+      padding: 12px 8px;
+      background: var(--bg);
+      border-radius: 10px;
+    }
+
+    .offer-metric-2026 .value {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .offer-metric-2026 .label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    /* How Section */
+    .how-2026 {
+      padding: 100px 0;
+      background: white;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    .step-card-2026 {
+      text-align: center;
+      padding: 32px 24px;
+      position: relative;
+    }
+
+    .step-card-2026::after {
+      content: '';
+      position: absolute;
+      top: 50px;
+      right: -16px;
+      width: 32px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), transparent);
+    }
+
+    .step-card-2026:last-child::after {
+      display: none;
+    }
+
+    .step-number-2026 {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+      color: white;
+      font-size: 1.75rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      box-shadow: 0 10px 30px rgba(30, 64, 175, 0.3);
+    }
+
+    .step-card-2026 h4 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .step-card-2026 p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    /* Compliance Section */
+    .compliance-2026 {
+      padding: 100px 0;
+      background: linear-gradient(165deg, #0a1628 0%, #1e3a8a 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .compliance-2026::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");
+    }
+
+    .compliance-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .compliance-badge-2026 {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 28px;
+    }
+
+    .compliance-badge-2026 i {
+      color: #fbbf24;
+    }
+
+    .compliance-2026 h2 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .compliance-2026 > .container > .compliance-grid > div > p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .compliance-list-2026 {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .compliance-list-2026 li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      font-size: 1.05rem;
+    }
+
+    .compliance-list-2026 li i {
+      color: #34d399;
+      font-size: 1.2rem;
+    }
+
+    .compliance-visual {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 48px;
+      text-align: center;
+    }
+
+    .cvm-logo {
+      font-size: 5rem;
+      font-weight: 900;
+      letter-spacing: 8px;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cvm-subtitle {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .cvm-desc {
+      opacity: 0.7;
+      margin-bottom: 28px;
+      line-height: 1.7;
+    }
+
+    /* CTA Section */
+    .cta-2026 {
+      padding: 120px 0;
+      background: linear-gradient(135deg, #1e40af 0%, #0f172a 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-2026::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-2026 h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .cta-2026 p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    /* Footer 2026 */
+    .footer-2026 {
+      background: #0a1628;
+      color: rgba(255, 255, 255, 0.8);
+      padding: 80px 0 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand h4 {
+      font-size: 1.75rem;
+      color: white;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .footer-brand p {
+      opacity: 0.7;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social a {
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.25rem;
+      transition: all 0.3s;
+    }
+
+    .footer-social a:hover {
+      background: #1e40af;
+      transform: translateY(-3px);
+    }
+
+    .footer-column h5 {
+      color: white;
+      font-weight: 700;
+      margin-bottom: 24px;
+      font-size: 1.1rem;
+    }
+
+    .footer-column a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 14px;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .footer-column a:hover {
+      color: #fbbf24;
+      transform: translateX(4px);
+    }
+
+    .footer-bottom-2026 {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 40px;
+      text-align: center;
+    }
+
+    .footer-disclaimer {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+
+    .footer-disclaimer i {
+      color: #fbbf24;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-copy {
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-title-2026 {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        margin: 0 auto 36px;
+      }
+
+      .hero-cta {
+        justify-content: center;
+      }
+
+      .hero-stats {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .offers-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .step-card-2026::after {
+        display: none;
+      }
+
+      .compliance-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-2026 {
+        display: none;
+      }
+
+      .announcement-bar {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+      }
+
+      .hero-2026 {
+        padding: 60px 0 80px;
+      }
+
+      .hero-title-2026 {
+        font-size: 2.25rem;
+        letter-spacing: -1px;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-glow, .btn-glass {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .trust-items-2026 {
+        gap: 24px;
+      }
+
+      .trust-item-2026 {
+        font-size: 0.85rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .stat-card-2026 {
+        padding: 24px 16px;
+      }
+
+      .stat-value-2026 {
+        font-size: 2rem;
+      }
+
+      .section-header-2026 h2 {
+        font-size: 2rem;
+      }
+
+      .section-header-2026 p {
+        font-size: 1rem;
+      }
+
+      .audience-card-2026 {
+        padding: 32px 24px;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .compliance-2026 h2 {
+        font-size: 2rem;
+      }
+
+      .cvm-logo {
+        font-size: 3.5rem;
+      }
+
+      .cta-2026 h2 {
+        font-size: 2rem;
+      }
+
+      .cta-2026 p {
+        font-size: 1rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-disclaimer {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body class="theme-investidor">
   <div class="page">
-    <!-- Header -->
-    <header class="header">
-      <div class="container header-content">
-        <a href="index.html" class="logo">CrowdInvest</a>
-        <button class="menu-toggle" onclick="toggleMobileMenu()">&#9776;</button>
-        <nav class="nav">
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+      <i class="bi bi-megaphone-fill"></i>
+      Nova oferta disponivel: TechStart Inovacao - 78% captado!
+      <a href="pages/login.html">Investir agora</a>
+    </div>
+
+    <!-- Header 2026 -->
+    <header class="header-2026">
+      <div class="container header-content-2026">
+        <a href="index.html" class="logo-2026">CrowdInvest</a>
+        <button class="menu-toggle" onclick="toggleMobileMenu()"><i class="bi bi-list"></i></button>
+        <nav class="nav-2026">
           <a href="index.html">Home</a>
           <a href="pages/como-funciona.html">Como Funciona</a>
           <a href="pages/portal.html">Portais</a>
-          <a href="pages/login.html" class="btn btn-outline">Entrar</a>
-          <a href="pages/cadastro.html" class="btn btn-primary">Cadastrar</a>
+          <div class="nav-actions">
+            <a href="pages/login.html" class="btn btn-outline">Entrar</a>
+            <a href="pages/cadastro.html" class="btn btn-primary">Criar Conta</a>
+          </div>
         </nav>
       </div>
     </header>
     <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
 
-    <!-- Hero -->
-    <section class="hero">
+    <!-- Hero 2026 -->
+    <section class="hero-2026">
       <div class="container">
-        <h1>Invista em Startups Brasileiras</h1>
-        <p>Plataforma de equity crowdfunding regulamentada pela CVM. Invista a partir de R$ 500 em empresas inovadoras.</p>
-        <div class="flex gap-10" style="justify-content: center;">
-          <a href="pages/cadastro.html" class="btn btn-lg" style="background: white; color: var(--primary);">Criar Conta Gratis</a>
-          <a href="pages/login.html" class="btn btn-lg btn-outline" style="border-color: white; color: white;">Ja tenho conta</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stats -->
-    <section style="padding: 60px 0; background: white;">
-      <div class="container">
-        <div class="kpi-grid">
-          <div class="kpi-card text-center">
-            <div class="kpi-value">R$ 15M+</div>
-            <div class="kpi-label">Total Captado</div>
+        <div class="hero-grid">
+          <div>
+            <div class="hero-badge-2026">
+              <i class="bi bi-shield-check"></i>
+              Plataforma Autorizada CVM - RCVM 88/2022
+            </div>
+            <h1 class="hero-title-2026">
+              Conectamos <span class="highlight">Capital</span><br>a Oportunidades Reais
+            </h1>
+            <p class="hero-subtitle">
+              Plataforma completa de equity crowdfunding para empresas captarem recursos e investidores diversificarem seu portfolio com seguranca regulatoria.
+            </p>
+            <div class="hero-cta">
+              <a href="pages/cadastro.html" class="btn-glow">
+                <i class="bi bi-rocket-takeoff"></i> Quero Investir
+              </a>
+              <a href="#para-empresas" class="btn-glass">
+                <i class="bi bi-building"></i> Quero Captar
+              </a>
+            </div>
+            <div class="hero-stats">
+              <div class="hero-stat">
+                <div class="hero-stat-value">R$ 15M+</div>
+                <div class="hero-stat-label">Capital Captado</div>
+              </div>
+              <div class="hero-stat">
+                <div class="hero-stat-value">2.500+</div>
+                <div class="hero-stat-label">Investidores</div>
+              </div>
+              <div class="hero-stat">
+                <div class="hero-stat-value">98%</div>
+                <div class="hero-stat-label">Taxa de Sucesso</div>
+              </div>
+            </div>
           </div>
-          <div class="kpi-card text-center">
-            <div class="kpi-value">2.500+</div>
-            <div class="kpi-label">Clientes</div>
-          </div>
-          <div class="kpi-card text-center">
-            <div class="kpi-value">45</div>
-            <div class="kpi-label">Ofertas Concluidas</div>
-          </div>
-          <div class="kpi-card text-center">
-            <div class="kpi-value">98%</div>
-            <div class="kpi-label">Taxa de Sucesso</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Offers Preview -->
-    <section style="padding: 60px 0;">
-      <div class="container">
-        <div class="flex-between mb-30">
-          <h2>Ofertas em Destaque</h2>
-          <a href="pages/login.html" class="btn btn-primary">Entrar para Ver Todas</a>
-        </div>
-
-        <div class="grid-3">
-          <!-- Offer 1 -->
-          <div class="offer-card">
-            <div class="offer-image">TS</div>
-            <div class="offer-content">
-              <span class="badge badge-info">Tecnologia</span>
-              <h3 class="offer-title">TechStart Inovacao</h3>
-              <p class="text-muted" style="margin-bottom: 15px;">Plataforma SaaS para gestao de pequenas empresas</p>
-              <div class="offer-stats">
-                <div class="offer-stat">
-                  <div class="offer-stat-value">75%</div>
-                  <div class="offer-stat-label">Captado</div>
+          <div class="hero-visual">
+            <div class="hero-card-preview">
+              <div class="floating-tag top-right">
+                <i class="bi bi-check-circle-fill"></i> Oferta Verificada
+              </div>
+              <div class="floating-tag bottom-left">
+                <i class="bi bi-shield-check"></i> CVM Regulado
+              </div>
+              <div class="preview-header">
+                <div class="preview-logo">TS</div>
+                <div class="preview-info">
+                  <h4>TechStart Inovacao</h4>
+                  <span>Tecnologia | SaaS B2B</span>
                 </div>
-                <div class="offer-stat">
-                  <div class="offer-stat-value">23 dias</div>
-                  <div class="offer-stat-label">Restantes</div>
+                <div class="preview-badge">Em Captacao</div>
+              </div>
+              <div class="preview-metrics">
+                <div class="preview-metric">
+                  <div class="preview-metric-value">78%</div>
+                  <div class="preview-metric-label">Captado</div>
+                </div>
+                <div class="preview-metric">
+                  <div class="preview-metric-value">R$ 390k</div>
+                  <div class="preview-metric-label">de R$ 500k</div>
+                </div>
+                <div class="preview-metric">
+                  <div class="preview-metric-value">18</div>
+                  <div class="preview-metric-label">Dias</div>
+                </div>
+              </div>
+              <div class="preview-progress">
+                <div class="preview-progress-bar"></div>
+              </div>
+              <a href="pages/login.html" class="preview-cta">Ver Detalhes da Oferta</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar-2026">
+      <div class="container">
+        <div class="trust-items-2026">
+          <div class="trust-item-2026">
+            <div class="trust-icon"><i class="bi bi-shield-lock-fill"></i></div>
+            <span>Regulamentado pela CVM</span>
+          </div>
+          <div class="trust-item-2026">
+            <div class="trust-icon"><i class="bi bi-patch-check-fill"></i></div>
+            <span>KYC Automatizado</span>
+          </div>
+          <div class="trust-item-2026">
+            <div class="trust-icon"><i class="bi bi-lock-fill"></i></div>
+            <span>Dados Protegidos LGPD</span>
+          </div>
+          <div class="trust-item-2026">
+            <div class="trust-icon"><i class="bi bi-bank"></i></div>
+            <span>Pagamento via PIX</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-2026">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card-2026">
+            <div class="stat-value-2026">R$ 15M+</div>
+            <div class="stat-label-2026">Capital Captado</div>
+          </div>
+          <div class="stat-card-2026">
+            <div class="stat-value-2026">2.500+</div>
+            <div class="stat-label-2026">Investidores Ativos</div>
+          </div>
+          <div class="stat-card-2026">
+            <div class="stat-value-2026">45</div>
+            <div class="stat-label-2026">Ofertas Concluidas</div>
+          </div>
+          <div class="stat-card-2026">
+            <div class="stat-value-2026">98%</div>
+            <div class="stat-label-2026">Taxa de Sucesso</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Audience Section -->
+    <section class="audience-2026" id="para-empresas">
+      <div class="container">
+        <div class="section-header-2026">
+          <h2>Uma Plataforma, Duas Oportunidades</h2>
+          <p>Seja voce um investidor buscando diversificacao ou uma empresa precisando de capital, temos a solucao ideal.</p>
+        </div>
+        <div class="audience-grid">
+          <div class="audience-card-2026 investor">
+            <div class="audience-icon-2026">
+              <i class="bi bi-graph-up-arrow"></i>
+            </div>
+            <h3>Para Investidores</h3>
+            <p>Diversifique seu portfolio investindo em startups e empresas brasileiras inovadoras. Acesso democratizado a oportunidades antes exclusivas.</p>
+            <div class="audience-features-2026">
+              <div class="audience-feature-2026">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Investimento a partir de R$ 500</span>
+              </div>
+              <div class="audience-feature-2026">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Equity em empresas reais</span>
+              </div>
+              <div class="audience-feature-2026">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Renda fixa (CRI/CRA) disponivel</span>
+              </div>
+              <div class="audience-feature-2026">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Dashboard completo de acompanhamento</span>
+              </div>
+              <div class="audience-feature-2026">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>5 dias para desistencia garantidos</span>
+              </div>
+            </div>
+            <a href="pages/cadastro.html" class="btn-investor">
+              <i class="bi bi-person-plus"></i> Criar Conta de Investidor
+            </a>
+          </div>
+          <div class="audience-card-2026 company">
+            <div class="audience-icon-2026">
+              <i class="bi bi-building-up"></i>
+            </div>
+            <h3>Para Empresas</h3>
+            <p>Capte ate R$ 15 milhoes para impulsionar seu negocio. Processo simplificado, compliance garantido e acesso a uma base qualificada de investidores.</p>
+            <div class="audience-features-2026">
+              <div class="audience-feature-2026">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Captacao de ate R$ 15 milhoes</span>
+              </div>
+              <div class="audience-feature-2026">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Processo 100% digital e rapido</span>
+              </div>
+              <div class="audience-feature-2026">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Compliance RCVM 88 incluso</span>
+              </div>
+              <div class="audience-feature-2026">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Dashboard de gestao da oferta</span>
+              </div>
+              <div class="audience-feature-2026">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Suporte dedicado durante captacao</span>
+              </div>
+            </div>
+            <a href="pages/parceiro-login.html" class="btn-company">
+              <i class="bi bi-megaphone"></i> Quero Captar Recursos
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section class="offers-2026">
+      <div class="container">
+        <div class="section-header-2026">
+          <h2>Ofertas em Destaque</h2>
+          <p>Oportunidades selecionadas de investimento em empresas brasileiras inovadoras.</p>
+        </div>
+        <div class="offers-grid">
+          <div class="offer-card-2026">
+            <div class="offer-header-2026" style="background: linear-gradient(135deg, #1e40af, #3b82f6);">
+              TS
+              <span class="offer-badge">Tecnologia</span>
+            </div>
+            <div class="offer-body-2026">
+              <h3>TechStart Inovacao</h3>
+              <p class="description">Plataforma SaaS B2B para gestao financeira de PMEs. Ja possui 500+ clientes ativos e crescimento de 20% ao mes.</p>
+              <div class="offer-metrics-2026">
+                <div class="offer-metric-2026">
+                  <div class="value">78%</div>
+                  <div class="label">Captado</div>
+                </div>
+                <div class="offer-metric-2026">
+                  <div class="value">R$ 390k</div>
+                  <div class="label">de R$ 500k</div>
+                </div>
+                <div class="offer-metric-2026">
+                  <div class="value">18</div>
+                  <div class="label">Dias</div>
                 </div>
               </div>
               <div class="progress mb-20">
-                <div class="progress-bar" style="width: 75%;"></div>
+                <div class="progress-bar" style="width: 78%;"></div>
               </div>
-              <a href="pages/login.html" class="btn btn-primary btn-block">Entrar para Investir</a>
+              <a href="pages/login.html" class="btn btn-primary btn-block">Ver Detalhes</a>
             </div>
           </div>
-
-          <!-- Offer 2 -->
-          <div class="offer-card">
-            <div class="offer-image" style="background: linear-gradient(135deg, #22c55e, #16a34a);">EF</div>
-            <div class="offer-content">
-              <span class="badge badge-success">Alimentacao</span>
-              <h3 class="offer-title">EcoFood Organicos</h3>
-              <p class="text-muted" style="margin-bottom: 15px;">Delivery de alimentos organicos e sustentaveis</p>
-              <div class="offer-stats">
-                <div class="offer-stat">
-                  <div class="offer-stat-value">60%</div>
-                  <div class="offer-stat-label">Captado</div>
+          <div class="offer-card-2026">
+            <div class="offer-header-2026" style="background: linear-gradient(135deg, #047857, #10b981);">
+              EF
+              <span class="offer-badge">Alimentacao</span>
+            </div>
+            <div class="offer-body-2026">
+              <h3>EcoFood Organicos</h3>
+              <p class="description">Delivery de alimentos organicos com logistica propria. Presente em 3 capitais com plano de expansao nacional.</p>
+              <div class="offer-metrics-2026">
+                <div class="offer-metric-2026">
+                  <div class="value">60%</div>
+                  <div class="label">Captado</div>
                 </div>
-                <div class="offer-stat">
-                  <div class="offer-stat-value">45 dias</div>
-                  <div class="offer-stat-label">Restantes</div>
+                <div class="offer-metric-2026">
+                  <div class="value">R$ 450k</div>
+                  <div class="label">de R$ 750k</div>
+                </div>
+                <div class="offer-metric-2026">
+                  <div class="value">45</div>
+                  <div class="label">Dias</div>
                 </div>
               </div>
               <div class="progress mb-20">
                 <div class="progress-bar success" style="width: 60%;"></div>
               </div>
-              <a href="pages/login.html" class="btn btn-primary btn-block">Entrar para Investir</a>
+              <a href="pages/login.html" class="btn btn-primary btn-block">Ver Detalhes</a>
             </div>
           </div>
-
-          <!-- Offer 3 -->
-          <div class="offer-card">
-            <div class="offer-image" style="background: linear-gradient(135deg, #ef4444, #dc2626);">HT</div>
-            <div class="offer-content">
-              <span class="badge badge-danger">Saude</span>
-              <h3 class="offer-title">HealthTech Solutions</h3>
-              <p class="text-muted" style="margin-bottom: 15px;">Telemedicina e monitoramento remoto de pacientes</p>
-              <div class="offer-stats">
-                <div class="offer-stat">
-                  <div class="offer-stat-value">75%</div>
-                  <div class="offer-stat-label">Captado</div>
+          <div class="offer-card-2026">
+            <div class="offer-header-2026" style="background: linear-gradient(135deg, #dc2626, #ef4444);">
+              HT
+              <span class="offer-badge">Saude</span>
+            </div>
+            <div class="offer-body-2026">
+              <h3>HealthTech Solutions</h3>
+              <p class="description">Telemedicina e monitoramento remoto de pacientes. Parcerias com 50+ clinicas e hospitais em todo Brasil.</p>
+              <div class="offer-metrics-2026">
+                <div class="offer-metric-2026">
+                  <div class="value">75%</div>
+                  <div class="label">Captado</div>
                 </div>
-                <div class="offer-stat">
-                  <div class="offer-stat-value">12 dias</div>
-                  <div class="offer-stat-label">Restantes</div>
+                <div class="offer-metric-2026">
+                  <div class="value">R$ 600k</div>
+                  <div class="label">de R$ 800k</div>
+                </div>
+                <div class="offer-metric-2026">
+                  <div class="value">12</div>
+                  <div class="label">Dias</div>
                 </div>
               </div>
               <div class="progress mb-20">
                 <div class="progress-bar" style="width: 75%; background: var(--danger);"></div>
               </div>
-              <a href="pages/login.html" class="btn btn-primary btn-block">Entrar para Investir</a>
+              <a href="pages/login.html" class="btn btn-primary btn-block">Ver Detalhes</a>
             </div>
           </div>
         </div>
-
-        <div class="alert alert-info mt-20 text-center">
-          <strong>Acesso exclusivo:</strong> Para ver detalhes das ofertas e investir, <a href="pages/cadastro.html" style="color: inherit; text-decoration: underline;">crie sua conta</a> ou <a href="pages/login.html" style="color: inherit; text-decoration: underline;">faca login</a>.
+        <div class="alert alert-info mt-30 text-center">
+          <i class="bi bi-lock"></i> <strong>Acesso completo:</strong> Cadastre-se para ver todos os detalhes das ofertas, documentos e projecoes financeiras.
+          <a href="pages/cadastro.html" style="color: inherit; text-decoration: underline; margin-left: 8px;">Criar conta gratuita</a>
         </div>
       </div>
     </section>
 
-    <!-- How it works -->
-    <section style="padding: 60px 0; background: white;">
+    <!-- How it Works -->
+    <section class="how-2026">
       <div class="container">
-        <h2 class="text-center mb-30">Como Funciona</h2>
-        <div class="grid-4">
-          <div class="text-center">
-            <div style="font-size: 3rem; margin-bottom: 15px;">1</div>
+        <div class="section-header-2026">
+          <h2>Como Funciona</h2>
+          <p>Processo simples, rapido e totalmente digital para comecar a investir.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card-2026">
+            <div class="step-number-2026">1</div>
             <h4>Cadastre-se</h4>
-            <p class="text-muted">Crie sua conta em minutos. Validacao automatica via bureau de dados.</p>
+            <p>Crie sua conta em minutos. Validacao automatica via bureau de dados - sem burocracia.</p>
           </div>
-          <div class="text-center">
-            <div style="font-size: 3rem; margin-bottom: 15px;">2</div>
-            <h4>Escolha uma Oferta</h4>
-            <p class="text-muted">Analise as empresas e escolha onde investir.</p>
+          <div class="step-card-2026">
+            <div class="step-number-2026">2</div>
+            <h4>Analise as Ofertas</h4>
+            <p>Acesse informacoes completas: plano de negocios, projecoes financeiras e documentos.</p>
           </div>
-          <div class="text-center">
-            <div style="font-size: 3rem; margin-bottom: 15px;">3</div>
+          <div class="step-card-2026">
+            <div class="step-number-2026">3</div>
             <h4>Invista via PIX</h4>
-            <p class="text-muted">Pagamento rapido e seguro. Investimento minimo de R$ 500.</p>
+            <p>Pagamento instantaneo e seguro. Investimento minimo de R$ 500 por oferta.</p>
           </div>
-          <div class="text-center">
-            <div style="font-size: 3rem; margin-bottom: 15px;">4</div>
+          <div class="step-card-2026">
+            <div class="step-number-2026">4</div>
             <h4>Acompanhe</h4>
-            <p class="text-muted">Receba atualizacoes e acompanhe seus investimentos.</p>
-          </div>
-        </div>
-        <div class="text-center mt-20">
-          <a href="pages/como-funciona.html" class="btn btn-outline">Saiba mais</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- RCVM 88 Info -->
-    <section style="padding: 60px 0;">
-      <div class="container">
-        <div class="card">
-          <div class="grid-2" style="align-items: center;">
-            <div>
-              <h2>Regulamentado pela CVM</h2>
-              <p class="text-muted mt-20">Nossa plataforma opera em conformidade com a Resolucao CVM 88/2022, garantindo seguranca e transparencia para investidores e empresas.</p>
-              <ul style="margin-top: 20px; margin-left: 20px;">
-                <li>Limite anual de R$ 20.000 por investidor</li>
-                <li>Ofertas de ate R$ 15 milhoes</li>
-                <li>Prazo maximo de 180 dias por oferta</li>
-                <li>5 dias para desistencia apos investimento</li>
-              </ul>
-              <a href="pages/cadastro.html" class="btn btn-primary mt-20">Comecar Agora</a>
-            </div>
-            <div class="text-center">
-              <div style="font-size: 6rem; color: var(--primary);">CVM</div>
-              <p class="text-muted">Resolucao RCVM 88/2022</p>
-            </div>
+            <p>Receba atualizacoes periodicas e acompanhe o desempenho dos seus investimentos.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section style="padding: 60px 0; background: var(--primary); color: white; text-align: center;">
+    <!-- Compliance Section -->
+    <section class="compliance-2026">
       <div class="container">
-        <h2>Pronto para comecar a investir?</h2>
-        <p style="opacity: 0.9; margin: 20px 0;">Crie sua conta em minutos e tenha acesso a todas as ofertas.</p>
-        <div class="flex gap-10" style="justify-content: center;">
-          <a href="pages/cadastro.html" class="btn btn-lg" style="background: white; color: var(--primary);">Criar Conta Gratis</a>
-          <a href="pages/login.html" class="btn btn-lg btn-outline" style="border-color: white; color: white;">Ja tenho conta</a>
+        <div class="compliance-grid">
+          <div>
+            <div class="compliance-badge-2026">
+              <i class="bi bi-shield-check"></i>
+              CVM - Resolucao 88/2022
+            </div>
+            <h2>Seguranca Regulatoria Total</h2>
+            <p>Nossa plataforma opera em total conformidade com a Resolucao CVM 88/2022, garantindo protecao juridica, transparencia nas operacoes e seguranca para todos os participantes.</p>
+            <ul class="compliance-list-2026">
+              <li><i class="bi bi-check-circle-fill"></i> Limite anual de R$ 20.000 por investidor (protecao ao investidor)</li>
+              <li><i class="bi bi-check-circle-fill"></i> Ofertas limitadas a R$ 15 milhoes (conformidade regulatoria)</li>
+              <li><i class="bi bi-check-circle-fill"></i> Prazo maximo de 180 dias por oferta</li>
+              <li><i class="bi bi-check-circle-fill"></i> 5 dias uteis para desistencia garantidos por lei</li>
+              <li><i class="bi bi-check-circle-fill"></i> Somente pessoas fisicas podem investir (RCVM 88)</li>
+              <li><i class="bi bi-check-circle-fill"></i> KYC automatizado via bureau de dados</li>
+            </ul>
+          </div>
+          <div class="compliance-visual">
+            <div class="cvm-logo">CVM</div>
+            <div class="cvm-subtitle">Resolucao RCVM 88/2022</div>
+            <p class="cvm-desc">Plataforma autorizada e em conformidade com todas as normas do mercado de capitais brasileiro.</p>
+            <a href="pages/como-funciona.html" class="btn-glow">
+              Saiba mais sobre regulamentacao
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- CTA Section -->
+    <section class="cta-2026">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Pronto para Comecar?</h2>
+          <p>Junte-se a mais de 2.500 investidores e dezenas de empresas que ja confiam na CrowdInvest.</p>
+          <div class="cta-buttons">
+            <a href="pages/cadastro.html" class="btn-glow">
+              <i class="bi bi-rocket-takeoff"></i> Criar Conta Gratuita
+            </a>
+            <a href="pages/parceiro-login.html" class="btn-glass">
+              <i class="bi bi-building"></i> Sou uma Empresa
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer 2026 -->
+    <footer class="footer-2026">
       <div class="container">
         <div class="footer-grid">
-          <div>
+          <div class="footer-brand">
             <h4>CrowdInvest</h4>
-            <p style="opacity: 0.7;">Plataforma de equity crowdfunding regulamentada pela CVM.</p>
+            <p>Plataforma de equity crowdfunding autorizada pela CVM, conectando investidores a oportunidades reais de investimento em empresas brasileiras.</p>
+            <div class="footer-social">
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-youtube"></i></a>
+              <a href="#"><i class="bi bi-twitter-x"></i></a>
+            </div>
           </div>
-          <div>
-            <h4>Plataforma</h4>
-            <a href="pages/login.html">Acessar Plataforma</a>
+          <div class="footer-column">
+            <h5>Para Investidores</h5>
+            <a href="pages/login.html">Acessar Conta</a>
+            <a href="pages/cadastro.html">Criar Conta</a>
             <a href="pages/como-funciona.html">Como Funciona</a>
-            <a href="#">Taxas</a>
+            <a href="#">Taxas e Custos</a>
           </div>
-          <div>
-            <h4>Empresa</h4>
+          <div class="footer-column">
+            <h5>Para Empresas</h5>
+            <a href="pages/parceiro-login.html">Portal do Emissor</a>
+            <a href="#">Quero Captar</a>
+            <a href="#">Requisitos</a>
+            <a href="#">Fale Conosco</a>
+          </div>
+          <div class="footer-column">
+            <h5>Institucional</h5>
             <a href="#">Sobre Nos</a>
-            <a href="#">Contato</a>
-            <a href="#">Imprensa</a>
-          </div>
-          <div>
-            <h4>Legal</h4>
             <a href="#">Termos de Uso</a>
-            <a href="#">Privacidade</a>
+            <a href="#">Politica de Privacidade</a>
             <a href="#">Regulamento</a>
           </div>
         </div>
-        <div class="footer-bottom">
-          <p>2026 CrowdInvest. Plataforma autorizada pela CVM conforme RCVM 88/2022.</p>
-          <p>Investimentos envolvem riscos. Leia o material da oferta antes de investir.</p>
+        <div class="footer-bottom-2026">
+          <div class="footer-disclaimer">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir. A CrowdInvest nao realiza consultoria, analise ou qualquer tipo de recomendacao de investimentos.</span>
+          </div>
+          <p class="footer-copy">2026 CrowdInvest Plataforma de Investimento Ltda. Plataforma autorizada pela CVM conforme Resolucao RCVM 88/2022.</p>
         </div>
       </div>
     </footer>
   </div>
 
   <script src="js/app.js"></script>
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.header-2026');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
 </body>
 </html>

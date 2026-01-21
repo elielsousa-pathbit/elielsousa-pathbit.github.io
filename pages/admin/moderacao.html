@@ -140,6 +140,13 @@
 </head>
 <body class="theme-admin">
   <div class="dashboard">
+    <div class="mobile-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../../index.html" class="logo" style="color: var(--primary);">CrowdInvest</a>
+        <span class="badge badge-warning">Admin</span>
+      </div>
+    </div>
+
     <!-- Sidebar -->
     <aside class="sidebar sidebar-dark">
       <div class="sidebar-logo">
@@ -242,6 +249,8 @@
         <input type="text" class="form-input" style="width: auto; min-width: 200px;" placeholder="Buscar...">
       </div>
 
+      <!-- TAB CONTENT: COMUNICADOS -->
+      <div id="tab-comunicados" class="tab-content-moderacao">
       <!-- Lista de Comunicados Pendentes -->
       <h3 style="margin-bottom: 20px;"><i class="bi bi-hourglass-split" style="color: var(--warning);"></i> Pendentes de Aprovacao (5)</h3>
 
@@ -473,31 +482,328 @@
           </thead>
           <tbody>
             <tr>
-              <td><strong>TechStart Inovacao</strong></td>
-              <td>Bem-vindos investidores! Inicio da captacao</td>
-              <td><span class="badge badge-success">Aprovado</span></td>
-              <td>Maria Silva</td>
-              <td>10/01/2026 14:30</td>
-              <td><button class="btn btn-outline btn-sm">Ver</button></td>
+              <td data-label="Empresa"><strong>TechStart Inovacao</strong></td>
+              <td data-label="Titulo">Bem-vindos investidores! Inicio da captacao</td>
+              <td data-label="Status"><span class="badge badge-success">Aprovado</span></td>
+              <td data-label="Moderador">Maria Silva</td>
+              <td data-label="Data">10/01/2026 14:30</td>
+              <td data-label="Acoes"><button class="btn btn-outline btn-sm">Ver</button></td>
             </tr>
             <tr>
-              <td><strong>TechStart Inovacao</strong></td>
-              <td>Lancamento do novo produto - TechStart Pro</td>
-              <td><span class="badge badge-success">Aprovado</span></td>
-              <td>Joao Santos</td>
-              <td>05/01/2026 10:15</td>
-              <td><button class="btn btn-outline btn-sm">Ver</button></td>
+              <td data-label="Empresa"><strong>TechStart Inovacao</strong></td>
+              <td data-label="Titulo">Lancamento do novo produto - TechStart Pro</td>
+              <td data-label="Status"><span class="badge badge-success">Aprovado</span></td>
+              <td data-label="Moderador">Joao Santos</td>
+              <td data-label="Data">05/01/2026 10:15</td>
+              <td data-label="Acoes"><button class="btn btn-outline btn-sm">Ver</button></td>
             </tr>
             <tr>
-              <td><strong>EcoFood Organicos</strong></td>
-              <td>Projecao de crescimento 2026</td>
-              <td><span class="badge badge-danger">Rejeitado</span></td>
-              <td>Maria Silva</td>
-              <td>15/01/2026 16:45</td>
-              <td><button class="btn btn-outline btn-sm">Ver</button></td>
+              <td data-label="Empresa"><strong>EcoFood Organicos</strong></td>
+              <td data-label="Titulo">Projecao de crescimento 2026</td>
+              <td data-label="Status"><span class="badge badge-danger">Rejeitado</span></td>
+              <td data-label="Moderador">Maria Silva</td>
+              <td data-label="Data">15/01/2026 16:45</td>
+              <td data-label="Acoes"><button class="btn btn-outline btn-sm">Ver</button></td>
             </tr>
           </tbody>
         </table>
+      </div>
+      </div><!-- END TAB COMUNICADOS -->
+
+      <!-- TAB CONTENT: OFERTAS -->
+      <div id="tab-ofertas" class="tab-content-moderacao" style="display: none;">
+        <h3 style="margin-bottom: 20px;"><i class="bi bi-hourglass-split" style="color: var(--warning);"></i> Ofertas Pendentes de Aprovacao (2)</h3>
+
+        <!-- Oferta 1 -->
+        <div class="moderacao-card">
+          <div class="moderacao-header">
+            <div class="flex gap-15" style="align-items: center;">
+              <span class="empresa-badge" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                <span style="width: 24px; height: 24px; background: white; border-radius: 4px; color: #7c3aed; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem;">NS</span>
+                Nova Startup XYZ
+              </span>
+              <span class="badge badge-warning">Aguardando</span>
+              <span class="text-muted" style="font-size: 0.875rem;"><i class="bi bi-clock"></i> ha 1 dia</span>
+            </div>
+            <div class="flex gap-10">
+              <span class="badge" style="background: #8b5cf6; color: white;"><i class="bi bi-broadcast"></i> Emissor</span>
+            </div>
+          </div>
+          <div class="moderacao-body">
+            <h4 style="margin-bottom: 10px;">Nova Oferta: Plataforma de IA para E-commerce</h4>
+            <p class="text-muted" style="line-height: 1.6; margin-bottom: 15px;">
+              Oferta de equity crowdfunding para desenvolvimento de plataforma de inteligencia artificial focada em otimizacao de vendas para e-commerces de pequeno e medio porte.
+            </p>
+            <div class="grid-3" style="gap: 15px; margin-bottom: 15px;">
+              <div style="background: var(--bg); padding: 12px; border-radius: var(--radius-sm); text-align: center;">
+                <div class="text-muted" style="font-size: 0.75rem;">Meta</div>
+                <strong>R$ 800.000</strong>
+              </div>
+              <div style="background: var(--bg); padding: 12px; border-radius: var(--radius-sm); text-align: center;">
+                <div class="text-muted" style="font-size: 0.75rem;">Equity</div>
+                <strong>15%</strong>
+              </div>
+              <div style="background: var(--bg); padding: 12px; border-radius: var(--radius-sm); text-align: center;">
+                <div class="text-muted" style="font-size: 0.75rem;">Duracao</div>
+                <strong>60 dias</strong>
+              </div>
+            </div>
+            <div class="preview-box">
+              <strong><i class="bi bi-file-text"></i> Documentos Anexados:</strong>
+              <p style="margin-top: 10px; font-size: 0.9rem;">
+                <i class="bi bi-check-circle" style="color: var(--success);"></i> Contrato Social &bull;
+                <i class="bi bi-check-circle" style="color: var(--success);"></i> Business Plan &bull;
+                <i class="bi bi-exclamation-triangle" style="color: var(--warning);"></i> Demonstracoes Financeiras (pendente)
+              </p>
+            </div>
+          </div>
+          <div class="moderacao-actions">
+            <div class="flex gap-10">
+              <button class="btn btn-outline btn-sm"><i class="bi bi-file-earmark-text"></i> Ver Documentos</button>
+              <button class="btn btn-outline btn-sm"><i class="bi bi-person"></i> Perfil Empresa</button>
+            </div>
+            <div class="flex gap-10">
+              <button class="btn btn-warning" onclick="showModal('solicitarAjusteModal')"><i class="bi bi-send"></i> Solicitar Ajuste</button>
+              <button class="btn btn-danger" onclick="showModal('rejeitarModal')"><i class="bi bi-x-circle"></i> Reprovar</button>
+              <button class="btn btn-success" onclick="showModal('aprovarModal')"><i class="bi bi-check-circle"></i> Aprovar Oferta</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Oferta 2 -->
+        <div class="moderacao-card">
+          <div class="moderacao-header">
+            <div class="flex gap-15" style="align-items: center;">
+              <span class="empresa-badge" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
+                <span style="width: 24px; height: 24px; background: white; border-radius: 4px; color: #16a34a; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem;">EF</span>
+                EcoFood Organicos
+              </span>
+              <span class="badge badge-warning">Aguardando</span>
+              <span class="text-muted" style="font-size: 0.875rem;"><i class="bi bi-clock"></i> ha 3 dias</span>
+            </div>
+            <div class="flex gap-10">
+              <span class="badge" style="background: #8b5cf6; color: white;"><i class="bi bi-broadcast"></i> Emissor</span>
+            </div>
+          </div>
+          <div class="moderacao-body">
+            <h4 style="margin-bottom: 10px;">Segunda Rodada: Expansao Nacional</h4>
+            <p class="text-muted" style="line-height: 1.6; margin-bottom: 15px;">
+              Nova rodada de captacao para expansao das operacoes de delivery de alimentos organicos para mais 5 capitais brasileiras.
+            </p>
+            <div class="grid-3" style="gap: 15px; margin-bottom: 15px;">
+              <div style="background: var(--bg); padding: 12px; border-radius: var(--radius-sm); text-align: center;">
+                <div class="text-muted" style="font-size: 0.75rem;">Meta</div>
+                <strong>R$ 1.500.000</strong>
+              </div>
+              <div style="background: var(--bg); padding: 12px; border-radius: var(--radius-sm); text-align: center;">
+                <div class="text-muted" style="font-size: 0.75rem;">Equity</div>
+                <strong>10%</strong>
+              </div>
+              <div style="background: var(--bg); padding: 12px; border-radius: var(--radius-sm); text-align: center;">
+                <div class="text-muted" style="font-size: 0.75rem;">Duracao</div>
+                <strong>90 dias</strong>
+              </div>
+            </div>
+            <div class="preview-box">
+              <strong><i class="bi bi-file-text"></i> Documentos Anexados:</strong>
+              <p style="margin-top: 10px; font-size: 0.9rem;">
+                <i class="bi bi-check-circle" style="color: var(--success);"></i> Contrato Social &bull;
+                <i class="bi bi-check-circle" style="color: var(--success);"></i> Business Plan &bull;
+                <i class="bi bi-check-circle" style="color: var(--success);"></i> Demonstracoes Financeiras
+              </p>
+            </div>
+          </div>
+          <div class="moderacao-actions">
+            <div class="flex gap-10">
+              <button class="btn btn-outline btn-sm"><i class="bi bi-file-earmark-text"></i> Ver Documentos</button>
+              <button class="btn btn-outline btn-sm"><i class="bi bi-person"></i> Perfil Empresa</button>
+            </div>
+            <div class="flex gap-10">
+              <button class="btn btn-warning" onclick="showModal('solicitarAjusteModal')"><i class="bi bi-send"></i> Solicitar Ajuste</button>
+              <button class="btn btn-danger" onclick="showModal('rejeitarModal')"><i class="bi bi-x-circle"></i> Reprovar</button>
+              <button class="btn btn-success" onclick="showModal('aprovarModal')"><i class="bi bi-check-circle"></i> Aprovar Oferta</button>
+            </div>
+          </div>
+        </div>
+      </div><!-- END TAB OFERTAS -->
+
+      <!-- TAB CONTENT: DOCUMENTOS -->
+      <div id="tab-documentos" class="tab-content-moderacao" style="display: none;">
+        <h3 style="margin-bottom: 20px;"><i class="bi bi-hourglass-split" style="color: var(--warning);"></i> Documentos Pendentes de Aprovacao (1)</h3>
+
+        <!-- Documento 1 -->
+        <div class="moderacao-card">
+          <div class="moderacao-header">
+            <div class="flex gap-15" style="align-items: center;">
+              <span class="empresa-badge">
+                <span style="width: 24px; height: 24px; background: white; border-radius: 4px; color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem;">TS</span>
+                TechStart Inovacao
+              </span>
+              <span class="badge badge-warning">Aguardando</span>
+              <span class="text-muted" style="font-size: 0.875rem;"><i class="bi bi-clock"></i> ha 4 horas</span>
+            </div>
+            <div class="flex gap-10">
+              <span class="badge badge-secondary"><i class="bi bi-file-earmark-pdf"></i> Relatorio Trimestral</span>
+            </div>
+          </div>
+          <div class="moderacao-body">
+            <h4 style="margin-bottom: 10px;">Relatorio Financeiro Q4 2025</h4>
+            <p class="text-muted" style="line-height: 1.6; margin-bottom: 15px;">
+              Documento financeiro trimestral contendo balanco patrimonial, demonstracao de resultados e fluxo de caixa do quarto trimestre de 2025.
+            </p>
+            <div style="background: var(--bg); padding: 15px; border-radius: var(--radius-sm); margin-bottom: 15px;">
+              <div class="flex gap-15" style="align-items: center;">
+                <i class="bi bi-file-earmark-pdf" style="font-size: 2rem; color: #dc3545;"></i>
+                <div>
+                  <strong>relatorio-financeiro-q4-2025.pdf</strong>
+                  <br><small class="text-muted">2.4 MB • Enviado em 19/01/2026 10:30</small>
+                </div>
+                <button class="btn btn-outline btn-sm" style="margin-left: auto;"><i class="bi bi-download"></i> Baixar</button>
+              </div>
+            </div>
+            <div class="preview-box">
+              <strong><i class="bi bi-info-circle"></i> Informacao:</strong>
+              <p style="margin-top: 10px; font-size: 0.9rem;">Este documento sera disponibilizado para <strong>127 investidores</strong> da oferta TechStart Inovacao apos aprovacao.</p>
+            </div>
+          </div>
+          <div class="moderacao-actions">
+            <div class="flex gap-10">
+              <button class="btn btn-outline btn-sm"><i class="bi bi-eye"></i> Visualizar PDF</button>
+              <button class="btn btn-outline btn-sm"><i class="bi bi-clock-history"></i> Historico</button>
+            </div>
+            <div class="flex gap-10">
+              <button class="btn btn-warning" onclick="showModal('solicitarAjusteModal')"><i class="bi bi-send"></i> Solicitar Ajuste</button>
+              <button class="btn btn-danger" onclick="showModal('rejeitarModal')"><i class="bi bi-x-circle"></i> Reprovar</button>
+              <button class="btn btn-success" onclick="showModal('aprovarModal')"><i class="bi bi-check-circle"></i> Aprovar Documento</button>
+            </div>
+          </div>
+        </div>
+      </div><!-- END TAB DOCUMENTOS -->
+
+      <!-- TAB CONTENT: EM AJUSTE -->
+      <div id="tab-ajustes" class="tab-content-moderacao" style="display: none;">
+        <h3 style="margin-bottom: 20px;"><i class="bi bi-arrow-repeat" style="color: var(--info);"></i> Aguardando Ajustes dos Parceiros (3)</h3>
+
+        <!-- Item em Ajuste 1 -->
+        <div class="moderacao-card" style="border-left: 4px solid var(--info);">
+          <div class="moderacao-header" style="background: #eff6ff;">
+            <div class="flex gap-15" style="align-items: center;">
+              <span class="empresa-badge" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
+                <span style="width: 24px; height: 24px; background: white; border-radius: 4px; color: #16a34a; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem;">EF</span>
+                EcoFood Organicos
+              </span>
+              <span class="badge badge-info"><i class="bi bi-arrow-repeat"></i> Aguardando Ajuste</span>
+              <span class="text-muted" style="font-size: 0.875rem;"><i class="bi bi-clock"></i> Solicitado ha 2 dias</span>
+            </div>
+            <span class="badge badge-secondary">Comunicado</span>
+          </div>
+          <div class="moderacao-body">
+            <h4 style="margin-bottom: 10px;">Projecao de faturamento Q1 2026</h4>
+            <div class="alert alert-info mb-15">
+              <i class="bi bi-chat-dots"></i>
+              <div>
+                <strong>Ajuste Solicitado:</strong> Adicionar disclaimer sobre projecoes financeiras conforme regulamentacao RCVM 88.
+              </div>
+            </div>
+            <p class="text-muted" style="font-size: 0.875rem;"><i class="bi bi-person"></i> Solicitado por: Maria Silva em 17/01/2026 14:30</p>
+          </div>
+          <div class="moderacao-actions">
+            <div class="flex gap-10">
+              <button class="btn btn-outline btn-sm"><i class="bi bi-eye"></i> Ver Original</button>
+              <button class="btn btn-outline btn-sm"><i class="bi bi-chat-dots"></i> Mensagens</button>
+            </div>
+            <div class="flex gap-10">
+              <button class="btn btn-secondary btn-sm"><i class="bi bi-bell"></i> Reenviar Lembrete</button>
+              <button class="btn btn-danger btn-sm" onclick="showModal('rejeitarModal')"><i class="bi bi-x-circle"></i> Cancelar e Rejeitar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item em Ajuste 2 -->
+        <div class="moderacao-card" style="border-left: 4px solid var(--info);">
+          <div class="moderacao-header" style="background: #eff6ff;">
+            <div class="flex gap-15" style="align-items: center;">
+              <span class="empresa-badge" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                <span style="width: 24px; height: 24px; background: white; border-radius: 4px; color: #7c3aed; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem;">NS</span>
+                Nova Startup XYZ
+              </span>
+              <span class="badge badge-info"><i class="bi bi-arrow-repeat"></i> Aguardando Ajuste</span>
+              <span class="text-muted" style="font-size: 0.875rem;"><i class="bi bi-clock"></i> Solicitado ha 3 dias</span>
+            </div>
+            <span class="badge badge-secondary">Oferta</span>
+          </div>
+          <div class="moderacao-body">
+            <h4 style="margin-bottom: 10px;">Nova Oferta: Plataforma de IA</h4>
+            <div class="alert alert-info mb-15">
+              <i class="bi bi-chat-dots"></i>
+              <div>
+                <strong>Ajuste Solicitado:</strong> Enviar demonstracoes financeiras auditadas dos ultimos 2 exercicios.
+              </div>
+            </div>
+            <p class="text-muted" style="font-size: 0.875rem;"><i class="bi bi-person"></i> Solicitado por: Joao Santos em 16/01/2026 09:15</p>
+          </div>
+          <div class="moderacao-actions">
+            <div class="flex gap-10">
+              <button class="btn btn-outline btn-sm"><i class="bi bi-eye"></i> Ver Oferta</button>
+              <button class="btn btn-outline btn-sm"><i class="bi bi-chat-dots"></i> Mensagens</button>
+            </div>
+            <div class="flex gap-10">
+              <button class="btn btn-secondary btn-sm"><i class="bi bi-bell"></i> Reenviar Lembrete</button>
+              <button class="btn btn-danger btn-sm" onclick="showModal('rejeitarModal')"><i class="bi bi-x-circle"></i> Cancelar e Rejeitar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item em Ajuste 3 -->
+        <div class="moderacao-card" style="border-left: 4px solid var(--info);">
+          <div class="moderacao-header" style="background: #eff6ff;">
+            <div class="flex gap-15" style="align-items: center;">
+              <span class="empresa-badge" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                <span style="width: 24px; height: 24px; background: white; border-radius: 4px; color: #d97706; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem;">HT</span>
+                HealthTech Solutions
+              </span>
+              <span class="badge badge-info"><i class="bi bi-arrow-repeat"></i> Aguardando Ajuste</span>
+              <span class="text-muted" style="font-size: 0.875rem;"><i class="bi bi-clock"></i> Solicitado ha 5 dias</span>
+            </div>
+            <span class="badge badge-secondary">Documento</span>
+          </div>
+          <div class="moderacao-body">
+            <h4 style="margin-bottom: 10px;">Balanco Patrimonial 2025</h4>
+            <div class="alert alert-warning mb-15">
+              <i class="bi bi-exclamation-triangle"></i>
+              <div>
+                <strong>Atencao:</strong> Parceiro nao respondeu ha 5 dias. Considerar rejeicao automatica.
+              </div>
+            </div>
+            <div class="alert alert-info mb-15">
+              <i class="bi bi-chat-dots"></i>
+              <div>
+                <strong>Ajuste Solicitado:</strong> Documento esta com assinatura digital invalida. Reenviar com certificado valido.
+              </div>
+            </div>
+            <p class="text-muted" style="font-size: 0.875rem;"><i class="bi bi-person"></i> Solicitado por: Maria Silva em 14/01/2026 16:00</p>
+          </div>
+          <div class="moderacao-actions">
+            <div class="flex gap-10">
+              <button class="btn btn-outline btn-sm"><i class="bi bi-eye"></i> Ver Documento</button>
+              <button class="btn btn-outline btn-sm"><i class="bi bi-chat-dots"></i> Mensagens</button>
+            </div>
+            <div class="flex gap-10">
+              <button class="btn btn-secondary btn-sm"><i class="bi bi-bell"></i> Ultimo Lembrete</button>
+              <button class="btn btn-danger btn-sm" onclick="showModal('rejeitarModal')"><i class="bi bi-x-circle"></i> Rejeitar por Inatividade</button>
+            </div>
+          </div>
+        </div>
+      </div><!-- END TAB AJUSTES -->
+
+      <!-- Disclaimer Regulatorio CVM -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <div class="warning-text">
+          <i class="bi bi-exclamation-triangle"></i>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+        </div>
       </div>
     </main>
   </div>
@@ -767,10 +1073,20 @@
 
     // Switch tabs de moderacao
     function switchModeracaoTab(tab, btn) {
+      // Update active tab button
       document.querySelectorAll('.moderacao-tab').forEach(t => t.classList.remove('active'));
       btn.classList.add('active');
-      // Aqui poderia mostrar/ocultar diferentes secoes
-      // Por enquanto apenas visual
+
+      // Hide all tab content
+      document.querySelectorAll('.tab-content-moderacao').forEach(content => {
+        content.style.display = 'none';
+      });
+
+      // Show selected tab content
+      const tabContent = document.getElementById('tab-' + tab);
+      if (tabContent) {
+        tabContent.style.display = 'block';
+      }
     }
   </script>
 </body>

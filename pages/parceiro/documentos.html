@@ -9,6 +9,10 @@
 </head>
 <body class="theme-parceiro">
   <div class="dashboard">
+    <div class="mobile-header">
+      <a href="../../index.html" class="logo">CrowdInvest</a>
+    </div>
+
     <aside class="sidebar sidebar-green">
       <div class="sidebar-logo">
         <a href="../../index.html" class="logo">CrowdInvest</a>
@@ -34,10 +38,11 @@
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponiveis</span></a></li>
         <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
-        <li><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
+        <li><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
         <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissoes</a></li>
         <li><a href="documentos.html" class="active"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
         <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
@@ -50,110 +55,335 @@
     <main class="main-content">
       <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
 
-      <div class="page-header">
-        <div>
-          <h1 class="page-title">Documentos</h1>
-          <p class="text-muted">Gerencie os documentos da sua oferta</p>
+      <!-- CONTEÚDO EMISSOR -->
+      <div class="emissor-content">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Documentos Corporativos</h1>
+            <p class="text-muted">Documentos regulatorios e contratos da empresa</p>
+          </div>
+          <button class="btn btn-primary" onclick="showModal('uploadModal')"><i class="bi bi-upload"></i> Enviar Documento</button>
         </div>
-        <button class="btn btn-primary" onclick="showModal('uploadModal')">+ Enviar Documento</button>
-      </div>
 
-      <!-- Tabs -->
-      <div class="tabs">
-        <button class="tab active" onclick="switchTab(this, 'oferta')">Material da Oferta</button>
-        <button class="tab" onclick="switchTab(this, 'contratos')">Contratos</button>
-        <button class="tab" onclick="switchTab(this, 'regulatorio')">Regulatorio</button>
-      </div>
+        <!-- Info -->
+        <div class="alert alert-info mb-20">
+          <i class="bi bi-info-circle"></i>
+          <div>
+            <strong>Documentos da Empresa:</strong> Aqui estao seus documentos regulatorios e contratos com a plataforma.
+            Os materiais das ofertas (pitch deck, apresentacoes) ficam na pagina de cada oferta.
+          </div>
+        </div>
 
-      <!-- Material da Oferta -->
-      <div id="oferta" class="tab-content">
-        <div class="card">
-          <div style="display: flex; flex-direction: column; gap: 15px;">
-            <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
-              <div>
-                <strong>[PDF] Material Principal da Oferta</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Atualizado em 01/01/2026</p>
+        <!-- Tabs Emissor -->
+        <div class="tabs">
+          <button class="tab active" onclick="switchTab(this, 'regulatorio-emissor')">Regulatorio</button>
+          <button class="tab" onclick="switchTab(this, 'contratos-emissor')">Contratos</button>
+          <button class="tab" onclick="switchTab(this, 'societario')">Societario</button>
+        </div>
+
+        <!-- Regulatorio Emissor -->
+        <div id="regulatorio-emissor" class="tab-content">
+          <div class="card">
+            <h3 style="margin-bottom: 15px;"><i class="bi bi-file-earmark-ruled" style="color: var(--primary);"></i> Documentos Regulatorios RCVM 88</h3>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Formulario de Referencia</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Conforme Art. 14 da RCVM 88/2022</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-success">Aprovado</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                  <button class="btn btn-outline btn-sm">Atualizar</button>
+                </div>
               </div>
-              <div class="flex gap-10">
-                <span class="badge badge-success">Aprovado</span>
-                <button class="btn btn-outline btn-sm">Download</button>
-                <button class="btn btn-outline btn-sm">Atualizar</button>
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Declaracao de Riscos</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Fatores de risco do investimento</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-success">Aprovado</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                  <button class="btn btn-outline btn-sm">Atualizar</button>
+                </div>
               </div>
-            </div>
-            <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
-              <div>
-                <strong>[PDF] Pitch Deck</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Atualizado em 01/01/2026</p>
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Demonstracoes Financeiras</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Ultimas demonstracoes auditadas - 2025</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-success">Aprovado</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                  <button class="btn btn-outline btn-sm">Atualizar</button>
+                </div>
               </div>
-              <div class="flex gap-10">
-                <span class="badge badge-success">Aprovado</span>
-                <button class="btn btn-outline btn-sm">Download</button>
-                <button class="btn btn-outline btn-sm">Atualizar</button>
-              </div>
-            </div>
-            <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
-              <div>
-                <strong>[IMG] Logo da Empresa</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Atualizado em 01/01/2026</p>
-              </div>
-              <div class="flex gap-10">
-                <span class="badge badge-success">Aprovado</span>
-                <button class="btn btn-outline btn-sm">Download</button>
-                <button class="btn btn-outline btn-sm">Atualizar</button>
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Politica de Privacidade e LGPD</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Termo de tratamento de dados</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-success">Aprovado</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Contratos -->
-      <div id="contratos" class="tab-content" style="display: none;">
-        <div class="card">
-          <div style="display: flex; flex-direction: column; gap: 15px;">
-            <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
-              <div>
-                <strong>[PDF] Contrato Social</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Documento constitutivo</p>
+        <!-- Contratos Emissor -->
+        <div id="contratos-emissor" class="tab-content" style="display: none;">
+          <div class="card">
+            <h3 style="margin-bottom: 15px;"><i class="bi bi-file-earmark-text" style="color: var(--success);"></i> Contratos com a Plataforma</h3>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Contrato de Prestacao de Servicos</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Assinado em 15/12/2024 - Vigencia: 24 meses</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-success">Vigente</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                </div>
               </div>
-              <button class="btn btn-outline btn-sm">Download</button>
-            </div>
-            <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
-              <div>
-                <strong>[PDF] Contrato com a Plataforma</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Assinado em 15/12/2024</p>
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Termo de Adesao Padrao</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Modelo utilizado para investidores da oferta</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-info">Modelo</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                </div>
               </div>
-              <button class="btn btn-outline btn-sm">Download</button>
-            </div>
-            <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
-              <div>
-                <strong>[PDF] Termo de Adesao Padrao</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Modelo para investidores</p>
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Acordo de Confidencialidade (NDA)</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Assinado em 10/12/2024</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-success">Vigente</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                </div>
               </div>
-              <button class="btn btn-outline btn-sm">Download</button>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Regulatorio -->
-      <div id="regulatorio" class="tab-content" style="display: none;">
-        <div class="card">
-          <div style="display: flex; flex-direction: column; gap: 15px;">
-            <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
-              <div>
-                <strong>[PDF] Formulario de Referencia</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Conforme RCVM 88/2022</p>
+        <!-- Societario -->
+        <div id="societario" class="tab-content" style="display: none;">
+          <div class="card">
+            <h3 style="margin-bottom: 15px;"><i class="bi bi-building" style="color: var(--warning);"></i> Documentos Societarios</h3>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Contrato Social Consolidado</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Ultima alteracao: 05/2025</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-success">Atualizado</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                  <button class="btn btn-outline btn-sm">Atualizar</button>
+                </div>
               </div>
-              <button class="btn btn-outline btn-sm">Download</button>
-            </div>
-            <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
-              <div>
-                <strong>[PDF] Declaracao de Riscos</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Fatores de risco do investimento</p>
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Ata de Assembleia</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Aprovacao da oferta - 12/2024</p>
+                </div>
+                <div class="flex gap-10">
+                  <button class="btn btn-outline btn-sm">Download</button>
+                </div>
               </div>
-              <button class="btn btn-outline btn-sm">Download</button>
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Quadro de Socios e Administradores</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">QSA atualizado - 01/2026</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-success">Atualizado</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                  <button class="btn btn-outline btn-sm">Atualizar</button>
+                </div>
+              </div>
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Certidoes Negativas</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Federal, Estadual, Municipal, Trabalhista</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-warning">Vence em 30 dias</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                  <button class="btn btn-outline btn-sm">Atualizar</button>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+      </div><!-- fim emissor-content -->
+
+      <!-- CONTEÚDO DISTRIBUIDOR -->
+      <div class="distribuidor-content" style="display: none;">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Documentos do Distribuidor</h1>
+            <p class="text-muted">Contratos e documentos regulatorios de distribuicao</p>
+          </div>
+          <button class="btn btn-primary" onclick="showModal('uploadModal')"><i class="bi bi-upload"></i> Enviar Documento</button>
+        </div>
+
+        <!-- Info -->
+        <div class="alert alert-info mb-20">
+          <i class="bi bi-info-circle"></i>
+          <div>
+            <strong>Documentos de Distribuicao:</strong> Aqui estao seus contratos de distribuicao e documentos de compliance.
+            Os materiais das ofertas estao disponiveis na pagina de cada oferta.
+          </div>
+        </div>
+
+        <!-- Tabs Distribuidor -->
+        <div class="tabs">
+          <button class="tab active" onclick="switchTab(this, 'contratos-dist')">Contratos</button>
+          <button class="tab" onclick="switchTab(this, 'compliance')">Compliance</button>
+          <button class="tab" onclick="switchTab(this, 'comissoes-docs')">Comissoes</button>
+        </div>
+
+        <!-- Contratos Distribuidor -->
+        <div id="contratos-dist" class="tab-content">
+          <div class="card">
+            <h3 style="margin-bottom: 15px;"><i class="bi bi-file-earmark-text" style="color: var(--success);"></i> Contratos de Distribuicao</h3>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Contrato de Agente Autonomo</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Assinado em 01/10/2024 - Vigencia: Indeterminada</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-success">Vigente</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                </div>
+              </div>
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Termo de Adesao a Plataforma</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Assinado em 01/10/2024</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-success">Vigente</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                </div>
+              </div>
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Tabela de Comissoes</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Vigente desde 01/01/2025</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-info">Atualizada</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compliance -->
+        <div id="compliance" class="tab-content" style="display: none;">
+          <div class="card">
+            <h3 style="margin-bottom: 15px;"><i class="bi bi-shield-check" style="color: var(--primary);"></i> Documentos de Compliance</h3>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Certificacao CPA-20</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Validade: 12/2027</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-success">Valido</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                  <button class="btn btn-outline btn-sm">Atualizar</button>
+                </div>
+              </div>
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Registro CVM/ANCORD</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Numero: AAI-12345</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-success">Ativo</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                </div>
+              </div>
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Termo de Responsabilidade</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Assinado em 01/10/2024</p>
+                </div>
+                <div class="flex gap-10">
+                  <button class="btn btn-outline btn-sm">Download</button>
+                </div>
+              </div>
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Politica de Suitability</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Modelo da plataforma</p>
+                </div>
+                <div class="flex gap-10">
+                  <button class="btn btn-outline btn-sm">Download</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comissoes Docs -->
+        <div id="comissoes-docs" class="tab-content" style="display: none;">
+          <div class="card">
+            <h3 style="margin-bottom: 15px;"><i class="bi bi-cash-stack" style="color: var(--warning);"></i> Documentos de Comissoes</h3>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Extrato de Comissoes - Janeiro/2026</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Gerado em 20/01/2026</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-success">Pago</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                </div>
+              </div>
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Extrato de Comissoes - Dezembro/2025</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Gerado em 20/12/2025</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-success">Pago</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                </div>
+              </div>
+              <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
+                <div>
+                  <strong>[PDF] Informe de Rendimentos 2025</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">Para declaracao de IR</p>
+                </div>
+                <div class="flex gap-10">
+                  <span class="badge badge-info">Disponivel</span>
+                  <button class="btn btn-outline btn-sm">Download</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- fim distribuidor-content -->
+
+      <!-- Disclaimer Regulatorio CVM -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <div class="warning-text">
+          <i class="bi bi-exclamation-triangle"></i>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
@@ -206,37 +436,5 @@
   </div>
 </div>
 
-<script>
-  let selectedProfile = localStorage.getItem('parceiro_profile') || 'emissor';
-  function selectProfileOption(profile) {
-    selectedProfile = profile;
-    document.querySelectorAll('.profile-option').forEach(opt => opt.classList.remove('active'));
-    document.getElementById('option' + profile.charAt(0).toUpperCase() + profile.slice(1)).classList.add('active');
-  }
-  function confirmarPerfil() {
-    const icon = document.getElementById('profileIcon');
-    const name = document.getElementById('profileName');
-    const tag = document.getElementById('profileTag');
-    if (selectedProfile === 'emissor') {
-      icon.className = 'profile-mode-icon emissor';
-      icon.innerHTML = '<i class="bi bi-broadcast"></i>';
-      name.textContent = 'Emissor';
-      tag.className = 'profile-mode-tag emissor';
-      tag.innerHTML = '<i class="bi bi-broadcast"></i> Emissor';
-    } else {
-      icon.className = 'profile-mode-icon distribuidor';
-      icon.innerHTML = '<i class="bi bi-diagram-3"></i>';
-      name.textContent = 'Distribuidor';
-      tag.className = 'profile-mode-tag distribuidor';
-      tag.innerHTML = '<i class="bi bi-diagram-3"></i> Distrib.';
-    }
-    hideModal('selecionarPerfilModal');
-    localStorage.setItem('parceiro_profile', selectedProfile);
-  }
-  document.addEventListener('DOMContentLoaded', function() {
-    selectProfileOption(selectedProfile);
-    if (selectedProfile === 'distribuidor') confirmarPerfil();
-  });
-</script>
 </body>
 </html>

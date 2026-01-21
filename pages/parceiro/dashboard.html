@@ -9,13 +9,17 @@
 </head>
 <body class="theme-parceiro">
   <div class="dashboard">
+    <div class="mobile-header">
+      <a href="../../index.html" class="logo">CrowdInvest</a>
+    </div>
+
     <!-- Sidebar -->
     <aside class="sidebar sidebar-green">
       <div class="sidebar-logo">
         <a href="../../index.html" class="logo">CrowdInvest</a>
         <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
       </div>
-      <!-- Profile Mode Card - Elegante -->
+      <!-- Profile Mode Card -->
       <div class="profile-mode-card" id="profileModeCard">
         <div class="profile-mode-current">
           <div class="profile-mode-icon emissor" id="profileIcon">
@@ -35,10 +39,11 @@
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html" class="active"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponiveis</span></a></li>
         <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
-        <li><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
+        <li><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
         <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissoes</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
         <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
@@ -52,213 +57,479 @@
     <main class="main-content">
       <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
 
-      <div class="page-header">
-        <div>
-          <h1 class="page-title">Ola, TechStart!</h1>
-          <p class="text-muted">Acompanhe sua oferta em tempo real</p>
-        </div>
-        <div class="flex gap-10">
-          <span class="badge badge-success">Oferta Ativa</span>
-        </div>
-      </div>
-
-      <!-- Offer Status Card -->
-      <div class="card" style="background: linear-gradient(135deg, #059669, #047857); color: white; margin-bottom: 30px;">
-        <div class="grid-2" style="gap: 30px; align-items: center;">
+      <!-- ========================================== -->
+      <!-- CONTEUDO EMISSOR -->
+      <!-- ========================================== -->
+      <div class="emissor-content">
+        <div class="page-header">
           <div>
-            <h2 style="margin-bottom: 10px;">TechStart Inovacao</h2>
-            <p style="opacity: 0.9; margin-bottom: 20px;">Sua oferta esta 75% financiada!</p>
-            <div class="progress" style="height: 12px; background: rgba(255,255,255,0.3);">
-              <div class="progress-bar" style="width: 75%; background: white;"></div>
-            </div>
-            <div class="flex-between mt-20" style="font-size: 0.875rem;">
-              <span>R$ 375.000 captados</span>
-              <span>Meta: R$ 500.000</span>
-            </div>
+            <h1 class="page-title">Ola, TechStart!</h1>
+            <p class="text-muted">Acompanhe sua oferta em tempo real</p>
           </div>
-          <div class="text-center">
-            <div style="font-size: 4rem; font-weight: bold;">23</div>
-            <p>dias restantes</p>
+          <div class="flex gap-10">
+            <span class="badge badge-success"><i class="bi bi-broadcast"></i> Modo Emissor</span>
           </div>
         </div>
+
+        <!-- Alert Emissor -->
+        <div class="alert alert-info">
+          <strong><i class="bi bi-lightbulb"></i> Dica:</strong> Faltam R$ 125.000 para atingir a meta. Considere intensificar a divulgacao nas proximas 3 semanas.
+        </div>
+
+        <!-- Offer Status Card -->
+        <div class="card" style="background: linear-gradient(135deg, #059669, #047857); color: white; margin-bottom: 30px;">
+          <div class="grid-2" style="gap: 30px; align-items: center;">
+            <div>
+              <h2 style="margin-bottom: 10px;">TechStart Inovacao</h2>
+              <p style="opacity: 0.9; margin-bottom: 20px;">Sua oferta esta 75% financiada!</p>
+              <div class="progress" style="height: 12px; background: rgba(255,255,255,0.3);">
+                <div class="progress-bar" style="width: 75%; background: white;"></div>
+              </div>
+              <div class="flex-between mt-20" style="font-size: 0.875rem;">
+                <span>R$ 375.000 captados</span>
+                <span>Meta: R$ 500.000</span>
+              </div>
+            </div>
+            <div class="text-center">
+              <div style="font-size: 4rem; font-weight: bold;">23</div>
+              <p>dias restantes</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPIs Emissor -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">Total Captado</div>
+            <div class="kpi-value" style="color: var(--success);">R$ 375.000</div>
+            <div class="kpi-change positive">+R$ 45.000 esta semana</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Investidores</div>
+            <div class="kpi-value">127</div>
+            <div class="kpi-change positive">+12 esta semana</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Ticket Medio</div>
+            <div class="kpi-value">R$ 2.953</div>
+            <div class="kpi-change">por investidor</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Em Desistencia</div>
+            <div class="kpi-value" style="color: var(--warning);">3</div>
+            <div class="kpi-change">R$ 8.000 em risco</div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <!-- Recent Investors -->
+          <div class="card">
+            <div class="card-header flex-between">
+              <h3 class="card-title"><i class="bi bi-people"></i> Ultimos Investidores</h3>
+              <a href="clientes.html" style="color: var(--primary);">Ver todos</a>
+            </div>
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Investidor</th>
+                    <th>Valor</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong>Joao S.</strong>
+                      <br><small class="text-muted">19/01/2026</small>
+                    </td>
+                    <td>R$ 5.000</td>
+                    <td><span class="badge badge-warning">Desistencia</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Maria L.</strong>
+                      <br><small class="text-muted">18/01/2026</small>
+                    </td>
+                    <td>R$ 10.000</td>
+                    <td><span class="badge badge-success">Confirmado</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Pedro M.</strong>
+                      <br><small class="text-muted">17/01/2026</small>
+                    </td>
+                    <td>R$ 2.000</td>
+                    <td><span class="badge badge-success">Confirmado</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Timeline -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title"><i class="bi bi-calendar-event"></i> Cronograma da Oferta</h3>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 20px; padding: 10px 0;">
+              <div class="flex gap-10" style="align-items: flex-start;">
+                <span class="badge badge-success" style="margin-top: 2px;"><i class="bi bi-check-circle"></i></span>
+                <div>
+                  <strong>Inicio da Oferta</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">01/01/2026</p>
+                </div>
+              </div>
+              <div class="flex gap-10" style="align-items: flex-start;">
+                <span class="badge badge-success" style="margin-top: 2px;"><i class="bi bi-check-circle"></i></span>
+                <div>
+                  <strong>50% da Meta</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">10/01/2026</p>
+                </div>
+              </div>
+              <div class="flex gap-10" style="align-items: flex-start;">
+                <span class="badge badge-info" style="margin-top: 2px;"><i class="bi bi-arrow-right-circle"></i></span>
+                <div>
+                  <strong>Hoje - 75% captado</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">19/01/2026</p>
+                </div>
+              </div>
+              <div class="flex gap-10" style="align-items: flex-start;">
+                <span class="badge badge-secondary" style="margin-top: 2px;"><i class="bi bi-clock"></i></span>
+                <div>
+                  <strong>Encerramento</strong>
+                  <p class="text-muted" style="font-size: 0.875rem;">11/02/2026 (23 dias)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <!-- Captacao por Semana Chart -->
+          <div class="card mt-20">
+            <div class="card-header">
+              <h3 class="card-title"><i class="bi bi-bar-chart"></i> Captacao por Semana</h3>
+            </div>
+            <div style="display: flex; align-items: flex-end; height: 180px; gap: 10px; padding: 20px;">
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                <div style="background: #059669; width: 100%; height: 60px; border-radius: 4px 4px 0 0;"></div>
+                <small class="text-muted" style="margin-top: 5px;">Sem 1</small>
+                <small>R$ 45k</small>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                <div style="background: #059669; width: 100%; height: 120px; border-radius: 4px 4px 0 0;"></div>
+                <small class="text-muted" style="margin-top: 5px;">Sem 2</small>
+                <small>R$ 95k</small>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                <div style="background: #059669; width: 100%; height: 160px; border-radius: 4px 4px 0 0;"></div>
+                <small class="text-muted" style="margin-top: 5px;">Sem 3</small>
+                <small>R$ 145k</small>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                <div style="background: #22c55e; width: 100%; height: 90px; border-radius: 4px 4px 0 0;"></div>
+                <small class="text-muted" style="margin-top: 5px;">Atual</small>
+                <small>R$ 90k</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Distribuicao de Investidores -->
+          <div class="card mt-20">
+            <div class="card-header">
+              <h3 class="card-title"><i class="bi bi-pie-chart"></i> Investidores por Faixa</h3>
+            </div>
+            <div class="text-center" style="padding: 20px;">
+              <div style="position: relative; width: 150px; height: 150px; border-radius: 50%; background: conic-gradient(#059669 0deg 162deg, #22c55e 162deg 270deg, #86efac 270deg 360deg); margin: 0 auto;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                  <strong style="font-size: 1.1rem;">127</strong>
+                  <small class="text-muted">total</small>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 15px; font-size: 0.8rem;">
+                <div class="flex gap-10" style="align-items: center;">
+                  <div style="width: 10px; height: 10px; background: #059669; border-radius: 2px;"></div>
+                  <span>R$ 1k-5k: 57 (45%)</span>
+                </div>
+                <div class="flex gap-10" style="align-items: center;">
+                  <div style="width: 10px; height: 10px; background: #22c55e; border-radius: 2px;"></div>
+                  <span>R$ 5k-10k: 38 (30%)</span>
+                </div>
+                <div class="flex gap-10" style="align-items: center;">
+                  <div style="width: 10px; height: 10px; background: #86efac; border-radius: 2px;"></div>
+                  <span>R$ 10k+: 32 (25%)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- KPIs -->
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-label">Total Captado</div>
-          <div class="kpi-value" style="color: var(--success);">R$ 375.000</div>
-          <div class="kpi-change positive">+R$ 45.000 esta semana</div>
+      <!-- ========================================== -->
+      <!-- CONTEUDO DISTRIBUIDOR -->
+      <!-- ========================================== -->
+      <div class="distribuidor-content" style="display: none;">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Portal Distribuidor</h1>
+            <p class="text-muted">Distribua ofertas para seus clientes e acompanhe comissoes</p>
+          </div>
+          <div class="flex gap-10">
+            <span class="badge" style="background: #7c3aed; color: white;"><i class="bi bi-diagram-3"></i> Modo Distribuidor</span>
+          </div>
         </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Clientes</div>
-          <div class="kpi-value">127</div>
-          <div class="kpi-change positive">+12 esta semana</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Ticket Medio</div>
-          <div class="kpi-value">R$ 2.953</div>
-          <div class="kpi-change">por investidor</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Em Desistencia</div>
-          <div class="kpi-value" style="color: var(--warning);">3</div>
-          <div class="kpi-change">R$ 8.000 em risco</div>
-        </div>
-      </div>
 
-      <!-- Alert -->
-      <div class="alert alert-info">
-        <strong>Proximo passo:</strong> Faltam R$ 125.000 para atingir a meta. Considere intensificar a divulgacao nas proximas 3 semanas.
-      </div>
+        <!-- Alert Distribuidor -->
+        <div class="alert alert-success">
+          <strong><i class="bi bi-cash-stack"></i> Comissao disponivel:</strong> R$ 8.250 prontos para saque.
+          <a href="comissoes.html" style="color: inherit; margin-left: 10px;">Solicitar saque</a>
+        </div>
 
-      <div class="grid-2">
-        <!-- Recent Investors -->
-        <div class="card">
+        <!-- KPIs Distribuidor -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">Comissoes do Mes</div>
+            <div class="kpi-value" style="color: #7c3aed;">R$ 12.450</div>
+            <div class="kpi-change positive">+R$ 3.200 vs. mes anterior</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Clientes Ativos</div>
+            <div class="kpi-value">86</div>
+            <div class="kpi-change positive">+8 este mes</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Valor Distribuido</div>
+            <div class="kpi-value">R$ 498.000</div>
+            <div class="kpi-change">em 2026</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Taxa Media</div>
+            <div class="kpi-value">2,5%</div>
+            <div class="kpi-change">de comissao</div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <!-- Ofertas para Distribuir -->
+          <div class="card">
+            <div class="card-header flex-between">
+              <h3 class="card-title"><i class="bi bi-megaphone"></i> Ofertas Disponiveis</h3>
+              <a href="minhas-ofertas.html" style="color: var(--primary);">Ver todas</a>
+            </div>
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Oferta</th>
+                    <th>Tipo</th>
+                    <th>Comissao</th>
+                    <th>Acao</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong>TechStart Inovacao</strong>
+                      <br><small class="text-muted">Tecnologia</small>
+                    </td>
+                    <td><span class="badge" style="background: #7c3aed; color: white; font-size: 0.65rem;">Equity</span></td>
+                    <td style="color: #7c3aed; font-weight: 600;">3%</td>
+                    <td><a href="#" class="btn btn-sm btn-outline">Distribuir</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>EcoFood Organicos</strong>
+                      <br><small class="text-muted">Agro</small>
+                    </td>
+                    <td><span class="badge" style="background: #7c3aed; color: white; font-size: 0.65rem;">Equity</span></td>
+                    <td style="color: #7c3aed; font-weight: 600;">2,5%</td>
+                    <td><a href="#" class="btn btn-sm btn-outline">Distribuir</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Solar Energy</strong>
+                      <br><small class="text-muted">Energia</small>
+                    </td>
+                    <td><span class="badge" style="background: #22c55e; color: white; font-size: 0.65rem;">CRA</span></td>
+                    <td style="color: #7c3aed; font-weight: 600;">2%</td>
+                    <td><a href="#" class="btn btn-sm btn-outline">Distribuir</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Meus Clientes Recentes -->
+          <div class="card">
+            <div class="card-header flex-between">
+              <h3 class="card-title"><i class="bi bi-people"></i> Clientes Recentes</h3>
+              <a href="clientes.html" style="color: var(--primary);">Ver todos</a>
+            </div>
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Cliente</th>
+                    <th>Investido</th>
+                    <th>Comissao</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong>Carlos A.</strong>
+                      <br><small class="text-muted">Indicado 15/01</small>
+                    </td>
+                    <td>R$ 15.000</td>
+                    <td style="color: #7c3aed; font-weight: 600;">R$ 450</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Ana P.</strong>
+                      <br><small class="text-muted">Indicado 12/01</small>
+                    </td>
+                    <td>R$ 8.000</td>
+                    <td style="color: #7c3aed; font-weight: 600;">R$ 200</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Roberto S.</strong>
+                      <br><small class="text-muted">Indicado 10/01</small>
+                    </td>
+                    <td>R$ 20.000</td>
+                    <td style="color: #7c3aed; font-weight: 600;">R$ 600</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <!-- Comissoes por Mes -->
+          <div class="card mt-20">
+            <div class="card-header">
+              <h3 class="card-title"><i class="bi bi-graph-up-arrow"></i> Comissoes Mensais</h3>
+            </div>
+            <div style="display: flex; align-items: flex-end; height: 180px; gap: 10px; padding: 20px;">
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                <div style="background: #a78bfa; width: 100%; height: 80px; border-radius: 4px 4px 0 0;"></div>
+                <small class="text-muted" style="margin-top: 5px;">Out</small>
+                <small>R$ 6,8k</small>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                <div style="background: #a78bfa; width: 100%; height: 100px; border-radius: 4px 4px 0 0;"></div>
+                <small class="text-muted" style="margin-top: 5px;">Nov</small>
+                <small>R$ 8,5k</small>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                <div style="background: #a78bfa; width: 100%; height: 110px; border-radius: 4px 4px 0 0;"></div>
+                <small class="text-muted" style="margin-top: 5px;">Dez</small>
+                <small>R$ 9,2k</small>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                <div style="background: #7c3aed; width: 100%; height: 150px; border-radius: 4px 4px 0 0;"></div>
+                <small class="text-muted" style="margin-top: 5px;">Jan</small>
+                <small>R$ 12,4k</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Distribuicao por Tipo de Oferta -->
+          <div class="card mt-20">
+            <div class="card-header">
+              <h3 class="card-title"><i class="bi bi-pie-chart"></i> Distribuicao por Tipo</h3>
+            </div>
+            <div class="text-center" style="padding: 20px;">
+              <div style="position: relative; width: 150px; height: 150px; border-radius: 50%; background: conic-gradient(#7c3aed 0deg 216deg, #22c55e 216deg 288deg, #0891b2 288deg 360deg); margin: 0 auto;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                  <strong style="font-size: 1.1rem;">R$ 498k</strong>
+                  <small class="text-muted">total</small>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 15px; font-size: 0.8rem;">
+                <div class="flex gap-10" style="align-items: center;">
+                  <div style="width: 10px; height: 10px; background: #7c3aed; border-radius: 2px;"></div>
+                  <span>Equity: 60% (R$ 299k)</span>
+                </div>
+                <div class="flex gap-10" style="align-items: center;">
+                  <div style="width: 10px; height: 10px; background: #22c55e; border-radius: 2px;"></div>
+                  <span>CRA: 20% (R$ 100k)</span>
+                </div>
+                <div class="flex gap-10" style="align-items: center;">
+                  <div style="width: 10px; height: 10px; background: #0891b2; border-radius: 2px;"></div>
+                  <span>CRI: 20% (R$ 99k)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ranking e Performance -->
+        <div class="card mt-20">
           <div class="card-header flex-between">
-            <h3 class="card-title">Ultimos Clientes</h3>
-            <a href="clientes.html" style="color: var(--primary);">Ver todos</a>
+            <h3 class="card-title"><i class="bi bi-trophy"></i> Sua Performance</h3>
+            <span class="badge badge-warning"><i class="bi bi-star-fill"></i> Top 15%</span>
           </div>
-          <div class="table-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>Investidor</th>
-                  <th>Valor</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <strong>Joao S.</strong>
-                    <br><small class="text-muted">19/01/2026</small>
-                  </td>
-                  <td>R$ 5.000</td>
-                  <td><span class="badge badge-warning">Desistencia</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>Maria L.</strong>
-                    <br><small class="text-muted">18/01/2026</small>
-                  </td>
-                  <td>R$ 10.000</td>
-                  <td><span class="badge badge-success">Confirmado</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>Pedro M.</strong>
-                    <br><small class="text-muted">17/01/2026</small>
-                  </td>
-                  <td>R$ 2.000</td>
-                  <td><span class="badge badge-success">Confirmado</span></td>
-                </tr>
-              </tbody>
-            </table>
+          <div style="padding: 20px;">
+            <div class="grid-3" style="gap: 20px; text-align: center;">
+              <div style="padding: 20px; background: #f8fafc; border-radius: 12px;">
+                <div style="font-size: 2rem; font-weight: bold; color: #7c3aed;">12</div>
+                <p class="text-muted">Posicao no Ranking</p>
+                <small style="color: var(--success);">+3 posicoes</small>
+              </div>
+              <div style="padding: 20px; background: #f8fafc; border-radius: 12px;">
+                <div style="font-size: 2rem; font-weight: bold; color: #7c3aed;">R$ 37k</div>
+                <p class="text-muted">Comissoes 2026</p>
+                <small style="color: var(--success);">+45% vs 2025</small>
+              </div>
+              <div style="padding: 20px; background: #f8fafc; border-radius: 12px;">
+                <div style="font-size: 2rem; font-weight: bold; color: #7c3aed;">86</div>
+                <p class="text-muted">Clientes Ativos</p>
+                <small style="color: var(--success);">+12 novos</small>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Timeline -->
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Cronograma da Oferta</h3>
+        <!-- Meta do Mes -->
+        <div class="card mt-20" style="background: linear-gradient(135deg, #7c3aed, #5b21b6); color: white;">
+          <div class="card-header" style="border-bottom: 1px solid rgba(255,255,255,0.2);">
+            <h3 class="card-title" style="color: white;"><i class="bi bi-bullseye"></i> Meta do Mes</h3>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 20px; padding: 10px 0;">
-            <div class="flex gap-10" style="align-items: flex-start;">
-              <span class="badge badge-success" style="margin-top: 2px;"><i class="bi bi-check-circle"></i> Concluido</span>
-              <div>
-                <strong>Inicio da Oferta</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">01/01/2026</p>
-              </div>
+          <div style="padding: 20px;">
+            <div class="flex-between" style="margin-bottom: 15px;">
+              <span>Distribuir R$ 150.000</span>
+              <strong>83%</strong>
             </div>
-            <div class="flex gap-10" style="align-items: flex-start;">
-              <span class="badge badge-success" style="margin-top: 2px;"><i class="bi bi-check-circle"></i> Concluido</span>
-              <div>
-                <strong>50% da Meta</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">10/01/2026</p>
-              </div>
+            <div class="progress" style="height: 12px; background: rgba(255,255,255,0.3);">
+              <div class="progress-bar" style="width: 83%; background: white;"></div>
             </div>
-            <div class="flex gap-10" style="align-items: flex-start;">
-              <span class="badge badge-info" style="margin-top: 2px;"><i class="bi bi-arrow-right-circle"></i> Em Andamento</span>
-              <div>
-                <strong>Hoje - 75% captado</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">19/01/2026</p>
-              </div>
+            <div class="flex-between mt-20" style="font-size: 0.875rem; opacity: 0.9;">
+              <span>R$ 124.500 distribuidos</span>
+              <span>Faltam R$ 25.500</span>
             </div>
-            <div class="flex gap-10" style="align-items: flex-start;">
-              <span class="badge badge-secondary" style="margin-top: 2px;"><i class="bi bi-clock"></i> Pendente</span>
-              <div>
-                <strong>Encerramento</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">11/02/2026 (23 dias)</p>
-              </div>
-            </div>
+            <p style="margin-top: 15px; font-size: 0.85rem; opacity: 0.9;">
+              <i class="bi bi-gift"></i> Bonus de R$ 1.500 ao atingir a meta!
+            </p>
           </div>
         </div>
       </div>
 
-      <div class="grid-2">
-        <!-- Captacao por Semana Chart -->
-        <div class="card mt-20">
-          <div class="card-header">
-            <h3 class="card-title"><i class="bi bi-bar-chart"></i> Captacao por Semana</h3>
-          </div>
-          <div style="display: flex; align-items: flex-end; height: 180px; gap: 10px; padding: 20px;">
-            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-              <div style="background: #059669; width: 100%; height: 60px; border-radius: 4px 4px 0 0;"></div>
-              <small class="text-muted" style="margin-top: 5px;">Sem 1</small>
-              <small>R$ 45k</small>
-            </div>
-            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-              <div style="background: #059669; width: 100%; height: 120px; border-radius: 4px 4px 0 0;"></div>
-              <small class="text-muted" style="margin-top: 5px;">Sem 2</small>
-              <small>R$ 95k</small>
-            </div>
-            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-              <div style="background: #059669; width: 100%; height: 160px; border-radius: 4px 4px 0 0;"></div>
-              <small class="text-muted" style="margin-top: 5px;">Sem 3</small>
-              <small>R$ 145k</small>
-            </div>
-            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-              <div style="background: #22c55e; width: 100%; height: 90px; border-radius: 4px 4px 0 0;"></div>
-              <small class="text-muted" style="margin-top: 5px;">Atual</small>
-              <small>R$ 90k</small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Distribuicao de Clientes -->
-        <div class="card mt-20">
-          <div class="card-header">
-            <h3 class="card-title"><i class="bi bi-pie-chart"></i> Clientes por Faixa</h3>
-          </div>
-          <div class="text-center" style="padding: 20px;">
-            <div style="position: relative; width: 150px; height: 150px; border-radius: 50%; background: conic-gradient(#059669 0deg 162deg, #22c55e 162deg 270deg, #86efac 270deg 360deg); margin: 0 auto;">
-              <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                <strong style="font-size: 1.1rem;">127</strong>
-                <small class="text-muted">total</small>
-              </div>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 15px; font-size: 0.8rem;">
-              <div class="flex gap-10" style="align-items: center;">
-                <div style="width: 10px; height: 10px; background: #059669; border-radius: 2px;"></div>
-                <span>R$ 1k-5k: 57 (45%)</span>
-              </div>
-              <div class="flex gap-10" style="align-items: center;">
-                <div style="width: 10px; height: 10px; background: #22c55e; border-radius: 2px;"></div>
-                <span>R$ 5k-10k: 38 (30%)</span>
-              </div>
-              <div class="flex gap-10" style="align-items: center;">
-                <div style="width: 10px; height: 10px; background: #86efac; border-radius: 2px;"></div>
-                <span>R$ 10k+: 32 (25%)</span>
-              </div>
-            </div>
-          </div>
+      <!-- Disclaimer Regulatorio CVM -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <div class="warning-text">
+          <i class="bi bi-exclamation-triangle"></i>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
   </div>
 
-  <!-- Modal Selecionar Perfil -->
+  <!-- Modal Selecionar Perfil - Layout Horizontal -->
   <div class="modal-overlay" id="selecionarPerfilModal" style="display: none;">
     <div class="modal profile-select-modal">
       <div class="modal-header">
@@ -266,56 +537,36 @@
         <button class="modal-close" onclick="hideModal('selecionarPerfilModal')">&times;</button>
       </div>
 
-      <p class="text-muted mb-20">Escolha como deseja visualizar e operar na plataforma. Voce pode trocar a qualquer momento.</p>
+      <p class="text-muted mb-20">Escolha como deseja operar na plataforma:</p>
 
-      <!-- Opcao Emissor -->
-      <div class="profile-option emissor active" id="optionEmissor" onclick="selectProfileOption('emissor')">
-        <div class="profile-option-icon emissor">
-          <i class="bi bi-broadcast"></i>
-        </div>
-        <div class="profile-option-content">
-          <div class="profile-option-title">
-            Emissor
-            <span class="badge badge-success" style="font-size: 0.65rem;">Atual</span>
+      <!-- Opcoes Horizontais -->
+      <div class="profile-options-row">
+        <!-- Opcao Emissor -->
+        <div class="profile-option emissor active" id="optionEmissor" onclick="selectProfileOption('emissor')">
+          <div class="profile-option-check"><i class="bi bi-check"></i></div>
+          <div class="profile-option-icon emissor">
+            <i class="bi bi-broadcast"></i>
           </div>
-          <p class="profile-option-desc">Crie e gerencie suas proprias ofertas de investimento. Acompanhe captacoes, investidores e comunicados.</p>
-          <div class="profile-option-features">
-            <span class="profile-option-feature"><i class="bi bi-check"></i> Criar ofertas</span>
-            <span class="profile-option-feature"><i class="bi bi-check"></i> Gerenciar captacao</span>
-            <span class="profile-option-feature"><i class="bi bi-check"></i> Comunicados</span>
-            <span class="profile-option-feature"><i class="bi bi-check"></i> Ver investidores</span>
+          <div class="profile-option-content">
+            <div class="profile-option-title">Emissor</div>
+            <p class="profile-option-desc">Crie e gerencie suas proprias ofertas de captacao</p>
           </div>
         </div>
-        <div class="profile-option-check">
-          <i class="bi bi-check"></i>
+
+        <!-- Opcao Distribuidor -->
+        <div class="profile-option distribuidor" id="optionDistribuidor" onclick="selectProfileOption('distribuidor')">
+          <div class="profile-option-check"><i class="bi bi-check"></i></div>
+          <div class="profile-option-icon distribuidor">
+            <i class="bi bi-diagram-3"></i>
+          </div>
+          <div class="profile-option-content">
+            <div class="profile-option-title">Distribuidor</div>
+            <p class="profile-option-desc">Distribua ofertas de terceiros e ganhe comissoes</p>
+          </div>
         </div>
       </div>
 
-      <!-- Opcao Distribuidor -->
-      <div class="profile-option distribuidor" id="optionDistribuidor" onclick="selectProfileOption('distribuidor')">
-        <div class="profile-option-icon distribuidor">
-          <i class="bi bi-diagram-3"></i>
-        </div>
-        <div class="profile-option-content">
-          <div class="profile-option-title">Distribuidor</div>
-          <p class="profile-option-desc">Distribua ofertas de terceiros para sua base de clientes. Ideal para assessores e corretoras.</p>
-          <div class="profile-option-features">
-            <span class="profile-option-feature"><i class="bi bi-check"></i> Distribuir ofertas</span>
-            <span class="profile-option-feature"><i class="bi bi-check"></i> Gerenciar clientes</span>
-            <span class="profile-option-feature"><i class="bi bi-check"></i> Comissoes</span>
-            <span class="profile-option-feature"><i class="bi bi-check"></i> Relatorios</span>
-          </div>
-        </div>
-        <div class="profile-option-check">
-          <i class="bi bi-check"></i>
-        </div>
-      </div>
-
-      <div class="alert alert-info" style="font-size: 0.85rem;">
-        <i class="bi bi-info-circle"></i> Seu acesso como <strong>Emissor + Distribuidor</strong> permite alternar entre os dois modos. As informacoes e menus serao adaptados conforme o modo selecionado.
-      </div>
-
-      <div class="flex gap-10 mt-20">
+      <div class="flex gap-10">
         <button class="btn btn-outline" onclick="hideModal('selecionarPerfilModal')" style="flex: 1;">Cancelar</button>
         <button class="btn btn-primary" onclick="confirmarPerfil()" style="flex: 1;">
           <i class="bi bi-check-lg"></i> Confirmar
@@ -325,78 +576,5 @@
   </div>
 
   <script src="../../js/app.js"></script>
-  <script>
-    let selectedProfile = 'emissor';
-
-    // Selecionar opcao de perfil no modal
-    function selectProfileOption(profile) {
-      selectedProfile = profile;
-
-      // Atualizar visual das opcoes
-      document.querySelectorAll('.profile-option').forEach(opt => {
-        opt.classList.remove('active');
-      });
-      document.getElementById('option' + profile.charAt(0).toUpperCase() + profile.slice(1)).classList.add('active');
-    }
-
-    // Confirmar selecao de perfil
-    function confirmarPerfil() {
-      // Atualizar card na sidebar
-      const icon = document.getElementById('profileIcon');
-      const name = document.getElementById('profileName');
-      const tag = document.getElementById('profileTag');
-
-      if (selectedProfile === 'emissor') {
-        icon.className = 'profile-mode-icon emissor';
-        icon.innerHTML = '<i class="bi bi-broadcast"></i>';
-        name.textContent = 'Emissor';
-        tag.className = 'profile-mode-tag emissor';
-        tag.innerHTML = '<i class="bi bi-broadcast"></i> Emissor';
-      } else {
-        icon.className = 'profile-mode-icon distribuidor';
-        icon.innerHTML = '<i class="bi bi-diagram-3"></i>';
-        name.textContent = 'Distribuidor';
-        tag.className = 'profile-mode-tag distribuidor';
-        tag.innerHTML = '<i class="bi bi-diagram-3"></i> Distrib.';
-      }
-
-      // Atualizar conteudo da pagina
-      switchProfileContent(selectedProfile);
-
-      // Fechar modal
-      hideModal('selecionarPerfilModal');
-
-      // Salvar preferencia
-      localStorage.setItem('parceiro_profile', selectedProfile);
-    }
-
-    // Trocar conteudo baseado no perfil
-    function switchProfileContent(profile) {
-      const emissorContent = document.querySelectorAll('.emissor-content');
-      const distribuidorContent = document.querySelectorAll('.distribuidor-content');
-      const pageTitle = document.querySelector('.page-title');
-      const pageSubtitle = document.querySelector('.page-header .text-muted');
-
-      if (profile === 'emissor') {
-        emissorContent.forEach(el => el.style.display = '');
-        distribuidorContent.forEach(el => el.style.display = 'none');
-        if (pageTitle) pageTitle.textContent = 'Ola, TechStart!';
-        if (pageSubtitle) pageSubtitle.textContent = 'Acompanhe sua oferta em tempo real';
-      } else {
-        emissorContent.forEach(el => el.style.display = 'none');
-        distribuidorContent.forEach(el => el.style.display = '');
-        if (pageTitle) pageTitle.textContent = 'Portal Distribuidor';
-        if (pageSubtitle) pageSubtitle.textContent = 'Distribua ofertas para seus clientes';
-      }
-    }
-
-    // Inicializar perfil salvo
-    document.addEventListener('DOMContentLoaded', function() {
-      const saved = localStorage.getItem('parceiro_profile') || 'emissor';
-      selectedProfile = saved;
-      selectProfileOption(saved);
-      confirmarPerfil();
-    });
-  </script>
 </body>
 </html>

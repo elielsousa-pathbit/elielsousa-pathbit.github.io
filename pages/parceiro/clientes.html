@@ -9,6 +9,10 @@
 </head>
 <body class="theme-parceiro">
   <div class="dashboard">
+    <div class="mobile-header">
+      <a href="../../index.html" class="logo">CrowdInvest</a>
+    </div>
+
     <!-- Sidebar -->
     <aside class="sidebar sidebar-green">
       <div class="sidebar-logo">
@@ -35,10 +39,11 @@
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponiveis</span></a></li>
         <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
-        <li><a href="clientes.html" class="active"><i class="bi bi-people"></i> Clientes</a></li>
+        <li><a href="clientes.html" class="active"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
         <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissoes</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
         <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
@@ -145,81 +150,81 @@
             </thead>
             <tbody>
               <tr style="background: #fef3c7;">
-                <td>
+                <td data-label="Cliente">
                   <strong>Joao Carlos S.</strong>
                   <br><small class="text-muted">joao.s***@email.com</small>
                 </td>
-                <td>R$ 5.000</td>
-                <td>1.5%</td>
-                <td>19/01/2026</td>
-                <td><span class="badge badge-warning">Em desistencia</span></td>
-                <td><strong style="color: var(--warning);">24/01/2026</strong></td>
+                <td data-label="Valor">R$ 5.000</td>
+                <td data-label="Equity">1.5%</td>
+                <td data-label="Data">19/01/2026</td>
+                <td data-label="Status"><span class="badge badge-warning">Em desistencia</span></td>
+                <td data-label="Desistencia ate"><strong style="color: var(--warning);">24/01/2026</strong></td>
               </tr>
               <tr style="background: #fef3c7;">
-                <td>
+                <td data-label="Cliente">
                   <strong>Ana Paula L.</strong>
                   <br><small class="text-muted">ana.l***@email.com</small>
                 </td>
-                <td>R$ 2.000</td>
-                <td>0.6%</td>
-                <td>18/01/2026</td>
-                <td><span class="badge badge-warning">Em desistencia</span></td>
-                <td><strong style="color: var(--warning);">23/01/2026</strong></td>
+                <td data-label="Valor">R$ 2.000</td>
+                <td data-label="Equity">0.6%</td>
+                <td data-label="Data">18/01/2026</td>
+                <td data-label="Status"><span class="badge badge-warning">Em desistencia</span></td>
+                <td data-label="Desistencia ate"><strong style="color: var(--warning);">23/01/2026</strong></td>
               </tr>
               <tr style="background: #fef3c7;">
-                <td>
+                <td data-label="Cliente">
                   <strong>Carlos M.</strong>
                   <br><small class="text-muted">carlos.m***@email.com</small>
                 </td>
-                <td>R$ 3.000</td>
-                <td>0.9%</td>
-                <td>17/01/2026</td>
-                <td><span class="badge badge-warning">Em desistencia</span></td>
-                <td><strong style="color: var(--warning);">22/01/2026</strong></td>
+                <td data-label="Valor">R$ 3.000</td>
+                <td data-label="Equity">0.9%</td>
+                <td data-label="Data">17/01/2026</td>
+                <td data-label="Status"><span class="badge badge-warning">Em desistencia</span></td>
+                <td data-label="Desistencia ate"><strong style="color: var(--warning);">22/01/2026</strong></td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Cliente">
                   <strong>Maria L.</strong>
                   <br><small class="text-muted">maria.l***@email.com</small>
                 </td>
-                <td>R$ 10.000</td>
-                <td>3.0%</td>
-                <td>15/01/2026</td>
-                <td><span class="badge badge-success">Confirmado</span></td>
-                <td><span class="text-muted">Expirado</span></td>
+                <td data-label="Valor">R$ 10.000</td>
+                <td data-label="Equity">3.0%</td>
+                <td data-label="Data">15/01/2026</td>
+                <td data-label="Status"><span class="badge badge-success">Confirmado</span></td>
+                <td data-label="Desistencia ate"><span class="text-muted">Expirado</span></td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Cliente">
                   <strong>Pedro M.</strong>
                   <br><small class="text-muted">pedro.m***@email.com</small>
                 </td>
-                <td>R$ 2.000</td>
-                <td>0.6%</td>
-                <td>14/01/2026</td>
-                <td><span class="badge badge-success">Confirmado</span></td>
-                <td><span class="text-muted">Expirado</span></td>
+                <td data-label="Valor">R$ 2.000</td>
+                <td data-label="Equity">0.6%</td>
+                <td data-label="Data">14/01/2026</td>
+                <td data-label="Status"><span class="badge badge-success">Confirmado</span></td>
+                <td data-label="Desistencia ate"><span class="text-muted">Expirado</span></td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Cliente">
                   <strong>Fernanda C.</strong>
                   <br><small class="text-muted">fernanda.c***@email.com</small>
                 </td>
-                <td>R$ 7.500</td>
-                <td>2.25%</td>
-                <td>12/01/2026</td>
-                <td><span class="badge badge-success">Confirmado</span></td>
-                <td><span class="text-muted">Expirado</span></td>
+                <td data-label="Valor">R$ 7.500</td>
+                <td data-label="Equity">2.25%</td>
+                <td data-label="Data">12/01/2026</td>
+                <td data-label="Status"><span class="badge badge-success">Confirmado</span></td>
+                <td data-label="Desistencia ate"><span class="text-muted">Expirado</span></td>
               </tr>
               <tr style="background: #fee2e2;">
-                <td>
+                <td data-label="Cliente">
                   <strong>Roberto A.</strong>
                   <br><small class="text-muted">roberto.a***@email.com</small>
                 </td>
-                <td><s>R$ 5.000</s></td>
-                <td>-</td>
-                <td>08/01/2026</td>
-                <td><span class="badge badge-danger">Desistiu</span></td>
-                <td><span class="text-muted">13/01/2026</span></td>
+                <td data-label="Valor"><s>R$ 5.000</s></td>
+                <td data-label="Equity">-</td>
+                <td data-label="Data">08/01/2026</td>
+                <td data-label="Status"><span class="badge badge-danger">Desistiu</span></td>
+                <td data-label="Desistencia ate"><span class="text-muted">13/01/2026</span></td>
               </tr>
             </tbody>
           </table>
@@ -241,6 +246,15 @@
       <!-- Info -->
       <div class="alert alert-info mt-20">
         <strong>RCVM 88/2022:</strong> Os dados completos dos clientes so serao liberados apos o encerramento da oferta. Durante a captacao, apenas dados parciais sao exibidos para proteger a privacidade.
+      </div>
+      <!-- Disclaimer Regulatorio CVM -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <div class="warning-text">
+          <i class="bi bi-exclamation-triangle"></i>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+        </div>
       </div>
     </main>
   </div>
@@ -314,37 +328,5 @@
   </div>
 </div>
 
-<script>
-  let selectedProfile = localStorage.getItem('parceiro_profile') || 'emissor';
-  function selectProfileOption(profile) {
-    selectedProfile = profile;
-    document.querySelectorAll('.profile-option').forEach(opt => opt.classList.remove('active'));
-    document.getElementById('option' + profile.charAt(0).toUpperCase() + profile.slice(1)).classList.add('active');
-  }
-  function confirmarPerfil() {
-    const icon = document.getElementById('profileIcon');
-    const name = document.getElementById('profileName');
-    const tag = document.getElementById('profileTag');
-    if (selectedProfile === 'emissor') {
-      icon.className = 'profile-mode-icon emissor';
-      icon.innerHTML = '<i class="bi bi-broadcast"></i>';
-      name.textContent = 'Emissor';
-      tag.className = 'profile-mode-tag emissor';
-      tag.innerHTML = '<i class="bi bi-broadcast"></i> Emissor';
-    } else {
-      icon.className = 'profile-mode-icon distribuidor';
-      icon.innerHTML = '<i class="bi bi-diagram-3"></i>';
-      name.textContent = 'Distribuidor';
-      tag.className = 'profile-mode-tag distribuidor';
-      tag.innerHTML = '<i class="bi bi-diagram-3"></i> Distrib.';
-    }
-    hideModal('selecionarPerfilModal');
-    localStorage.setItem('parceiro_profile', selectedProfile);
-  }
-  document.addEventListener('DOMContentLoaded', function() {
-    selectProfileOption(selectedProfile);
-    if (selectedProfile === 'distribuidor') confirmarPerfil();
-  });
-</script>
 </body>
 </html>

@@ -9,6 +9,13 @@
 </head>
 <body class="theme-admin">
   <div class="dashboard">
+    <div class="mobile-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../../index.html" class="logo" style="color: var(--primary);">CrowdInvest</a>
+        <span class="badge badge-warning">Admin</span>
+      </div>
+    </div>
+
     <aside class="sidebar sidebar-dark">
       <div class="sidebar-logo">
         <a href="../../index.html" class="logo" style="color: white;">CrowdInvest</a>
@@ -129,52 +136,52 @@
             </thead>
             <tbody>
               <tr>
-                <td>
+                <td data-label="Cliente">
                   <strong>Joao Carlos Silva</strong>
                   <br><small class="text-muted"><span class="data-masked" data-value="joao.silva@email.com">j***@email.com</span></small>
                 </td>
-                <td><span class="data-masked" data-value="123.456.789-00">***.456.***-00</span></td>
-                <td>01/01/2026</td>
-                <td>R$ 15.000</td>
-                <td>3</td>
-                <td><span class="badge badge-success">Aprovado</span></td>
-                <td><a href="cliente-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
+                <td data-label="CPF"><span class="data-masked" data-value="123.456.789-00">***.456.***-00</span></td>
+                <td data-label="Cadastro">01/01/2026</td>
+                <td data-label="Investido">R$ 15.000</td>
+                <td data-label="Ofertas">3</td>
+                <td data-label="Validacao"><span class="badge badge-success">Aprovado</span></td>
+                <td data-label="Acoes"><a href="cliente-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Cliente">
                   <strong>Maria Santos Lima</strong>
                   <br><small class="text-muted"><span class="data-masked" data-value="maria.lima@email.com">m***@email.com</span></small>
                 </td>
-                <td><span class="data-masked" data-value="987.654.321-00">***.654.***-00</span></td>
-                <td>05/01/2026</td>
-                <td>R$ 8.500</td>
-                <td>2</td>
-                <td><span class="badge badge-success">Aprovado</span></td>
-                <td><a href="cliente-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
+                <td data-label="CPF"><span class="data-masked" data-value="987.654.321-00">***.654.***-00</span></td>
+                <td data-label="Cadastro">05/01/2026</td>
+                <td data-label="Investido">R$ 8.500</td>
+                <td data-label="Ofertas">2</td>
+                <td data-label="Validacao"><span class="badge badge-success">Aprovado</span></td>
+                <td data-label="Acoes"><a href="cliente-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Cliente">
                   <strong>Pedro Oliveira</strong>
                   <br><small class="text-muted"><span class="data-masked" data-value="pedro.o@email.com">p***@email.com</span></small>
                 </td>
-                <td><span class="data-masked" data-value="456.789.123-00">***.789.***-00</span></td>
-                <td>10/01/2026</td>
-                <td>R$ 20.000</td>
-                <td>4</td>
-                <td><span class="badge badge-success">Aprovado</span></td>
-                <td><a href="cliente-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
+                <td data-label="CPF"><span class="data-masked" data-value="456.789.123-00">***.789.***-00</span></td>
+                <td data-label="Cadastro">10/01/2026</td>
+                <td data-label="Investido">R$ 20.000</td>
+                <td data-label="Ofertas">4</td>
+                <td data-label="Validacao"><span class="badge badge-success">Aprovado</span></td>
+                <td data-label="Acoes"><a href="cliente-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Cliente">
                   <strong>Carlos Mendes</strong>
                   <br><small class="text-muted"><span class="data-masked" data-value="carlos.m@email.com">c***@email.com</span></small>
                 </td>
-                <td><span class="data-masked" data-value="111.222.333-44">***.222.***-44</span></td>
-                <td>15/01/2026</td>
-                <td>R$ 0</td>
-                <td>0</td>
-                <td><span class="badge badge-warning">Pendente</span></td>
-                <td><a href="cliente-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
+                <td data-label="CPF"><span class="data-masked" data-value="111.222.333-44">***.222.***-44</span></td>
+                <td data-label="Cadastro">15/01/2026</td>
+                <td data-label="Investido">R$ 0</td>
+                <td data-label="Ofertas">0</td>
+                <td data-label="Validacao"><span class="badge badge-warning">Pendente</span></td>
+                <td data-label="Acoes"><a href="cliente-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
               </tr>
             </tbody>
           </table>
@@ -189,6 +196,15 @@
             <button class="page-item">3</button>
             <button class="page-item nav-arrow"><i class="bi bi-chevron-right"></i></button>
           </nav>
+        </div>
+      </div>
+      <!-- Disclaimer Regulatorio CVM -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <div class="warning-text">
+          <i class="bi bi-exclamation-triangle"></i>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>

@@ -282,6 +282,202 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// ============================================
+// COMPONENTES REUTILIZÁVEIS - SISTEMA PADRONIZADO
+// ============================================
+
+// --------------------------------------------
+// PARCEIRO - Sistema de Perfil Emissor/Distribuidor
+// --------------------------------------------
+const ParceiroProfile = {
+  current: null,
+
+  init: function() {
+    this.current = localStorage.getItem('parceiro_profile') || 'emissor';
+    this.selectedProfile = this.current;
+    this.applyProfile(this.current);
+    this.updateCard();
+  },
+
+  openModal: function() {
+    this.selectedProfile = this.current;
+    document.querySelectorAll('.profile-option').forEach(function(opt) { opt.classList.remove('active'); });
+    var optionEl = document.getElementById('option' + this.current.charAt(0).toUpperCase() + this.current.slice(1));
+    if (optionEl) optionEl.classList.add('active');
+    showModal('selecionarPerfilModal');
+  },
+
+  selectOption: function(profile) {
+    this.selectedProfile = profile;
+    document.querySelectorAll('.profile-option').forEach(function(opt) { opt.classList.remove('active'); });
+    var optionEl = document.getElementById('option' + profile.charAt(0).toUpperCase() + profile.slice(1));
+    if (optionEl) optionEl.classList.add('active');
+  },
+
+  confirm: function() {
+    this.current = this.selectedProfile;
+    localStorage.setItem('parceiro_profile', this.current);
+    this.updateCard();
+    this.applyProfile(this.current);
+    hideModal('selecionarPerfilModal');
+  },
+
+  updateCard: function() {
+    var isEmissor = this.current === 'emissor';
+    var icon = document.getElementById('profileIcon');
+    var name = document.getElementById('profileName');
+    var tag = document.getElementById('profileTag');
+
+    if (icon) {
+      icon.className = 'profile-mode-icon ' + this.current;
+      var iconEl = icon.querySelector('i');
+      if (iconEl) iconEl.className = 'bi bi-' + (isEmissor ? 'broadcast' : 'diagram-3');
+    }
+    if (name) name.textContent = isEmissor ? 'Emissor' : 'Distribuidor';
+    if (tag) {
+      tag.className = 'profile-mode-tag ' + this.current;
+      tag.textContent = isEmissor ? 'Emissor' : 'Distribuidor';
+    }
+  },
+
+  applyProfile: function(profile) {
+    var isEmissor = profile === 'emissor';
+
+    // Alterna conteúdo específico de cada perfil
+    document.querySelectorAll('.emissor-content').forEach(function(el) { el.style.display = isEmissor ? '' : 'none'; });
+    document.querySelectorAll('.distribuidor-content').forEach(function(el) { el.style.display = isEmissor ? 'none' : ''; });
+
+    // Alterna textos do menu
+    document.querySelectorAll('.menu-text-emissor').forEach(function(el) { el.style.display = isEmissor ? '' : 'none'; });
+    document.querySelectorAll('.menu-text-distribuidor').forEach(function(el) { el.style.display = isEmissor ? 'none' : ''; });
+  },
+
+  selectedProfile: 'emissor'
+};
+
+// Funções de compatibilidade para páginas existentes
+function selectProfileOption(profile) {
+  ParceiroProfile.selectOption(profile);
+}
+
+function confirmarPerfil() {
+  ParceiroProfile.confirm();
+}
+
+// --------------------------------------------
+// PAGINAÇÃO - Componente Padronizado
+// --------------------------------------------
+function createPagination(currentPage, totalPages, totalItems, itemsPerPage) {
+  var startItem = (currentPage - 1) * itemsPerPage + 1;
+  var endItem = Math.min(currentPage * itemsPerPage, totalItems);
+
+  var wrapper = document.createElement('div');
+  wrapper.className = 'pagination-wrapper';
+
+  var info = document.createElement('span');
+  info.className = 'pagination-info';
+  info.textContent = 'Mostrando ' + startItem + '-' + endItem + ' de ' + totalItems;
+
+  var nav = document.createElement('nav');
+  nav.className = 'pagination';
+
+  // Botão anterior
+  var prevBtn = document.createElement('button');
+  prevBtn.className = 'page-item' + (currentPage === 1 ? ' disabled' : '');
+  prevBtn.disabled = currentPage === 1;
+  var prevIcon = document.createElement('i');
+  prevIcon.className = 'bi bi-chevron-left';
+  prevBtn.appendChild(prevIcon);
+  nav.appendChild(prevBtn);
+
+  // Números (máximo 5 visíveis)
+  var maxVisible = 5;
+  var startPage = Math.max(1, currentPage - 2);
+  var endPage = Math.min(totalPages, startPage + maxVisible - 1);
+
+  for (var i = startPage; i <= endPage; i++) {
+    var pageBtn = document.createElement('button');
+    pageBtn.className = 'page-item' + (i === currentPage ? ' active' : '');
+    pageBtn.textContent = i;
+    nav.appendChild(pageBtn);
+  }
+
+  // Botão próximo
+  var nextBtn = document.createElement('button');
+  nextBtn.className = 'page-item' + (currentPage === totalPages ? ' disabled' : '');
+  nextBtn.disabled = currentPage === totalPages;
+  var nextIcon = document.createElement('i');
+  nextIcon.className = 'bi bi-chevron-right';
+  nextBtn.appendChild(nextIcon);
+  nav.appendChild(nextBtn);
+
+  wrapper.appendChild(info);
+  wrapper.appendChild(nav);
+
+  return wrapper;
+}
+
+// --------------------------------------------
+// MODAL DE CONFIRMAÇÃO - Reutilizável
+// --------------------------------------------
+function showConfirmModal(icon, iconColor, title, message) {
+  var modal = document.getElementById('confirmModalGlobal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'confirmModalGlobal';
+    modal.className = 'modal-overlay';
+    modal.style.display = 'none';
+
+    var modalContent = document.createElement('div');
+    modalContent.className = 'modal text-center';
+    modalContent.style.maxWidth = '400px';
+
+    var innerDiv = document.createElement('div');
+    innerDiv.style.padding = '30px';
+
+    var iconEl = document.createElement('i');
+    iconEl.id = 'confirmModalIcon';
+    iconEl.style.fontSize = '3rem';
+    innerDiv.appendChild(iconEl);
+
+    var titleEl = document.createElement('h3');
+    titleEl.id = 'confirmModalTitle';
+    titleEl.style.margin = '15px 0';
+    innerDiv.appendChild(titleEl);
+
+    var msgEl = document.createElement('p');
+    msgEl.id = 'confirmModalMessage';
+    msgEl.className = 'text-muted';
+    innerDiv.appendChild(msgEl);
+
+    var btn = document.createElement('button');
+    btn.className = 'btn btn-primary mt-20';
+    btn.textContent = 'OK';
+    btn.onclick = function() { modal.style.display = 'none'; };
+    innerDiv.appendChild(btn);
+
+    modalContent.appendChild(innerDiv);
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+  }
+
+  document.getElementById('confirmModalIcon').className = icon;
+  document.getElementById('confirmModalIcon').style.color = iconColor;
+  document.getElementById('confirmModalTitle').textContent = title;
+  document.getElementById('confirmModalMessage').textContent = message;
+  modal.style.display = 'flex';
+}
+
+// --------------------------------------------
+// INICIALIZAÇÃO AUTOMÁTICA
+// --------------------------------------------
+document.addEventListener('DOMContentLoaded', function() {
+  // Inicializa o sistema de perfil do parceiro se estiver na área do parceiro
+  if (document.body.classList.contains('theme-parceiro') && document.getElementById('profileModeCard')) {
+    ParceiroProfile.init();
+  }
+});
+
 // Fake data for wireframes
 const FAKE_DATA = {
   user: {

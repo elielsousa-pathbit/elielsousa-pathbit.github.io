@@ -9,6 +9,13 @@
 </head>
 <body class="theme-admin">
   <div class="dashboard">
+    <div class="mobile-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../../index.html" class="logo" style="color: var(--primary);">CrowdInvest</a>
+        <span class="badge badge-warning">Admin</span>
+      </div>
+    </div>
+
     <!-- Sidebar -->
     <aside class="sidebar sidebar-dark">
       <div class="sidebar-logo">
@@ -61,86 +68,86 @@
             </thead>
             <tbody>
               <tr>
-                <td>
+                <td data-label="Usuario">
                   <strong>Carlos Oliveira</strong>
                   <br><small class="text-muted">carlos.oliveira@email.com</small>
                 </td>
-                <td>111.222.333-44</td>
-                <td><span class="badge badge-warning">CPF divergente</span></td>
-                <td>19/01/2026 10:30</td>
-                <td>
+                <td data-label="CPF">111.222.333-44</td>
+                <td data-label="Motivo"><span class="badge badge-warning">CPF divergente</span></td>
+                <td data-label="Data">19/01/2026 10:30</td>
+                <td data-label="Acoes">
                   <button class="btn btn-primary btn-sm" onclick="showModal('reviewModal')">Revisar</button>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Usuario">
                   <strong>Ana Pereira</strong>
                   <br><small class="text-muted">ana.pereira@email.com</small>
                 </td>
-                <td>555.666.777-88</td>
-                <td><span class="badge badge-danger">CPF irregular</span></td>
-                <td>19/01/2026 09:15</td>
-                <td>
+                <td data-label="CPF">555.666.777-88</td>
+                <td data-label="Motivo"><span class="badge badge-danger">CPF irregular</span></td>
+                <td data-label="Data">19/01/2026 09:15</td>
+                <td data-label="Acoes">
                   <button class="btn btn-primary btn-sm" onclick="showModal('reviewModal')">Revisar</button>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Usuario">
                   <strong>Roberto Santos</strong>
                   <br><small class="text-muted">roberto.santos@email.com</small>
                 </td>
-                <td>999.888.777-66</td>
-                <td><span class="badge badge-warning">Nome divergente</span></td>
-                <td>18/01/2026 16:45</td>
-                <td>
+                <td data-label="CPF">999.888.777-66</td>
+                <td data-label="Motivo"><span class="badge badge-warning">Nome divergente</span></td>
+                <td data-label="Data">18/01/2026 16:45</td>
+                <td data-label="Acoes">
                   <button class="btn btn-primary btn-sm" onclick="showModal('reviewModal')">Revisar</button>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Usuario">
                   <strong>Fernanda Lima</strong>
                   <br><small class="text-muted">fernanda.lima@email.com</small>
                 </td>
-                <td>444.333.222-11</td>
-                <td><span class="badge badge-info">Pessoa politicamente exposta</span></td>
-                <td>18/01/2026 14:20</td>
-                <td>
+                <td data-label="CPF">444.333.222-11</td>
+                <td data-label="Motivo"><span class="badge badge-info">Pessoa politicamente exposta</span></td>
+                <td data-label="Data">18/01/2026 14:20</td>
+                <td data-label="Acoes">
                   <button class="btn btn-primary btn-sm" onclick="showModal('reviewModal')">Revisar</button>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Usuario">
                   <strong>Lucas Mendes</strong>
                   <br><small class="text-muted">lucas.mendes@email.com</small>
                 </td>
-                <td>222.111.333-55</td>
-                <td><span class="badge badge-warning">Data nasc. divergente</span></td>
-                <td>18/01/2026 11:00</td>
-                <td>
+                <td data-label="CPF">222.111.333-55</td>
+                <td data-label="Motivo"><span class="badge badge-warning">Data nasc. divergente</span></td>
+                <td data-label="Data">18/01/2026 11:00</td>
+                <td data-label="Acoes">
                   <button class="btn btn-primary btn-sm" onclick="showModal('reviewModal')">Revisar</button>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Usuario">
                   <strong>Patricia Costa</strong>
                   <br><small class="text-muted">patricia.costa@email.com</small>
                 </td>
-                <td>777.888.999-00</td>
-                <td><span class="badge badge-danger">Obito registrado</span></td>
-                <td>17/01/2026 15:30</td>
-                <td>
+                <td data-label="CPF">777.888.999-00</td>
+                <td data-label="Motivo"><span class="badge badge-danger">Obito registrado</span></td>
+                <td data-label="Data">17/01/2026 15:30</td>
+                <td data-label="Acoes">
                   <button class="btn btn-primary btn-sm" onclick="showModal('reviewModal')">Revisar</button>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Usuario">
                   <strong>Marcos Almeida</strong>
                   <br><small class="text-muted">marcos.almeida@email.com</small>
                 </td>
-                <td>123.321.456-78</td>
-                <td><span class="badge badge-secondary">Bureau indisponivel</span></td>
-                <td>17/01/2026 10:00</td>
-                <td>
+                <td data-label="CPF">123.321.456-78</td>
+                <td data-label="Motivo"><span class="badge badge-secondary">Bureau indisponivel</span></td>
+                <td data-label="Data">17/01/2026 10:00</td>
+                <td data-label="Acoes">
                   <button class="btn btn-primary btn-sm" onclick="showModal('reviewModal')">Revisar</button>
                 </td>
               </tr>
@@ -162,6 +169,15 @@
         <div class="card text-center">
           <div style="font-size: 2rem; font-weight: bold; color: var(--danger);">12</div>
           <p class="text-muted">Rejeitados (total)</p>
+        </div>
+      </div>
+      <!-- Disclaimer Regulatorio CVM -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <div class="warning-text">
+          <i class="bi bi-exclamation-triangle"></i>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
@@ -221,10 +237,10 @@
 
       <div class="flex gap-10">
         <button class="btn btn-danger" style="flex: 1;" onclick="showModal('usuarioRejeitadoModal'); hideModal('reviewModal');">
-          Rejeitar
+          <i class="bi bi-x-circle"></i> Reprovar
         </button>
         <button class="btn btn-success" style="flex: 1;" onclick="showModal('usuarioAprovadoModal'); hideModal('reviewModal');">
-          Aprovar
+          <i class="bi bi-check-circle"></i> Aprovar
         </button>
       </div>
     </div>

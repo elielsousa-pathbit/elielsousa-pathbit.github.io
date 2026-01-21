@@ -9,6 +9,13 @@
 </head>
 <body class="theme-admin">
   <div class="dashboard">
+    <div class="mobile-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../../index.html" class="logo" style="color: var(--primary);">CrowdInvest</a>
+        <span class="badge badge-warning">Admin</span>
+      </div>
+    </div>
+
     <!-- Sidebar -->
     <aside class="sidebar sidebar-dark">
       <div class="sidebar-logo">
@@ -228,54 +235,54 @@
             </thead>
             <tbody>
               <tr>
-                <td>
+                <td data-label="Investidor">
                   <strong>Joao Carlos Silva</strong>
                   <br><small class="text-muted">joao.silva@email.com</small>
                 </td>
-                <td>123.456.789-00</td>
-                <td>R$ 3.250,00</td>
-                <td>R$ 487,50</td>
-                <td><span class="badge badge-secondary">Pendente</span></td>
-                <td>
+                <td data-label="CPF">123.456.789-00</td>
+                <td data-label="Rendimentos">R$ 3.250,00</td>
+                <td data-label="IRRF">R$ 487,50</td>
+                <td data-label="Informe"><span class="badge badge-secondary">Pendente</span></td>
+                <td data-label="Acoes">
                   <button class="btn btn-outline btn-sm" onclick="showModal('gerandoInformeModal')">Gerar</button>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Investidor">
                   <strong>Maria Santos Lima</strong>
                   <br><small class="text-muted">maria.lima@email.com</small>
                 </td>
-                <td>987.654.321-00</td>
-                <td>R$ 1.850,00</td>
-                <td>R$ 277,50</td>
-                <td><span class="badge badge-secondary">Pendente</span></td>
-                <td>
+                <td data-label="CPF">987.654.321-00</td>
+                <td data-label="Rendimentos">R$ 1.850,00</td>
+                <td data-label="IRRF">R$ 277,50</td>
+                <td data-label="Informe"><span class="badge badge-secondary">Pendente</span></td>
+                <td data-label="Acoes">
                   <button class="btn btn-outline btn-sm" onclick="showModal('gerandoInformeModal')">Gerar</button>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Investidor">
                   <strong>Pedro Oliveira</strong>
                   <br><small class="text-muted">pedro.o@email.com</small>
                 </td>
-                <td>456.789.123-00</td>
-                <td>R$ 5.420,00</td>
-                <td>R$ 813,00</td>
-                <td><span class="badge badge-secondary">Pendente</span></td>
-                <td>
+                <td data-label="CPF">456.789.123-00</td>
+                <td data-label="Rendimentos">R$ 5.420,00</td>
+                <td data-label="IRRF">R$ 813,00</td>
+                <td data-label="Informe"><span class="badge badge-secondary">Pendente</span></td>
+                <td data-label="Acoes">
                   <button class="btn btn-outline btn-sm" onclick="showModal('gerandoInformeModal')">Gerar</button>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Investidor">
                   <strong>Ana Paula Costa</strong>
                   <br><small class="text-muted">ana.costa@email.com</small>
                 </td>
-                <td>321.654.987-00</td>
-                <td>R$ 780,00</td>
-                <td>R$ 117,00</td>
-                <td><span class="badge badge-secondary">Pendente</span></td>
-                <td>
+                <td data-label="CPF">321.654.987-00</td>
+                <td data-label="Rendimentos">R$ 780,00</td>
+                <td data-label="IRRF">R$ 117,00</td>
+                <td data-label="Informe"><span class="badge badge-secondary">Pendente</span></td>
+                <td data-label="Acoes">
                   <button class="btn btn-outline btn-sm" onclick="showModal('gerandoInformeModal')">Gerar</button>
                 </td>
               </tr>
@@ -298,6 +305,15 @@
       <!-- Regulatory Info -->
       <div class="alert alert-info mt-20">
         <strong>Obrigacoes Legais:</strong> De acordo com a IN RFB 2.060/2021, a plataforma de crowdfunding deve fornecer informe de rendimentos a todos os investidores que receberam rendimentos no ano-calendario, ate o ultimo dia util de fevereiro do ano seguinte.
+      </div>
+      <!-- Disclaimer Regulatorio CVM -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <div class="warning-text">
+          <i class="bi bi-exclamation-triangle"></i>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+        </div>
       </div>
     </main>
   </div>

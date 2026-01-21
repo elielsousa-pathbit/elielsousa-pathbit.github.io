@@ -9,6 +9,10 @@
 </head>
 <body class="theme-parceiro">
   <div class="dashboard">
+    <div class="mobile-header">
+      <a href="../../index.html" class="logo">CrowdInvest</a>
+    </div>
+
     <aside class="sidebar sidebar-green">
       <div class="sidebar-logo">
         <a href="../../index.html" class="logo">CrowdInvest</a>
@@ -34,10 +38,11 @@
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponiveis</span></a></li>
         <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
-        <li><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
+        <li><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
         <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissoes</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
         <li><a href="relatorios.html" class="active"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
@@ -181,6 +186,15 @@
             <div style="background: #22c55e; width: 100%; height: 150px; border-radius: 4px 4px 0 0;"></div>
             <small class="text-muted" style="margin-top: 5px;">19/01</small>
           </div>
+        </div>
+      </div>
+      <!-- Disclaimer Regulatorio CVM -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <div class="warning-text">
+          <i class="bi bi-exclamation-triangle"></i>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
@@ -459,37 +473,5 @@
   </div>
 </div>
 
-<script>
-  let selectedProfile = localStorage.getItem('parceiro_profile') || 'emissor';
-  function selectProfileOption(profile) {
-    selectedProfile = profile;
-    document.querySelectorAll('.profile-option').forEach(opt => opt.classList.remove('active'));
-    document.getElementById('option' + profile.charAt(0).toUpperCase() + profile.slice(1)).classList.add('active');
-  }
-  function confirmarPerfil() {
-    const icon = document.getElementById('profileIcon');
-    const name = document.getElementById('profileName');
-    const tag = document.getElementById('profileTag');
-    if (selectedProfile === 'emissor') {
-      icon.className = 'profile-mode-icon emissor';
-      icon.innerHTML = '<i class="bi bi-broadcast"></i>';
-      name.textContent = 'Emissor';
-      tag.className = 'profile-mode-tag emissor';
-      tag.innerHTML = '<i class="bi bi-broadcast"></i> Emissor';
-    } else {
-      icon.className = 'profile-mode-icon distribuidor';
-      icon.innerHTML = '<i class="bi bi-diagram-3"></i>';
-      name.textContent = 'Distribuidor';
-      tag.className = 'profile-mode-tag distribuidor';
-      tag.innerHTML = '<i class="bi bi-diagram-3"></i> Distrib.';
-    }
-    hideModal('selecionarPerfilModal');
-    localStorage.setItem('parceiro_profile', selectedProfile);
-  }
-  document.addEventListener('DOMContentLoaded', function() {
-    selectProfileOption(selectedProfile);
-    if (selectedProfile === 'distribuidor') confirmarPerfil();
-  });
-</script>
 </body>
 </html>

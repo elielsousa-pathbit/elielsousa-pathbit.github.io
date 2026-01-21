@@ -54,6 +54,10 @@
 </head>
 <body class="theme-investidor">
   <div class="dashboard">
+    <div class="mobile-header">
+      <a href="../../index.html" class="logo">CrowdInvest</a>
+    </div>
+
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-logo">
@@ -85,6 +89,12 @@
         <a href="ofertas.html" class="btn btn-primary">Novo Investimento</a>
       </div>
 
+      <!-- Alert for withdrawal period -->
+      <div class="alert alert-warning">
+        <strong>Atencao:</strong> Voce tem 1 investimento em periodo de desistencia (ate 24/01/2026).
+        <a href="carteira.html" style="color: inherit; margin-left: 10px;">Ver detalhes &rarr;</a>
+      </div>
+
       <!-- KPIs -->
       <div class="kpi-grid">
         <div class="kpi-card">
@@ -109,12 +119,6 @@
         </div>
       </div>
 
-      <!-- Alert for withdrawal period -->
-      <div class="alert alert-warning">
-        <strong>Atencao:</strong> Voce tem 1 investimento em periodo de desistencia (ate 24/01/2026).
-        <a href="carteira.html" style="color: inherit; margin-left: 10px;">Ver detalhes &rarr;</a>
-      </div>
-
       <div class="grid-2">
         <!-- Recent Investments -->
         <div class="card">
@@ -134,40 +138,40 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>
+                  <td data-label="Investimento">
                     <strong>TechStart Inovacao</strong>
                     <br><small class="text-muted">15/01/2026</small>
                   </td>
-                  <td><span class="badge" style="background: #7c3aed; color: white; font-size: 0.65rem;">Equity</span></td>
-                  <td>R$ 5.000</td>
-                  <td><span class="badge badge-success">Confirmado</span></td>
+                  <td data-label="Tipo"><span class="badge" style="background: #7c3aed; color: white; font-size: 0.65rem;">Equity</span></td>
+                  <td data-label="Valor">R$ 5.000</td>
+                  <td data-label="Status"><span class="badge badge-success">Confirmado</span></td>
                 </tr>
                 <tr>
-                  <td>
+                  <td data-label="Investimento">
                     <strong>Residencial Parque das Flores</strong>
                     <br><small class="text-muted">12/01/2026</small>
                   </td>
-                  <td><span class="badge" style="background: #0891b2; color: white; font-size: 0.65rem;">CRI</span></td>
-                  <td>R$ 3.000</td>
-                  <td><span class="badge badge-success">Confirmado</span></td>
+                  <td data-label="Tipo"><span class="badge" style="background: #0891b2; color: white; font-size: 0.65rem;">CRI</span></td>
+                  <td data-label="Valor">R$ 3.000</td>
+                  <td data-label="Status"><span class="badge badge-success">Confirmado</span></td>
                 </tr>
                 <tr>
-                  <td>
+                  <td data-label="Investimento">
                     <strong>EcoFood Organicos</strong>
                     <br><small class="text-muted">10/01/2026</small>
                   </td>
-                  <td><span class="badge" style="background: #7c3aed; color: white; font-size: 0.65rem;">Equity</span></td>
-                  <td>R$ 3.000</td>
-                  <td><span class="badge badge-warning">Desistencia</span></td>
+                  <td data-label="Tipo"><span class="badge" style="background: #7c3aed; color: white; font-size: 0.65rem;">Equity</span></td>
+                  <td data-label="Valor">R$ 3.000</td>
+                  <td data-label="Status"><span class="badge badge-warning">Desistencia</span></td>
                 </tr>
                 <tr>
-                  <td>
+                  <td data-label="Investimento">
                     <strong>Cooperativa AgroVerde</strong>
                     <br><small class="text-muted">08/01/2026</small>
                   </td>
-                  <td><span class="badge" style="background: #22c55e; color: white; font-size: 0.65rem;">CRA</span></td>
-                  <td>R$ 3.500</td>
-                  <td><span class="badge badge-success">Confirmado</span></td>
+                  <td data-label="Tipo"><span class="badge" style="background: #22c55e; color: white; font-size: 0.65rem;">CRA</span></td>
+                  <td data-label="Valor">R$ 3.500</td>
+                  <td data-label="Status"><span class="badge badge-success">Confirmado</span></td>
                 </tr>
               </tbody>
             </table>
@@ -261,18 +265,18 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>Residencial Parque das Flores</strong></td>
-                <td><span class="badge" style="background: #0891b2; color: white; font-size: 0.65rem;">CRI</span></td>
-                <td>12/02/2026</td>
-                <td style="color: var(--success);">~R$ 24,00</td>
-                <td>Juros</td>
+                <td data-label="Investimento"><strong>Residencial Parque das Flores</strong></td>
+                <td data-label="Tipo"><span class="badge" style="background: #0891b2; color: white; font-size: 0.65rem;">CRI</span></td>
+                <td data-label="Data">12/02/2026</td>
+                <td data-label="Valor" style="color: var(--success);">~R$ 24,00</td>
+                <td data-label="Pagamento">Juros</td>
               </tr>
               <tr>
-                <td><strong>Cooperativa AgroVerde</strong></td>
-                <td><span class="badge" style="background: #22c55e; color: white; font-size: 0.65rem;">CRA</span></td>
-                <td>08/07/2026</td>
-                <td style="color: var(--success);">~R$ 105,00</td>
-                <td>Juros Semestral</td>
+                <td data-label="Investimento"><strong>Cooperativa AgroVerde</strong></td>
+                <td data-label="Tipo"><span class="badge" style="background: #22c55e; color: white; font-size: 0.65rem;">CRA</span></td>
+                <td data-label="Data">08/07/2026</td>
+                <td data-label="Valor" style="color: var(--success);">~R$ 105,00</td>
+                <td data-label="Pagamento">Juros Semestral</td>
               </tr>
             </tbody>
           </table>
@@ -298,43 +302,52 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>TechStart Inovacao</strong></td>
-                <td><span class="badge" style="background: #7c3aed; color: white; font-size: 0.65rem;">Equity</span></td>
-                <td>R$ 375k / R$ 500k</td>
-                <td>
+                <td data-label="Investimento"><strong>TechStart Inovacao</strong></td>
+                <td data-label="Tipo"><span class="badge" style="background: #7c3aed; color: white; font-size: 0.65rem;">Equity</span></td>
+                <td data-label="Captacao">R$ 375k / R$ 500k</td>
+                <td data-label="Progresso">
                   <div class="progress" style="width: 80px;">
                     <div class="progress-bar" style="width: 75%;"></div>
                   </div>
                 </td>
-                <td>23</td>
-                <td><span class="badge badge-info">Em captacao</span></td>
+                <td data-label="Dias">23</td>
+                <td data-label="Status"><span class="badge badge-info">Em captacao</span></td>
               </tr>
               <tr>
-                <td><strong>Residencial Parque das Flores</strong></td>
-                <td><span class="badge" style="background: #0891b2; color: white; font-size: 0.65rem;">CRI</span></td>
-                <td>R$ 450k / R$ 1M</td>
-                <td>
+                <td data-label="Investimento"><strong>Residencial Parque das Flores</strong></td>
+                <td data-label="Tipo"><span class="badge" style="background: #0891b2; color: white; font-size: 0.65rem;">CRI</span></td>
+                <td data-label="Captacao">R$ 450k / R$ 1M</td>
+                <td data-label="Progresso">
                   <div class="progress" style="width: 80px;">
                     <div class="progress-bar" style="width: 45%; background: #0891b2;"></div>
                   </div>
                 </td>
-                <td>60</td>
-                <td><span class="badge badge-info">Em captacao</span></td>
+                <td data-label="Dias">60</td>
+                <td data-label="Status"><span class="badge badge-info">Em captacao</span></td>
               </tr>
               <tr>
-                <td><strong>Cooperativa AgroVerde</strong></td>
-                <td><span class="badge" style="background: #22c55e; color: white; font-size: 0.65rem;">CRA</span></td>
-                <td>R$ 656k / R$ 800k</td>
-                <td>
+                <td data-label="Investimento"><strong>Cooperativa AgroVerde</strong></td>
+                <td data-label="Tipo"><span class="badge" style="background: #22c55e; color: white; font-size: 0.65rem;">CRA</span></td>
+                <td data-label="Captacao">R$ 656k / R$ 800k</td>
+                <td data-label="Progresso">
                   <div class="progress" style="width: 80px;">
                     <div class="progress-bar" style="width: 82%; background: #22c55e;"></div>
                   </div>
                 </td>
-                <td>30</td>
-                <td><span class="badge badge-warning">Finalizando</span></td>
+                <td data-label="Dias">30</td>
+                <td data-label="Status"><span class="badge badge-warning">Finalizando</span></td>
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+      <!-- Disclaimer Regulatorio CVM -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <div class="warning-text">
+          <i class="bi bi-exclamation-triangle"></i>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>

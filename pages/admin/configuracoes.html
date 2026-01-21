@@ -9,6 +9,13 @@
 </head>
 <body class="theme-admin">
   <div class="dashboard">
+    <div class="mobile-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../../index.html" class="logo" style="color: var(--primary);">CrowdInvest</a>
+        <span class="badge badge-warning">Admin</span>
+      </div>
+    </div>
+
     <aside class="sidebar sidebar-dark">
       <div class="sidebar-logo">
         <a href="../../index.html" class="logo" style="color: white;">CrowdInvest</a>
@@ -39,7 +46,7 @@
       <!-- Tabs -->
       <div class="tabs">
         <button class="tab active" onclick="switchTab(this, 'geral')">Geral</button>
-        <button class="tab" onclick="switchTab(this, 'usuarios')">Usuarios Admin</button>
+        <button class="tab" onclick="switchTab(this, 'usuarios')">Usuarios</button>
         <button class="tab" onclick="switchTab(this, 'integ')">Integracoes</button>
       </div>
 
@@ -112,18 +119,18 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Admin Principal</strong></td>
-                  <td>admin@crowdinvest.com.br</td>
-                  <td><span class="badge badge-success">Ativo</span></td>
-                  <td>19/01/2026 10:30</td>
-                  <td><button class="btn btn-outline btn-sm">Editar</button></td>
+                  <td data-label="Nome"><strong>Admin Principal</strong></td>
+                  <td data-label="Email">admin@crowdinvest.com.br</td>
+                  <td data-label="Verificacao"><span class="badge badge-success">Ativo</span></td>
+                  <td data-label="Ultimo Acesso">19/01/2026 10:30</td>
+                  <td data-label="Acoes"><button class="btn btn-outline btn-sm">Editar</button></td>
                 </tr>
                 <tr>
-                  <td><strong>Operador 1</strong></td>
-                  <td>operador1@crowdinvest.com.br</td>
-                  <td><span class="badge badge-success">Ativo</span></td>
-                  <td>18/01/2026 16:45</td>
-                  <td><button class="btn btn-outline btn-sm">Editar</button></td>
+                  <td data-label="Nome"><strong>Operador 1</strong></td>
+                  <td data-label="Email">operador1@crowdinvest.com.br</td>
+                  <td data-label="Verificacao"><span class="badge badge-success">Ativo</span></td>
+                  <td data-label="Ultimo Acesso">18/01/2026 16:45</td>
+                  <td data-label="Acoes"><button class="btn btn-outline btn-sm">Editar</button></td>
                 </tr>
               </tbody>
             </table>
@@ -165,6 +172,15 @@
               <span class="badge badge-success">Conectado</span>
             </div>
           </div>
+        </div>
+      </div>
+      <!-- Disclaimer Regulatorio CVM -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <div class="warning-text">
+          <i class="bi bi-exclamation-triangle"></i>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
