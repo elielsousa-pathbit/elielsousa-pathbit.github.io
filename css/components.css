@@ -1,0 +1,848 @@
+/* ==============================================
+   RCVM 88 - COMPONENTES REUTILIZÁVEIS
+   Biblioteca de componentes padronizados
+   ============================================== */
+
+/* ==============================================
+   OFFER CARD - BASE
+   Variações: --vertical, --horizontal, --compact, --archived
+   ============================================== */
+
+.offer-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+
+.offer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Offer Card Header */
+.offer-card-header {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 800;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Offer Card Body */
+.offer-card-body {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Offer Type Badge Position */
+.offer-card-type {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+/* Offer Days Badge Position */
+.offer-card-days {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Offer Title */
+.offer-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+/* Offer Sector */
+.offer-card-sector {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.offer-card-sector i {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+/* Offer Description */
+.offer-card-description {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Offer Stats Grid */
+.offer-card-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.offer-card-stat {
+  text-align: center;
+  padding: 10px 6px;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+}
+
+.offer-card-stat-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.offer-card-stat-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* Offer Progress Bar */
+.offer-card-progress {
+  margin-bottom: 12px;
+}
+
+.offer-card-progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.offer-card-progress-bar {
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.offer-card-progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* Offer Action Button */
+.offer-card-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 12px;
+  text-align: center;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+  margin-top: auto;
+  border: none;
+  cursor: pointer;
+}
+
+.offer-card-btn i {
+  font-size: 0.9rem;
+}
+
+.offer-card-btn:hover {
+  background: var(--primary-dark);
+  color: white;
+}
+
+/* ---------- VARIAÇÃO: VERTICAL (Investidor) ---------- */
+.offer-card--vertical {
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- VARIAÇÃO: HORIZONTAL (Parceiro ativa) ---------- */
+.offer-card--horizontal {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  min-height: auto;
+}
+
+.offer-card--horizontal .offer-card-header {
+  height: 100%;
+  min-height: 200px;
+}
+
+.offer-card--horizontal .offer-card-body {
+  padding: 20px;
+}
+
+/* ---------- VARIAÇÃO: COMPACT (Parceiro concluídas) ---------- */
+.offer-card--compact {
+  min-height: auto;
+}
+
+.offer-card--compact .offer-card-header {
+  height: 80px;
+  font-size: 1.4rem;
+}
+
+.offer-card--compact .offer-card-body {
+  padding: 12px;
+}
+
+.offer-card--compact .offer-card-stats {
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+/* ---------- VARIAÇÃO: ARCHIVED (Site encerradas) ---------- */
+.offer-card--archived {
+  opacity: 0.85;
+}
+
+.offer-card--archived:hover {
+  transform: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.offer-card--archived .offer-card-header {
+  filter: grayscale(30%);
+}
+
+.offer-card--archived .offer-card-btn {
+  background: var(--secondary);
+}
+
+/* ==============================================
+   OFFER TYPE BADGES
+   Cores por tipo de oferta
+   ============================================== */
+
+.badge-offer-type {
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 100px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.badge-offer-type--equity {
+  background: var(--gradient-equity);
+}
+
+.badge-offer-type--cri {
+  background: var(--gradient-cri);
+}
+
+.badge-offer-type--cra {
+  background: var(--gradient-cra);
+}
+
+.badge-offer-type--cr {
+  background: var(--gradient-cr);
+}
+
+/* Cores sólidas alternativas */
+.badge-offer-type--equity-solid {
+  background: var(--color-equity);
+}
+
+.badge-offer-type--cri-solid {
+  background: var(--color-cri);
+}
+
+.badge-offer-type--cra-solid {
+  background: var(--color-cra);
+}
+
+.badge-offer-type--cr-solid {
+  background: var(--color-cr);
+}
+
+/* ==============================================
+   MODAL SYSTEM
+   Tamanhos: --sm (400px), --md (550px), --lg (700px)
+   ============================================== */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal-backdrop);
+  animation: modalFadeIn 0.2s ease;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: var(--card);
+  border-radius: var(--radius-xl);
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-xl);
+  animation: modalSlideUp 0.3s ease;
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal Sizes */
+.modal--sm { max-width: 400px; }
+.modal--md { max-width: 550px; }
+.modal--lg { max-width: 700px; }
+.modal--xl { max-width: 900px; }
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px 0;
+}
+
+.modal-header h3,
+.modal-header .modal-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  margin: 0;
+}
+
+/* Modal Close Button */
+.modal-close {
+  background: var(--bg);
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.modal-close:hover {
+  background: var(--border);
+  color: var(--text);
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 24px;
+}
+
+/* Modal Footer */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 0 24px 24px;
+}
+
+.modal-footer--center {
+  justify-content: center;
+}
+
+.modal-footer--spread {
+  justify-content: space-between;
+}
+
+/* ==============================================
+   STATUS BADGES
+   Padronizados para todos os portais
+   ============================================== */
+
+.badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 100px;
+}
+
+.badge-status--success {
+  background: rgba(5, 150, 105, 0.1);
+  color: #059669;
+}
+
+.badge-status--warning {
+  background: rgba(217, 119, 6, 0.1);
+  color: #d97706;
+}
+
+.badge-status--danger {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+}
+
+.badge-status--info {
+  background: rgba(2, 132, 199, 0.1);
+  color: #0284c7;
+}
+
+.badge-status--neutral {
+  background: var(--bg);
+  color: var(--text-muted);
+}
+
+.badge-status--active {
+  background: rgba(5, 150, 105, 0.1);
+  color: #059669;
+}
+
+.badge-status--pending {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.badge-status--completed {
+  background: rgba(30, 64, 175, 0.1);
+  color: #1e40af;
+}
+
+.badge-status--cancelled {
+  background: rgba(100, 116, 139, 0.1);
+  color: #64748b;
+}
+
+/* ==============================================
+   TIMELINE
+   Componente de histórico/eventos
+   ============================================== */
+
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 24px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--border);
+  border: 2px solid var(--card);
+}
+
+/* Timeline Status Colors */
+.timeline-item--success::before {
+  background: var(--success);
+}
+
+.timeline-item--warning::before {
+  background: var(--warning);
+}
+
+.timeline-item--info::before {
+  background: var(--primary);
+}
+
+.timeline-item--danger::before {
+  background: var(--danger);
+}
+
+/* Timeline Content */
+.timeline-content {
+  padding-left: 8px;
+}
+
+.timeline-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.timeline-description {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.timeline-date {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+/* ==============================================
+   PROFILE SWITCHER
+   Componente para alternar entre perfis (Parceiro)
+   ============================================== */
+
+.profile-switcher {
+  display: flex;
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 4px;
+  gap: 4px;
+}
+
+.profile-switcher-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.profile-switcher-btn:hover {
+  color: var(--text);
+}
+
+.profile-switcher-btn.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.profile-switcher-btn i {
+  font-size: 1rem;
+}
+
+/* Variação: Sidebar (dentro da sidebar verde/azul) */
+.profile-switcher--sidebar {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 16px 16px;
+}
+
+.profile-switcher--sidebar .profile-switcher-btn {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.profile-switcher--sidebar .profile-switcher-btn:hover {
+  color: white;
+}
+
+.profile-switcher--sidebar .profile-switcher-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* ==============================================
+   ACTIVITY CARD
+   Card de atividade recente (Admin)
+   ============================================== */
+
+.activity-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-light);
+  transition: all 0.2s;
+}
+
+.activity-card:hover {
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.activity-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.activity-card-icon--success {
+  background: rgba(5, 150, 105, 0.1);
+  color: #059669;
+}
+
+.activity-card-icon--warning {
+  background: rgba(217, 119, 6, 0.1);
+  color: #d97706;
+}
+
+.activity-card-icon--info {
+  background: rgba(30, 64, 175, 0.1);
+  color: #1e40af;
+}
+
+.activity-card-icon--danger {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+}
+
+.activity-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-card-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.activity-card-description {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.activity-card-time {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
+/* ==============================================
+   STAT CARD / KPI CARD
+   Cards de estatísticas/métricas
+   ============================================== */
+
+.stat-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--primary);
+}
+
+.stat-card-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.stat-card-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+.stat-card-change {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  margin-top: 8px;
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.stat-card-change--positive {
+  background: rgba(5, 150, 105, 0.1);
+  color: #059669;
+}
+
+.stat-card-change--negative {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+}
+
+/* Variações de cor */
+.stat-card--success { border-left-color: var(--success); }
+.stat-card--warning { border-left-color: var(--warning); }
+.stat-card--danger { border-left-color: var(--danger); }
+.stat-card--info { border-left-color: var(--info); }
+
+/* ==============================================
+   EMPTY STATE
+   Estado vazio para listas/tabelas
+   ============================================== */
+
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.empty-state-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background: var(--bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--text-muted);
+}
+
+.empty-state-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.empty-state-description {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.empty-state-action {
+  margin-top: 20px;
+}
+
+/* ==============================================
+   LOADING STATES
+   Estados de carregamento
+   ============================================== */
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-skeleton {
+  background: linear-gradient(90deg, var(--bg) 25%, var(--border-light) 50%, var(--bg) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ==============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================== */
+
+@media (max-width: 768px) {
+  /* Offer Card Horizontal -> Stack */
+  .offer-card--horizontal {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-card--horizontal .offer-card-header {
+    min-height: 120px;
+  }
+
+  /* Modal adjustments */
+  .modal {
+    width: 95%;
+    max-height: 95vh;
+    border-radius: var(--radius-lg);
+  }
+
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Profile Switcher */
+  .profile-switcher-btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  /* Stat Card */
+  .stat-card {
+    padding: 16px;
+  }
+
+  .stat-card-value {
+    font-size: 1.5rem;
+  }
+}

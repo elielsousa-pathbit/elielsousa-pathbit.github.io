@@ -1,0 +1,877 @@
+/* ==============================================
+   RESPONSIVE STYLES - MOBILE FIXES
+   CrowdInvest Platform
+   ============================================== */
+
+/* ==============================================
+   MOBILE OVERLAY
+   ============================================== */
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-overlay.open {
+  display: block;
+  opacity: 1;
+}
+
+/* ==============================================
+   CONTENT TITLE - REMOVER FIXO
+   ============================================== */
+.content-title {
+  position: relative !important;
+  top: auto !important;
+  background: transparent !important;
+  z-index: auto !important;
+}
+
+.content-title-sticky {
+  position: relative !important;
+}
+
+/* ==============================================
+   TABLET (max-width: 1024px)
+   ============================================== */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Grid adjustments */
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .offers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .audience-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .compliance-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    transform: translateX(-100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 280px;
+    z-index: 999;
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Main content */
+  .main-content {
+    margin-left: 0;
+    padding: 16px;
+  }
+
+  .layout-dashboard {
+    display: block;
+  }
+
+  /* Hamburger visible */
+  .hamburger-btn {
+    display: flex !important;
+  }
+}
+
+/* ==============================================
+   MOBILE (max-width: 768px)
+   ============================================== */
+@media (max-width: 768px) {
+  /* Typography */
+  h1, .hero-title {
+    font-size: 1.75rem !important;
+    line-height: 1.3;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  /* Container */
+  .container {
+    padding: 0 12px;
+  }
+
+  /* ==============================================
+     HEADER & NAVIGATION - MOBILE
+     ============================================== */
+  .header {
+    padding: 12px 0;
+  }
+
+  .header-content {
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  .menu-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 1.5rem;
+    color: var(--text);
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    padding: 80px 24px 24px;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+  }
+
+  .nav.open {
+    right: 0;
+  }
+
+  .nav a {
+    display: block;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 1rem;
+  }
+
+  .nav .nav-actions {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 24px;
+    gap: 12px;
+  }
+
+  .nav .nav-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ==============================================
+     SIDEBAR - MOBILE
+     ============================================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100vh;
+    z-index: 999;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    padding-bottom: 100px;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .sidebar-logo {
+    padding: 16px;
+  }
+
+  .sidebar-menu {
+    padding: 0 8px;
+  }
+
+  .sidebar-menu a {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+  }
+
+  /* Hamburger button */
+  .hamburger-btn {
+    display: flex !important;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 1001;
+    width: 44px;
+    height: 44px;
+    background: var(--primary);
+    border: none;
+    border-radius: var(--radius);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  .hamburger-btn span {
+    width: 22px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-btn.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger-btn.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-btn.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* ==============================================
+     MAIN CONTENT - MOBILE
+     ============================================== */
+  .main-content {
+    margin-left: 0;
+    padding: 70px 12px 24px;
+    min-height: 100vh;
+  }
+
+  .content-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .content-title h1 {
+    font-size: 1.5rem;
+  }
+
+  .content-actions {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .content-actions .btn {
+    flex: 1;
+    min-width: 120px;
+    justify-content: center;
+  }
+
+  /* ==============================================
+     GRIDS - MOBILE
+     ============================================== */
+  .kpi-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .kpi-card {
+    padding: 16px;
+  }
+
+  .kpi-card .kpi-value {
+    font-size: 1.5rem;
+  }
+
+  .offers-grid,
+  .products-grid,
+  .audience-grid,
+  .pricing-grid,
+  .steps-grid,
+  .stats-grid,
+  .limits-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  /* ==============================================
+     TABLES - MOBILE CARD VIEW
+     ============================================== */
+  .table-container {
+    overflow-x: visible;
+  }
+
+  table {
+    display: block;
+  }
+
+  table thead {
+    display: none;
+  }
+
+  table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  table tbody tr {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  table tbody tr:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  table tbody tr td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border: none;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  table tbody tr td:last-child {
+    border-bottom: none;
+    padding-top: 12px;
+    justify-content: center;
+  }
+
+  table tbody tr td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    margin-right: 12px;
+  }
+
+  /* Botao de acao em cards de tabela */
+  table tbody tr td .btn,
+  table tbody tr td .table-actions {
+    width: 100%;
+  }
+
+  table tbody tr td .table-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  table tbody tr td .table-actions .btn {
+    flex: 1;
+  }
+
+  /* Card de tabela clicavel */
+  .table-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* ==============================================
+     CARDS - MOBILE
+     ============================================== */
+  .card {
+    padding: 16px;
+    border-radius: var(--radius);
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .card-header .flex {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  /* ==============================================
+     BUTTONS - MOBILE
+     ============================================== */
+  .btn {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+
+  .btn-lg {
+    padding: 14px 20px;
+  }
+
+  .btn-sm {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .btn-block-mobile {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Grupo de botoes mobile */
+  .btn-group-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .btn-group-mobile .btn {
+    width: 100%;
+  }
+
+  /* ==============================================
+     FORMS - MOBILE
+     ============================================== */
+  .form-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    padding: 14px 16px;
+    font-size: 16px; /* Previne zoom no iOS */
+  }
+
+  /* ==============================================
+     MODALS - MOBILE
+     ============================================== */
+  .modal {
+    width: 95%;
+    max-width: none;
+    max-height: 90vh;
+    margin: 5vh auto;
+    border-radius: var(--radius);
+  }
+
+  .modal-header {
+    padding: 16px;
+  }
+
+  .modal-body {
+    padding: 16px;
+  }
+
+  .modal-footer {
+    padding: 16px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+  }
+
+  /* ==============================================
+     HERO SECTIONS - MOBILE
+     ============================================== */
+  .hero {
+    padding: 60px 0 40px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-visual {
+    display: none; /* Hide preview card on mobile */
+  }
+
+  .hero-title {
+    font-size: 1.75rem !important;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-cta .btn-glow,
+  .hero-cta .btn-glass {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-stats {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .hero-stat {
+    min-width: 100px;
+  }
+
+  /* ==============================================
+     ANNOUNCEMENT BAR - MOBILE
+     ============================================== */
+  .announcement-bar {
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .announcement-bar a {
+    white-space: nowrap;
+  }
+
+  /* ==============================================
+     TABS - MOBILE
+     ============================================== */
+  .tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 0;
+    padding-bottom: 8px;
+  }
+
+  .tabs .tab {
+    flex-shrink: 0;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  /* ==============================================
+     PAGINATION - MOBILE
+     ============================================== */
+  .pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .pagination .page-item {
+    min-width: 36px;
+    height: 36px;
+  }
+
+  /* ==============================================
+     AUTH PAGES - MOBILE
+     ============================================== */
+  .auth-page {
+    padding: 16px;
+    min-height: auto;
+  }
+
+  .auth-box {
+    padding: 24px 20px;
+    max-width: 100%;
+  }
+
+  .auth-title {
+    font-size: 1.5rem;
+  }
+
+  .steps {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .step {
+    flex: 1;
+    min-width: 80px;
+  }
+
+  /* ==============================================
+     COMPLIANCE SECTION - MOBILE
+     ============================================== */
+  .compliance {
+    padding: 60px 0;
+  }
+
+  .compliance-visual {
+    text-align: center;
+  }
+
+  .cvm-logo {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+  }
+
+  /* ==============================================
+     CTA SECTION - MOBILE
+     ============================================== */
+  .cta {
+    padding: 60px 0;
+  }
+
+  .cta-content h2 {
+    font-size: 1.75rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cta-buttons .btn-glow,
+  .cta-buttons .btn-glass {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ==============================================
+     TRUST BAR - MOBILE
+     ============================================== */
+  .trust-bar {
+    padding: 20px 0;
+  }
+
+  .trust-items {
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .trust-item {
+    font-size: 0.8rem;
+    gap: 6px;
+  }
+
+  /* ==============================================
+     PRODUCTS SECTION - MOBILE
+     ============================================== */
+  .products-cta-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .products-cta-content > i {
+    font-size: 2rem;
+  }
+
+  /* ==============================================
+     FILTERS - MOBILE
+     ============================================== */
+  .filters-bar {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .filters-bar .form-group {
+    width: 100%;
+  }
+
+  .btn-group-filter {
+    flex-wrap: wrap;
+  }
+
+  /* ==============================================
+     FLEX UTILITIES - MOBILE
+     ============================================== */
+  .flex-between {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .flex-between.mobile-stack {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* ==============================================
+     HIDE/SHOW MOBILE
+     ============================================== */
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .show-mobile {
+    display: block !important;
+  }
+
+  .show-mobile-flex {
+    display: flex !important;
+  }
+
+  /* ==============================================
+     ALERTS - MOBILE
+     ============================================== */
+  .alert {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+
+  /* ==============================================
+     BADGES - MOBILE
+     ============================================== */
+  .badge {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+  }
+
+  /* ==============================================
+     PROGRESS - MOBILE
+     ============================================== */
+  .progress {
+    height: 8px;
+  }
+}
+
+/* ==============================================
+   SMALL MOBILE (max-width: 480px)
+   ============================================== */
+@media (max-width: 480px) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    font-size: 1.5rem !important;
+  }
+
+  .btn {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+
+  table tbody tr {
+    padding: 12px;
+  }
+
+  table tbody tr td {
+    font-size: 0.9rem;
+  }
+
+  .modal {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    max-height: 100vh;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .nav {
+    width: 100%;
+  }
+}
+
+/* ==============================================
+   PRINT STYLES
+   ============================================== */
+@media print {
+  .sidebar,
+  .hamburger-btn,
+  .mobile-overlay,
+  .menu-toggle,
+  .announcement-bar,
+  .btn,
+  .modal-overlay {
+    display: none !important;
+  }
+
+  .main-content {
+    margin: 0;
+    padding: 0;
+  }
+
+  table {
+    display: table;
+  }
+
+  table thead {
+    display: table-header-group;
+  }
+
+  table tbody {
+    display: table-row-group;
+  }
+
+  table tbody tr {
+    display: table-row;
+    page-break-inside: avoid;
+  }
+
+  table tbody tr td {
+    display: table-cell;
+  }
+
+  .card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}

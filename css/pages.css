@@ -1,0 +1,2002 @@
+/* ================================================
+   CrowdInvest - PAGES STYLES
+   Estilos especificos de paginas
+   Migrados de tags <style> inline
+================================================ */
+
+/* ================================================
+   PORTAL SELECTION PAGE
+   pages/portal.html
+================================================ */
+.portal-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+.portal-header {
+  padding: 20px 0;
+  background: white;
+  border-bottom: 1px solid var(--border);
+}
+
+.portal-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.portal-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.portal-selection {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.portal-selection h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.portal-selection .subtitle {
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+.portal-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.portal-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 2px solid transparent;
+}
+
+.portal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.portal-card.investidor:hover {
+  border-color: var(--primary);
+}
+
+.portal-card.parceiro:hover {
+  border-color: #059669;
+}
+
+.portal-card.admin:hover {
+  border-color: #1e293b;
+}
+
+.portal-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 2rem;
+  color: white;
+}
+
+.portal-icon.investidor {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+}
+
+.portal-icon.parceiro {
+  background: linear-gradient(135deg, #059669, #047857);
+}
+
+.portal-icon.admin {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+}
+
+.portal-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.portal-card p {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 15px;
+  min-height: 40px;
+}
+
+.portal-card .portal-badge {
+  margin-bottom: 20px;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portal-card .portal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-weight: 500;
+  font-size: 0.875rem;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.portal-card.investidor .portal-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.portal-card.parceiro .portal-btn {
+  background: #059669;
+  color: white;
+}
+
+.portal-card.admin .portal-btn {
+  background: #1e293b;
+  color: white;
+}
+
+.portal-footer {
+  text-align: center;
+  padding: 30px 20px;
+  background: white;
+  border-top: 1px solid var(--border);
+}
+
+.portal-footer p {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.portal-footer a {
+  color: var(--primary);
+}
+
+.portal-info {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+.portal-info .card {
+  background: white;
+}
+
+/* ================================================
+   PRICING PAGE (Taxas e Custos)
+   pages/taxas-custos.html
+================================================ */
+.pricing-hero {
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+  padding: 80px 0 60px;
+  color: white;
+  text-align: center;
+}
+
+.pricing-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.pricing-hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.pricing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+
+.pricing-section {
+  padding: 80px 0;
+  background: var(--bg);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto 60px;
+}
+
+.pricing-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 2px solid transparent;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card.featured {
+  border-color: var(--primary);
+}
+
+.pricing-card.featured::before {
+  content: 'Recomendado';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary-gradient);
+  color: white;
+  padding: 4px 16px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.pricing-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  margin-bottom: 20px;
+}
+
+.pricing-icon.investor {
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  color: var(--primary);
+}
+
+.pricing-icon.partner {
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+  color: #059669;
+}
+
+.pricing-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.pricing-card .subtitle {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.pricing-value {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.pricing-value span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.pricing-value.contact {
+  font-size: 1.5rem;
+  color: #059669;
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 0.95rem;
+}
+
+.pricing-features li i {
+  margin-top: 2px;
+}
+
+.pricing-features li i.bi-check-circle-fill {
+  color: #059669;
+}
+
+.pricing-features li i.bi-info-circle-fill {
+  color: var(--warning);
+}
+
+.pricing-features li i.bi-x-circle-fill {
+  color: var(--danger);
+}
+
+/* Limits Section */
+.limits-section {
+  padding: 60px 0;
+  background: white;
+}
+
+.limits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.limit-card {
+  text-align: center;
+  padding: 32px 24px;
+  background: var(--bg);
+  border-radius: 16px;
+}
+
+.limit-card i {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.limit-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.limit-card .value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.limit-card p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Fees Table Section */
+.fees-table-section {
+  padding: 60px 0;
+  background: var(--bg);
+}
+
+.fees-table {
+  max-width: 800px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+/* IMPORTANT: Override generic table mobile styles for fees-table */
+.fees-table table {
+  width: 100%;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  display: table !important;
+  min-width: 500px;
+}
+
+.fees-table thead {
+  display: table-header-group !important;
+}
+
+.fees-table tbody {
+  display: table-row-group !important;
+}
+
+.fees-table tr {
+  display: table-row !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.fees-table tr:hover {
+  background: rgba(59, 130, 246, 0.04) !important;
+  transform: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.fees-table th {
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%) !important;
+  color: white !important;
+  padding: 16px 20px;
+  text-align: left;
+  font-weight: 600;
+  display: table-cell !important;
+}
+
+.fees-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: table-cell !important;
+  color: var(--text) !important;
+}
+
+.fees-table td::before {
+  display: none !important;
+  content: none !important;
+}
+
+.fees-table tr:last-child td {
+  border-bottom: none;
+}
+
+.fees-table .free-badge {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.fees-table .contact-badge {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* FAQ Section */
+.faq-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.faq-item h4 {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.faq-item h4 i {
+  color: var(--primary);
+  margin-top: 2px;
+}
+
+.faq-item p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-left: 28px;
+}
+
+/* ================================================
+   ADMIN MODERACAO PAGE
+   pages/admin/moderacao.html
+================================================ */
+.moderacao-card {
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.moderacao-header {
+  background: var(--bg);
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.moderacao-body {
+  padding: 20px;
+}
+
+.moderacao-actions {
+  background: #f8fafc;
+  padding: 15px 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.empresa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.preview-box {
+  background: #fffbeb;
+  border: 1px solid #fbbf24;
+  border-radius: var(--radius);
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+/* Tabs de moderacao */
+.moderacao-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 25px;
+}
+
+.moderacao-tab {
+  padding: 12px 24px;
+  font-weight: 500;
+  color: var(--text-muted);
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.moderacao-tab:hover {
+  color: var(--text);
+}
+
+.moderacao-tab.active {
+  color: var(--primary);
+}
+
+.moderacao-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+}
+
+.moderacao-tab .tab-count {
+  background: var(--warning);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+}
+
+.moderacao-tab.active .tab-count {
+  background: var(--primary);
+}
+
+/* Editor inline */
+.edit-inline-area {
+  background: #f0fdf4;
+  border: 2px solid #22c55e;
+  border-radius: var(--radius);
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.edit-inline-area textarea {
+  width: 100%;
+  min-height: 120px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.edit-inline-area .edit-toolbar {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.edit-highlight {
+  background: #fef3c7;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+/* ================================================
+   PAYMENT METHODS (Deposito)
+   pages/investidor/deposito.html
+================================================ */
+.method-option {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.method-option:hover {
+  border-color: var(--primary);
+  background: var(--bg);
+}
+
+.method-option.selected {
+  border-color: var(--primary);
+  background: rgba(30, 64, 175, 0.05);
+}
+
+.method-option input[type="radio"] {
+  display: none;
+}
+
+.method-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.method-info h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.method-info p {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+}
+
+/* ================================================
+   RESPONSIVE STYLES FOR PAGES
+================================================ */
+@media (max-width: 768px) {
+  /* Portal Page */
+  .portal-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-selection h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Pricing Page */
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .limits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .pricing-card {
+    padding: 24px;
+  }
+
+  .pricing-value {
+    font-size: 2.25rem;
+  }
+
+  /* Fees Table Mobile */
+  .fees-table {
+    overflow-x: auto;
+  }
+
+  .fees-table table {
+    min-width: 500px;
+  }
+
+  /* Moderacao Page */
+  .moderacao-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .moderacao-tab {
+    padding: 12px 16px;
+    white-space: nowrap;
+  }
+
+  .moderacao-header,
+  .moderacao-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Payment Methods */
+  .method-option {
+    flex-wrap: wrap;
+  }
+}
+
+/* ================================================
+   RELATORIOS (Reports)
+   pages/parceiro/relatorios.html
+================================================ */
+.report-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 24px;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.report-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary);
+}
+
+.report-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.report-icon.blue {
+  background: rgba(30, 64, 175, 0.1);
+  color: var(--primary);
+}
+
+.report-icon.green {
+  background: rgba(5, 150, 105, 0.1);
+  color: #059669;
+}
+
+.report-icon.purple {
+  background: rgba(124, 58, 237, 0.1);
+  color: #7c3aed;
+}
+
+.report-icon.orange {
+  background: rgba(234, 88, 12, 0.1);
+  color: #ea580c;
+}
+
+.report-icon.red {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+}
+
+/* ================================================
+   COMUNICADOS PAGE
+   pages/parceiro/comunicados.html
+================================================ */
+.comunicado-card {
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+  transition: all 0.2s;
+}
+
+.comunicado-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.comunicado-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.comunicado-body {
+  padding: 20px;
+}
+
+.comunicado-footer {
+  padding: 12px 20px;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ================================================
+   KYC / VALIDACAO
+   pages/kyc-validacao.html
+================================================ */
+.kyc-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+
+.kyc-step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.kyc-step.completed .kyc-step-number {
+  background: var(--success);
+}
+
+.kyc-step.pending .kyc-step-number {
+  background: var(--warning);
+}
+
+.kyc-step-content {
+  flex: 1;
+}
+
+.kyc-step-content h4 {
+  margin: 0 0 8px;
+}
+
+.kyc-step-content p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ================================================
+   CLIENTE DETALHE
+   pages/admin/cliente-detalhe.html
+================================================ */
+.cliente-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+.cliente-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.cliente-info h2 {
+  margin: 0 0 4px;
+}
+
+.cliente-info p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.cliente-stats {
+  display: flex;
+  gap: 32px;
+  margin-left: auto;
+}
+
+.cliente-stat {
+  text-align: center;
+}
+
+.cliente-stat .value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.cliente-stat .label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .cliente-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cliente-stats {
+    margin-left: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+/* ================================================
+   IMPOSTO DE RENDA
+   pages/investidor/imposto-renda.html
+================================================ */
+.ir-card {
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 24px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.ir-card-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ir-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--primary);
+}
+
+.ir-details h4 {
+  margin: 0 0 4px;
+}
+
+.ir-details p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ================================================
+   OFERTA DETALHE
+   pages/investidor/oferta-detalhe.html
+================================================ */
+.oferta-hero {
+  background: var(--primary-gradient);
+  color: white;
+  padding: 40px;
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+}
+
+.oferta-hero h1 {
+  margin: 0 0 8px;
+  font-size: 1.75rem;
+}
+
+.oferta-hero .subtitle {
+  opacity: 0.9;
+  margin-bottom: 24px;
+}
+
+.oferta-progress {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  height: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.oferta-progress .bar {
+  height: 100%;
+  background: white;
+  border-radius: 100px;
+  transition: width 0.5s ease;
+}
+
+.oferta-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.oferta-stat {
+  text-align: center;
+}
+
+.oferta-stat .value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.oferta-stat .label {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .oferta-hero {
+    padding: 24px;
+  }
+
+  .oferta-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .oferta-stat .value {
+    font-size: 1.25rem;
+  }
+}
+
+/* ================================================
+   TIMELINE / HISTORICO
+================================================ */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 24px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+.timeline-item.success::before {
+  background: var(--success);
+  box-shadow: 0 0 0 2px var(--success);
+}
+
+.timeline-item.warning::before {
+  background: var(--warning);
+  box-shadow: 0 0 0 2px var(--warning);
+}
+
+.timeline-item.danger::before {
+  background: var(--danger);
+  box-shadow: 0 0 0 2px var(--danger);
+}
+
+.timeline-content {
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 16px;
+}
+
+.timeline-content h4 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+}
+
+.timeline-content p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.timeline-content .time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+/* ================================================
+   PIE CHART
+   pages/investidor/dashboard.html
+================================================ */
+.pie-chart {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--primary) 0deg 120deg,
+    var(--success) 120deg 192deg,
+    var(--danger) 192deg 360deg
+  );
+  margin: 0 auto;
+}
+
+.pie-chart-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.pie-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+}
+
+.pie-legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+/* ================================================
+   ACTIVITY / ATIVIDADE
+   pages/*/dashboard.html
+================================================ */
+.activity-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.activity-icon.success {
+  background: rgba(5, 150, 105, 0.1);
+  color: var(--success);
+}
+
+.activity-icon.info {
+  background: rgba(30, 64, 175, 0.1);
+  color: var(--primary);
+}
+
+.activity-icon.warning {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning);
+}
+
+.activity-icon.danger {
+  background: rgba(220, 38, 38, 0.1);
+  color: var(--danger);
+}
+
+.activity-content {
+  flex: 1;
+}
+
+.activity-content h4 {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+}
+
+.activity-content p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ================================================
+   QUICK ACTIONS
+   pages/*/dashboard.html
+================================================ */
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.quick-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 12px;
+  background: var(--bg);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.quick-action:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.quick-action i {
+  font-size: 1.5rem;
+}
+
+.quick-action span {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* ================================================
+   PROFILE MODE CARD (Parceiro)
+   pages/parceiro/*.html
+================================================ */
+.profile-mode-card {
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.profile-mode-card:hover {
+  border-color: var(--primary);
+}
+
+.profile-mode-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.profile-mode-icon.emissor {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+}
+
+.profile-mode-icon.distribuidor {
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+}
+
+.profile-mode-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.profile-mode-tag.emissor {
+  background: rgba(30, 64, 175, 0.1);
+  color: var(--primary);
+}
+
+.profile-mode-tag.distribuidor {
+  background: rgba(124, 58, 237, 0.1);
+  color: #7c3aed;
+}
+
+/* ================================================
+   LOADING OVERLAY
+================================================ */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.loading-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.loading-profile-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  background: var(--primary-gradient);
+  margin-bottom: 20px;
+}
+
+.loading-profile-icon.emissor {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+}
+
+.loading-profile-icon.distribuidor {
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.loading-subtext {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ================================================
+   ALERTS & NOTIFICATIONS AREA - TOPO DAS PAGINAS
+   Padronização de alertas em todos os portais
+================================================ */
+
+/* Container de alertas no topo do conteudo */
+.alerts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* Garante que alertas fiquem sempre no topo */
+.main-content > .alerts-container:first-of-type,
+.main-content > .page-header + .alerts-container,
+.main-content > .page-header + .notification-banner,
+.main-content > .page-header + .alert {
+  margin-top: 0;
+}
+
+/* Notification banner com prioridade visual */
+.notification-banner.priority-high {
+  border-width: 2px;
+  animation: pulse-border 2s ease-in-out infinite;
+}
+
+@keyframes pulse-border {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Alert compacto para areas menores */
+.alert-compact {
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.alert-compact i {
+  font-size: 0.95rem;
+}
+
+/* ================================================
+   BOTOES - CORRECOES DE LEGIBILIDADE
+   Garante contraste adequado em todos os botoes
+================================================ */
+
+/* Botoes com texto garantidamente legivel */
+.btn-primary,
+.btn-success,
+.btn-danger,
+.btn-warning {
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Botao warning precisa de cor escura */
+.btn-warning {
+  color: #78350f !important;
+  text-shadow: none;
+}
+
+/* Links como botoes - garantir cor */
+a.btn-primary,
+a.btn-primary:link,
+a.btn-primary:visited,
+a.btn-primary:hover,
+a.btn-primary:active,
+button.btn-primary {
+  color: white !important;
+}
+
+a.btn-success,
+a.btn-success:link,
+a.btn-success:visited,
+a.btn-success:hover,
+a.btn-success:active,
+button.btn-success {
+  color: white !important;
+}
+
+a.btn-danger,
+a.btn-danger:link,
+a.btn-danger:visited,
+a.btn-danger:hover,
+a.btn-danger:active,
+button.btn-danger {
+  color: white !important;
+}
+
+/* Botao glow - garantir legibilidade */
+.btn-glow,
+a.btn-glow,
+a.btn-glow:link,
+a.btn-glow:visited,
+a.btn-glow:hover {
+  color: white !important;
+}
+
+/* Fix header nav buttons - garantir legibilidade */
+.header .nav-actions .btn-primary,
+.header .nav-actions a.btn-primary,
+.header .nav-actions a.btn-primary:link,
+.header .nav-actions a.btn-primary:visited,
+.header .nav-actions a.btn-primary:hover {
+  color: white !important;
+  background: var(--primary-gradient) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Botao glass - garantir legibilidade */
+.btn-glass,
+a.btn-glass,
+a.btn-glass:link,
+a.btn-glass:visited {
+  color: white !important;
+}
+
+/* ================================================
+   NOTIFICATION BANNERS - ESTILOS ADICIONAIS
+   Para ofertas irregulares, pagamentos, etc
+================================================ */
+
+/* Banner de oferta irregular */
+.notification-banner.irregular {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  border-color: #dc2626;
+  border-width: 2px;
+}
+
+.notification-banner.irregular .notification-banner-icon {
+  background: rgba(220, 38, 38, 0.15);
+  color: #dc2626;
+}
+
+.notification-banner.irregular .notification-banner-title {
+  color: #991b1b;
+}
+
+/* Banner de pagamento pendente */
+.notification-banner.payment-pending {
+  background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+  border-color: #f59e0b;
+  border-width: 2px;
+}
+
+.notification-banner.payment-pending .notification-banner-icon {
+  background: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+}
+
+/* Banner de pagamento recebido */
+.notification-banner.payment-received {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-color: #10b981;
+  border-width: 2px;
+}
+
+.notification-banner.payment-received .notification-banner-icon {
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+}
+
+/* Banner informativo */
+.notification-banner.info {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-color: #3b82f6;
+}
+
+.notification-banner.info .notification-banner-icon {
+  background: rgba(59, 130, 246, 0.15);
+  color: #2563eb;
+}
+
+/* ================================================
+   RESPONSIVO - ALERTAS E NOTIFICACOES
+================================================ */
+
+@media (max-width: 768px) {
+  .alerts-container {
+    gap: 10px;
+  }
+
+  .notification-banner {
+    padding: 14px 16px;
+  }
+
+  .notification-banner-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .notification-banner-title {
+    font-size: 0.9rem;
+  }
+
+  .notification-banner-text {
+    font-size: 0.8rem;
+  }
+
+  .notification-banner-action {
+    margin-top: 8px;
+  }
+
+  .notification-banner-action .btn {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+}
+
+/* ================================================
+   TESTIMONIALS SECTION - LANDING PAGE 2026
+   Secao de depoimentos para social proof
+================================================ */
+.testimonials {
+  padding: 100px 0;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  position: relative;
+}
+
+.testimonials::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.testimonial-card {
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  border: 1px solid var(--border);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 5rem;
+  font-family: Georgia, serif;
+  color: rgba(30, 64, 175, 0.08);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  border-color: transparent;
+}
+
+.testimonial-card.featured {
+  border: 2px solid var(--primary);
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.02) 0%, rgba(59, 130, 246, 0.05) 100%);
+}
+
+.testimonial-card.featured::before {
+  color: rgba(30, 64, 175, 0.12);
+}
+
+.testimonial-rating {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.testimonial-rating i {
+  color: #f59e0b;
+  font-size: 1rem;
+}
+
+.testimonial-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 24px;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-light);
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  background: var(--primary-gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.author-info strong {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.author-info span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Section Badge (utilizado em varias secoes) */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  color: var(--primary);
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.section-badge i {
+  font-size: 1rem;
+}
+
+/* Responsive - Testimonials */
+@media (max-width: 1024px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials {
+    padding: 60px 0;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card {
+    padding: 24px;
+  }
+
+  .testimonial-text {
+    font-size: 0.95rem;
+  }
+}
+
+/* ================================================
+   PARCEIRO LOGIN PAGE - BUTTON FIXES
+   pages/parceiro-login.html
+================================================ */
+.theme-parceiro .auth-box .btn-outline {
+  background: white;
+  border: 2px solid var(--border);
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.theme-parceiro .auth-box .btn-outline:hover {
+  background: #f0fdf4;
+  border-color: #059669;
+  color: var(--text);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.15);
+}
+
+.theme-parceiro .auth-box .btn-outline strong {
+  color: var(--text);
+}
+
+.theme-parceiro .auth-box .btn-outline:hover strong {
+  color: #047857;
+}
+
+.theme-parceiro .auth-box .btn-outline small {
+  color: var(--text-muted);
+}
+
+/* Ensure icon colors remain visible */
+.theme-parceiro .auth-box .btn-outline i {
+  flex-shrink: 0;
+}
+
+/* ================================================
+   PORTAL PAGE - INFO TABLE FIX
+   pages/portal.html
+================================================ */
+.portal-info table {
+  display: table !important;
+  width: 100%;
+}
+
+.portal-info thead {
+  display: table-header-group !important;
+}
+
+.portal-info tbody {
+  display: table-row-group !important;
+}
+
+.portal-info tr {
+  display: table-row !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.portal-info tr:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.portal-info th,
+.portal-info td {
+  display: table-cell !important;
+  padding: 12px 16px !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.portal-info th {
+  background: var(--bg) !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
+}
+
+.portal-info td {
+  color: var(--text) !important;
+}
+
+.portal-info td::before {
+  display: none !important;
+  content: none !important;
+}
+
+@media (max-width: 768px) {
+  .portal-info {
+    overflow-x: auto;
+  }
+
+  .portal-info table {
+    min-width: 500px;
+  }
+}
+
+/* ================================================
+   FAQ PAGE STYLES
+   pages/faq.html
+================================================ */
+.faq-categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .faq-categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-categories {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FAQ Accordion styling */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] summary i.bi-chevron-down {
+  transform: rotate(180deg);
+}
+
+details summary i {
+  transition: transform 0.2s ease;
+}

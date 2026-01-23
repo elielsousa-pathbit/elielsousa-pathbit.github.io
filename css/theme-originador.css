@@ -1,0 +1,212 @@
+/* ==============================================
+   TEMA ORIGINADOR - TEAL/CIANO
+   Portal do Originador - CrowdInvest
+   Variaveis definidas em variables.css
+   ============================================== */
+
+/* Cores Originador */
+:root {
+  --originador-primary: #0891b2;
+  --originador-secondary: #0d9488;
+  --originador-light: #14b8a6;
+  --originador-dark: #0e7490;
+  --originador-gradient: linear-gradient(135deg, #0891b2 0%, #0d9488 100%);
+}
+
+/* Sidebar do originador - Teal */
+.theme-originador .sidebar,
+.theme-originador .sidebar-originador {
+  background: linear-gradient(180deg, #0891b2 0%, #0e7490 50%, #164e63 100%);
+}
+
+.theme-originador .sidebar .sidebar-menu a {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.theme-originador .sidebar .sidebar-menu a:hover,
+.theme-originador .sidebar .sidebar-menu a.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.theme-originador .sidebar .sidebar-logo .logo {
+  color: white;
+}
+
+/* Profile switcher do originador */
+.theme-originador .profile-switcher .switcher-btn.active {
+  background: var(--originador-primary);
+  color: white;
+}
+
+.theme-originador .profile-switcher .switcher-info i {
+  color: var(--originador-primary);
+}
+
+/* Profile mode card */
+.theme-originador .profile-mode-card {
+  border: 2px solid var(--originador-primary);
+}
+
+.theme-originador .profile-mode-label {
+  color: var(--originador-primary);
+}
+
+.theme-originador .profile-mode-name {
+  color: var(--text);
+}
+
+.theme-originador .profile-mode-switch-btn {
+  background: var(--originador-gradient);
+  color: white;
+}
+
+.theme-originador .profile-mode-switch-btn:hover {
+  box-shadow: 0 4px 15px rgba(8, 145, 178, 0.3);
+}
+
+/* Loading spinner */
+.theme-originador .loading-spinner {
+  border-top-color: #0891b2;
+}
+
+/* Pagination */
+.theme-originador .pagination .page-item.active {
+  background: var(--originador-gradient);
+}
+
+.theme-originador .pagination .page-item:hover:not(.disabled):not(.active) {
+  background: rgba(8, 145, 178, 0.1);
+  color: #0891b2;
+}
+
+.theme-originador .pagination-minimal .page-item.active {
+  background: var(--originador-primary);
+}
+
+/* Cards e destaques */
+.theme-originador .highlight-card {
+  border-color: var(--originador-light);
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.05) 0%, rgba(20, 184, 166, 0.05) 100%);
+}
+
+/* Botoes especiais originador */
+.theme-originador .btn-portal {
+  background: var(--originador-gradient);
+  color: white;
+}
+
+.theme-originador .btn-portal:hover {
+  box-shadow: 0 10px 30px rgba(8, 145, 178, 0.3);
+}
+
+/* Status badges originador */
+.theme-originador .status-active {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.1) 0%, rgba(20, 184, 166, 0.1) 100%);
+  color: #0891b2;
+}
+
+/* KPI cards */
+.theme-originador .kpi-card-captado {
+  border-left-color: #0891b2;
+}
+
+/* Charts accent */
+.theme-originador .chart-primary {
+  fill: #0891b2;
+  stroke: #0891b2;
+}
+
+/* Sidebar profile switcher */
+.theme-originador .sidebar-profile-switcher {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  padding: 8px;
+  margin: 0 16px 16px;
+}
+
+.theme-originador .sidebar-profile-switcher .switcher-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.theme-originador .sidebar-profile-switcher .switcher-btn:hover {
+  color: white;
+}
+
+.theme-originador .sidebar-profile-switcher .switcher-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Profile option originador (modal) */
+.profile-option.originador {
+  border-color: var(--originador-primary);
+}
+
+.profile-option.originador:hover,
+.profile-option.originador.active {
+  background: rgba(8, 145, 178, 0.05);
+  border-color: var(--originador-primary);
+}
+
+.profile-option-icon.originador {
+  background: var(--originador-gradient);
+  color: white;
+}
+
+.profile-option.originador .profile-option-check {
+  background: var(--originador-primary);
+}
+
+/* Badge originador */
+.badge-originador {
+  background: var(--originador-gradient);
+  color: white;
+}
+
+/* Profile mode tag originador */
+.profile-mode-tag.originador {
+  background: rgba(8, 145, 178, 0.15);
+  color: var(--originador-primary);
+}
+
+/* Mobile menu originador */
+@media (max-width: 768px) {
+  .theme-originador .sidebar.open {
+    box-shadow: 5px 0 30px rgba(8, 145, 178, 0.3);
+  }
+}
+
+/* Accent colors for originador content */
+.originador-content .kpi-value {
+  color: var(--originador-primary);
+}
+
+.originador-content .badge-originador,
+.originador-accent {
+  background: var(--originador-gradient);
+  color: white;
+}
+
+.originador-text {
+  color: var(--originador-primary);
+}
+
+/* Card destaque originador */
+.card-originador-highlight {
+  background: var(--originador-gradient);
+  color: white;
+}
+
+.card-originador-highlight .card-title {
+  color: white;
+}

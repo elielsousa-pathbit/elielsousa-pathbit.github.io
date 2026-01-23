@@ -1,0 +1,146 @@
+/* ==============================================
+   TEMA PARCEIRO - VERDE EMPRESARIAL
+   Portal do Parceiro/Empresa - CrowdInvest
+   Variaveis definidas em variables.css
+   ============================================== */
+
+/* Sidebar do parceiro - Verde */
+.theme-parceiro .sidebar,
+.theme-parceiro .sidebar-green {
+  background: linear-gradient(180deg, #047857 0%, #065f46 50%, #064e3b 100%);
+}
+
+.theme-parceiro .sidebar-green .sidebar-menu a {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.theme-parceiro .sidebar-green .sidebar-menu a:hover,
+.theme-parceiro .sidebar-green .sidebar-menu a.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.theme-parceiro .sidebar-green .sidebar-logo .logo {
+  color: white;
+}
+
+/* Profile switcher do parceiro */
+.theme-parceiro .profile-switcher .switcher-btn.active {
+  background: var(--primary);
+  color: white;
+}
+
+.theme-parceiro .profile-switcher .switcher-info i {
+  color: var(--primary);
+}
+
+/* Profile mode card */
+.theme-parceiro .profile-mode-card {
+  border: 2px solid var(--primary);
+}
+
+.theme-parceiro .profile-mode-label {
+  color: var(--primary);
+}
+
+.theme-parceiro .profile-mode-name {
+  color: var(--text);
+}
+
+.theme-parceiro .profile-mode-switch-btn {
+  background: var(--primary-gradient);
+  color: white;
+}
+
+.theme-parceiro .profile-mode-switch-btn:hover {
+  box-shadow: 0 4px 15px rgba(4, 120, 87, 0.3);
+}
+
+/* Loading spinner */
+.theme-parceiro .loading-spinner {
+  border-top-color: #047857;
+}
+
+/* Pagination */
+.theme-parceiro .pagination .page-item.active {
+  background: var(--primary-gradient);
+}
+
+.theme-parceiro .pagination .page-item:hover:not(.disabled):not(.active) {
+  background: rgba(4, 120, 87, 0.1);
+  color: #047857;
+}
+
+.theme-parceiro .pagination-minimal .page-item.active {
+  background: var(--primary);
+}
+
+/* Cards e destaques */
+.theme-parceiro .highlight-card {
+  border-color: var(--primary-light);
+  background: linear-gradient(135deg, rgba(4, 120, 87, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+}
+
+/* Botoes especiais parceiro */
+.theme-parceiro .btn-portal {
+  background: var(--primary-gradient);
+  color: white;
+}
+
+.theme-parceiro .btn-portal:hover {
+  box-shadow: 0 10px 30px rgba(4, 120, 87, 0.3);
+}
+
+/* Status badges parceiro */
+.theme-parceiro .status-active {
+  background: linear-gradient(135deg, rgba(4, 120, 87, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+  color: #047857;
+}
+
+/* KPI cards */
+.theme-parceiro .kpi-card-captado {
+  border-left-color: #047857;
+}
+
+/* Charts accent */
+.theme-parceiro .chart-primary {
+  fill: #047857;
+  stroke: #047857;
+}
+
+/* Sidebar profile switcher */
+.theme-parceiro .sidebar-profile-switcher {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  padding: 8px;
+  margin: 0 16px 16px;
+}
+
+.theme-parceiro .sidebar-profile-switcher .switcher-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.theme-parceiro .sidebar-profile-switcher .switcher-btn:hover {
+  color: white;
+}
+
+.theme-parceiro .sidebar-profile-switcher .switcher-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Mobile menu parceiro */
+@media (max-width: 768px) {
+  .theme-parceiro .sidebar.open {
+    box-shadow: 5px 0 30px rgba(4, 120, 87, 0.3);
+  }
+}

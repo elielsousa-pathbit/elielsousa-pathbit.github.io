@@ -1,0 +1,82 @@
+/* ==============================================
+   TEMA INVESTIDOR - AZUL PROFISSIONAL
+   Portal do Investidor - CrowdInvest
+   Variaveis definidas em variables.css
+   ============================================== */
+
+/* Sidebar do investidor */
+.theme-investidor .sidebar {
+  background: linear-gradient(180deg, #1e40af 0%, #1e3a8a 50%, #0f172a 100%);
+}
+
+.theme-investidor .sidebar-logo .logo {
+  color: white;
+}
+
+.theme-investidor .sidebar-menu a {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.theme-investidor .sidebar-menu a:hover,
+.theme-investidor .sidebar-menu a.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.theme-investidor .sidebar-menu a.active::before {
+  background: #f59e0b;
+}
+
+/* Loading spinner */
+.theme-investidor .loading-spinner {
+  border-top-color: #1e40af;
+}
+
+/* Pagination */
+.theme-investidor .pagination .page-item.active {
+  background: var(--primary-gradient);
+}
+
+.theme-investidor .pagination-minimal .page-item.active {
+  background: var(--primary);
+}
+
+/* Cards e destaques */
+.theme-investidor .highlight-card {
+  border-color: var(--primary-light);
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+}
+
+/* Botoes especiais investidor */
+.theme-investidor .btn-portal {
+  background: var(--primary-gradient);
+  color: white;
+}
+
+.theme-investidor .btn-portal:hover {
+  box-shadow: 0 10px 30px rgba(30, 64, 175, 0.3);
+}
+
+/* Status badges investidor */
+.theme-investidor .status-invested {
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  color: #1e40af;
+}
+
+/* KPI cards */
+.theme-investidor .kpi-card-investido {
+  border-left-color: #1e40af;
+}
+
+/* Charts accent */
+.theme-investidor .chart-primary {
+  fill: #1e40af;
+  stroke: #1e40af;
+}
+
+/* Mobile menu investidor */
+@media (max-width: 768px) {
+  .theme-investidor .sidebar.open {
+    box-shadow: 5px 0 30px rgba(30, 64, 175, 0.3);
+  }
+}

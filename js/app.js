@@ -1,11 +1,84 @@
-// RCVM 88 - Crowdfunding Platform - Wireframe Navigation JS
+// RCVM 88 - Investimentos Alternativos Platform - Wireframe Navigation JS
+
+// ============================================
+// AUTH SYSTEM - Simulação de autenticação para wireframe
+// ============================================
+const Auth = {
+  SESSION_KEY: 'crowdinvest_session',
+
+  // Simula login - salva sessão
+  login: function(userType) {
+    const session = {
+      isLoggedIn: true,
+      userType: userType || 'investidor',
+      timestamp: Date.now()
+    };
+    sessionStorage.setItem(this.SESSION_KEY, JSON.stringify(session));
+  },
+
+  // Simula logout - limpa sessão
+  logout: function() {
+    sessionStorage.removeItem(this.SESSION_KEY);
+  },
+
+  // Verifica se está logado
+  isLoggedIn: function() {
+    const session = sessionStorage.getItem(this.SESSION_KEY);
+    return session !== null;
+  },
+
+  // Retorna tipo de usuário
+  getUserType: function() {
+    const session = sessionStorage.getItem(this.SESSION_KEY);
+    if (session) {
+      return JSON.parse(session).userType;
+    }
+    return null;
+  },
+
+  // Verifica acesso e redireciona se não autorizado
+  requireAuth: function(requiredType) {
+    if (!this.isLoggedIn()) {
+      // Determina página de login baseada no tipo requerido
+      let loginPage = '../login.html';
+      if (requiredType === 'parceiro') {
+        loginPage = '../parceiro-login.html';
+      } else if (requiredType === 'admin') {
+        loginPage = '../admin-login.html';
+      }
+      window.location.href = loginPage;
+      return false;
+    }
+    return true;
+  }
+};
+
+// Verifica autenticação no carregamento da página (para páginas protegidas)
+function checkAuthOnLoad(requiredType) {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      Auth.requireAuth(requiredType);
+    });
+  } else {
+    Auth.requireAuth(requiredType);
+  }
+}
 
 // Mobile menu toggle
 function toggleMobileMenu() {
   const nav = document.querySelector('.nav');
   const overlay = document.querySelector('.mobile-overlay');
-  nav?.classList.toggle('open');
-  overlay?.classList.toggle('open');
+
+  if (nav) {
+    nav.classList.toggle('mobile-open');
+    overlay?.classList.toggle('active');
+    // Prevent body scroll when menu is open
+    if (nav.classList.contains('mobile-open')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
 }
 
 // Sidebar toggle for mobile
@@ -29,8 +102,9 @@ function toggleSidebar() {
 // Close mobile menus
 function closeMobileMenus() {
   document.querySelector('.nav')?.classList.remove('open');
+  document.querySelector('.nav')?.classList.remove('mobile-open');
   document.querySelector('.sidebar')?.classList.remove('open');
-  document.querySelector('.mobile-overlay')?.classList.remove('open');
+  document.querySelector('.mobile-overlay')?.classList.remove('open', 'active');
   document.querySelector('.hamburger-btn')?.classList.remove('open');
   document.body.style.overflow = '';
 }
@@ -84,7 +158,7 @@ function switchTab(el, tabId) {
   document.getElementById(tabId).style.display = 'block';
 }
 
-// Profile Switcher (Emissor/Distribuidor)
+// Profile Switcher (Emissor/Distribuidor/Originador)
 function switchProfile(profile, btn) {
   // Update button states
   document.querySelectorAll('.sidebar-profile-switcher .switcher-btn, .profile-switcher .switcher-btn').forEach(b => b.classList.remove('active'));
@@ -93,17 +167,23 @@ function switchProfile(profile, btn) {
   // Toggle content based on profile
   const emissorContent = document.querySelectorAll('.emissor-content, [data-profile="emissor"]');
   const distribuidorContent = document.querySelectorAll('.distribuidor-content, [data-profile="distribuidor"]');
+  const originadorContent = document.querySelectorAll('.originador-content, [data-profile="originador"]');
 
+  // Hide all first
+  emissorContent.forEach(el => el.style.display = 'none');
+  distribuidorContent.forEach(el => el.style.display = 'none');
+  originadorContent.forEach(el => el.style.display = 'none');
+
+  // Show selected profile content
   if (profile === 'emissor') {
     emissorContent.forEach(el => el.style.display = '');
-    distribuidorContent.forEach(el => el.style.display = 'none');
-    // Update menu items for emissor
     updateMenuForProfile('emissor');
-  } else {
-    emissorContent.forEach(el => el.style.display = 'none');
+  } else if (profile === 'distribuidor') {
     distribuidorContent.forEach(el => el.style.display = '');
-    // Update menu items for distribuidor
     updateMenuForProfile('distribuidor');
+  } else if (profile === 'originador') {
+    originadorContent.forEach(el => el.style.display = '');
+    updateMenuForProfile('originador');
   }
 
   // Store preference
@@ -174,9 +254,17 @@ function submitForm(formId, redirectUrl) {
 
   setTimeout(() => {
     if (redirectUrl) {
+      // Detecta tipo de área e faz login se navegando para área protegida
+      if (redirectUrl.includes('investidor/')) {
+        Auth.login('investidor');
+      } else if (redirectUrl.includes('parceiro/')) {
+        Auth.login('parceiro');
+      } else if (redirectUrl.includes('admin/')) {
+        Auth.login('admin');
+      }
       window.location.href = redirectUrl;
     } else {
-      btn.innerHTML = originalText;
+      btn.textContent = originalText;
       btn.disabled = false;
     }
   }, 1500);
@@ -287,10 +375,95 @@ document.addEventListener('DOMContentLoaded', () => {
 // ============================================
 
 // --------------------------------------------
-// PARCEIRO - Sistema de Perfil Emissor/Distribuidor
+// LOADING OVERLAY - Sistema de Loading/Splash
+// --------------------------------------------
+const LoadingOverlay = {
+  element: null,
+
+  create: function() {
+    if (this.element) return;
+
+    this.element = document.createElement('div');
+    this.element.className = 'loading-overlay';
+    this.element.id = 'loadingOverlay';
+
+    // Criar elementos usando DOM API para evitar XSS
+    var iconDiv = document.createElement('div');
+    iconDiv.className = 'loading-profile-icon';
+    iconDiv.id = 'loadingIcon';
+    var icon = document.createElement('i');
+    icon.className = 'bi bi-arrow-repeat';
+    iconDiv.appendChild(icon);
+
+    var spinner = document.createElement('div');
+    spinner.className = 'loading-spinner';
+
+    var textDiv = document.createElement('div');
+    textDiv.className = 'loading-text';
+    textDiv.id = 'loadingText';
+    textDiv.textContent = 'Carregando...';
+
+    var subtextDiv = document.createElement('div');
+    subtextDiv.className = 'loading-subtext';
+    subtextDiv.id = 'loadingSubtext';
+    subtextDiv.textContent = 'Aguarde um momento';
+
+    this.element.appendChild(iconDiv);
+    this.element.appendChild(spinner);
+    this.element.appendChild(textDiv);
+    this.element.appendChild(subtextDiv);
+
+    document.body.appendChild(this.element);
+  },
+
+  show: function(text, subtext, iconClass, profileType) {
+    this.create();
+    var textEl = document.getElementById('loadingText');
+    var subtextEl = document.getElementById('loadingSubtext');
+    var iconEl = document.getElementById('loadingIcon');
+
+    if (textEl) textEl.textContent = text || 'Carregando...';
+    if (subtextEl) subtextEl.textContent = subtext || 'Aguarde um momento';
+
+    if (iconEl) {
+      iconEl.className = 'loading-profile-icon';
+      if (profileType) {
+        iconEl.classList.add(profileType);
+        var iconInner = iconEl.querySelector('i');
+        if (iconInner) {
+          // Mapeia o ícone correto para cada perfil
+          var profileIcons = {
+            emissor: 'bi bi-broadcast',
+            distribuidor: 'bi bi-diagram-3',
+            originador: 'bi bi-lightning-charge'
+          };
+          iconInner.className = profileIcons[profileType] || 'bi bi-arrow-repeat';
+        }
+      }
+    }
+
+    this.element.classList.add('active');
+  },
+
+  hide: function() {
+    if (this.element) {
+      this.element.classList.remove('active');
+    }
+  }
+};
+
+// --------------------------------------------
+// PARCEIRO - Sistema de Perfil Emissor/Distribuidor/Originador
 // --------------------------------------------
 const ParceiroProfile = {
   current: null,
+
+  // Configurações de cada perfil
+  profiles: {
+    emissor: { name: 'Emissor', icon: 'bi-broadcast', color: '#059669' },
+    distribuidor: { name: 'Distribuidor', icon: 'bi-diagram-3', color: '#7c3aed' },
+    originador: { name: 'Originador', icon: 'bi-lightning-charge', color: '#0891b2' }
+  },
 
   init: function() {
     this.current = localStorage.getItem('parceiro_profile') || 'emissor';
@@ -315,15 +488,38 @@ const ParceiroProfile = {
   },
 
   confirm: function() {
-    this.current = this.selectedProfile;
-    localStorage.setItem('parceiro_profile', this.current);
-    this.updateCard();
-    this.applyProfile(this.current);
+    var self = this;
+    var newProfile = this.selectedProfile;
+    var isChanging = newProfile !== this.current;
+
+    // Fecha o modal primeiro
     hideModal('selecionarPerfilModal');
+
+    // Se está trocando de perfil, mostra loading e redireciona para dashboard
+    if (isChanging) {
+      var profileConfig = this.profiles[newProfile] || this.profiles.emissor;
+      LoadingOverlay.show(
+        'Alternando para ' + profileConfig.name,
+        'Redirecionando para o dashboard...',
+        null,
+        newProfile
+      );
+
+      // Salva o novo perfil
+      localStorage.setItem('parceiro_profile', newProfile);
+
+      // Redireciona para o dashboard após o loading
+      setTimeout(function() {
+        window.location.href = 'dashboard.html';
+      }, 1000);
+    } else {
+      // Não está trocando, apenas fecha o modal
+      hideModal('selecionarPerfilModal');
+    }
   },
 
   updateCard: function() {
-    var isEmissor = this.current === 'emissor';
+    var profileConfig = this.profiles[this.current] || this.profiles.emissor;
     var icon = document.getElementById('profileIcon');
     var name = document.getElementById('profileName');
     var tag = document.getElementById('profileTag');
@@ -331,25 +527,44 @@ const ParceiroProfile = {
     if (icon) {
       icon.className = 'profile-mode-icon ' + this.current;
       var iconEl = icon.querySelector('i');
-      if (iconEl) iconEl.className = 'bi bi-' + (isEmissor ? 'broadcast' : 'diagram-3');
+      if (iconEl) iconEl.className = 'bi ' + profileConfig.icon;
     }
-    if (name) name.textContent = isEmissor ? 'Emissor' : 'Distribuidor';
+    if (name) name.textContent = profileConfig.name;
     if (tag) {
       tag.className = 'profile-mode-tag ' + this.current;
-      tag.textContent = isEmissor ? 'Emissor' : 'Distribuidor';
+      // Clear and rebuild tag content safely
+      while (tag.firstChild) tag.removeChild(tag.firstChild);
+      var tagIcon = document.createElement('i');
+      tagIcon.className = 'bi ' + profileConfig.icon;
+      tag.appendChild(tagIcon);
+      tag.appendChild(document.createTextNode(' ' + profileConfig.name));
     }
   },
 
   applyProfile: function(profile) {
-    var isEmissor = profile === 'emissor';
+    // Hide all profile contents
+    document.querySelectorAll('.emissor-content').forEach(function(el) { el.style.display = 'none'; });
+    document.querySelectorAll('.distribuidor-content').forEach(function(el) { el.style.display = 'none'; });
+    document.querySelectorAll('.originador-content').forEach(function(el) { el.style.display = 'none'; });
 
-    // Alterna conteúdo específico de cada perfil
-    document.querySelectorAll('.emissor-content').forEach(function(el) { el.style.display = isEmissor ? '' : 'none'; });
-    document.querySelectorAll('.distribuidor-content').forEach(function(el) { el.style.display = isEmissor ? 'none' : ''; });
+    // Show selected profile content
+    var contentClass = '.' + profile + '-content';
+    document.querySelectorAll(contentClass).forEach(function(el) { el.style.display = ''; });
 
     // Alterna textos do menu
-    document.querySelectorAll('.menu-text-emissor').forEach(function(el) { el.style.display = isEmissor ? '' : 'none'; });
-    document.querySelectorAll('.menu-text-distribuidor').forEach(function(el) { el.style.display = isEmissor ? 'none' : ''; });
+    document.querySelectorAll('.menu-text-emissor').forEach(function(el) { el.style.display = profile === 'emissor' ? '' : 'none'; });
+    document.querySelectorAll('.menu-text-distribuidor').forEach(function(el) { el.style.display = profile === 'distribuidor' ? '' : 'none'; });
+    document.querySelectorAll('.menu-text-originador').forEach(function(el) { el.style.display = profile === 'originador' ? '' : 'none'; });
+
+    // Esconde itens especificos quando originador esta ativo
+    document.querySelectorAll('.hide-on-originador').forEach(function(el) {
+      el.style.display = profile === 'originador' ? 'none' : '';
+    });
+
+    // IMPORTANTE: Mantemos sempre o tema verde (theme-parceiro)
+    // Apenas o conteúdo e a tag do perfil mudam, não a cor do portal
+    document.body.classList.add('theme-parceiro');
+    document.body.classList.remove('theme-originador');
   },
 
   selectedProfile: 'emissor'
@@ -469,11 +684,289 @@ function showConfirmModal(icon, iconColor, title, message) {
 }
 
 // --------------------------------------------
+// SISTEMA DE MODAIS PADRONIZADO
+// --------------------------------------------
+var Modals = {
+  // Configurações de tipos de modal
+  types: {
+    success: { icon: 'bi bi-check-circle-fill', color: '#16a34a', bg: '#dcfce7' },
+    error: { icon: 'bi bi-x-circle-fill', color: '#dc2626', bg: '#fee2e2' },
+    warning: { icon: 'bi bi-exclamation-triangle-fill', color: '#d97706', bg: '#fef3c7' },
+    info: { icon: 'bi bi-info-circle-fill', color: '#2563eb', bg: '#dbeafe' },
+    question: { icon: 'bi bi-question-circle-fill', color: '#7c3aed', bg: '#f3e8ff' },
+    pdf: { icon: 'bi bi-file-earmark-pdf-fill', color: '#dc3545', bg: '#fee2e2' },
+    excel: { icon: 'bi bi-file-earmark-excel-fill', color: '#217346', bg: '#dcfce7' },
+    csv: { icon: 'bi bi-filetype-csv', color: '#6c757d', bg: '#f3f4f6' },
+    loading: { icon: 'bi bi-arrow-repeat', color: '#059669', bg: '#dcfce7' }
+  },
+
+  // Elemento do modal global
+  element: null,
+
+  // Cria o elemento do modal se não existir
+  create: function() {
+    if (this.element) return;
+
+    var overlay = document.createElement('div');
+    overlay.id = 'globalModal';
+    overlay.className = 'modal-overlay';
+    overlay.style.display = 'none';
+
+    var modal = document.createElement('div');
+    modal.className = 'modal text-center';
+    modal.style.maxWidth = '420px';
+
+    var content = document.createElement('div');
+    content.style.padding = '30px';
+    content.id = 'globalModalContent';
+
+    modal.appendChild(content);
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+
+    this.element = overlay;
+  },
+
+  // Mostra um modal de alerta simples
+  alert: function(type, title, message, callback) {
+    this.create();
+    var config = this.types[type] || this.types.info;
+    var content = document.getElementById('globalModalContent');
+
+    // Limpa conteúdo anterior
+    while (content.firstChild) {
+      content.removeChild(content.firstChild);
+    }
+
+    // Ícone
+    var iconWrapper = document.createElement('div');
+    iconWrapper.style.cssText = 'width: 70px; height: 70px; background: ' + config.bg + '; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;';
+    var icon = document.createElement('i');
+    icon.className = config.icon;
+    icon.style.cssText = 'font-size: 2rem; color: ' + config.color + ';';
+    iconWrapper.appendChild(icon);
+    content.appendChild(iconWrapper);
+
+    // Título
+    var titleEl = document.createElement('h3');
+    titleEl.style.margin = '0 0 10px';
+    titleEl.textContent = title;
+    content.appendChild(titleEl);
+
+    // Mensagem
+    var msgEl = document.createElement('p');
+    msgEl.className = 'text-muted';
+    msgEl.style.margin = '0 0 20px';
+    msgEl.textContent = message;
+    content.appendChild(msgEl);
+
+    // Botão OK
+    var btn = document.createElement('button');
+    btn.className = 'btn btn-primary';
+    btn.textContent = 'OK';
+    var self = this;
+    btn.onclick = function() {
+      self.hide();
+      if (callback) callback();
+    };
+    content.appendChild(btn);
+
+    this.element.style.display = 'flex';
+  },
+
+  // Modal de confirmação com Cancel e Confirm
+  confirm: function(title, message, onConfirm, onCancel) {
+    this.create();
+    var config = this.types.question;
+    var content = document.getElementById('globalModalContent');
+
+    while (content.firstChild) {
+      content.removeChild(content.firstChild);
+    }
+
+    // Ícone
+    var iconWrapper = document.createElement('div');
+    iconWrapper.style.cssText = 'width: 70px; height: 70px; background: ' + config.bg + '; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;';
+    var icon = document.createElement('i');
+    icon.className = config.icon;
+    icon.style.cssText = 'font-size: 2rem; color: ' + config.color + ';';
+    iconWrapper.appendChild(icon);
+    content.appendChild(iconWrapper);
+
+    // Título
+    var titleEl = document.createElement('h3');
+    titleEl.style.margin = '0 0 10px';
+    titleEl.textContent = title;
+    content.appendChild(titleEl);
+
+    // Mensagem
+    var msgEl = document.createElement('p');
+    msgEl.className = 'text-muted';
+    msgEl.style.margin = '0 0 20px';
+    msgEl.textContent = message;
+    content.appendChild(msgEl);
+
+    // Botões
+    var btnWrapper = document.createElement('div');
+    btnWrapper.className = 'flex gap-10';
+    btnWrapper.style.justifyContent = 'center';
+
+    var btnCancel = document.createElement('button');
+    btnCancel.className = 'btn btn-outline';
+    btnCancel.textContent = 'Cancelar';
+    var self = this;
+    btnCancel.onclick = function() {
+      self.hide();
+      if (onCancel) onCancel();
+    };
+
+    var btnConfirm = document.createElement('button');
+    btnConfirm.className = 'btn btn-primary';
+    btnConfirm.textContent = 'Confirmar';
+    btnConfirm.onclick = function() {
+      self.hide();
+      if (onConfirm) onConfirm();
+    };
+
+    btnWrapper.appendChild(btnCancel);
+    btnWrapper.appendChild(btnConfirm);
+    content.appendChild(btnWrapper);
+
+    this.element.style.display = 'flex';
+  },
+
+  // Atalhos para tipos comuns
+  success: function(title, message, callback) {
+    this.alert('success', title, message, callback);
+  },
+
+  error: function(title, message, callback) {
+    this.alert('error', title, message, callback);
+  },
+
+  warning: function(title, message, callback) {
+    this.alert('warning', title, message, callback);
+  },
+
+  info: function(title, message, callback) {
+    this.alert('info', title, message, callback);
+  },
+
+  // Modal de exportação
+  export: function(type, filename) {
+    var titles = {
+      pdf: 'Gerando PDF',
+      excel: 'Gerando Excel',
+      csv: 'Gerando CSV'
+    };
+    var messages = {
+      pdf: 'Seu relatorio PDF esta sendo preparado para download.',
+      excel: 'Seu relatorio Excel (.xlsx) esta sendo preparado para download.',
+      csv: 'Seu relatorio CSV esta sendo preparado para download.'
+    };
+    this.alert(type, titles[type] || 'Exportando', messages[type] || 'Seu arquivo esta sendo preparado.');
+  },
+
+  // Modal de visualização
+  view: function(docName) {
+    this.create();
+    var config = { icon: 'bi bi-eye-fill', color: '#2563eb', bg: '#dbeafe' };
+    var content = document.getElementById('globalModalContent');
+
+    while (content.firstChild) {
+      content.removeChild(content.firstChild);
+    }
+
+    // Ícone
+    var iconWrapper = document.createElement('div');
+    iconWrapper.style.cssText = 'width: 70px; height: 70px; background: ' + config.bg + '; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;';
+    var icon = document.createElement('i');
+    icon.className = config.icon;
+    icon.style.cssText = 'font-size: 2rem; color: ' + config.color + ';';
+    iconWrapper.appendChild(icon);
+    content.appendChild(iconWrapper);
+
+    // Título
+    var titleEl = document.createElement('h3');
+    titleEl.style.margin = '0 0 10px';
+    titleEl.textContent = 'Carregando Documento';
+    content.appendChild(titleEl);
+
+    // Mensagem
+    var msgEl = document.createElement('p');
+    msgEl.className = 'text-muted';
+    msgEl.style.margin = '0 0 20px';
+    msgEl.textContent = 'O documento esta sendo carregado para visualizacao.';
+    content.appendChild(msgEl);
+
+    // Botão OK
+    var btn = document.createElement('button');
+    btn.className = 'btn btn-primary';
+    btn.textContent = 'OK';
+    var self = this;
+    btn.onclick = function() {
+      self.hide();
+    };
+    content.appendChild(btn);
+
+    this.element.style.display = 'flex';
+  },
+
+  // Modal de loading
+  loading: function(message) {
+    this.create();
+    var content = document.getElementById('globalModalContent');
+
+    while (content.firstChild) {
+      content.removeChild(content.firstChild);
+    }
+
+    // Spinner
+    var spinner = document.createElement('div');
+    spinner.className = 'loading-spinner';
+    spinner.style.cssText = 'margin: 0 auto 20px;';
+    content.appendChild(spinner);
+
+    // Mensagem
+    var msgEl = document.createElement('p');
+    msgEl.className = 'text-muted';
+    msgEl.textContent = message || 'Carregando...';
+    content.appendChild(msgEl);
+
+    this.element.style.display = 'flex';
+  },
+
+  // Esconde o modal
+  hide: function() {
+    if (this.element) {
+      this.element.style.display = 'none';
+    }
+  },
+
+  // Alias para hide (usado em loading)
+  hideLoading: function() {
+    this.hide();
+  }
+};
+
+// Funções de atalho globais para compatibilidade
+function modalSuccess(title, message, callback) { Modals.success(title, message, callback); }
+function modalError(title, message, callback) { Modals.error(title, message, callback); }
+function modalWarning(title, message, callback) { Modals.warning(title, message, callback); }
+function modalInfo(title, message, callback) { Modals.info(title, message, callback); }
+function modalConfirm(title, message, onConfirm, onCancel) { Modals.confirm(title, message, onConfirm, onCancel); }
+function modalExport(type) { Modals.export(type); }
+function modalLoading(message) { Modals.loading(message); }
+function modalHide() { Modals.hide(); }
+
+// --------------------------------------------
 // INICIALIZAÇÃO AUTOMÁTICA
 // --------------------------------------------
 document.addEventListener('DOMContentLoaded', function() {
-  // Inicializa o sistema de perfil do parceiro se estiver na área do parceiro
-  if (document.body.classList.contains('theme-parceiro') && document.getElementById('profileModeCard')) {
+  // Inicializa o sistema de perfil do parceiro se estiver na área do parceiro ou originador
+  var isParceiro = document.body.classList.contains('theme-parceiro');
+  var isOriginador = document.body.classList.contains('theme-originador');
+  if ((isParceiro || isOriginador) && document.getElementById('profileModeCard')) {
     ParceiroProfile.init();
   }
 });
