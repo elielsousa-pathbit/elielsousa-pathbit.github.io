@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Oferta - Portal do Emissor - CrowdInvest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        :root {
+            --emissor-primary: #7c3aed;
+            --emissor-dark: #5b21b6;
+            --emissor-light: #ede9fe;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, var(--emissor-primary) 0%, var(--emissor-dark) 100%);
+        }
+
+        .nav-link.active {
+            background-color: rgba(255,255,255,0.2) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--emissor-dark);
+            border-color: var(--emissor-dark);
+        }
+
+        .btn-outline-primary {
+            color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .text-primary {
+            color: var(--emissor-primary) !important;
+        }
+
+        /* Offer Header */
+        .offer-header {
+            background: linear-gradient(135deg, var(--emissor-primary) 0%, var(--emissor-dark) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .offer-status-badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .status-ativa {
+            background-color: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+        }
+
+        /* Progress Ring */
+        .progress-ring {
+            width: 120px;
+            height: 120px;
+            position: relative;
+        }
+
+        .progress-ring svg {
+            transform: rotate(-90deg);
+        }
+
+        .progress-ring circle {
+            fill: none;
+            stroke-width: 8;
+        }
+
+        .progress-ring .bg {
+            stroke: rgba(255,255,255,0.2);
+        }
+
+        .progress-ring .progress {
+            stroke: #34d399;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.5s;
+        }
+
+        .progress-ring .percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* KPI Cards */
+        .kpi-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.25rem;
+            border: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .kpi-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .kpi-trend {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+
+        .kpi-trend.up {
+            background-color: #d1fae5;
+            color: #059669;
+        }
+
+        .kpi-trend.down {
+            background-color: #fee2e2;
+            color: #dc2626;
+        }
+
+        /* Tab Navigation */
+        .nav-tabs-custom {
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .nav-tabs-custom .nav-link {
+            border: none;
+            color: #6b7280;
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-tabs-custom .nav-link:hover {
+            color: var(--emissor-primary);
+        }
+
+        .nav-tabs-custom .nav-link.active {
+            color: var(--emissor-primary);
+            background: none;
+        }
+
+        .nav-tabs-custom .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--emissor-primary);
+        }
+
+        /* Investor Table */
+        .investor-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--emissor-light) 0%, #f3e8ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--emissor-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        /* Timeline */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            padding-bottom: 1.5rem;
+            border-left: 2px solid #e5e7eb;
+        }
+
+        .timeline-item:last-child {
+            border-left-color: transparent;
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--emissor-primary);
+            border: 2px solid white;
+        }
+
+        /* Chart placeholder */
+        .chart-placeholder {
+            height: 250px;
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+        }
+
+        /* Actions Dropdown */
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            border-radius: 12px;
+        }
+
+        .dropdown-item {
+            padding: 10px 16px;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--emissor-light);
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px; min-height: 100vh;">
+            <a href="dashboard.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <i class="bi bi-building me-2 fs-4"></i>
+                <span class="fs-5 fw-semibold">Portal Emissor</span>
+            </a>
+            <hr>
+
+            <!-- Company Card -->
+            <div class="card bg-white bg-opacity-10 border-0 mb-3">
+                <div class="card-body p-2">
+                    <div class="d-flex align-items-center">
+                        <div class="rounded-circle bg-white bg-opacity-25 p-2 me-2">
+                            <i class="bi bi-building text-white"></i>
+                        </div>
+                        <div>
+                            <div class="fw-semibold small">TechStart Soluções</div>
+                            <div class="text-white-50 small">CNPJ: 12.345.678/0001-90</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link text-white">
+                        <i class="bi bi-speedometer2 me-2"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="minhas-ofertas.html" class="nav-link text-white active">
+                        <i class="bi bi-collection me-2"></i>
+                        Minhas Ofertas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="nova-oferta.html" class="nav-link text-white">
+                        <i class="bi bi-plus-circle me-2"></i>
+                        Nova Oferta
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="investidores.html" class="nav-link text-white">
+                        <i class="bi bi-people me-2"></i>
+                        Investidores
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pagamentos.html" class="nav-link text-white">
+                        <i class="bi bi-cash-stack me-2"></i>
+                        Pagamentos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="comunicados.html" class="nav-link text-white">
+                        <i class="bi bi-megaphone me-2"></i>
+                        Comunicados
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="documentos.html" class="nav-link text-white">
+                        <i class="bi bi-folder me-2"></i>
+                        Documentos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="relatorios.html" class="nav-link text-white">
+                        <i class="bi bi-graph-up me-2"></i>
+                        Relatórios
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a href="configuracoes.html" class="nav-link text-white">
+                        <i class="bi bi-gear me-2"></i>
+                        Configurações
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../parceiro/dashboard.html" class="nav-link text-white">
+                        <i class="bi bi-box-arrow-left me-2"></i>
+                        Voltar ao Portal
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 bg-light">
+            <!-- Top Bar -->
+            <div class="bg-white border-bottom px-4 py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <a href="minhas-ofertas.html" class="text-muted me-3">
+                            <i class="bi bi-arrow-left fs-5"></i>
+                        </a>
+                        <div>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb mb-0 small">
+                                    <li class="breadcrumb-item"><a href="minhas-ofertas.html" class="text-decoration-none">Minhas Ofertas</a></li>
+                                    <li class="breadcrumb-item active">Série A - Expansão SaaS</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-secondary">
+                            <i class="bi bi-share me-1"></i>
+                            Compartilhar
+                        </button>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                                <i class="bi bi-gear me-1"></i>
+                                Ações
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Editar Oferta</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-megaphone me-2"></i>Enviar Comunicado</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-plus me-2"></i>Adicionar Documento</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-pause-circle me-2"></i>Pausar Captação</a></li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-x-circle me-2"></i>Cancelar Oferta</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-4">
+                <!-- Offer Header -->
+                <div class="offer-header">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="offer-status-badge status-ativa me-3">
+                                    <i class="bi bi-broadcast me-1"></i>
+                                    Oferta Ativa
+                                </span>
+                                <span class="text-white-50 small">
+                                    <i class="bi bi-calendar me-1"></i>
+                                    Iniciada em 02/01/2025 • Encerra em 02/02/2025
+                                </span>
+                            </div>
+                            <h3 class="mb-2">Série A - Expansão SaaS</h3>
+                            <p class="text-white-50 mb-3">
+                                Equity Investimentos Alternativos • Tecnologia • Software as a Service
+                            </p>
+                            <div class="d-flex flex-wrap gap-4">
+                                <div>
+                                    <div class="text-white-50 small">Meta de Captação</div>
+                                    <div class="fs-5 fw-semibold">R$ 1.500.000</div>
+                                </div>
+                                <div>
+                                    <div class="text-white-50 small">Captado</div>
+                                    <div class="fs-5 fw-semibold text-success">R$ 487.500</div>
+                                </div>
+                                <div>
+                                    <div class="text-white-50 small">Investidores</div>
+                                    <div class="fs-5 fw-semibold">47</div>
+                                </div>
+                                <div>
+                                    <div class="text-white-50 small">Dias Restantes</div>
+                                    <div class="fs-5 fw-semibold">23</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                            <div class="progress-ring d-inline-block">
+                                <svg width="120" height="120">
+                                    <circle class="bg" cx="60" cy="60" r="52"></circle>
+                                    <circle class="progress" cx="60" cy="60" r="52"
+                                            stroke-dasharray="327"
+                                            stroke-dashoffset="220"></circle>
+                                </svg>
+                                <div class="percentage">32,5%</div>
+                            </div>
+                            <div class="text-white-50 small mt-2">da meta atingida</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KPI Cards -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                        <div class="kpi-card">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="kpi-icon bg-success bg-opacity-10 text-success me-3">
+                                    <i class="bi bi-currency-dollar"></i>
+                                </div>
+                                <div>
+                                    <div class="text-muted small">Captado Hoje</div>
+                                    <div class="fs-5 fw-bold">R$ 15.000</div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <span class="kpi-trend up me-2">
+                                    <i class="bi bi-arrow-up"></i> 25%
+                                </span>
+                                <span class="text-muted small">vs ontem</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="kpi-card">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="kpi-icon bg-primary bg-opacity-10 text-primary me-3">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                                <div>
+                                    <div class="text-muted small">Novos Investidores</div>
+                                    <div class="fs-5 fw-bold">3</div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <span class="kpi-trend up me-2">
+                                    <i class="bi bi-arrow-up"></i> 50%
+                                </span>
+                                <span class="text-muted small">vs média</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="kpi-card">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="kpi-icon bg-info bg-opacity-10 text-info me-3">
+                                    <i class="bi bi-cash-coin"></i>
+                                </div>
+                                <div>
+                                    <div class="text-muted small">Ticket Médio</div>
+                                    <div class="fs-5 fw-bold">R$ 10.372</div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <span class="kpi-trend up me-2">
+                                    <i class="bi bi-arrow-up"></i> 12%
+                                </span>
+                                <span class="text-muted small">vs inicial</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="kpi-card">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="kpi-icon bg-warning bg-opacity-10 text-warning me-3">
+                                    <i class="bi bi-eye"></i>
+                                </div>
+                                <div>
+                                    <div class="text-muted small">Visualizações</div>
+                                    <div class="fs-5 fw-bold">1.247</div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <span class="text-muted small">Taxa conversão: 3,8%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <ul class="nav nav-tabs-custom mb-4" id="offerTabs" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#investidores">
+                            <i class="bi bi-people me-1"></i>
+                            Investidores
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#captacao">
+                            <i class="bi bi-graph-up me-1"></i>
+                            Captação
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#timeline">
+                            <i class="bi bi-clock-history me-1"></i>
+                            Timeline
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#documentos">
+                            <i class="bi bi-folder me-1"></i>
+                            Documentos
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#detalhes">
+                            <i class="bi bi-info-circle me-1"></i>
+                            Detalhes
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content">
+                    <!-- Investidores Tab -->
+                    <div class="tab-pane fade show active" id="investidores">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                                <h6 class="mb-0">Lista de Investidores</h6>
+                                <div class="d-flex gap-2">
+                                    <div class="input-group" style="width: 250px;">
+                                        <span class="input-group-text bg-white border-end-0">
+                                            <i class="bi bi-search text-muted"></i>
+                                        </span>
+                                        <input type="text" class="form-control border-start-0" placeholder="Buscar investidor...">
+                                    </div>
+                                    <button class="btn btn-outline-secondary">
+                                        <i class="bi bi-download me-1"></i>
+                                        Exportar
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Investidor</th>
+                                                <th>Valor</th>
+                                                <th>Data</th>
+                                                <th>Status</th>
+                                                <th>Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="investor-avatar me-2">MC</div>
+                                                        <div>
+                                                            <div class="fw-semibold">Maria Costa</div>
+                                                            <div class="text-muted small">Investidora Qualificada</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="fw-semibold">R$ 50.000</td>
+                                                <td>22/01/2025 14:32</td>
+                                                <td><span class="badge bg-success">Confirmado</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-secondary">
+                                                        <i class="bi bi-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="investor-avatar me-2">JS</div>
+                                                        <div>
+                                                            <div class="fw-semibold">João Silva</div>
+                                                            <div class="text-muted small">Investidor Comum</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="fw-semibold">R$ 15.000</td>
+                                                <td>22/01/2025 11:15</td>
+                                                <td><span class="badge bg-success">Confirmado</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-secondary">
+                                                        <i class="bi bi-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="investor-avatar me-2">PO</div>
+                                                        <div>
+                                                            <div class="fw-semibold">Pedro Oliveira</div>
+                                                            <div class="text-muted small">Investidor Comum</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="fw-semibold">R$ 5.000</td>
+                                                <td>21/01/2025 18:45</td>
+                                                <td><span class="badge bg-warning">Pendente</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-secondary">
+                                                        <i class="bi bi-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="investor-avatar me-2">AF</div>
+                                                        <div>
+                                                            <div class="fw-semibold">Ana Ferreira</div>
+                                                            <div class="text-muted small">Investidora Qualificada</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="fw-semibold">R$ 25.000</td>
+                                                <td>21/01/2025 16:20</td>
+                                                <td><span class="badge bg-success">Confirmado</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-secondary">
+                                                        <i class="bi bi-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="investor-avatar me-2">CS</div>
+                                                        <div>
+                                                            <div class="fw-semibold">Carlos Santos</div>
+                                                            <div class="text-muted small">Investidor Comum</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="fw-semibold">R$ 10.000</td>
+                                                <td>21/01/2025 10:00</td>
+                                                <td><span class="badge bg-success">Confirmado</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-secondary">
+                                                        <i class="bi bi-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-white">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-muted small">Mostrando 5 de 47 investidores</span>
+                                    <nav>
+                                        <ul class="pagination pagination-sm mb-0">
+                                            <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
+                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Captação Tab -->
+                    <div class="tab-pane fade" id="captacao">
+                        <div class="row g-4">
+                            <div class="col-lg-8">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-white py-3">
+                                        <h6 class="mb-0">Evolução da Captação</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-placeholder">
+                                            <div class="text-center">
+                                                <i class="bi bi-graph-up fs-1 mb-2 d-block"></i>
+                                                <span>Gráfico de linha - Captação ao longo do tempo</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-white py-3">
+                                        <h6 class="mb-0">Distribuição por Valor</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-placeholder" style="height: 200px;">
+                                            <div class="text-center">
+                                                <i class="bi bi-pie-chart fs-1 mb-2 d-block"></i>
+                                                <span>Gráfico pizza</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3">
+                                            <div class="d-flex justify-content-between small mb-2">
+                                                <span><span class="badge me-1" style="background-color: #7c3aed;">•</span> Até R$ 5.000</span>
+                                                <span>18 (38%)</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between small mb-2">
+                                                <span><span class="badge me-1" style="background-color: #a855f7;">•</span> R$ 5k - R$ 20k</span>
+                                                <span>21 (45%)</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between small">
+                                                <span><span class="badge me-1" style="background-color: #c084fc;">•</span> Acima de R$ 20k</span>
+                                                <span>8 (17%)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Tab -->
+                    <div class="tab-pane fade" id="timeline">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white py-3">
+                                <h6 class="mb-0">Histórico de Atividades</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="timeline-item">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <strong>Maria Costa investiu R$ 50.000</strong>
+                                            <p class="text-muted small mb-0">Novo investimento confirmado</p>
+                                        </div>
+                                        <small class="text-muted">Hoje, 14:32</small>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <strong>João Silva investiu R$ 15.000</strong>
+                                            <p class="text-muted small mb-0">Novo investimento confirmado</p>
+                                        </div>
+                                        <small class="text-muted">Hoje, 11:15</small>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <strong>Meta de R$ 400.000 atingida</strong>
+                                            <p class="text-muted small mb-0">Marco de captação alcançado</p>
+                                        </div>
+                                        <small class="text-muted">20/01/2025</small>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <strong>Comunicado enviado</strong>
+                                            <p class="text-muted small mb-0">Atualização semanal para investidores</p>
+                                        </div>
+                                        <small class="text-muted">18/01/2025</small>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <strong>Documento adicionado</strong>
+                                            <p class="text-muted small mb-0">Projeção financeira 2025 anexada</p>
+                                        </div>
+                                        <small class="text-muted">15/01/2025</small>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <strong>Oferta publicada</strong>
+                                            <p class="text-muted small mb-0">Captação iniciada na plataforma</p>
+                                        </div>
+                                        <small class="text-muted">02/01/2025</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Documentos Tab -->
+                    <div class="tab-pane fade" id="documentos">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                                <h6 class="mb-0">Documentos da Oferta</h6>
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="bi bi-plus-lg me-1"></i>
+                                    Adicionar Documento
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="border rounded p-3 d-flex align-items-center">
+                                            <div class="rounded bg-danger bg-opacity-10 p-2 me-3">
+                                                <i class="bi bi-file-earmark-pdf text-danger fs-4"></i>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <div class="fw-semibold">Contrato Social</div>
+                                                <div class="text-muted small">PDF • 2.4 MB</div>
+                                            </div>
+                                            <button class="btn btn-sm btn-outline-secondary">
+                                                <i class="bi bi-download"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="border rounded p-3 d-flex align-items-center">
+                                            <div class="rounded bg-success bg-opacity-10 p-2 me-3">
+                                                <i class="bi bi-file-earmark-excel text-success fs-4"></i>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <div class="fw-semibold">Projeção Financeira 2025</div>
+                                                <div class="text-muted small">XLSX • 1.1 MB</div>
+                                            </div>
+                                            <button class="btn btn-sm btn-outline-secondary">
+                                                <i class="bi bi-download"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="border rounded p-3 d-flex align-items-center">
+                                            <div class="rounded bg-danger bg-opacity-10 p-2 me-3">
+                                                <i class="bi bi-file-earmark-pdf text-danger fs-4"></i>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <div class="fw-semibold">Pitch Deck</div>
+                                                <div class="text-muted small">PDF • 5.8 MB</div>
+                                            </div>
+                                            <button class="btn btn-sm btn-outline-secondary">
+                                                <i class="bi bi-download"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="border rounded p-3 d-flex align-items-center">
+                                            <div class="rounded bg-danger bg-opacity-10 p-2 me-3">
+                                                <i class="bi bi-file-earmark-pdf text-danger fs-4"></i>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <div class="fw-semibold">Balanço Patrimonial 2024</div>
+                                                <div class="text-muted small">PDF • 890 KB</div>
+                                            </div>
+                                            <button class="btn btn-sm btn-outline-secondary">
+                                                <i class="bi bi-download"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detalhes Tab -->
+                    <div class="tab-pane fade" id="detalhes">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-white py-3">
+                                        <h6 class="mb-0">Informações da Oferta</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <dl class="row mb-0">
+                                            <dt class="col-sm-5 text-muted">Tipo de Título</dt>
+                                            <dd class="col-sm-7">Equity</dd>
+
+                                            <dt class="col-sm-5 text-muted">Meta Captação</dt>
+                                            <dd class="col-sm-7">R$ 1.500.000</dd>
+
+                                            <dt class="col-sm-5 text-muted">Mínimo Captação</dt>
+                                            <dd class="col-sm-7">R$ 300.000</dd>
+
+                                            <dt class="col-sm-5 text-muted">Investimento Mínimo</dt>
+                                            <dd class="col-sm-7">R$ 1.000</dd>
+
+                                            <dt class="col-sm-5 text-muted">Investimento Máximo</dt>
+                                            <dd class="col-sm-7">R$ 100.000</dd>
+
+                                            <dt class="col-sm-5 text-muted">Equity Oferecido</dt>
+                                            <dd class="col-sm-7">10%</dd>
+
+                                            <dt class="col-sm-5 text-muted">Valuation</dt>
+                                            <dd class="col-sm-7">R$ 15.000.000</dd>
+
+                                            <dt class="col-sm-5 text-muted">Prazo Captação</dt>
+                                            <dd class="col-sm-7">60 dias</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-white py-3">
+                                        <h6 class="mb-0">Direitos dos Investidores</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="d-flex align-items-start mb-3">
+                                                <i class="bi bi-check-circle text-success me-2 mt-1"></i>
+                                                <span>Participação nos lucros proporcional</span>
+                                            </li>
+                                            <li class="d-flex align-items-start mb-3">
+                                                <i class="bi bi-check-circle text-success me-2 mt-1"></i>
+                                                <span>Direito de voto em assembleias</span>
+                                            </li>
+                                            <li class="d-flex align-items-start mb-3">
+                                                <i class="bi bi-check-circle text-success me-2 mt-1"></i>
+                                                <span>Tag along em caso de venda</span>
+                                            </li>
+                                            <li class="d-flex align-items-start mb-3">
+                                                <i class="bi bi-check-circle text-success me-2 mt-1"></i>
+                                                <span>Relatórios trimestrais de performance</span>
+                                            </li>
+                                            <li class="d-flex align-items-start">
+                                                <i class="bi bi-check-circle text-success me-2 mt-1"></i>
+                                                <span>Acesso exclusivo a eventos da empresa</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

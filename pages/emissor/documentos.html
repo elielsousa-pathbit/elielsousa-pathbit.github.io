@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentos - Portal do Emissor - CrowdInvest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        :root {
+            --emissor-primary: #7c3aed;
+            --emissor-dark: #5b21b6;
+            --emissor-light: #ede9fe;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, var(--emissor-primary) 0%, var(--emissor-dark) 100%);
+        }
+
+        .nav-link.active {
+            background-color: rgba(255,255,255,0.2) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--emissor-dark);
+            border-color: var(--emissor-dark);
+        }
+
+        .btn-outline-primary {
+            color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .text-primary {
+            color: var(--emissor-primary) !important;
+        }
+
+        /* Folder card */
+        .folder-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .folder-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .folder-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        /* File item */
+        .file-item {
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 0.75rem;
+            transition: all 0.2s ease;
+        }
+
+        .file-item:hover {
+            border-color: var(--emissor-primary);
+            background-color: var(--emissor-light);
+        }
+
+        .file-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .file-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        /* Upload zone */
+        .upload-zone {
+            border: 2px dashed #d1d5db;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--emissor-primary);
+            background-color: var(--emissor-light);
+        }
+
+        .upload-zone.dragover {
+            border-color: var(--emissor-primary);
+            background-color: var(--emissor-light);
+        }
+
+        /* Breadcrumb custom */
+        .breadcrumb-custom {
+            background: none;
+            padding: 0;
+        }
+
+        .breadcrumb-custom .breadcrumb-item + .breadcrumb-item::before {
+            content: "/";
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px; min-height: 100vh;">
+            <a href="dashboard.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <i class="bi bi-building me-2 fs-4"></i>
+                <span class="fs-5 fw-semibold">Portal Emissor</span>
+            </a>
+            <hr>
+
+            <!-- Company Card -->
+            <div class="card bg-white bg-opacity-10 border-0 mb-3">
+                <div class="card-body p-2">
+                    <div class="d-flex align-items-center">
+                        <div class="rounded-circle bg-white bg-opacity-25 p-2 me-2">
+                            <i class="bi bi-building text-white"></i>
+                        </div>
+                        <div>
+                            <div class="fw-semibold small">TechStart Soluções</div>
+                            <div class="text-white-50 small">CNPJ: 12.345.678/0001-90</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link text-white">
+                        <i class="bi bi-speedometer2 me-2"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="minhas-ofertas.html" class="nav-link text-white">
+                        <i class="bi bi-collection me-2"></i>
+                        Minhas Ofertas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="nova-oferta.html" class="nav-link text-white">
+                        <i class="bi bi-plus-circle me-2"></i>
+                        Nova Oferta
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="investidores.html" class="nav-link text-white">
+                        <i class="bi bi-people me-2"></i>
+                        Investidores
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pagamentos.html" class="nav-link text-white">
+                        <i class="bi bi-cash-stack me-2"></i>
+                        Pagamentos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="comunicados.html" class="nav-link text-white">
+                        <i class="bi bi-megaphone me-2"></i>
+                        Comunicados
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="documentos.html" class="nav-link text-white active">
+                        <i class="bi bi-folder me-2"></i>
+                        Documentos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="relatorios.html" class="nav-link text-white">
+                        <i class="bi bi-graph-up me-2"></i>
+                        Relatórios
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a href="configuracoes.html" class="nav-link text-white">
+                        <i class="bi bi-gear me-2"></i>
+                        Configurações
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../parceiro/dashboard.html" class="nav-link text-white">
+                        <i class="bi bi-box-arrow-left me-2"></i>
+                        Voltar ao Portal
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 bg-light">
+            <!-- Top Bar -->
+            <div class="bg-white border-bottom px-4 py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h4 class="mb-0">Documentos</h4>
+                        <small class="text-muted">Gerencie os documentos da empresa e das ofertas</small>
+                    </div>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                        <i class="bi bi-upload me-1"></i>
+                        Enviar Documento
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-4">
+                <!-- Folder Cards -->
+                <div class="row g-4 mb-4">
+                    <div class="col-md-3">
+                        <div class="card folder-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="folder-icon bg-primary bg-opacity-10 text-primary me-3">
+                                        <i class="bi bi-building"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">Empresa</h6>
+                                        <small class="text-muted">8 arquivos</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between small text-muted">
+                                    <span>Última atualização</span>
+                                    <span>15/01/2025</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card folder-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="folder-icon bg-success bg-opacity-10 text-success me-3">
+                                        <i class="bi bi-cash-stack"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">Financeiro</h6>
+                                        <small class="text-muted">12 arquivos</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between small text-muted">
+                                    <span>Última atualização</span>
+                                    <span>20/01/2025</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card folder-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="folder-icon bg-warning bg-opacity-10 text-warning me-3">
+                                        <i class="bi bi-collection"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">Ofertas</h6>
+                                        <small class="text-muted">15 arquivos</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between small text-muted">
+                                    <span>Última atualização</span>
+                                    <span>02/01/2025</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card folder-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="folder-icon bg-info bg-opacity-10 text-info me-3">
+                                        <i class="bi bi-file-earmark-text"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">Contratos</h6>
+                                        <small class="text-muted">5 arquivos</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between small text-muted">
+                                    <span>Última atualização</span>
+                                    <span>10/01/2025</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- File List -->
+                    <div class="col-lg-8">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white py-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <nav class="breadcrumb-custom mb-0">
+                                            <ol class="breadcrumb mb-0">
+                                                <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Documentos</a></li>
+                                                <li class="breadcrumb-item active">Todos</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                    <div class="d-flex gap-2">
+                                        <div class="input-group" style="width: 220px;">
+                                            <span class="input-group-text bg-white border-end-0">
+                                                <i class="bi bi-search text-muted"></i>
+                                            </span>
+                                            <input type="text" class="form-control border-start-0" placeholder="Buscar documento...">
+                                        </div>
+                                        <select class="form-select" style="width: 130px;">
+                                            <option>Recentes</option>
+                                            <option>Nome A-Z</option>
+                                            <option>Nome Z-A</option>
+                                            <option>Maior tamanho</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <!-- File Items -->
+                                <div class="file-item d-flex align-items-center">
+                                    <div class="file-icon bg-danger bg-opacity-10 text-danger me-3">
+                                        <i class="bi bi-file-earmark-pdf"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="fw-semibold">Contrato Social - Consolidado 2024</div>
+                                        <div class="text-muted small">PDF • 2.4 MB • Empresa</div>
+                                    </div>
+                                    <div class="text-muted small me-3">15/01/2025</div>
+                                    <div class="dropdown">
+                                        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="dropdown">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-download me-2"></i>Baixar</a></li>
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Visualizar</a></li>
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-share me-2"></i>Compartilhar</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Excluir</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="file-item d-flex align-items-center">
+                                    <div class="file-icon bg-success bg-opacity-10 text-success me-3">
+                                        <i class="bi bi-file-earmark-excel"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="fw-semibold">Projeção Financeira 2025</div>
+                                        <div class="text-muted small">XLSX • 1.1 MB • Financeiro</div>
+                                    </div>
+                                    <div class="text-muted small me-3">20/01/2025</div>
+                                    <div class="dropdown">
+                                        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="dropdown">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-download me-2"></i>Baixar</a></li>
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Visualizar</a></li>
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-share me-2"></i>Compartilhar</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Excluir</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="file-item d-flex align-items-center">
+                                    <div class="file-icon bg-danger bg-opacity-10 text-danger me-3">
+                                        <i class="bi bi-file-earmark-pdf"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="fw-semibold">Balanço Patrimonial 2024</div>
+                                        <div class="text-muted small">PDF • 890 KB • Financeiro</div>
+                                    </div>
+                                    <div class="text-muted small me-3">18/01/2025</div>
+                                    <div class="dropdown">
+                                        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="dropdown">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-download me-2"></i>Baixar</a></li>
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Visualizar</a></li>
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-share me-2"></i>Compartilhar</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Excluir</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="file-item d-flex align-items-center">
+                                    <div class="file-icon bg-danger bg-opacity-10 text-danger me-3">
+                                        <i class="bi bi-file-earmark-pdf"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="fw-semibold">DRE 2024</div>
+                                        <div class="text-muted small">PDF • 650 KB • Financeiro</div>
+                                    </div>
+                                    <div class="text-muted small me-3">18/01/2025</div>
+                                    <div class="dropdown">
+                                        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="dropdown">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-download me-2"></i>Baixar</a></li>
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Visualizar</a></li>
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-share me-2"></i>Compartilhar</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Excluir</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="file-item d-flex align-items-center">
+                                    <div class="file-icon bg-danger bg-opacity-10 text-danger me-3">
+                                        <i class="bi bi-file-earmark-pdf"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="fw-semibold">Pitch Deck - Série A</div>
+                                        <div class="text-muted small">PDF • 5.8 MB • Ofertas</div>
+                                    </div>
+                                    <div class="text-muted small me-3">02/01/2025</div>
+                                    <div class="dropdown">
+                                        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="dropdown">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-download me-2"></i>Baixar</a></li>
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Visualizar</a></li>
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-share me-2"></i>Compartilhar</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Excluir</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="file-item d-flex align-items-center">
+                                    <div class="file-icon bg-primary bg-opacity-10 text-primary me-3">
+                                        <i class="bi bi-file-earmark-word"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="fw-semibold">Contrato de Investimento - Modelo</div>
+                                        <div class="text-muted small">DOCX • 320 KB • Contratos</div>
+                                    </div>
+                                    <div class="text-muted small me-3">10/01/2025</div>
+                                    <div class="dropdown">
+                                        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="dropdown">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-download me-2"></i>Baixar</a></li>
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Visualizar</a></li>
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-share me-2"></i>Compartilhar</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Excluir</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-white">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-muted small">Mostrando 6 de 40 documentos</span>
+                                    <nav>
+                                        <ul class="pagination pagination-sm mb-0">
+                                            <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
+                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upload & Storage -->
+                    <div class="col-lg-4">
+                        <!-- Upload Zone -->
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-header bg-white py-3">
+                                <h6 class="mb-0">Upload Rápido</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="upload-zone" id="uploadZone">
+                                    <i class="bi bi-cloud-arrow-up fs-1 text-muted mb-2 d-block"></i>
+                                    <p class="mb-1 fw-semibold">Arraste arquivos aqui</p>
+                                    <p class="text-muted small mb-2">ou clique para selecionar</p>
+                                    <small class="text-muted">PDF, DOCX, XLSX, PNG, JPG (máx. 10MB)</small>
+                                    <input type="file" class="d-none" id="fileInput" multiple>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Storage Info -->
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-header bg-white py-3">
+                                <h6 class="mb-0">Armazenamento</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted">Usado</span>
+                                    <span class="fw-semibold">125 MB de 1 GB</span>
+                                </div>
+                                <div class="progress mb-3" style="height: 8px;">
+                                    <div class="progress-bar bg-primary" style="width: 12.5%"></div>
+                                </div>
+
+                                <h6 class="small text-muted mb-2">Por categoria</h6>
+                                <div class="d-flex justify-content-between small mb-1">
+                                    <span><span class="badge bg-primary me-1">•</span> Empresa</span>
+                                    <span>32 MB</span>
+                                </div>
+                                <div class="d-flex justify-content-between small mb-1">
+                                    <span><span class="badge bg-success me-1">•</span> Financeiro</span>
+                                    <span>45 MB</span>
+                                </div>
+                                <div class="d-flex justify-content-between small mb-1">
+                                    <span><span class="badge bg-warning me-1">•</span> Ofertas</span>
+                                    <span>38 MB</span>
+                                </div>
+                                <div class="d-flex justify-content-between small">
+                                    <span><span class="badge bg-info me-1">•</span> Contratos</span>
+                                    <span>10 MB</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Required Docs -->
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white py-3">
+                                <h6 class="mb-0">Documentos Obrigatórios</h6>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        <span class="small">Contrato Social</span>
+                                    </div>
+                                    <div class="list-group-item d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        <span class="small">Balanço Patrimonial</span>
+                                    </div>
+                                    <div class="list-group-item d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        <span class="small">DRE</span>
+                                    </div>
+                                    <div class="list-group-item d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        <span class="small">Comprovante CNPJ</span>
+                                    </div>
+                                    <div class="list-group-item d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        <span class="small">Pitch Deck</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal fade" id="uploadModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-upload me-2"></i>
+                        Enviar Documento
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Categoria</label>
+                        <select class="form-select">
+                            <option>Empresa</option>
+                            <option>Financeiro</option>
+                            <option>Ofertas</option>
+                            <option>Contratos</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Arquivo</label>
+                        <input type="file" class="form-control">
+                        <div class="form-text">Formatos aceitos: PDF, DOCX, XLSX, PNG, JPG (máx. 10MB)</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Descrição (opcional)</label>
+                        <input type="text" class="form-control" placeholder="Breve descrição do documento">
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="publicDoc">
+                        <label class="form-check-label" for="publicDoc">
+                            Disponibilizar para investidores
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">
+                        <i class="bi bi-upload me-1"></i>
+                        Enviar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Upload zone drag & drop
+        const uploadZone = document.getElementById('uploadZone');
+        const fileInput = document.getElementById('fileInput');
+
+        uploadZone.addEventListener('click', () => fileInput.click());
+
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('dragover');
+        });
+
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.classList.remove('dragover');
+        });
+
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('dragover');
+            // Handle files
+        });
+    </script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

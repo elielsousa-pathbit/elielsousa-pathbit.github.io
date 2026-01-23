@@ -10,12 +10,12 @@
 <body class="theme-parceiro">
   <div class="dashboard">
     <div class="mobile-header">
-      <a href="../../index.html" class="logo">CrowdInvest</a>
+      <a href="dashboard.html" class="logo">Alba Invest</a>
     </div>
 
     <aside class="sidebar sidebar-green">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo">CrowdInvest</a>
+        <a href="dashboard.html" class="logo">Alba Invest</a>
         <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
       </div>
       <!-- Profile Switcher na Sidebar -->
@@ -32,14 +32,16 @@
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-        <li><a href="minhas-ofertas.html" class="active"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li class="hide-on-originador"><a href="minhas-ofertas.html" class="active"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
         <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
-        <li><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
-        <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="hide-on-originador"><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
+        <li class="hide-on-originador"><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="originador-content" style="display:none;"><a href="meus-emissores.html"><i class="bi bi-building"></i> Meus Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="comissoes-originador.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -51,7 +53,7 @@
       <div class="page-header">
         <div>
           <h1 class="page-title">Minhas Ofertas</h1>
-          <p class="text-muted">TechStart Inovacao</p>
+          <p class="text-muted">TechStart Inovação</p>
         </div>
         <span class="badge badge-success" style="font-size: 1rem; padding: 10px 20px;">Ativa</span>
       </div>
@@ -60,7 +62,7 @@
       <div class="card" style="background: linear-gradient(135deg, #059669, #047857); color: white; margin-bottom: 20px;">
         <div class="grid-2" style="gap: 30px; align-items: center;">
           <div>
-            <h2>TechStart Inovacao</h2>
+            <h2>TechStart Inovação</h2>
             <p style="opacity: 0.9;">CNPJ: 12.345.678/0001-90</p>
             <div class="progress mt-20" style="height: 12px; background: rgba(255,255,255,0.3);">
               <div class="progress-bar" style="width: 75%; background: white;"></div>
@@ -81,10 +83,10 @@
       <!-- Details -->
       <div class="grid-2">
         <div class="card">
-          <h3 style="margin-bottom: 20px;">Informacoes da Oferta</h3>
+          <h3 style="margin-bottom: 20px;">Informações da Oferta</h3>
           <div style="display: flex; flex-direction: column; gap: 15px;">
             <div class="flex-between">
-              <span class="text-muted">Meta de Captacao:</span>
+              <span class="text-muted">Meta de Captação:</span>
               <strong>R$ 500.000,00</strong>
             </div>
             <div class="flex-between">
@@ -92,15 +94,15 @@
               <strong>15%</strong>
             </div>
             <div class="flex-between">
-              <span class="text-muted">Investimento Minimo:</span>
+              <span class="text-muted">Investimento Mínimo:</span>
               <strong>R$ 1.000,00</strong>
             </div>
             <div class="flex-between">
-              <span class="text-muted">Investimento Maximo:</span>
+              <span class="text-muted">Investimento Máximo:</span>
               <strong>R$ 20.000,00</strong>
             </div>
             <div class="flex-between">
-              <span class="text-muted">Data de Inicio:</span>
+              <span class="text-muted">Data de Início:</span>
               <strong>01/01/2026</strong>
             </div>
             <div class="flex-between">
@@ -115,7 +117,7 @@
         </div>
 
         <div class="card">
-          <h3 style="margin-bottom: 20px;">Metricas</h3>
+          <h3 style="margin-bottom: 20px;">Métricas</h3>
           <div class="kpi-grid" style="grid-template-columns: 1fr 1fr;">
             <div class="kpi-card">
               <div class="kpi-label">Total Captado</div>
@@ -130,7 +132,7 @@
               <div class="kpi-value" style="font-size: 1.5rem;">R$ 2.953</div>
             </div>
             <div class="kpi-card">
-              <div class="kpi-label">Em Desistencia</div>
+              <div class="kpi-label">Em Desistência</div>
               <div class="kpi-value" style="font-size: 1.5rem; color: var(--warning);">6</div>
             </div>
           </div>
@@ -146,7 +148,7 @@
         <div style="display: flex; flex-direction: column; gap: 10px;">
           <div class="flex-between" style="padding: 12px; background: var(--bg); border-radius: var(--radius);">
             <span><i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> Material Principal da Oferta</span>
-            <div class="flex gap-10">
+            <div class="header-user-info">
               <span class="text-muted">2.3 MB</span>
               <button class="btn btn-outline btn-sm" onclick="showModal('visualizarDocModal')"><i class="bi bi-eye"></i> Ver</button>
               <button class="btn btn-outline btn-sm" onclick="showModal('downloadDocModal')"><i class="bi bi-download"></i></button>
@@ -154,7 +156,7 @@
           </div>
           <div class="flex-between" style="padding: 12px; background: var(--bg); border-radius: var(--radius);">
             <span><i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> Pitch Deck</span>
-            <div class="flex gap-10">
+            <div class="header-user-info">
               <span class="text-muted">5.1 MB</span>
               <button class="btn btn-outline btn-sm" onclick="showModal('visualizarDocModal')"><i class="bi bi-eye"></i> Ver</button>
               <button class="btn btn-outline btn-sm" onclick="showModal('downloadDocModal')"><i class="bi bi-download"></i></button>
@@ -162,15 +164,15 @@
           </div>
           <div class="flex-between" style="padding: 12px; background: var(--bg); border-radius: var(--radius);">
             <span><i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> Contrato Social</span>
-            <div class="flex gap-10">
+            <div class="header-user-info">
               <span class="text-muted">450 KB</span>
               <button class="btn btn-outline btn-sm" onclick="showModal('visualizarDocModal')"><i class="bi bi-eye"></i> Ver</button>
               <button class="btn btn-outline btn-sm" onclick="showModal('downloadDocModal')"><i class="bi bi-download"></i></button>
             </div>
           </div>
           <div class="flex-between" style="padding: 12px; background: var(--bg); border-radius: var(--radius);">
-            <span><i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> Demonstracoes Financeiras 2024</span>
-            <div class="flex gap-10">
+            <span><i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> Demonstrações Financeiras 2024</span>
+            <div class="header-user-info">
               <span class="text-muted">1.8 MB</span>
               <button class="btn btn-outline btn-sm" onclick="showModal('visualizarDocModal')"><i class="bi bi-eye"></i> Ver</button>
               <button class="btn btn-outline btn-sm" onclick="showModal('downloadDocModal')"><i class="bi bi-download"></i></button>
@@ -178,13 +180,13 @@
           </div>
         </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
@@ -198,13 +200,17 @@
         <button class="modal-close" onclick="hideModal('editarMaterialModal')">&times;</button>
       </div>
       <div class="alert alert-info mb-20">
-        <i class="bi bi-info-circle"></i> Alteracoes nos materiais precisam de aprovacao da plataforma antes de serem publicadas.
+        <i class="bi bi-info-circle"></i>
+        <div>
+          <strong>Importante:</strong><br>
+          Alterações nos materiais precisam de aprovação da plataforma antes de serem publicadas.
+        </div>
       </div>
       <div style="display: flex; flex-direction: column; gap: 15px;">
         <div style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
           <div class="flex-between">
             <span><i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> Material Principal da Oferta</span>
-            <div class="flex gap-10">
+            <div class="header-user-info">
               <button class="btn btn-outline btn-sm"><i class="bi bi-upload"></i> Substituir</button>
               <button class="btn btn-outline btn-sm"><i class="bi bi-trash" style="color: var(--danger);"></i></button>
             </div>
@@ -213,7 +219,7 @@
         <div style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
           <div class="flex-between">
             <span><i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> Pitch Deck</span>
-            <div class="flex gap-10">
+            <div class="header-user-info">
               <button class="btn btn-outline btn-sm"><i class="bi bi-upload"></i> Substituir</button>
               <button class="btn btn-outline btn-sm"><i class="bi bi-trash" style="color: var(--danger);"></i></button>
             </div>
@@ -222,12 +228,12 @@
         <div style="padding: 15px; border: 2px dashed var(--border); border-radius: var(--radius); text-align: center;">
           <i class="bi bi-cloud-upload" style="font-size: 2rem; color: var(--text-muted);"></i>
           <p class="text-muted">Arraste arquivos ou <a href="#" style="color: var(--primary);">clique para selecionar</a></p>
-          <small class="text-muted">PDF, PPTX ou DOCX - Maximo 30MB</small>
+          <small class="text-muted">PDF, PPTX ou DOCX - Máximo 30MB</small>
         </div>
       </div>
       <div class="flex gap-10 mt-20">
         <button class="btn btn-outline" onclick="hideModal('editarMaterialModal')" style="flex: 1;">Cancelar</button>
-        <button class="btn btn-primary" onclick="hideModal('editarMaterialModal'); showModal('materialEnviadoModal');" style="flex: 1;">Salvar Alteracoes</button>
+        <button class="btn btn-primary" onclick="hideModal('editarMaterialModal'); showModal('materialEnviadoModal');" style="flex: 1;">Salvar Alterações</button>
       </div>
     </div>
   </div>
@@ -242,8 +248,8 @@
       <div style="background: #f3f4f6; padding: 40px; text-align: center; border-radius: var(--radius); min-height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <i class="bi bi-file-earmark-pdf" style="font-size: 4rem; color: #dc3545; margin-bottom: 20px;"></i>
         <h4>Visualizador de PDF</h4>
-        <p class="text-muted">Material_Principal_TechStart_Inovacao.pdf</p>
-        <p class="text-muted" style="font-size: 0.875rem;">2.3 MB - 15 paginas</p>
+        <p class="text-muted">Material_Principal_TechStart_Inovação.pdf</p>
+        <p class="text-muted" style="font-size: 0.875rem;">2.3 MB - 15 páginas</p>
         <div class="flex gap-10 mt-20">
           <button class="btn btn-outline"><i class="bi bi-zoom-out"></i></button>
           <span style="padding: 8px 16px; background: white; border-radius: var(--radius);">100%</span>
@@ -263,7 +269,7 @@
       <div style="padding: 30px;">
         <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
         <h3 style="margin: 15px 0;">Download Iniciado</h3>
-        <p class="text-muted">O arquivo esta sendo baixado para seu dispositivo.</p>
+        <p class="text-muted">O arquivo está sendo baixado para seu dispositivo.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('downloadDocModal')">OK</button>
       </div>
     </div>
@@ -275,12 +281,18 @@
       <div style="padding: 30px;">
         <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
         <h3 style="margin: 15px 0;">Material Atualizado!</h3>
-        <p class="text-muted">As alteracoes foram enviadas para aprovacao da plataforma.</p>
+        <p class="text-muted">As alterações foram enviadas para aprovação da plataforma.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('materialEnviadoModal')">OK</button>
       </div>
     </div>
   </div>
 
   <script src="../../js/app.js"></script>
+  
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
 </body>
 </html>

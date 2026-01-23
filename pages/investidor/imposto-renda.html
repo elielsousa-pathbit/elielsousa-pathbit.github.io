@@ -10,13 +10,13 @@
 <body class="theme-investidor">
   <div class="dashboard">
     <div class="mobile-header">
-      <a href="../../index.html" class="logo">CrowdInvest</a>
+      <a href="dashboard.html" class="logo">Alba Invest</a>
     </div>
 
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo">CrowdInvest</a>
+        <a href="dashboard.html" class="logo">Alba Invest</a>
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
@@ -26,7 +26,7 @@
         <li><a href="extrato.html"><i class="bi bi-list-ul"></i> Extrato</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html" class="active"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -39,24 +39,28 @@
       <div class="page-header">
         <div>
           <h1 class="page-title">Imposto de Renda</h1>
-          <p class="text-muted">Informes e documentos para declaracao de IR</p>
+          <p class="text-muted">Informês e documentos para declaração de IR</p>
         </div>
       </div>
 
       <!-- Alert -->
       <div class="alert alert-info">
-        <i class="bi bi-info-circle"></i> <strong>Ano-Calendario 2025:</strong> O informe de rendimentos para declaracao do IR 2026 estara disponivel a partir de 28/02/2026, conforme prazo legal.
+        <i class="bi bi-info-circle"></i>
+        <div>
+          <strong>Ano-Calendario 2025:</strong><br>
+          O informe de rendimentos para declaracao do IR 2026 estara disponivel a partir de 28/02/2026, conforme prazo legal.
+        </div>
       </div>
 
       <!-- Year Selection -->
       <div class="card mb-20">
         <div class="flex-between" style="flex-wrap: wrap; gap: 15px;">
           <div>
-            <h3 style="margin-bottom: 5px;">Selecione o Ano-Calendario</h3>
+            <h3 style="margin-bottom: 5px;">Selecione o Ano-Calendário</h3>
             <p class="text-muted">Escolha o ano para visualizar seus informes</p>
           </div>
           <div style="min-width: 180px;">
-            <select class="form-input" style="padding: 10px 14px; font-size: 0.95rem;">
+            <select id="irYearSelector" class="form-input" style="padding: 10px 14px; font-size: 0.95rem;" onchange="changeIRYear(this.value)">
               <option value="2025" selected>2025 (IRPF 2026)</option>
               <option value="2024">2024 (IRPF 2025)</option>
               <option value="2023">2023 (IRPF 2024)</option>
@@ -67,244 +71,772 @@
         </div>
       </div>
 
-      <!-- Informe de Rendimentos - Ano atual (em processamento) -->
-      <div class="card mb-20">
-        <div class="card-header flex-between">
-          <div class="flex gap-15" style="align-items: center;">
-            <div style="width: 50px; height: 50px; background: #dbeafe; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-              <i class="bi bi-file-earmark-text" style="font-size: 1.5rem; color: var(--primary);"></i>
+      <!-- ============================================= -->
+      <!-- DADOS ANO 2025 (EM PROCESSAMENTO) -->
+      <!-- ============================================= -->
+      <div id="irData2025" class="ir-year-content">
+        <div class="card mb-20">
+          <div class="card-header flex-between">
+            <div class="flex gap-15" style="align-items: center;">
+              <div style="width: 50px; height: 50px; background: #dbeafe; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                <i class="bi bi-file-earmark-text" style="font-size: 1.5rem; color: var(--primary);"></i>
+              </div>
+              <div>
+                <h3 class="card-title">Informe de Rendimentos 2025</h3>
+                <p class="text-muted">Para declaração IRPF 2026</p>
+              </div>
             </div>
-            <div>
-              <h3 class="card-title">Informe de Rendimentos 2025</h3>
-              <p class="text-muted">Para declaracao IRPF 2026</p>
-            </div>
+            <span class="badge badge-warning"><i class="bi bi-clock"></i> Em Processamento</span>
           </div>
-          <span class="badge badge-warning"><i class="bi bi-clock"></i> Em Processamento</span>
-        </div>
 
-        <div class="alert alert-warning" style="margin: 20px 0;">
-          <i class="bi bi-exclamation-triangle"></i> Este informe estara disponivel a partir de <strong>28/02/2026</strong>.
-        </div>
-
-        <p class="text-muted" style="font-size: 0.875rem;">
-          O informe incluira todos os rendimentos recebidos (dividendos, juros, amortizacoes) e movimentacoes realizadas no ano de 2025 na plataforma CrowdInvest.
-        </p>
-      </div>
-
-      <!-- Previous Year Informe -->
-      <div class="card mb-20">
-        <div class="card-header flex-between">
-          <div class="flex gap-15" style="align-items: center;">
-            <div style="width: 50px; height: 50px; background: #dcfce7; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-              <i class="bi bi-file-earmark-check" style="font-size: 1.5rem; color: var(--success);"></i>
-            </div>
-            <div>
-              <h3 class="card-title">Informe de Rendimentos 2024</h3>
-              <p class="text-muted">Para declaracao IRPF 2025</p>
-            </div>
+          <div class="alert alert-warning" style="margin: 20px 0;">
+            <i class="bi bi-exclamation-triangle"></i> Este informe estara disponível a partir de <strong>28/02/2026</strong>.
           </div>
-          <span class="badge badge-success"><i class="bi bi-check-circle"></i> Disponivel</span>
+
+          <p class="text-muted" style="font-size: 0.875rem;">
+            O informe incluira todos os rendimentos recebidos (dividendos, juros, amortizações) e movimentações realizadas no ano de 2025 na plataforma CrowdInvest.
+          </p>
         </div>
 
-        <div class="grid-2 mt-20" style="gap: 20px;">
-          <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
-            <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 5px;">Total de Rendimentos</p>
-            <strong style="font-size: 1.5rem;">R$ 3.250,00</strong>
+        <!-- Posição Parcial 2025 -->
+        <div class="card mb-20">
+          <div class="card-header">
+            <h3 class="card-title"><i class="bi bi-briefcase"></i> Posição Parcial de Bens e Direitos (2025)</h3>
+            <p class="text-muted">Posição atualizada até a data atual - dados preliminares</p>
           </div>
-          <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
-            <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 5px;">IRRF Retido</p>
-            <strong style="font-size: 1.5rem;">R$ 487,50</strong>
+
+          <div class="alert alert-info" style="margin: 15px 0;">
+            <strong>Atenção:</strong> Estes dados são parciais e podem sofrer alterações até o encerramento do ano-calendário.
           </div>
-        </div>
 
-        <div class="flex gap-10 mt-20">
-          <button class="btn btn-primary" onclick="showModal('visualizarInformeModal')">
-            <i class="bi bi-eye"></i> Visualizar Informe
-          </button>
-          <button class="btn btn-outline" onclick="showModal('downloadPdfModal')">
-            <i class="bi bi-download"></i> Baixar PDF
-          </button>
-        </div>
-      </div>
-
-      <!-- Posicao em Bens e Direitos -->
-      <div class="card mb-20">
-        <div class="card-header">
-          <h3 class="card-title"><i class="bi bi-briefcase"></i> Posicao de Bens e Direitos</h3>
-          <p class="text-muted">Valores para declarar na ficha "Bens e Direitos"</p>
-        </div>
-
-        <div class="alert alert-info" style="margin: 15px 0;">
-          <strong>Como declarar:</strong> Investimentos em equity crowdfunding devem ser declarados na ficha "Bens e Direitos", grupo 03 (Participacoes Societarias), codigo 99 (Outras participacoes societarias).
-        </div>
-
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Empresa</th>
-                <th>CNPJ</th>
-                <th>Data Aquisicao</th>
-                <th>Valor Investido</th>
-                <th>Situacao 31/12</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label="Empresa">
-                  <strong>TechStart Inovacao S.A.</strong>
-                  <br><small class="text-muted">Participacao: 0.5%</small>
-                </td>
-                <td data-label="CNPJ">12.345.678/0001-90</td>
-                <td data-label="Data Aquisicao">15/03/2024</td>
-                <td data-label="Valor Investido">R$ 5.000,00</td>
-                <td data-label="Situacao 31/12">R$ 5.000,00</td>
-              </tr>
-              <tr>
-                <td data-label="Empresa">
-                  <strong>EcoFood Delivery Ltda.</strong>
-                  <br><small class="text-muted">Participacao: 0.3%</small>
-                </td>
-                <td data-label="CNPJ">98.765.432/0001-10</td>
-                <td data-label="Data Aquisicao">10/06/2024</td>
-                <td data-label="Valor Investido">R$ 3.000,00</td>
-                <td data-label="Situacao 31/12">R$ 3.000,00</td>
-              </tr>
-              <tr>
-                <td data-label="Empresa">
-                  <strong>FinTech Solutions S.A.</strong>
-                  <br><small class="text-muted">Participacao: 1.2%</small>
-                </td>
-                <td data-label="CNPJ">11.222.333/0001-44</td>
-                <td data-label="Data Aquisicao">20/09/2024</td>
-                <td data-label="Valor Investido">R$ 10.000,00</td>
-                <td data-label="Situacao 31/12">R$ 10.000,00</td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr style="background: var(--bg);">
-                <td data-label="Total" colspan="3"><strong>Total</strong></td>
-                <td data-label="Total Investido"><strong>R$ 18.000,00</strong></td>
-                <td data-label="Total 31/12"><strong>R$ 18.000,00</strong></td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-
-        <div class="flex gap-10 mt-20">
-          <button class="btn btn-outline" onclick="showModal('copiadoModal')">
-            <i class="bi bi-clipboard"></i> Copiar Texto para Declaracao
-          </button>
-          <button class="btn btn-outline" onclick="showModal('downloadExcelModal')">
-            <i class="bi bi-file-earmark-excel"></i> Exportar Excel
-          </button>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Empresa</th>
+                  <th>CNPJ</th>
+                  <th>Data Aquisicao</th>
+                  <th>Valor Investido</th>
+                  <th>Situação Atual</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Empresa">
+                    <strong>TechStart Inovação S.A.</strong>
+                    <br><small class="text-muted">Participação: 0.5%</small>
+                  </td>
+                  <td data-label="CNPJ">12.345.678/0001-90</td>
+                  <td data-label="Data Aquisicao">15/03/2024</td>
+                  <td data-label="Valor Investido">R$ 5.000,00</td>
+                  <td data-label="Situação Atual">R$ 5.000,00</td>
+                </tr>
+                <tr>
+                  <td data-label="Empresa">
+                    <strong>EcoFood Delivery Ltda.</strong>
+                    <br><small class="text-muted">Participação: 0.3%</small>
+                  </td>
+                  <td data-label="CNPJ">98.765.432/0001-10</td>
+                  <td data-label="Data Aquisicao">10/06/2024</td>
+                  <td data-label="Valor Investido">R$ 3.000,00</td>
+                  <td data-label="Situação Atual">R$ 3.000,00</td>
+                </tr>
+                <tr>
+                  <td data-label="Empresa">
+                    <strong>FinTech Solutions S.A.</strong>
+                    <br><small class="text-muted">Participação: 1.2%</small>
+                  </td>
+                  <td data-label="CNPJ">11.222.333/0001-44</td>
+                  <td data-label="Data Aquisicao">20/09/2024</td>
+                  <td data-label="Valor Investido">R$ 10.000,00</td>
+                  <td data-label="Situação Atual">R$ 10.000,00</td>
+                </tr>
+                <tr>
+                  <td data-label="Empresa">
+                    <strong>HealthTech Brasil S.A.</strong>
+                    <br><small class="text-muted">Participação: 0.8%</small>
+                  </td>
+                  <td data-label="CNPJ">55.666.777/0001-88</td>
+                  <td data-label="Data Aquisicao">05/02/2025</td>
+                  <td data-label="Valor Investido">R$ 7.500,00</td>
+                  <td data-label="Situação Atual">R$ 7.500,00</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr style="background: var(--bg);">
+                  <td data-label="Total" colspan="3"><strong>Total</strong></td>
+                  <td data-label="Total Investido"><strong>R$ 25.500,00</strong></td>
+                  <td data-label="Total Atual"><strong>R$ 25.500,00</strong></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
         </div>
       </div>
 
-      <!-- Rendimentos Recebidos -->
-      <div class="card mb-20">
-        <div class="card-header">
-          <h3 class="card-title"><i class="bi bi-cash-coin"></i> Rendimentos Recebidos em 2024</h3>
-          <p class="text-muted">Detalhamento para ficha "Rendimentos Sujeitos a Tributacao Exclusiva"</p>
+      <!-- ============================================= -->
+      <!-- DADOS ANO 2024 -->
+      <!-- ============================================= -->
+      <div id="irData2024" class="ir-year-content" style="display: none;">
+        <div class="card mb-20">
+          <div class="card-header flex-between">
+            <div class="flex gap-15" style="align-items: center;">
+              <div style="width: 50px; height: 50px; background: #dcfce7; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                <i class="bi bi-file-earmark-check" style="font-size: 1.5rem; color: var(--success);"></i>
+              </div>
+              <div>
+                <h3 class="card-title">Informe de Rendimentos 2024</h3>
+                <p class="text-muted">Para declaração IRPF 2025</p>
+              </div>
+            </div>
+            <span class="badge badge-success"><i class="bi bi-check-circle"></i> Disponível</span>
+          </div>
+
+          <div class="grid-2 mt-20" style="gap: 20px;">
+            <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 5px;">Total de Rendimentos</p>
+              <strong style="font-size: 1.5rem;">R$ 3.250,00</strong>
+            </div>
+            <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 5px;">IRRF Retido</p>
+              <strong style="font-size: 1.5rem;">R$ 487,50</strong>
+            </div>
+          </div>
+
+          <div class="flex gap-10 mt-20">
+            <button class="btn btn-primary" onclick="showModal('visualizarInformeModal')">
+              <i class="bi bi-eye"></i> Visualizar Informe
+            </button>
+            <button class="btn btn-outline" onclick="showModal('downloadPdfModal')">
+              <i class="bi bi-download"></i> Baixar PDF
+            </button>
+          </div>
         </div>
 
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Tipo</th>
-                <th>Fonte Pagadora</th>
-                <th>CNPJ</th>
-                <th>Rendimento Bruto</th>
-                <th>IRRF</th>
-                <th>Rendimento Liquido</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label="Tipo"><span class="badge badge-success">Dividendos</span></td>
-                <td data-label="Fonte Pagadora">TechStart Inovacao S.A.</td>
-                <td data-label="CNPJ">12.345.678/0001-90</td>
-                <td data-label="Rendimento Bruto">R$ 1.500,00</td>
-                <td data-label="IRRF">R$ 225,00</td>
-                <td data-label="Rendimento Liquido">R$ 1.275,00</td>
-              </tr>
-              <tr>
-                <td data-label="Tipo"><span class="badge badge-info">Amortizacao</span></td>
-                <td data-label="Fonte Pagadora">EcoFood Delivery Ltda.</td>
-                <td data-label="CNPJ">98.765.432/0001-10</td>
-                <td data-label="Rendimento Bruto">R$ 750,00</td>
-                <td data-label="IRRF">R$ 112,50</td>
-                <td data-label="Rendimento Liquido">R$ 637,50</td>
-              </tr>
-              <tr>
-                <td data-label="Tipo"><span class="badge badge-success">Dividendos</span></td>
-                <td data-label="Fonte Pagadora">FinTech Solutions S.A.</td>
-                <td data-label="CNPJ">11.222.333/0001-44</td>
-                <td data-label="Rendimento Bruto">R$ 1.000,00</td>
-                <td data-label="IRRF">R$ 150,00</td>
-                <td data-label="Rendimento Liquido">R$ 850,00</td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr style="background: var(--bg);">
-                <td data-label="Total" colspan="3"><strong>Total</strong></td>
-                <td data-label="Total Bruto"><strong>R$ 3.250,00</strong></td>
-                <td data-label="Total IRRF"><strong>R$ 487,50</strong></td>
-                <td data-label="Total Liquido"><strong>R$ 2.762,50</strong></td>
-              </tr>
-            </tfoot>
-          </table>
+        <!-- Posição em Bens e Direitos 2024 -->
+        <div class="card mb-20">
+          <div class="card-header">
+            <h3 class="card-title"><i class="bi bi-briefcase"></i> Posição de Bens e Direitos (31/12/2024)</h3>
+            <p class="text-muted">Valores para declarar na ficha "Bens e Direitos"</p>
+          </div>
+
+          <div class="alert alert-info" style="margin: 15px 0;">
+            <strong>Como declarar:</strong> Investimentos em participações societárias via plataforma devem ser declarados na ficha "Bens e Direitos", grupo 03 (Participações Societárias), código 99 (Outras participações societárias).
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Empresa</th>
+                  <th>CNPJ</th>
+                  <th>Data Aquisicao</th>
+                  <th>Valor Investido</th>
+                  <th>Situação 31/12/2024</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Empresa">
+                    <strong>TechStart Inovação S.A.</strong>
+                    <br><small class="text-muted">Participação: 0.5%</small>
+                  </td>
+                  <td data-label="CNPJ">12.345.678/0001-90</td>
+                  <td data-label="Data Aquisicao">15/03/2024</td>
+                  <td data-label="Valor Investido">R$ 5.000,00</td>
+                  <td data-label="Situação 31/12">R$ 5.000,00</td>
+                </tr>
+                <tr>
+                  <td data-label="Empresa">
+                    <strong>EcoFood Delivery Ltda.</strong>
+                    <br><small class="text-muted">Participação: 0.3%</small>
+                  </td>
+                  <td data-label="CNPJ">98.765.432/0001-10</td>
+                  <td data-label="Data Aquisicao">10/06/2024</td>
+                  <td data-label="Valor Investido">R$ 3.000,00</td>
+                  <td data-label="Situação 31/12">R$ 3.000,00</td>
+                </tr>
+                <tr>
+                  <td data-label="Empresa">
+                    <strong>FinTech Solutions S.A.</strong>
+                    <br><small class="text-muted">Participação: 1.2%</small>
+                  </td>
+                  <td data-label="CNPJ">11.222.333/0001-44</td>
+                  <td data-label="Data Aquisicao">20/09/2024</td>
+                  <td data-label="Valor Investido">R$ 10.000,00</td>
+                  <td data-label="Situação 31/12">R$ 10.000,00</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr style="background: var(--bg);">
+                  <td data-label="Total" colspan="3"><strong>Total</strong></td>
+                  <td data-label="Total Investido"><strong>R$ 18.000,00</strong></td>
+                  <td data-label="Total 31/12"><strong>R$ 18.000,00</strong></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="flex gap-10 mt-20">
+            <button class="btn btn-outline" onclick="showModal('copiadoModal')">
+              <i class="bi bi-clipboard"></i> Copiar Texto para Declaração
+            </button>
+            <button class="btn btn-outline" onclick="showModal('downloadExcelModal')">
+              <i class="bi bi-file-earmark-excel"></i> Exportar Excel
+            </button>
+          </div>
+        </div>
+
+        <!-- Rendimentos Recebidos 2024 -->
+        <div class="card mb-20">
+          <div class="card-header">
+            <h3 class="card-title"><i class="bi bi-cash-coin"></i> Rendimentos Recebidos em 2024</h3>
+            <p class="text-muted">Detalhamento para ficha "Rendimentos Sujeitos a Tributação Exclusiva"</p>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tipo</th>
+                  <th>Fonte Pagadora</th>
+                  <th>CNPJ</th>
+                  <th>Rendimento Bruto</th>
+                  <th>IRRF</th>
+                  <th>Rendimento Liquido</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Tipo"><span class="badge badge-success">Dividendos</span></td>
+                  <td data-label="Fonte Pagadora">TechStart Inovação S.A.</td>
+                  <td data-label="CNPJ">12.345.678/0001-90</td>
+                  <td data-label="Rendimento Bruto">R$ 1.500,00</td>
+                  <td data-label="IRRF">R$ 225,00</td>
+                  <td data-label="Rendimento Liquido">R$ 1.275,00</td>
+                </tr>
+                <tr>
+                  <td data-label="Tipo"><span class="badge badge-info">Amortização</span></td>
+                  <td data-label="Fonte Pagadora">EcoFood Delivery Ltda.</td>
+                  <td data-label="CNPJ">98.765.432/0001-10</td>
+                  <td data-label="Rendimento Bruto">R$ 750,00</td>
+                  <td data-label="IRRF">R$ 112,50</td>
+                  <td data-label="Rendimento Liquido">R$ 637,50</td>
+                </tr>
+                <tr>
+                  <td data-label="Tipo"><span class="badge badge-success">Dividendos</span></td>
+                  <td data-label="Fonte Pagadora">FinTech Solutions S.A.</td>
+                  <td data-label="CNPJ">11.222.333/0001-44</td>
+                  <td data-label="Rendimento Bruto">R$ 1.000,00</td>
+                  <td data-label="IRRF">R$ 150,00</td>
+                  <td data-label="Rendimento Liquido">R$ 850,00</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr style="background: var(--bg);">
+                  <td data-label="Total" colspan="3"><strong>Total</strong></td>
+                  <td data-label="Total Bruto"><strong>R$ 3.250,00</strong></td>
+                  <td data-label="Total IRRF"><strong>R$ 487,50</strong></td>
+                  <td data-label="Total Liquido"><strong>R$ 2.762,50</strong></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================= -->
+      <!-- DADOS ANO 2023 -->
+      <!-- ============================================= -->
+      <div id="irData2023" class="ir-year-content" style="display: none;">
+        <div class="card mb-20">
+          <div class="card-header flex-between">
+            <div class="flex gap-15" style="align-items: center;">
+              <div style="width: 50px; height: 50px; background: #dcfce7; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                <i class="bi bi-file-earmark-check" style="font-size: 1.5rem; color: var(--success);"></i>
+              </div>
+              <div>
+                <h3 class="card-title">Informe de Rendimentos 2023</h3>
+                <p class="text-muted">Para declaração IRPF 2024</p>
+              </div>
+            </div>
+            <span class="badge badge-success"><i class="bi bi-check-circle"></i> Disponível</span>
+          </div>
+
+          <div class="grid-2 mt-20" style="gap: 20px;">
+            <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 5px;">Total de Rendimentos</p>
+              <strong style="font-size: 1.5rem;">R$ 1.875,00</strong>
+            </div>
+            <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 5px;">IRRF Retido</p>
+              <strong style="font-size: 1.5rem;">R$ 281,25</strong>
+            </div>
+          </div>
+
+          <div class="flex gap-10 mt-20">
+            <button class="btn btn-primary" onclick="showModal('visualizarInformeModal2023')">
+              <i class="bi bi-eye"></i> Visualizar Informe
+            </button>
+            <button class="btn btn-outline" onclick="showModal('downloadPdfModal')">
+              <i class="bi bi-download"></i> Baixar PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Posição em Bens e Direitos 2023 -->
+        <div class="card mb-20">
+          <div class="card-header">
+            <h3 class="card-title"><i class="bi bi-briefcase"></i> Posição de Bens e Direitos (31/12/2023)</h3>
+            <p class="text-muted">Valores para declarar na ficha "Bens e Direitos"</p>
+          </div>
+
+          <div class="alert alert-info" style="margin: 15px 0;">
+            <strong>Como declarar:</strong> Investimentos em participações societárias via plataforma devem ser declarados na ficha "Bens e Direitos", grupo 03 (Participações Societárias), código 99 (Outras participações societárias).
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Empresa</th>
+                  <th>CNPJ</th>
+                  <th>Data Aquisicao</th>
+                  <th>Valor Investido</th>
+                  <th>Situação 31/12/2023</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Empresa">
+                    <strong>GreenEnergy Sustentavel Ltda.</strong>
+                    <br><small class="text-muted">Participação: 0.4%</small>
+                  </td>
+                  <td data-label="CNPJ">33.444.555/0001-66</td>
+                  <td data-label="Data Aquisicao">20/05/2023</td>
+                  <td data-label="Valor Investido">R$ 4.000,00</td>
+                  <td data-label="Situação 31/12">R$ 4.000,00</td>
+                </tr>
+                <tr>
+                  <td data-label="Empresa">
+                    <strong>EdTech Aprendizado S.A.</strong>
+                    <br><small class="text-muted">Participação: 0.6%</small>
+                  </td>
+                  <td data-label="CNPJ">77.888.999/0001-22</td>
+                  <td data-label="Data Aquisicao">15/08/2023</td>
+                  <td data-label="Valor Investido">R$ 6.000,00</td>
+                  <td data-label="Situação 31/12">R$ 6.000,00</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr style="background: var(--bg);">
+                  <td data-label="Total" colspan="3"><strong>Total</strong></td>
+                  <td data-label="Total Investido"><strong>R$ 10.000,00</strong></td>
+                  <td data-label="Total 31/12"><strong>R$ 10.000,00</strong></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="flex gap-10 mt-20">
+            <button class="btn btn-outline" onclick="showModal('copiadoModal')">
+              <i class="bi bi-clipboard"></i> Copiar Texto para Declaração
+            </button>
+            <button class="btn btn-outline" onclick="showModal('downloadExcelModal')">
+              <i class="bi bi-file-earmark-excel"></i> Exportar Excel
+            </button>
+          </div>
+        </div>
+
+        <!-- Rendimentos Recebidos 2023 -->
+        <div class="card mb-20">
+          <div class="card-header">
+            <h3 class="card-title"><i class="bi bi-cash-coin"></i> Rendimentos Recebidos em 2023</h3>
+            <p class="text-muted">Detalhamento para ficha "Rendimentos Sujeitos a Tributação Exclusiva"</p>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tipo</th>
+                  <th>Fonte Pagadora</th>
+                  <th>CNPJ</th>
+                  <th>Rendimento Bruto</th>
+                  <th>IRRF</th>
+                  <th>Rendimento Liquido</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Tipo"><span class="badge badge-success">Dividendos</span></td>
+                  <td data-label="Fonte Pagadora">GreenEnergy Sustentavel Ltda.</td>
+                  <td data-label="CNPJ">33.444.555/0001-66</td>
+                  <td data-label="Rendimento Bruto">R$ 800,00</td>
+                  <td data-label="IRRF">R$ 120,00</td>
+                  <td data-label="Rendimento Liquido">R$ 680,00</td>
+                </tr>
+                <tr>
+                  <td data-label="Tipo"><span class="badge badge-success">Dividendos</span></td>
+                  <td data-label="Fonte Pagadora">EdTech Aprendizado S.A.</td>
+                  <td data-label="CNPJ">77.888.999/0001-22</td>
+                  <td data-label="Rendimento Bruto">R$ 1.075,00</td>
+                  <td data-label="IRRF">R$ 161,25</td>
+                  <td data-label="Rendimento Liquido">R$ 913,75</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr style="background: var(--bg);">
+                  <td data-label="Total" colspan="3"><strong>Total</strong></td>
+                  <td data-label="Total Bruto"><strong>R$ 1.875,00</strong></td>
+                  <td data-label="Total IRRF"><strong>R$ 281,25</strong></td>
+                  <td data-label="Total Liquido"><strong>R$ 1.593,75</strong></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================= -->
+      <!-- DADOS ANO 2022 -->
+      <!-- ============================================= -->
+      <div id="irData2022" class="ir-year-content" style="display: none;">
+        <div class="card mb-20">
+          <div class="card-header flex-between">
+            <div class="flex gap-15" style="align-items: center;">
+              <div style="width: 50px; height: 50px; background: #dcfce7; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                <i class="bi bi-file-earmark-check" style="font-size: 1.5rem; color: var(--success);"></i>
+              </div>
+              <div>
+                <h3 class="card-title">Informe de Rendimentos 2022</h3>
+                <p class="text-muted">Para declaração IRPF 2023</p>
+              </div>
+            </div>
+            <span class="badge badge-success"><i class="bi bi-check-circle"></i> Disponível</span>
+          </div>
+
+          <div class="grid-2 mt-20" style="gap: 20px;">
+            <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 5px;">Total de Rendimentos</p>
+              <strong style="font-size: 1.5rem;">R$ 950,00</strong>
+            </div>
+            <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 5px;">IRRF Retido</p>
+              <strong style="font-size: 1.5rem;">R$ 142,50</strong>
+            </div>
+          </div>
+
+          <div class="flex gap-10 mt-20">
+            <button class="btn btn-primary" onclick="showModal('visualizarInformeModal2022')">
+              <i class="bi bi-eye"></i> Visualizar Informe
+            </button>
+            <button class="btn btn-outline" onclick="showModal('downloadPdfModal')">
+              <i class="bi bi-download"></i> Baixar PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Posição em Bens e Direitos 2022 -->
+        <div class="card mb-20">
+          <div class="card-header">
+            <h3 class="card-title"><i class="bi bi-briefcase"></i> Posição de Bens e Direitos (31/12/2022)</h3>
+            <p class="text-muted">Valores para declarar na ficha "Bens e Direitos"</p>
+          </div>
+
+          <div class="alert alert-info" style="margin: 15px 0;">
+            <strong>Como declarar:</strong> Investimentos em participações societárias via plataforma devem ser declarados na ficha "Bens e Direitos", grupo 03 (Participações Societárias), código 99 (Outras participações societárias).
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Empresa</th>
+                  <th>CNPJ</th>
+                  <th>Data Aquisicao</th>
+                  <th>Valor Investido</th>
+                  <th>Situação 31/12/2022</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Empresa">
+                    <strong>LogiTech Transportes S.A.</strong>
+                    <br><small class="text-muted">Participação: 0.25%</small>
+                  </td>
+                  <td data-label="CNPJ">22.333.444/0001-55</td>
+                  <td data-label="Data Aquisicao">10/07/2022</td>
+                  <td data-label="Valor Investido">R$ 2.500,00</td>
+                  <td data-label="Situação 31/12">R$ 2.500,00</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr style="background: var(--bg);">
+                  <td data-label="Total" colspan="3"><strong>Total</strong></td>
+                  <td data-label="Total Investido"><strong>R$ 2.500,00</strong></td>
+                  <td data-label="Total 31/12"><strong>R$ 2.500,00</strong></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="flex gap-10 mt-20">
+            <button class="btn btn-outline" onclick="showModal('copiadoModal')">
+              <i class="bi bi-clipboard"></i> Copiar Texto para Declaração
+            </button>
+            <button class="btn btn-outline" onclick="showModal('downloadExcelModal')">
+              <i class="bi bi-file-earmark-excel"></i> Exportar Excel
+            </button>
+          </div>
+        </div>
+
+        <!-- Rendimentos Recebidos 2022 -->
+        <div class="card mb-20">
+          <div class="card-header">
+            <h3 class="card-title"><i class="bi bi-cash-coin"></i> Rendimentos Recebidos em 2022</h3>
+            <p class="text-muted">Detalhamento para ficha "Rendimentos Sujeitos a Tributação Exclusiva"</p>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tipo</th>
+                  <th>Fonte Pagadora</th>
+                  <th>CNPJ</th>
+                  <th>Rendimento Bruto</th>
+                  <th>IRRF</th>
+                  <th>Rendimento Liquido</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Tipo"><span class="badge badge-success">Dividendos</span></td>
+                  <td data-label="Fonte Pagadora">LogiTech Transportes S.A.</td>
+                  <td data-label="CNPJ">22.333.444/0001-55</td>
+                  <td data-label="Rendimento Bruto">R$ 950,00</td>
+                  <td data-label="IRRF">R$ 142,50</td>
+                  <td data-label="Rendimento Liquido">R$ 807,50</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr style="background: var(--bg);">
+                  <td data-label="Total" colspan="3"><strong>Total</strong></td>
+                  <td data-label="Total Bruto"><strong>R$ 950,00</strong></td>
+                  <td data-label="Total IRRF"><strong>R$ 142,50</strong></td>
+                  <td data-label="Total Liquido"><strong>R$ 807,50</strong></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================= -->
+      <!-- DADOS ANO 2021 -->
+      <!-- ============================================= -->
+      <div id="irData2021" class="ir-year-content" style="display: none;">
+        <div class="card mb-20">
+          <div class="card-header flex-between">
+            <div class="flex gap-15" style="align-items: center;">
+              <div style="width: 50px; height: 50px; background: #dcfce7; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                <i class="bi bi-file-earmark-check" style="font-size: 1.5rem; color: var(--success);"></i>
+              </div>
+              <div>
+                <h3 class="card-title">Informe de Rendimentos 2021</h3>
+                <p class="text-muted">Para declaração IRPF 2022</p>
+              </div>
+            </div>
+            <span class="badge badge-success"><i class="bi bi-check-circle"></i> Disponível</span>
+          </div>
+
+          <div class="grid-2 mt-20" style="gap: 20px;">
+            <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 5px;">Total de Rendimentos</p>
+              <strong style="font-size: 1.5rem;">R$ 850,00</strong>
+            </div>
+            <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 5px;">IRRF Retido</p>
+              <strong style="font-size: 1.5rem;">R$ 127,50</strong>
+            </div>
+          </div>
+
+          <div class="flex gap-10 mt-20">
+            <button class="btn btn-primary" onclick="showModal('visualizarInformeModal')">
+              <i class="bi bi-eye"></i> Visualizar Informe
+            </button>
+            <button class="btn btn-outline" onclick="showModal('downloadPdfModal')">
+              <i class="bi bi-download"></i> Baixar PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Posição em Bens e Direitos 2021 -->
+        <div class="card mb-20">
+          <div class="card-header">
+            <h3 class="card-title"><i class="bi bi-briefcase"></i> Posição de Bens e Direitos (31/12/2021)</h3>
+            <p class="text-muted">Valores para declarar na ficha "Bens e Direitos"</p>
+          </div>
+
+          <div class="alert alert-info" style="margin: 15px 0;">
+            <strong>Como declarar:</strong> Investimentos em participações societárias via plataforma devem ser declarados na ficha "Bens e Direitos", grupo 03 (Participações Societárias), código 99 (Outras participações societárias).
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Empresa</th>
+                  <th>CNPJ</th>
+                  <th>Data Aquisicao</th>
+                  <th>Valor Investido</th>
+                  <th>Situação 31/12/2021</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Empresa">
+                    <strong>Solar Energy Brasil S.A.</strong>
+                    <br><small class="text-muted">Participação: 0.8%</small>
+                  </td>
+                  <td data-label="CNPJ">33.444.555/0001-66</td>
+                  <td data-label="Data Aquisicao">10/05/2021</td>
+                  <td data-label="Valor Investido">R$ 4.000,00</td>
+                  <td data-label="Situação 31/12">R$ 4.000,00</td>
+                </tr>
+                <tr>
+                  <td data-label="Empresa">
+                    <strong>MedTech Saúde Ltda.</strong>
+                    <br><small class="text-muted">Participação: 0.5%</small>
+                  </td>
+                  <td data-label="CNPJ">77.888.999/0001-11</td>
+                  <td data-label="Data Aquisicao">25/08/2021</td>
+                  <td data-label="Valor Investido">R$ 2.500,00</td>
+                  <td data-label="Situação 31/12">R$ 2.500,00</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr style="background: var(--bg);">
+                  <td data-label="Total" colspan="3"><strong>Total</strong></td>
+                  <td data-label="Total Investido"><strong>R$ 6.500,00</strong></td>
+                  <td data-label="Total 31/12"><strong>R$ 6.500,00</strong></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="flex gap-10 mt-20">
+            <button class="btn btn-outline" onclick="showModal('copiadoModal')">
+              <i class="bi bi-clipboard"></i> Copiar Texto para Declaração
+            </button>
+            <button class="btn btn-outline" onclick="showModal('downloadExcelModal')">
+              <i class="bi bi-file-earmark-excel"></i> Exportar Excel
+            </button>
+          </div>
+        </div>
+
+        <!-- Rendimentos Recebidos 2021 -->
+        <div class="card mb-20">
+          <div class="card-header">
+            <h3 class="card-title"><i class="bi bi-cash-coin"></i> Rendimentos Recebidos em 2021</h3>
+            <p class="text-muted">Detalhamento para ficha "Rendimentos Sujeitos a Tributação Exclusiva"</p>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tipo</th>
+                  <th>Fonte Pagadora</th>
+                  <th>CNPJ</th>
+                  <th>Rendimento Bruto</th>
+                  <th>IRRF</th>
+                  <th>Rendimento Liquido</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Tipo"><span class="badge badge-success">Dividendos</span></td>
+                  <td data-label="Fonte Pagadora">Solar Energy Brasil S.A.</td>
+                  <td data-label="CNPJ">33.444.555/0001-66</td>
+                  <td data-label="Rendimento Bruto">R$ 600,00</td>
+                  <td data-label="IRRF">R$ 90,00</td>
+                  <td data-label="Rendimento Liquido">R$ 510,00</td>
+                </tr>
+                <tr>
+                  <td data-label="Tipo"><span class="badge badge-success">Dividendos</span></td>
+                  <td data-label="Fonte Pagadora">MedTech Saúde Ltda.</td>
+                  <td data-label="CNPJ">77.888.999/0001-11</td>
+                  <td data-label="Rendimento Bruto">R$ 250,00</td>
+                  <td data-label="IRRF">R$ 37,50</td>
+                  <td data-label="Rendimento Liquido">R$ 212,50</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr style="background: var(--bg);">
+                  <td data-label="Total" colspan="3"><strong>Total</strong></td>
+                  <td data-label="Bruto"><strong>R$ 850,00</strong></td>
+                  <td data-label="IRRF"><strong>R$ 127,50</strong></td>
+                  <td data-label="Liquido"><strong>R$ 722,50</strong></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
         </div>
       </div>
 
       <!-- FAQ -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><i class="bi bi-question-circle"></i> Duvidas Frequentes sobre IR</h3>
+          <h3 class="card-title"><i class="bi bi-question-circle"></i> Dúvidas Frequentes sobre IR</h3>
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 15px;">
           <details style="background: var(--bg); border-radius: var(--radius); padding: 15px;">
-            <summary style="cursor: pointer; font-weight: 600;">Como declarar investimentos em equity crowdfunding?</summary>
+            <summary style="cursor: pointer; font-weight: 600;">Como declarar investimentos em participações societárias via plataforma?</summary>
             <p class="text-muted" style="margin-top: 10px; padding-left: 15px;">
-              Os investimentos devem ser declarados na ficha "Bens e Direitos", grupo 03 (Participacoes Societarias), codigo 99 (Outras participacoes societarias). Informe o CNPJ da empresa, o valor investido e a participacao percentual adquirida.
+              Os investimentos devem ser declarados na ficha "Bens e Direitos", grupo 03 (Participações Societárias), código 99 (Outras participações societárias). Informe o CNPJ da empresa, o valor investido e a participação percentual adquirida.
             </p>
           </details>
 
           <details style="background: var(--bg); border-radius: var(--radius); padding: 15px;">
-            <summary style="cursor: pointer; font-weight: 600;">Os dividendos sao tributados?</summary>
+            <summary style="cursor: pointer; font-weight: 600;">Os dividendos são tributados?</summary>
             <p class="text-muted" style="margin-top: 10px; padding-left: 15px;">
-              Sim. Os dividendos e rendimentos de equity crowdfunding estao sujeitos a tributacao na fonte (15% para aplicacoes de ate 180 dias, 17,5% de 181 a 360 dias, e 15% acima de 360 dias). O IRRF ja e retido pela plataforma.
+              Sim. Os dividendos e rendimentos de participações societárias via plataforma estão sujeitos a tributação na fonte (15% para aplicações de até 180 dias, 17,5% de 181 a 360 dias, e 15% acima de 360 dias). O IRRF já é retido pela plataforma.
             </p>
           </details>
 
           <details style="background: var(--bg); border-radius: var(--radius); padding: 15px;">
-            <summary style="cursor: pointer; font-weight: 600;">Preciso declarar se nao recebi rendimentos?</summary>
+            <summary style="cursor: pointer; font-weight: 600;">Preciso declarar se não recebi rendimentos?</summary>
             <p class="text-muted" style="margin-top: 10px; padding-left: 15px;">
-              Sim. Mesmo que nao tenha recebido rendimentos, voce deve declarar a posicao dos seus investimentos na ficha de Bens e Direitos, informando o valor de custo de aquisicao.
+              Sim. Mesmo que não tenha recebido rendimentos, você deve declarar a posição dos seus investimentos na ficha de Bens e Direitos, informando o valor de custo de aquisicao.
             </p>
           </details>
 
           <details style="background: var(--bg); border-radius: var(--radius); padding: 15px;">
             <summary style="cursor: pointer; font-weight: 600;">E se a empresa falir ou eu perder o investimento?</summary>
             <p class="text-muted" style="margin-top: 10px; padding-left: 15px;">
-              Em caso de perda do investimento (falencia ou liquidacao da empresa), voce pode dar baixa no bem na declaracao e, em alguns casos, compensar a perda com ganhos de capital em outros investimentos. Consulte um contador para orientacao especifica.
+              Em caso de perda do investimento (falencia ou liquidação da empresa), você pode dar baixa no bem na declaração e, em alguns casos, compensar a perda com ganhos de capital em outros investimentos. Consulte um contador para orientação específica.
             </p>
           </details>
         </div>
 
         <div class="alert alert-warning mt-20">
-          <i class="bi bi-exclamation-triangle"></i> <strong>Importante:</strong> As informacoes acima sao apenas orientativas. Consulte sempre um contador ou profissional de sua confianca para orientacoes especificas sobre sua declaracao de IR.
+          <i class="bi bi-exclamation-triangle"></i>
+          <div>
+            <strong>Importante:</strong><br>
+            As informacoes acima sao apenas orientativas. Consulte sempre um contador ou profissional de sua confianca para orientacoes especificas sobre sua declaracao de IR.
+          </div>
         </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
@@ -322,7 +854,7 @@
         <div class="flex-between" style="margin-bottom: 20px;">
           <div>
             <strong style="font-size: 1.25rem;">CrowdInvest Plataforma de Investimentos Ltda.</strong>
-            <p class="text-muted">CNPJ: 00.000.000/0001-00</p>
+            <p class="text-muted">CNPJ: 43.413.213/0001-58</p>
           </div>
           <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Crect fill='%232563eb' width='60' height='60' rx='8'/%3E%3Ctext x='50%25' y='50%25' fill='white' text-anchor='middle' dy='.35em' font-family='Arial' font-size='24' font-weight='bold'%3ECI%3C/text%3E%3C/svg%3E" alt="Logo">
         </div>
@@ -342,7 +874,7 @@
         </div>
       </div>
 
-      <h4 style="margin-bottom: 15px;">Rendimentos Sujeitos a Tributacao Exclusiva</h4>
+      <h4 style="margin-bottom: 15px;">Rendimentos Sujeitos a Tributação Exclusiva</h4>
       <table style="width: 100%; margin-bottom: 20px;">
         <tr style="background: var(--bg);">
           <td style="padding: 10px;"><strong>Total de Rendimentos</strong></td>
@@ -358,7 +890,7 @@
         </tr>
       </table>
 
-      <div class="flex gap-10">
+      <div class="header-user-info">
         <button class="btn btn-primary" onclick="showModal('downloadPdfModal')">
           <i class="bi bi-download"></i> Baixar PDF
         </button>
@@ -376,7 +908,7 @@
       <div style="padding: 30px;">
         <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
         <h3 style="margin: 15px 0;">Download Iniciado</h3>
-        <p class="text-muted">O PDF esta sendo baixado para seu dispositivo.</p>
+        <p class="text-muted">O PDF está sendo baixado para seu dispositivo.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('downloadPdfModal')">OK</button>
       </div>
     </div>
@@ -388,7 +920,7 @@
       <div style="padding: 30px;">
         <i class="bi bi-clipboard-check" style="font-size: 3rem; color: var(--success);"></i>
         <h3 style="margin: 15px 0;">Texto Copiado!</h3>
-        <p class="text-muted">O texto foi copiado para a area de transferencia.</p>
+        <p class="text-muted">O texto foi copiado para a area de transferência.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('copiadoModal')">OK</button>
       </div>
     </div>
@@ -400,12 +932,58 @@
       <div style="padding: 30px;">
         <i class="bi bi-file-earmark-excel" style="font-size: 3rem; color: var(--success);"></i>
         <h3 style="margin: 15px 0;">Exportando Excel</h3>
-        <p class="text-muted">O arquivo Excel esta sendo gerado e baixado.</p>
+        <p class="text-muted">O arquivo Excel está sendo gerado e baixado.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('downloadExcelModal')">OK</button>
       </div>
     </div>
   </div>
 
   <script src="../../js/app.js"></script>
+  
+  <script>
+    // Função para alternar conteúdo do IR por ano
+    function changeIRYear(year) {
+      console.log('Mudando para ano:', year);
+
+      // Esconder todas as secoes de ano
+      var sections = document.querySelectorAll('.ir-year-content');
+      sections.forEach(function(section) {
+        section.style.display = 'none';
+      });
+
+      // Mostrar a seção do ano selecionado
+      var selectedSection = document.getElementById('irData' + year);
+      if (selectedSection) {
+        selectedSection.style.display = 'block';
+        console.log('Seção encontrada e exibida:', 'irData' + year);
+      } else {
+        console.error('Seção não encontrada:', 'irData' + year);
+      }
+
+      // Atualizar o seletor para refletir o ano atual
+      var selector = document.getElementById('irYearSelector');
+      if (selector) {
+        selector.value = year;
+      }
+    }
+
+    // Inicializar com o ano atual (2025) visível
+    document.addEventListener('DOMContentLoaded', function() {
+      changeIRYear('2025');
+
+      // Adicionar listener extra para garantir funcionamento
+      var selector = document.getElementById('irYearSelector');
+      if (selector) {
+        selector.addEventListener('change', function(e) {
+          changeIRYear(this.value);
+        });
+      }
+    });
+  </script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
 </body>
 </html>

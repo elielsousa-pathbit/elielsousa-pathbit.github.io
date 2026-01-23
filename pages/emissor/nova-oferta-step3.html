@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Oferta - Detalhes do Negocio - Portal Emissor - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .wizard-progress {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .wizard-progress::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--border);
+      z-index: 0;
+    }
+    .wizard-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+    }
+    .wizard-step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 3px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      transition: all 0.3s;
+    }
+    .wizard-step.active .wizard-step-number {
+      background: #7c3aed;
+      border-color: #7c3aed;
+      color: white;
+    }
+    .wizard-step.completed .wizard-step-number {
+      background: #10b981;
+      border-color: #10b981;
+      color: white;
+    }
+    .wizard-step-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    .wizard-step.active .wizard-step-label {
+      color: #7c3aed;
+      font-weight: 600;
+    }
+    .info-tooltip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      background: var(--bg);
+      border-radius: 50%;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      cursor: help;
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body class="theme-parceiro">
+  <div class="dashboard">
+    <div class="mobile-header">
+      <a href="dashboard.html" class="logo">Alba Invest</a>
+    </div>
+
+    <!-- Sidebar Emissor -->
+    <aside class="sidebar" style="background: linear-gradient(180deg, #5b21b6 0%, #7c3aed 100%);">
+      <div class="sidebar-logo">
+        <a href="dashboard.html" class="logo" style="color: white;">CrowdInvest</a>
+        <span class="badge" style="background: white; color: #7c3aed; margin-left: 10px;">Emissor</span>
+      </div>
+
+      <div style="padding: 15px 20px; background: rgba(255,255,255,0.1); margin: 10px 15px; border-radius: var(--radius);">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 40px; height: 40px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #7c3aed; font-weight: 700;">TS</div>
+          <div>
+            <div style="color: white; font-weight: 600; font-size: 0.9rem;">TechStart</div>
+            <div style="color: rgba(255,255,255,0.7); font-size: 0.75rem;">CNPJ: 12.345.678/0001-90</div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li><a href="nova-oferta.html" class="active"><i class="bi bi-plus-circle"></i> Nova Oferta</a></li>
+        <li><a href="investidores.html"><i class="bi bi-people"></i> Investidores</a></li>
+        <li><a href="pagamentos.html"><i class="bi bi-cash-stack"></i> Pagamentos</a></li>
+        <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="../login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
+
+      <div class="page-header">
+        <div class="flex gap-10" style="align-items: center;">
+          <a href="nova-oferta-step2.html" class="btn btn-outline btn-sm"><i class="bi bi-arrow-left"></i></a>
+          <div>
+            <h1 class="page-title">Legal! Me conta sobre o negocio.</h1>
+            <p class="text-muted">Detalhes sobre sua operacao e modelo de negocio</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wizard Progress -->
+      <div class="card mb-20" style="padding: 25px 30px;">
+        <div class="wizard-progress">
+          <div class="wizard-step completed">
+            <div class="wizard-step-number"><i class="bi bi-check"></i></div>
+            <div class="wizard-step-label">Setor</div>
+          </div>
+          <div class="wizard-step completed">
+            <div class="wizard-step-number"><i class="bi bi-check"></i></div>
+            <div class="wizard-step-label">Segmento</div>
+          </div>
+          <div class="wizard-step active">
+            <div class="wizard-step-number">3</div>
+            <div class="wizard-step-label">Negocio</div>
+          </div>
+          <div class="wizard-step">
+            <div class="wizard-step-number">4</div>
+            <div class="wizard-step-label">Financeiro</div>
+          </div>
+          <div class="wizard-step">
+            <div class="wizard-step-number">5</div>
+            <div class="wizard-step-label">Operacao</div>
+          </div>
+          <div class="wizard-step">
+            <div class="wizard-step-number">6</div>
+            <div class="wizard-step-label">Documentos</div>
+          </div>
+          <div class="wizard-step">
+            <div class="wizard-step-number">7</div>
+            <div class="wizard-step-label">Revisao</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resumo -->
+      <div class="alert" style="background: linear-gradient(135deg, #f5f3ff, #ede9fe); border: 1px solid #c4b5fd; margin-bottom: 20px;">
+        <i class="bi bi-cpu" style="color: #7c3aed;"></i>
+        <span><strong>Tecnologia</strong> > <strong>SaaS / Software como Servico</strong></span>
+      </div>
+
+      <!-- Step 3: Detalhes do Negocio -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title"><i class="bi bi-briefcase"></i> Detalhes do Negocio</h3>
+        </div>
+
+        <form id="negocioForm">
+          <div class="form-group">
+            <label class="form-label">Nome da Oferta / Projeto *</label>
+            <input type="text" class="form-input" placeholder="Ex: TechStart Inovacao - Serie A" value="TechStart Inovacao - Seed" required>
+            <small class="text-muted">Este sera o nome publico da sua oferta</small>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Descricao do Negocio *</label>
+            <textarea class="form-input" rows="4" placeholder="Descreva seu modelo de negocio, proposta de valor e diferenciais competitivos..." required>A TechStart desenvolve uma plataforma SaaS que ajuda startups a gerenciar todas suas operacoes em um unico lugar: metricas financeiras, relacionamento com investidores, cap table e documentos. Atendemos mais de 200 startups no Brasil e America Latina.</textarea>
+          </div>
+
+          <div class="grid-2" style="gap: 20px;">
+            <div class="form-group">
+              <label class="form-label">
+                Estagio do Negocio *
+                <span class="info-tooltip" title="Em qual fase de desenvolvimento esta sua empresa"><i class="bi bi-question"></i></span>
+              </label>
+              <select class="form-input" required>
+                <option value="">Selecione...</option>
+                <option value="ideacao">Ideacao / Pre-seed</option>
+                <option value="mvp">MVP / Validacao</option>
+                <option value="tracao" selected>Tracao Inicial</option>
+                <option value="crescimento">Crescimento</option>
+                <option value="escala">Escala</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">
+                Modelo de Receita *
+              </label>
+              <select class="form-input" required>
+                <option value="">Selecione...</option>
+                <option value="assinatura" selected>Assinatura Recorrente (MRR)</option>
+                <option value="transacao">Taxa por Transacao</option>
+                <option value="freemium">Freemium</option>
+                <option value="licenca">Licenca de Software</option>
+                <option value="servicos">Servicos Profissionais</option>
+                <option value="hibrido">Modelo Hibrido</option>
+              </select>
+            </div>
+          </div>
+
+          <hr style="margin: 25px 0; border: none; border-top: 1px solid var(--border);">
+          <h4 style="margin-bottom: 20px;"><i class="bi bi-graph-up-arrow"></i> Metricas do Negocio</h4>
+
+          <div class="grid-2" style="gap: 20px;">
+            <div class="form-group">
+              <label class="form-label">
+                MRR Atual (Receita Recorrente Mensal) *
+                <span class="info-tooltip" title="Receita mensal recorrente de assinaturas"><i class="bi bi-question"></i></span>
+              </label>
+              <input type="text" class="form-input" placeholder="R$ 0,00" value="R$ 85.000,00" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">
+                ARR (Receita Recorrente Anual)
+              </label>
+              <input type="text" class="form-input" value="R$ 1.020.000,00" readonly style="background: var(--bg);">
+              <small class="text-muted">Calculado automaticamente (MRR x 12)</small>
+            </div>
+          </div>
+
+          <div class="grid-3" style="gap: 20px;">
+            <div class="form-group">
+              <label class="form-label">
+                Clientes Ativos *
+              </label>
+              <input type="number" class="form-input" placeholder="0" value="215" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">
+                Churn Mensal (%)
+                <span class="info-tooltip" title="Percentual de clientes que cancelam por mes"><i class="bi bi-question"></i></span>
+              </label>
+              <input type="number" class="form-input" placeholder="0%" value="2.5" step="0.1">
+            </div>
+            <div class="form-group">
+              <label class="form-label">
+                LTV/CAC Ratio
+                <span class="info-tooltip" title="Relacao entre valor do cliente e custo de aquisicao"><i class="bi bi-question"></i></span>
+              </label>
+              <input type="number" class="form-input" placeholder="0" value="4.2" step="0.1">
+            </div>
+          </div>
+
+          <div class="grid-2" style="gap: 20px;">
+            <div class="form-group">
+              <label class="form-label">Crescimento MoM (%) *</label>
+              <input type="number" class="form-input" placeholder="0%" value="15" required>
+              <small class="text-muted">Crescimento mes a mes da receita</small>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Runway Atual (meses)</label>
+              <input type="number" class="form-input" placeholder="0" value="8">
+              <small class="text-muted">Meses de operacao com caixa atual</small>
+            </div>
+          </div>
+
+          <hr style="margin: 25px 0; border: none; border-top: 1px solid var(--border);">
+          <h4 style="margin-bottom: 20px;"><i class="bi bi-people"></i> Time</h4>
+
+          <div class="grid-3" style="gap: 20px;">
+            <div class="form-group">
+              <label class="form-label">Total de Funcionarios *</label>
+              <input type="number" class="form-input" placeholder="0" value="18" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Fundadores</label>
+              <input type="number" class="form-input" placeholder="0" value="3">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Time Tecnico</label>
+              <input type="number" class="form-input" placeholder="0" value="12">
+            </div>
+          </div>
+
+          <hr style="margin: 25px 0; border: none; border-top: 1px solid var(--border);">
+
+          <div class="flex-between">
+            <a href="nova-oferta-step2.html" class="btn btn-outline">
+              <i class="bi bi-arrow-left"></i> Voltar
+            </a>
+            <a href="nova-oferta-step4.html" class="btn btn-primary" style="background: linear-gradient(135deg, #7c3aed, #a78bfa);">
+              Continuar <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/app.js"></script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

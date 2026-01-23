@@ -3,44 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nova Oferta - Revisao - Parceiro - CrowdInvest</title>
+  <title>Nova Oferta - Revisão - Parceiro - CrowdInvest</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body class="theme-parceiro">
   <div class="dashboard">
     <div class="mobile-header">
-      <a href="../../index.html" class="logo">CrowdInvest</a>
+      <a href="dashboard.html" class="logo">Alba Invest</a>
     </div>
 
     <!-- Sidebar -->
     <aside class="sidebar sidebar-green">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo">CrowdInvest</a>
+        <a href="dashboard.html" class="logo">Alba Invest</a>
         <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
       </div>
-      <!-- Profile Switcher na Sidebar -->
-      <div class="sidebar-profile-switcher">
-        <div class="switcher-label">Visualizar como:</div>
-        <div class="switcher-buttons">
-          <button class="switcher-btn active" onclick="switchProfile('emissor', this)">
+      <!-- Profile Mode Card -->
+      <div class="profile-mode-card" id="profileModeCard">
+        <div class="profile-mode-current">
+          <div class="profile-mode-icon emissor" id="profileIcon">
+            <i class="bi bi-broadcast"></i>
+          </div>
+          <div class="profile-mode-info">
+            <div class="profile-mode-label">Visualizando como</div>
+            <div class="profile-mode-name" id="profileName">Emissor</div>
+          </div>
+          <span class="profile-mode-tag emissor" id="profileTag">
             <i class="bi bi-broadcast"></i> Emissor
-          </button>
-          <button class="switcher-btn" onclick="switchProfile('distribuidor', this)">
-            <i class="bi bi-diagram-3"></i> Distrib.
-          </button>
+          </span>
         </div>
+        <button class="profile-mode-switch-btn" onclick="showModal('selecionarPerfilModal')">
+          <i class="bi bi-arrow-left-right"></i> Trocar modo de acesso
+        </button>
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-        <li><a href="minhas-ofertas.html" class="active"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li class="hide-on-originador"><a href="minhas-ofertas.html" class="active"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponíveis</span></a></li>
         <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
-        <li><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
-        <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="hide-on-originador"><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
+        <li class="hide-on-originador"><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
+        <li class="originador-content" style="display:none;"><a href="meus-emissores.html"><i class="bi bi-building"></i> Meus Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="comissoes-originador.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -54,7 +63,7 @@
         <div class="flex gap-10" style="align-items: center;">
           <a href="nova-oferta-step3.html" class="btn btn-outline btn-sm"><i class="bi bi-arrow-left"></i></a>
           <div>
-            <h1 class="page-title">Nova Oferta de Captacao</h1>
+            <h1 class="page-title">Nova Oferta de Captação</h1>
             <p class="text-muted">Revise os dados antes de submeter</p>
           </div>
         </div>
@@ -76,13 +85,17 @@
         </div>
         <div class="step active">
           <div class="step-number">4</div>
-          <div class="step-label">Revisao</div>
+          <div class="step-label">Revisão</div>
         </div>
       </div>
 
       <!-- Alert Info -->
       <div class="alert alert-info mb-20">
-        <i class="bi bi-info-circle"></i> <strong>Importante:</strong> Apos submeter, sua oferta sera analisada pela equipe da plataforma em ate 5 dias uteis. Voce sera notificado por e-mail sobre o resultado.
+        <i class="bi bi-info-circle"></i>
+        <div>
+          <strong>Importante:</strong><br>
+          Apos submeter, sua oferta sera analisada pela equipe da plataforma em ate 5 dias uteis. Voce sera notificado por e-mail sobre o resultado.
+        </div>
       </div>
 
       <!-- Resumo da Empresa -->
@@ -94,7 +107,7 @@
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
           <div>
             <p class="text-muted" style="font-size: 0.75rem;">Razao Social</p>
-            <p><strong>TechStart Inovacao LTDA</strong></p>
+            <p><strong>TechStart Inovação LTDA</strong></p>
           </div>
           <div>
             <p class="text-muted" style="font-size: 0.75rem;">CNPJ</p>
@@ -105,12 +118,12 @@
             <p><strong>Tecnologia / SaaS</strong></p>
           </div>
           <div>
-            <p class="text-muted" style="font-size: 0.75rem;">Fundacao</p>
+            <p class="text-muted" style="font-size: 0.75rem;">Fundação</p>
             <p><strong>2021</strong></p>
           </div>
           <div>
             <p class="text-muted" style="font-size: 0.75rem;">Cidade/UF</p>
-            <p><strong>Sao Paulo/SP</strong></p>
+            <p><strong>São Paulo/SP</strong></p>
           </div>
           <div>
             <p class="text-muted" style="font-size: 0.75rem;">Funcionarios</p>
@@ -118,8 +131,8 @@
           </div>
         </div>
         <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border);">
-          <p class="text-muted" style="font-size: 0.75rem;">Descricao</p>
-          <p>A TechStart Inovacao e uma empresa de tecnologia focada em solucoes SaaS para gestao de startups. Nossa plataforma ajuda empreendedores a gerenciar suas operacoes, metricas e relacionamento com investidores de forma integrada.</p>
+          <p class="text-muted" style="font-size: 0.75rem;">Descrição</p>
+          <p>A TechStart Inovação é uma empresa de tecnologia focada em soluções SaaS para gestão de startups. Nossa plataforma ajuda empreendedores a gerenciar suas operações, métricas e relacionamento com investidores de forma integrada.</p>
         </div>
       </div>
 
@@ -134,7 +147,7 @@
             <h4 style="margin-bottom: 15px; color: var(--text-muted);">Valores</h4>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
               <div>
-                <p class="text-muted" style="font-size: 0.75rem;">Meta de Captacao</p>
+                <p class="text-muted" style="font-size: 0.75rem;">Meta de Captação</p>
                 <p><strong style="color: var(--success); font-size: 1.25rem;">R$ 500.000,00</strong></p>
               </div>
               <div>
@@ -142,17 +155,17 @@
                 <p><strong>R$ 300.000,00</strong></p>
               </div>
               <div>
-                <p class="text-muted" style="font-size: 0.75rem;">Investimento Minimo</p>
+                <p class="text-muted" style="font-size: 0.75rem;">Investimento Mínimo</p>
                 <p><strong>R$ 1.000,00</strong></p>
               </div>
               <div>
-                <p class="text-muted" style="font-size: 0.75rem;">Investimento Maximo</p>
+                <p class="text-muted" style="font-size: 0.75rem;">Investimento Máximo</p>
                 <p><strong>R$ 20.000,00</strong></p>
               </div>
             </div>
           </div>
           <div>
-            <h4 style="margin-bottom: 15px; color: var(--text-muted);">Participacao</h4>
+            <h4 style="margin-bottom: 15px; color: var(--text-muted);">Participação</h4>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
               <div>
                 <p class="text-muted" style="font-size: 0.75rem;">Equity Ofertado</p>
@@ -163,8 +176,8 @@
                 <p><strong>R$ 3.333.333,33</strong></p>
               </div>
               <div>
-                <p class="text-muted" style="font-size: 0.75rem;">Tipo de Titulo</p>
-                <p><strong>Participacao Societaria</strong></p>
+                <p class="text-muted" style="font-size: 0.75rem;">Tipo de Título</p>
+                <p><strong>Participação Societária</strong></p>
               </div>
               <div>
                 <p class="text-muted" style="font-size: 0.75rem;">Direitos</p>
@@ -176,17 +189,17 @@
         <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border);">
           <div class="grid-2" style="gap: 15px;">
             <div>
-              <p class="text-muted" style="font-size: 0.75rem;">Periodo da Oferta</p>
+              <p class="text-muted" style="font-size: 0.75rem;">Período da Oferta</p>
               <p><strong>01/02/2026 a 01/04/2026</strong> (60 dias)</p>
             </div>
           </div>
         </div>
         <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border);">
-          <p class="text-muted" style="font-size: 0.75rem;">Destinacao dos Recursos</p>
+          <p class="text-muted" style="font-size: 0.75rem;">Destinação dos Recursos</p>
           <ul style="margin: 10px 0 0 20px; color: var(--text);">
             <li>40% Desenvolvimento de produto e tecnologia</li>
             <li>30% Marketing e aquisicao de clientes</li>
-            <li>20% Contratacao de equipe</li>
+            <li>20% Contratação de equipe</li>
             <li>10% Capital de giro e reserva</li>
           </ul>
         </div>
@@ -223,7 +236,7 @@
             <div class="flex gap-10" style="align-items: center;">
               <i class="bi bi-file-earmark-excel" style="font-size: 1.25rem; color: #217346;"></i>
               <div>
-                <p style="font-weight: 500;">Demonstracoes Financeiras</p>
+                <p style="font-weight: 500;">Demonstrações Financeiras</p>
                 <small class="text-muted">DRE_Balanco_2023_2024.xlsx</small>
               </div>
             </div>
@@ -244,47 +257,47 @@
               <i class="bi bi-file-earmark-check" style="font-size: 1.25rem; color: var(--primary);"></i>
               <div>
                 <p style="font-weight: 500;">Termos de Investimento</p>
-                <small class="text-muted">Modelo padrao da plataforma</small>
+                <small class="text-muted">Modelo padrão da plataforma</small>
               </div>
             </div>
-            <span class="badge badge-info"><i class="bi bi-info-circle"></i> Padrao</span>
+            <span class="badge badge-info"><i class="bi bi-info-circle"></i> Padrão</span>
           </div>
         </div>
       </div>
 
-      <!-- Termos e Condicoes -->
+      <!-- Termos e Condições -->
       <div class="card mb-20">
         <div class="card-header">
-          <h3 class="card-title"><i class="bi bi-file-earmark-check"></i> Termos e Condicoes</h3>
+          <h3 class="card-title"><i class="bi bi-file-earmark-check"></i> Termos e Condições</h3>
         </div>
         <div style="max-height: 200px; overflow-y: auto; padding: 15px; background: var(--bg); border-radius: var(--radius); font-size: 0.875rem; margin-bottom: 20px;">
           <p><strong>TERMOS DE SUBMISSAO DE OFERTA - CROWDINVEST</strong></p>
           <p style="margin-top: 10px;">Ao submeter esta oferta, declaro que:</p>
           <ul style="margin: 10px 0 0 20px;">
-            <li>Todas as informacoes fornecidas sao verdadeiras e completas;</li>
-            <li>Tenho autorizacao para representar a empresa nesta operacao;</li>
-            <li>A empresa esta em conformidade com a RCVM 88/2022;</li>
-            <li>Concordo com os termos de uso e politica de privacidade da plataforma;</li>
-            <li>Estou ciente que a oferta sera analisada e pode ser rejeitada;</li>
+            <li>Todas as informações fornecidas são verdadeiras e completas;</li>
+            <li>Tenho autorização para representar a empresa nesta operação;</li>
+            <li>A empresa está em conformidade com a RCVM 88/2022;</li>
+            <li>Concordo com os termos de uso e política de privacidade da plataforma;</li>
+            <li>Estou ciente que a oferta será analisada e pode ser rejeitada;</li>
             <li>Autorizo a plataforma a realizar due diligence na empresa;</li>
             <li>Comprometo-me a manter os investidores informados sobre o andamento da empresa;</li>
-            <li>Estou ciente das obrigacoes de prestacao de contas previstas na regulamentacao.</li>
+            <li>Estou ciente das obrigações de prestação de contas previstas na regulamentação.</li>
           </ul>
         </div>
         <div class="form-group">
           <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
             <input type="checkbox" style="margin-top: 4px;" required>
-            <span>Li e concordo com os Termos e Condicoes acima e com a <a href="#" style="color: var(--primary);">Politica de Privacidade</a> da plataforma.</span>
+            <span>Li e concordo com os Termos e Condições acima e com a <a href="#" style="color: var(--primary);">Política de Privacidade</a> da plataforma.</span>
           </label>
         </div>
       </div>
 
-      <!-- Acoes -->
+      <!-- Ações -->
       <div class="card" style="background: linear-gradient(135deg, #059669, #047857); color: white;">
         <div class="text-center" style="padding: 20px;">
           <i class="bi bi-rocket-takeoff" style="font-size: 3rem; margin-bottom: 15px;"></i>
           <h3 style="margin-bottom: 10px;">Pronto para submeter sua oferta?</h3>
-          <p style="opacity: 0.9; margin-bottom: 20px;">Sua oferta sera analisada em ate 5 dias uteis. Voce recebera uma notificacao por e-mail.</p>
+          <p style="opacity: 0.9; margin-bottom: 20px;">Sua oferta será analisada em até 5 dias úteis. Você receberá uma notificação por e-mail.</p>
           <div class="flex gap-15" style="justify-content: center;">
             <a href="nova-oferta-step3.html" class="btn" style="background: rgba(255,255,255,0.2); color: white;">
               <i class="bi bi-arrow-left"></i> Voltar
@@ -302,13 +315,13 @@
           <i class="bi bi-save"></i> Salvar como Rascunho
         </button>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
@@ -326,13 +339,13 @@
     </div>
   </div>
 
-  <!-- Modal Termos Obrigatorios -->
+  <!-- Modal Termos Obrigatórios -->
   <div class="modal-overlay" id="termosObrigatoriosModal" style="display: none;">
     <div class="modal text-center" style="max-width: 400px;">
       <div style="padding: 30px;">
         <i class="bi bi-exclamation-triangle" style="font-size: 3rem; color: var(--warning);"></i>
-        <h3 style="margin: 15px 0;">Atencao</h3>
-        <p class="text-muted">Voce precisa aceitar os Termos e Condicoes para continuar.</p>
+        <h3 style="margin: 15px 0;">Atenção</h3>
+        <p class="text-muted">Você precisa aceitar os Termos e Condições para continuar.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('termosObrigatoriosModal')">OK</button>
       </div>
     </div>
@@ -344,7 +357,7 @@
       <div style="padding: 30px;">
         <i class="bi bi-question-circle" style="font-size: 3rem; color: var(--primary);"></i>
         <h3 style="margin: 15px 0;">Confirmar Submissao</h3>
-        <p class="text-muted">Tem certeza que deseja submeter a oferta para analise?</p>
+        <p class="text-muted">Tem certeza que deseja submeter a oferta para análise?</p>
         <div class="flex gap-10 mt-20" style="justify-content: center;">
           <button class="btn btn-outline" onclick="hideModal('confirmarSubmissaoModal')">Cancelar</button>
           <button class="btn btn-primary" onclick="confirmarSubmissao()">Confirmar</button>
@@ -359,13 +372,14 @@
       <div style="padding: 30px;">
         <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
         <h3 style="margin: 15px 0;">Oferta Submetida</h3>
-        <p class="text-muted">Oferta submetida com sucesso! Voce sera redirecionado para a pagina de acompanhamento.</p>
+        <p class="text-muted">Oferta submetida com sucesso! Você será redirecionado para a página de acompanhamento.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('ofertaSubmetidaModal'); window.location.href='oferta-detalhe.html';">OK</button>
       </div>
     </div>
   </div>
 
   <script src="../../js/app.js"></script>
+  
   <script>
     function submeterOferta() {
       if (!document.querySelector('input[type="checkbox"]').checked) {
@@ -380,5 +394,10 @@
       showModal('ofertaSubmetidaModal');
     }
   </script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
 </body>
 </html>

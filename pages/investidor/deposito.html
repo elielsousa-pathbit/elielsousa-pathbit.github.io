@@ -10,13 +10,13 @@
 <body class="theme-investidor">
   <div class="dashboard">
     <div class="mobile-header">
-      <a href="../../index.html" class="logo">CrowdInvest</a>
+      <a href="dashboard.html" class="logo">Alba Invest</a>
     </div>
 
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo">CrowdInvest</a>
+        <a href="dashboard.html" class="logo">Alba Invest</a>
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
@@ -26,7 +26,7 @@
         <li><a href="extrato.html"><i class="bi bi-list-ul"></i> Extrato</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -58,10 +58,10 @@
       </div>
 
       <div class="grid-2" style="gap: 30px;">
-        <!-- Formulario de Deposito -->
+        <!-- Formulário de Depósito -->
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title"><i class="bi bi-plus-circle"></i> Valor do Deposito</h3>
+            <h3 class="card-title"><i class="bi bi-plus-circle"></i> Valor do Depósito</h3>
           </div>
           <form id="depositoForm">
             <div class="form-group">
@@ -85,14 +85,14 @@
               <h3 class="card-title"><i class="bi bi-credit-card"></i> Forma de Pagamento</h3>
             </div>
 
-            <!-- Opcoes de Pagamento -->
+            <!-- Opções de Pagamento -->
             <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
               <label class="method-option selected" onclick="selectMethod(this, 'pix')">
                 <input type="radio" name="metodo" value="pix" checked>
                 <span class="method-icon" style="background: #00a896;"><i class="bi bi-qr-code"></i></span>
                 <div class="method-info" style="flex: 1;">
                   <h4>PIX</h4>
-                  <p class="text-muted">Instantaneo - Disponivel 24/7</p>
+                  <p class="text-muted">Instantaneo - Disponível 24/7</p>
                 </div>
                 <span class="badge badge-success">Recomendado</span>
               </label>
@@ -102,7 +102,7 @@
                 <span class="method-icon" style="background: #6366f1;"><i class="bi bi-bank"></i></span>
                 <div class="method-info" style="flex: 1;">
                   <h4>TED/DOC</h4>
-                  <p class="text-muted">Compensacao em ate 1 dia util</p>
+                  <p class="text-muted">Compensação em até 1 dia util</p>
                 </div>
               </label>
 
@@ -110,8 +110,8 @@
                 <input type="radio" name="metodo" value="boleto">
                 <span class="method-icon" style="background: #64748b;"><i class="bi bi-upc-scan"></i></span>
                 <div class="method-info" style="flex: 1;">
-                  <h4>Boleto Bancario</h4>
-                  <p class="text-muted">Compensacao em ate 3 dias uteis</p>
+                  <h4>Boleto Bancário</h4>
+                  <p class="text-muted">Compensação em até 3 dias úteis</p>
                 </div>
               </label>
             </div>
@@ -127,7 +127,7 @@
           </form>
         </div>
 
-        <!-- Informacoes -->
+        <!-- Informações -->
         <div>
           <!-- Resumo -->
           <div class="card mb-20">
@@ -136,7 +136,7 @@
             </div>
             <div style="display: flex; flex-direction: column; gap: 12px;">
               <div class="flex-between">
-                <span>Valor do deposito</span>
+                <span>Valor do depósito</span>
                 <strong>R$ 1.000,00</strong>
               </div>
               <div class="flex-between">
@@ -145,41 +145,41 @@
               </div>
               <hr style="margin: 5px 0; border: none; border-top: 1px solid var(--border);">
               <div class="flex-between">
-                <strong>Saldo apos deposito</strong>
+                <strong>Saldo após depósito</strong>
                 <strong style="color: var(--success); font-size: 1.25rem;">R$ 3.350,00</strong>
               </div>
             </div>
           </div>
 
-          <!-- Informacoes Importantes -->
+          <!-- Informações Importantes -->
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title"><i class="bi bi-info-circle"></i> Informacoes Importantes</h3>
+              <h3 class="card-title"><i class="bi bi-info-circle"></i> Informações Importantes</h3>
             </div>
             <div style="display: flex; flex-direction: column; gap: 15px; font-size: 0.875rem;">
-              <div class="flex gap-10">
+              <div class="header-user-info">
                 <i class="bi bi-check-circle" style="color: var(--success);"></i>
-                <span>Depositos via PIX sao creditados instantaneamente</span>
+                <span>Depósitos via PIX são creditados instantaneamente</span>
               </div>
-              <div class="flex gap-10">
+              <div class="header-user-info">
                 <i class="bi bi-check-circle" style="color: var(--success);"></i>
-                <span>Nao ha limite maximo para depositos</span>
+                <span>Não ha limite máximo para depósitos</span>
               </div>
-              <div class="flex gap-10">
+              <div class="header-user-info">
                 <i class="bi bi-check-circle" style="color: var(--success);"></i>
-                <span>Seu saldo rende 100% do CDI enquanto nao investido</span>
+                <span>Seu saldo rende 100% do CDI enquanto não investido</span>
               </div>
-              <div class="flex gap-10">
+              <div class="header-user-info">
                 <i class="bi bi-shield-check" style="color: var(--primary);"></i>
                 <span>Recursos mantidos em conta escrow segregada</span>
               </div>
             </div>
           </div>
 
-          <!-- Ultimos Depositos -->
+          <!-- Últimos Depósitos -->
           <div class="card mt-20">
             <div class="card-header">
-              <h3 class="card-title"><i class="bi bi-clock-history"></i> Ultimos Depositos</h3>
+              <h3 class="card-title"><i class="bi bi-clock-history"></i> Últimos Depósitos</h3>
             </div>
             <div style="display: flex; flex-direction: column; gap: 12px;">
               <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius);">
@@ -200,19 +200,20 @@
           </div>
         </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
   </div>
 
   <script src="../../js/app.js"></script>
+  
   <script>
     function setValor(valor) {
       document.getElementById('valorDeposito').value = valor.toLocaleString('pt-BR', {minimumFractionDigits: 2});
@@ -268,5 +269,10 @@
       font-size: 0.875rem;
     }
   </style>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
 </body>
 </html>

@@ -10,37 +10,46 @@
 <body class="theme-parceiro">
   <div class="dashboard">
     <div class="mobile-header">
-      <a href="../../index.html" class="logo">CrowdInvest</a>
+      <a href="dashboard.html" class="logo">Alba Invest</a>
     </div>
 
     <!-- Sidebar -->
     <aside class="sidebar sidebar-green">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo">CrowdInvest</a>
+        <a href="dashboard.html" class="logo">Alba Invest</a>
         <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
       </div>
-      <!-- Profile Switcher na Sidebar -->
-      <div class="sidebar-profile-switcher">
-        <div class="switcher-label">Visualizar como:</div>
-        <div class="switcher-buttons">
-          <button class="switcher-btn active" onclick="switchProfile('emissor', this)">
+      <!-- Profile Mode Card -->
+      <div class="profile-mode-card" id="profileModeCard">
+        <div class="profile-mode-current">
+          <div class="profile-mode-icon emissor" id="profileIcon">
+            <i class="bi bi-broadcast"></i>
+          </div>
+          <div class="profile-mode-info">
+            <div class="profile-mode-label">Visualizando como</div>
+            <div class="profile-mode-name" id="profileName">Emissor</div>
+          </div>
+          <span class="profile-mode-tag emissor" id="profileTag">
             <i class="bi bi-broadcast"></i> Emissor
-          </button>
-          <button class="switcher-btn" onclick="switchProfile('distribuidor', this)">
-            <i class="bi bi-diagram-3"></i> Distrib.
-          </button>
+          </span>
         </div>
+        <button class="profile-mode-switch-btn" onclick="showModal('selecionarPerfilModal')">
+          <i class="bi bi-arrow-left-right"></i> Trocar modo de acesso
+        </button>
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-        <li><a href="minhas-ofertas.html" class="active"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li class="hide-on-originador"><a href="minhas-ofertas.html" class="active"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponíveis</span></a></li>
         <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
-        <li><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
-        <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="hide-on-originador"><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
+        <li class="hide-on-originador"><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
+        <li class="originador-content" style="display:none;"><a href="meus-emissores.html"><i class="bi bi-building"></i> Meus Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="comissoes-originador.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -54,8 +63,8 @@
         <div class="flex gap-10" style="align-items: center;">
           <a href="nova-oferta-step2.html" class="btn btn-outline btn-sm"><i class="bi bi-arrow-left"></i></a>
           <div>
-            <h1 class="page-title">Nova Oferta de Captacao</h1>
-            <p class="text-muted">Envie os documentos obrigatorios</p>
+            <h1 class="page-title">Nova Oferta de Captação</h1>
+            <p class="text-muted">Envie os documentos obrigatórios</p>
           </div>
         </div>
       </div>
@@ -76,19 +85,23 @@
         </div>
         <div class="step">
           <div class="step-number">4</div>
-          <div class="step-label">Revisao</div>
+          <div class="step-label">Revisão</div>
         </div>
       </div>
 
       <!-- Alert Info -->
       <div class="alert alert-info mb-20">
-        <i class="bi bi-info-circle"></i> <strong>RCVM 88/2022:</strong> Todos os documentos marcados com (*) sao obrigatorios para submissao da oferta. Formatos aceitos: PDF, DOC, DOCX, XLS, XLSX (max 10MB cada).
+        <i class="bi bi-info-circle"></i>
+        <div>
+          <strong>RCVM 88/2022:</strong><br>
+          Todos os documentos marcados com (*) sao obrigatorios para submissao da oferta. Formatos aceitos: PDF, DOC, DOCX, XLS, XLSX (max 10MB cada).
+        </div>
       </div>
 
       <!-- Form Step 3 -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><i class="bi bi-folder"></i> Documentos Obrigatorios</h3>
+          <h3 class="card-title"><i class="bi bi-folder"></i> Documentos Obrigatórios</h3>
         </div>
 
         <form id="novaOfertaStep3">
@@ -99,9 +112,9 @@
               <div class="flex-between" style="align-items: flex-start;">
                 <div>
                   <h4><i class="bi bi-file-earmark-slides" style="color: var(--primary);"></i> Pitch Deck *</h4>
-                  <p class="text-muted" style="font-size: 0.875rem; margin-top: 5px;">Apresentacao do negocio com modelo, mercado, equipe e projecoes</p>
+                  <p class="text-muted" style="font-size: 0.875rem; margin-top: 5px;">Apresentação do negócio com modelo, mercado, equipe e projecoes</p>
                 </div>
-                <div class="flex gap-10">
+                <div class="header-user-info">
                   <span class="badge badge-success"><i class="bi bi-check-circle"></i> Enviado</span>
                   <button type="button" class="btn btn-outline btn-sm" onclick="showModal('substituirArquivoModal')"><i class="bi bi-upload"></i> Substituir</button>
                 </div>
@@ -121,9 +134,9 @@
               <div class="flex-between" style="align-items: flex-start;">
                 <div>
                   <h4><i class="bi bi-file-earmark-text" style="color: var(--primary);"></i> Contrato Social / Estatuto *</h4>
-                  <p class="text-muted" style="font-size: 0.875rem; margin-top: 5px;">Ultima versao consolidada do contrato social ou estatuto</p>
+                  <p class="text-muted" style="font-size: 0.875rem; margin-top: 5px;">Última versão consolidada do contrato social ou estatuto</p>
                 </div>
-                <div class="flex gap-10">
+                <div class="header-user-info">
                   <span class="badge badge-success"><i class="bi bi-check-circle"></i> Enviado</span>
                   <button type="button" class="btn btn-outline btn-sm" onclick="showModal('substituirArquivoModal')"><i class="bi bi-upload"></i> Substituir</button>
                 </div>
@@ -138,14 +151,14 @@
               </div>
             </div>
 
-            <!-- Demonstracoes Financeiras -->
+            <!-- Demonstrações Financeiras -->
             <div class="upload-item" style="padding: 20px; background: var(--bg); border-radius: var(--radius); border: 2px dashed var(--warning);">
               <div class="flex-between" style="align-items: flex-start;">
                 <div>
-                  <h4><i class="bi bi-file-earmark-spreadsheet" style="color: var(--warning);"></i> Demonstracoes Financeiras *</h4>
-                  <p class="text-muted" style="font-size: 0.875rem; margin-top: 5px;">DRE, Balanco Patrimonial e Fluxo de Caixa dos ultimos 2 anos</p>
+                  <h4><i class="bi bi-file-earmark-spreadsheet" style="color: var(--warning);"></i> Demonstrações Financeiras *</h4>
+                  <p class="text-muted" style="font-size: 0.875rem; margin-top: 5px;">DRE, Balanco Patrimonial e Fluxo de Caixa dos últimos 2 anos</p>
                 </div>
-                <div class="flex gap-10">
+                <div class="header-user-info">
                   <span class="badge badge-warning"><i class="bi bi-clock"></i> Pendente</span>
                 </div>
               </div>
@@ -161,9 +174,9 @@
               <div class="flex-between" style="align-items: flex-start;">
                 <div>
                   <h4><i class="bi bi-people" style="color: var(--warning);"></i> Quadro Societario *</h4>
-                  <p class="text-muted" style="font-size: 0.875rem; margin-top: 5px;">Composicao societaria atual com CPF/CNPJ dos socios</p>
+                  <p class="text-muted" style="font-size: 0.875rem; margin-top: 5px;">Composição societária atual com CPF/CNPJ dos socios</p>
                 </div>
-                <div class="flex gap-10">
+                <div class="header-user-info">
                   <span class="badge badge-warning"><i class="bi bi-clock"></i> Pendente</span>
                 </div>
               </div>
@@ -179,15 +192,15 @@
               <div class="flex-between" style="align-items: flex-start;">
                 <div>
                   <h4><i class="bi bi-file-earmark-check" style="color: var(--success);"></i> Termos de Investimento *</h4>
-                  <p class="text-muted" style="font-size: 0.875rem; margin-top: 5px;">Contrato padrao que sera assinado pelos investidores</p>
+                  <p class="text-muted" style="font-size: 0.875rem; margin-top: 5px;">Contrato padrão que será assinado pelos investidores</p>
                 </div>
-                <div class="flex gap-10">
-                  <span class="badge badge-info"><i class="bi bi-info-circle"></i> Modelo Disponivel</span>
+                <div class="header-user-info">
+                  <span class="badge badge-info"><i class="bi bi-info-circle"></i> Modelo Disponível</span>
                 </div>
               </div>
               <div style="margin-top: 15px; display: flex; gap: 15px; flex-wrap: wrap;">
                 <button type="button" class="btn btn-outline" onclick="showModal('baixandoModeloModal')">
-                  <i class="bi bi-download"></i> Baixar Modelo Padrao
+                  <i class="bi bi-download"></i> Baixar Modelo Padrão
                 </button>
                 <button type="button" class="btn btn-primary" onclick="showModal('selecionandoArquivoModal')">
                   <i class="bi bi-upload"></i> Enviar Personalizado
@@ -209,7 +222,7 @@
               <div class="flex gap-10" style="align-items: center;">
                 <i class="bi bi-play-circle" style="font-size: 1.25rem; color: var(--primary);"></i>
                 <div>
-                  <p style="font-weight: 500;">Video de Apresentacao</p>
+                  <p style="font-weight: 500;">Video de Apresentação</p>
                   <small class="text-muted">Link do YouTube ou Vimeo</small>
                 </div>
               </div>
@@ -232,7 +245,7 @@
                 <i class="bi bi-award" style="font-size: 1.25rem; color: var(--primary);"></i>
                 <div>
                   <p style="font-weight: 500;">Premios e Reconhecimentos</p>
-                  <small class="text-muted">Certificados, premiacoes</small>
+                  <small class="text-muted">Certificados, premiações</small>
                 </div>
               </div>
               <button type="button" class="btn btn-outline btn-sm" onclick="showModal('enviandoArquivoModal')"><i class="bi bi-upload"></i> Enviar</button>
@@ -243,7 +256,11 @@
 
           <!-- Status Geral -->
           <div class="alert alert-warning">
-            <i class="bi bi-exclamation-triangle"></i> <strong>Atencao:</strong> 2 documentos obrigatorios ainda precisam ser enviados antes de prosseguir para a revisao.
+            <i class="bi bi-exclamation-triangle"></i>
+            <div>
+              <strong>Atencao:</strong><br>
+              2 documentos obrigatorios ainda precisam ser enviados antes de prosseguir para a revisao.
+            </div>
           </div>
 
           <div class="flex-between">
@@ -251,18 +268,18 @@
               <i class="bi bi-arrow-left"></i> Voltar
             </a>
             <a href="nova-oferta-step4.html" class="btn btn-primary">
-              Proximo: Revisao <i class="bi bi-arrow-right"></i>
+              Próximo: Revisão <i class="bi bi-arrow-right"></i>
             </a>
           </div>
         </form>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
@@ -286,7 +303,7 @@
       <div style="padding: 30px;">
         <i class="bi bi-eye" style="font-size: 3rem; color: var(--primary);"></i>
         <h3 style="margin: 15px 0;">Visualizando Documento</h3>
-        <p class="text-muted">Abrindo o documento para visualizacao.</p>
+        <p class="text-muted">Abrindo o documento para visualização.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('visualizandoModal')">OK</button>
       </div>
     </div>
@@ -310,7 +327,7 @@
       <div style="padding: 30px;">
         <i class="bi bi-download" style="font-size: 3rem; color: var(--success);"></i>
         <h3 style="margin: 15px 0;">Baixando Modelo</h3>
-        <p class="text-muted">O modelo padrao esta sendo baixado.</p>
+        <p class="text-muted">O modelo padrão está sendo baixado.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('baixandoModeloModal')">OK</button>
       </div>
     </div>
@@ -322,7 +339,7 @@
       <div style="padding: 30px;">
         <i class="bi bi-link-45deg" style="font-size: 3rem; color: var(--primary);"></i>
         <h3 style="margin: 15px 0;">Adicionar Link</h3>
-        <p class="text-muted">Insira o link do video de apresentacao.</p>
+        <p class="text-muted">Insira o link do video de apresentação.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('adicionandoLinkModal')">OK</button>
       </div>
     </div>
@@ -341,5 +358,11 @@
   </div>
 
   <script src="../../js/app.js"></script>
+  
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
 </body>
 </html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Oferta - Portal Emissor - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .wizard-progress {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .wizard-progress::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--border);
+      z-index: 0;
+    }
+    .wizard-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+    }
+    .wizard-step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 3px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      transition: all 0.3s;
+    }
+    .wizard-step.active .wizard-step-number {
+      background: #7c3aed;
+      border-color: #7c3aed;
+      color: white;
+    }
+    .wizard-step.completed .wizard-step-number {
+      background: #10b981;
+      border-color: #10b981;
+      color: white;
+    }
+    .wizard-step-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    .wizard-step.active .wizard-step-label {
+      color: #7c3aed;
+      font-weight: 600;
+    }
+    .sector-card {
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 25px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: center;
+    }
+    .sector-card:hover {
+      border-color: #7c3aed;
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .sector-card.selected {
+      border-color: #7c3aed;
+      background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+    }
+    .sector-card.selected::after {
+      content: '\f26b';
+      font-family: 'bootstrap-icons';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+      background: #7c3aed;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+    .sector-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      font-size: 1.75rem;
+    }
+  </style>
+</head>
+<body class="theme-parceiro">
+  <div class="dashboard">
+    <div class="mobile-header">
+      <a href="dashboard.html" class="logo">Alba Invest</a>
+    </div>
+
+    <!-- Sidebar Emissor -->
+    <aside class="sidebar" style="background: linear-gradient(180deg, #5b21b6 0%, #7c3aed 100%);">
+      <div class="sidebar-logo">
+        <a href="dashboard.html" class="logo" style="color: white;">CrowdInvest</a>
+        <span class="badge" style="background: white; color: #7c3aed; margin-left: 10px;">Emissor</span>
+      </div>
+
+      <div style="padding: 15px 20px; background: rgba(255,255,255,0.1); margin: 10px 15px; border-radius: var(--radius);">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 40px; height: 40px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #7c3aed; font-weight: 700;">TS</div>
+          <div>
+            <div style="color: white; font-weight: 600; font-size: 0.9rem;">TechStart</div>
+            <div style="color: rgba(255,255,255,0.7); font-size: 0.75rem;">CNPJ: 12.345.678/0001-90</div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li><a href="nova-oferta.html" class="active"><i class="bi bi-plus-circle"></i> Nova Oferta</a></li>
+        <li><a href="investidores.html"><i class="bi bi-people"></i> Investidores</a></li>
+        <li><a href="pagamentos.html"><i class="bi bi-cash-stack"></i> Pagamentos</a></li>
+        <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="../login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
+
+      <div class="page-header">
+        <div class="flex gap-10" style="align-items: center;">
+          <a href="minhas-ofertas.html" class="btn btn-outline btn-sm"><i class="bi bi-arrow-left"></i></a>
+          <div>
+            <h1 class="page-title">Nova Oferta de Captacao</h1>
+            <p class="text-muted">Preencha os dados para criar uma nova oferta</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wizard Progress -->
+      <div class="card mb-20" style="padding: 25px 30px;">
+        <div class="wizard-progress">
+          <div class="wizard-step active">
+            <div class="wizard-step-number">1</div>
+            <div class="wizard-step-label">Setor</div>
+          </div>
+          <div class="wizard-step">
+            <div class="wizard-step-number">2</div>
+            <div class="wizard-step-label">Segmento</div>
+          </div>
+          <div class="wizard-step">
+            <div class="wizard-step-number">3</div>
+            <div class="wizard-step-label">Negocio</div>
+          </div>
+          <div class="wizard-step">
+            <div class="wizard-step-number">4</div>
+            <div class="wizard-step-label">Financeiro</div>
+          </div>
+          <div class="wizard-step">
+            <div class="wizard-step-number">5</div>
+            <div class="wizard-step-label">Operacao</div>
+          </div>
+          <div class="wizard-step">
+            <div class="wizard-step-number">6</div>
+            <div class="wizard-step-label">Documentos</div>
+          </div>
+          <div class="wizard-step">
+            <div class="wizard-step-number">7</div>
+            <div class="wizard-step-label">Revisao</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alert RCVM -->
+      <div class="alert alert-info mb-20">
+        <i class="bi bi-info-circle"></i>
+        <div>
+          <strong>RCVM 88/2022:</strong><br>
+          Voce so pode ter uma oferta ativa por vez. Limite de captacao: R$ 15 milhoes/ano.
+        </div>
+      </div>
+
+      <!-- Step 1: Setor -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title"><i class="bi bi-grid-3x3-gap"></i> Qual o Setor do seu Negocio?</h3>
+        </div>
+        <p class="text-muted mb-20">Selecione o setor que melhor descreve a atividade principal da sua empresa.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-bottom: 30px;">
+          <!-- Tecnologia -->
+          <div class="sector-card" onclick="selectSector(this, 'tecnologia')" style="position: relative;">
+            <div class="sector-icon" style="background: linear-gradient(135deg, #7c3aed, #a78bfa); color: white;">
+              <i class="bi bi-cpu"></i>
+            </div>
+            <h4 style="margin-bottom: 5px; font-size: 1rem;">Tecnologia</h4>
+            <p class="text-muted" style="font-size: 0.8rem; margin: 0;">SaaS, Apps, IA</p>
+          </div>
+
+          <!-- Agronegocio -->
+          <div class="sector-card" onclick="selectSector(this, 'agronegocio')" style="position: relative;">
+            <div class="sector-icon" style="background: linear-gradient(135deg, #22c55e, #86efac); color: white;">
+              <i class="bi bi-tree"></i>
+            </div>
+            <h4 style="margin-bottom: 5px; font-size: 1rem;">Agronegocio</h4>
+            <p class="text-muted" style="font-size: 0.8rem; margin: 0;">CRA, Fazendas</p>
+          </div>
+
+          <!-- Imobiliario -->
+          <div class="sector-card" onclick="selectSector(this, 'imobiliario')" style="position: relative;">
+            <div class="sector-icon" style="background: linear-gradient(135deg, #0891b2, #67e8f9); color: white;">
+              <i class="bi bi-building"></i>
+            </div>
+            <h4 style="margin-bottom: 5px; font-size: 1rem;">Imobiliario</h4>
+            <p class="text-muted" style="font-size: 0.8rem; margin: 0;">CRI, Incorporacao</p>
+          </div>
+
+          <!-- Energia -->
+          <div class="sector-card" onclick="selectSector(this, 'energia')" style="position: relative;">
+            <div class="sector-icon" style="background: linear-gradient(135deg, #f59e0b, #fcd34d); color: white;">
+              <i class="bi bi-lightning-charge"></i>
+            </div>
+            <h4 style="margin-bottom: 5px; font-size: 1rem;">Energia</h4>
+            <p class="text-muted" style="font-size: 0.8rem; margin: 0;">Solar, Eolica</p>
+          </div>
+
+          <!-- Outros -->
+          <div class="sector-card" onclick="selectSector(this, 'outros')" style="position: relative;">
+            <div class="sector-icon" style="background: linear-gradient(135deg, #6b7280, #9ca3af); color: white;">
+              <i class="bi bi-three-dots"></i>
+            </div>
+            <h4 style="margin-bottom: 5px; font-size: 1rem;">Outros</h4>
+            <p class="text-muted" style="font-size: 0.8rem; margin: 0;">Varejo, Servicos</p>
+          </div>
+        </div>
+
+        <!-- Mais setores expandiveis -->
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-bottom: 30px;">
+          <!-- Saude -->
+          <div class="sector-card" onclick="selectSector(this, 'saude')" style="position: relative;">
+            <div class="sector-icon" style="background: linear-gradient(135deg, #ef4444, #fca5a5); color: white;">
+              <i class="bi bi-heart-pulse"></i>
+            </div>
+            <h4 style="margin-bottom: 5px; font-size: 1rem;">Saude</h4>
+            <p class="text-muted" style="font-size: 0.8rem; margin: 0;">Healthtech, Clinicas</p>
+          </div>
+
+          <!-- Educacao -->
+          <div class="sector-card" onclick="selectSector(this, 'educacao')" style="position: relative;">
+            <div class="sector-icon" style="background: linear-gradient(135deg, #8b5cf6, #c4b5fd); color: white;">
+              <i class="bi bi-book"></i>
+            </div>
+            <h4 style="margin-bottom: 5px; font-size: 1rem;">Educacao</h4>
+            <p class="text-muted" style="font-size: 0.8rem; margin: 0;">Edtech, Cursos</p>
+          </div>
+
+          <!-- Infraestrutura -->
+          <div class="sector-card" onclick="selectSector(this, 'infraestrutura')" style="position: relative;">
+            <div class="sector-icon" style="background: linear-gradient(135deg, #64748b, #94a3b8); color: white;">
+              <i class="bi bi-gear-wide-connected"></i>
+            </div>
+            <h4 style="margin-bottom: 5px; font-size: 1rem;">Infraestrutura</h4>
+            <p class="text-muted" style="font-size: 0.8rem; margin: 0;">Logistica, Transporte</p>
+          </div>
+
+          <!-- Alimentos -->
+          <div class="sector-card" onclick="selectSector(this, 'alimentos')" style="position: relative;">
+            <div class="sector-icon" style="background: linear-gradient(135deg, #ea580c, #fdba74); color: white;">
+              <i class="bi bi-basket"></i>
+            </div>
+            <h4 style="margin-bottom: 5px; font-size: 1rem;">Alimentos</h4>
+            <p class="text-muted" style="font-size: 0.8rem; margin: 0;">Foodtech, Bebidas</p>
+          </div>
+
+          <!-- Financeiro -->
+          <div class="sector-card" onclick="selectSector(this, 'financeiro')" style="position: relative;">
+            <div class="sector-icon" style="background: linear-gradient(135deg, #1e40af, #60a5fa); color: white;">
+              <i class="bi bi-bank"></i>
+            </div>
+            <h4 style="margin-bottom: 5px; font-size: 1rem;">Financeiro</h4>
+            <p class="text-muted" style="font-size: 0.8rem; margin: 0;">Fintech, Credito</p>
+          </div>
+        </div>
+
+        <hr style="margin: 25px 0; border: none; border-top: 1px solid var(--border);">
+
+        <div class="flex-between">
+          <a href="minhas-ofertas.html" class="btn btn-outline">Cancelar</a>
+          <button type="button" class="btn btn-primary" id="btnContinuar" disabled onclick="continuarParaSegmento()" style="background: linear-gradient(135deg, #7c3aed, #a78bfa);">
+            Continuar <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/app.js"></script>
+  <script>
+    let selectedSector = null;
+
+    function selectSector(element, sector) {
+      document.querySelectorAll('.sector-card').forEach(card => {
+        card.classList.remove('selected');
+      });
+      element.classList.add('selected');
+      selectedSector = sector;
+      document.getElementById('btnContinuar').disabled = false;
+    }
+
+    function continuarParaSegmento() {
+      if (selectedSector) {
+        window.location.href = 'nova-oferta-step2.html?setor=' + selectedSector;
+      }
+    }
+  </script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

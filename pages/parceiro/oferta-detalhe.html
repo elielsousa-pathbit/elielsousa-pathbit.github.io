@@ -10,13 +10,13 @@
 <body class="theme-parceiro">
   <div class="dashboard">
     <div class="mobile-header">
-      <a href="../../index.html" class="logo">CrowdInvest</a>
+      <a href="dashboard.html" class="logo">Alba Invest</a>
     </div>
 
     <!-- Sidebar -->
     <aside class="sidebar sidebar-green">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo">CrowdInvest</a>
+        <a href="dashboard.html" class="logo">Alba Invest</a>
         <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
       </div>
       <!-- Profile Switcher na Sidebar -->
@@ -33,14 +33,16 @@
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-        <li><a href="minhas-ofertas.html" class="active"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li class="hide-on-originador"><a href="minhas-ofertas.html" class="active"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
         <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
-        <li><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
-        <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="hide-on-originador"><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
+        <li class="hide-on-originador"><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="originador-content" style="display:none;"><a href="meus-emissores.html"><i class="bi bi-building"></i> Meus Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="comissoes-originador.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -56,18 +58,18 @@
           <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #059669, #047857); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold;">TS</div>
           <div>
             <div class="flex gap-10" style="align-items: center;">
-              <h1 class="page-title">TechStart Inovacao</h1>
+              <h1 class="page-title">TechStart Inovação</h1>
               <span class="badge badge-success"><i class="bi bi-check-circle"></i> Ativa</span>
             </div>
-            <p class="text-muted">Oferta de Captacao - RCVM 88/2022</p>
+            <p class="text-muted">Oferta de Captação - RCVM 88/2022</p>
           </div>
         </div>
-        <div class="flex gap-10">
+        <div class="header-user-info">
           <button class="btn btn-outline" onclick="showModal('editandoOfertaModal')">
             <i class="bi bi-pencil"></i> Editar
           </button>
           <button class="btn btn-primary" onclick="showModal('publicandoAtualizacaoModal')">
-            <i class="bi bi-megaphone"></i> Nova Atualizacao
+            <i class="bi bi-megaphone"></i> Nova Atualização
           </button>
         </div>
       </div>
@@ -76,7 +78,7 @@
       <div class="card" style="background: linear-gradient(135deg, #059669, #047857); color: white; margin-bottom: 30px;">
         <div class="grid-2" style="gap: 30px; align-items: center;">
           <div>
-            <h3 style="margin-bottom: 10px;">Progresso da Captacao</h3>
+            <h3 style="margin-bottom: 10px;">Progresso da Captação</h3>
             <div class="progress" style="height: 12px; background: rgba(255,255,255,0.3);">
               <div class="progress-bar" style="width: 75%; background: white;"></div>
             </div>
@@ -98,7 +100,7 @@
         <div class="kpi-card">
           <div class="kpi-label">Clientes</div>
           <div class="kpi-value">127</div>
-          <div class="kpi-change positive"><i class="bi bi-arrow-up"></i> +12 esta semana</div>
+          <div class="kpi-change positive"><i class="bi bi-arrow-up"></i> +12 está semana</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">Ticket Medio</div>
@@ -106,12 +108,12 @@
           <div class="kpi-change">por investidor</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Em Periodo de Desistencia</div>
+          <div class="kpi-label">Em Período de Desistência</div>
           <div class="kpi-value" style="color: var(--warning);">6</div>
           <div class="kpi-change">R$ 15.000 em risco</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Desistencias</div>
+          <div class="kpi-label">Desistências</div>
           <div class="kpi-value" style="color: var(--danger);">3</div>
           <div class="kpi-change">R$ 11.500 perdidos</div>
         </div>
@@ -125,7 +127,7 @@
           </div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
             <div>
-              <p class="text-muted" style="font-size: 0.75rem;">Meta de Captacao</p>
+              <p class="text-muted" style="font-size: 0.75rem;">Meta de Captação</p>
               <p><strong>R$ 500.000,00</strong></p>
             </div>
             <div>
@@ -133,11 +135,11 @@
               <p><strong>R$ 300.000,00</strong></p>
             </div>
             <div>
-              <p class="text-muted" style="font-size: 0.75rem;">Investimento Minimo</p>
+              <p class="text-muted" style="font-size: 0.75rem;">Investimento Mínimo</p>
               <p><strong>R$ 1.000,00</strong></p>
             </div>
             <div>
-              <p class="text-muted" style="font-size: 0.75rem;">Investimento Maximo</p>
+              <p class="text-muted" style="font-size: 0.75rem;">Investimento Máximo</p>
               <p><strong>R$ 20.000,00</strong></p>
             </div>
             <div>
@@ -149,7 +151,7 @@
               <p><strong>R$ 3.333.333</strong></p>
             </div>
             <div>
-              <p class="text-muted" style="font-size: 0.75rem;">Data Inicio</p>
+              <p class="text-muted" style="font-size: 0.75rem;">Data Início</p>
               <p><strong>01/01/2026</strong></p>
             </div>
             <div>
@@ -162,7 +164,7 @@
         <!-- Timeline de Status -->
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title"><i class="bi bi-clock-history"></i> Historico da Oferta</h3>
+            <h3 class="card-title"><i class="bi bi-clock-history"></i> Histórico da Oferta</h3>
           </div>
           <div class="timeline" style="padding-left: 30px;">
             <div class="timeline-item">
@@ -193,7 +195,7 @@
               <div class="timeline-dot"></div>
               <div class="timeline-date">01/01/2026</div>
               <div class="timeline-title">Oferta submetida</div>
-              <div class="timeline-desc">Aguardando analise</div>
+              <div class="timeline-desc">Águardando análise</div>
             </div>
           </div>
         </div>
@@ -202,7 +204,7 @@
       <!-- Lista de Clientes -->
       <div class="card mt-20">
         <div class="card-header flex-between">
-          <h3 class="card-title"><i class="bi bi-people"></i> Ultimos Clientes</h3>
+          <h3 class="card-title"><i class="bi bi-people"></i> Últimos Clientes</h3>
           <a href="clientes.html" class="btn btn-outline btn-sm">Ver Todos <i class="bi bi-arrow-right"></i></a>
         </div>
         <div class="table-container">
@@ -224,7 +226,7 @@
                 <td>R$ 5.500,00</td>
                 <td>1.1%</td>
                 <td>18/01/2026</td>
-                <td><span class="badge badge-warning"><i class="bi bi-clock"></i> Em Desistencia</span></td>
+                <td><span class="badge badge-warning"><i class="bi bi-clock"></i> Em Desistência</span></td>
               </tr>
               <tr>
                 <td>
@@ -258,10 +260,10 @@
         </div>
       </div>
 
-      <!-- Atualizacoes -->
+      <!-- Atualizações -->
       <div class="card mt-20">
         <div class="card-header flex-between">
-          <h3 class="card-title"><i class="bi bi-newspaper"></i> Atualizacoes para Clientes</h3>
+          <h3 class="card-title"><i class="bi bi-newspaper"></i> Atualizações para Clientes</h3>
           <button class="btn btn-primary btn-sm" onclick="showModal('novaAtualizacaoModal')"><i class="bi bi-plus-lg"></i> Nova</button>
         </div>
         <div style="display: flex; flex-direction: column; gap: 15px;">
@@ -271,7 +273,7 @@
               <small class="text-muted">19/01/2026</small>
             </div>
             <p class="text-muted" style="font-size: 0.875rem;">
-              A TechStart atingiu 75% da meta de captacao. Agradecemos a todos os investidores pela confianca!
+              A TechStart atingiu 75% da meta de captação. Agradecemos a todos os investidores pela confiança!
             </p>
           </div>
           <div style="padding: 15px; background: var(--bg); border-radius: var(--radius); border-left: 3px solid var(--success);">
@@ -285,13 +287,13 @@
           </div>
         </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
@@ -303,37 +305,38 @@
       <div style="padding: 30px;">
         <i class="bi bi-pencil" style="font-size: 3rem; color: var(--primary);"></i>
         <h3 style="margin: 15px 0;">Editar Oferta</h3>
-        <p class="text-muted">Abrindo formulario de edicao da oferta.</p>
+        <p class="text-muted">Abrindo formulário de edição da oferta.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('editandoOfertaModal')">OK</button>
       </div>
     </div>
   </div>
 
-  <!-- Modal Publicando Atualizacao -->
+  <!-- Modal Publicando Atualização -->
   <div class="modal-overlay" id="publicandoAtualizacaoModal" style="display: none;">
     <div class="modal text-center" style="max-width: 400px;">
       <div style="padding: 30px;">
         <i class="bi bi-megaphone" style="font-size: 3rem; color: var(--success);"></i>
-        <h3 style="margin: 15px 0;">Nova Atualizacao</h3>
-        <p class="text-muted">Publicando nova atualizacao para investidores.</p>
+        <h3 style="margin: 15px 0;">Nova Atualização</h3>
+        <p class="text-muted">Publicando nova atualização para investidores.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('publicandoAtualizacaoModal')">OK</button>
       </div>
     </div>
   </div>
 
-  <!-- Modal Nova Atualizacao -->
+  <!-- Modal Nova Atualização -->
   <div class="modal-overlay" id="novaAtualizacaoModal" style="display: none;">
     <div class="modal text-center" style="max-width: 400px;">
       <div style="padding: 30px;">
         <i class="bi bi-plus-circle" style="font-size: 3rem; color: var(--primary);"></i>
-        <h3 style="margin: 15px 0;">Nova Atualizacao</h3>
-        <p class="text-muted">Criando nova atualizacao para os investidores.</p>
+        <h3 style="margin: 15px 0;">Nova Atualização</h3>
+        <p class="text-muted">Criando nova atualização para os investidores.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('novaAtualizacaoModal')">OK</button>
       </div>
     </div>
   </div>
 
   <script src="../../js/app.js"></script>
+  
   <style>
     .timeline {
       position: relative;
@@ -368,7 +371,7 @@
     .timeline-dot.success { background: var(--success); }
     .timeline-dot.warning { background: var(--warning); }
     .timeline-dot.info { background: var(--primary); }
-    .timeline-date {
+    .timeline-daté {
       font-size: 0.75rem;
       color: var(--text-muted);
     }
@@ -381,5 +384,10 @@
       color: var(--text-muted);
     }
   </style>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
 </body>
 </html>

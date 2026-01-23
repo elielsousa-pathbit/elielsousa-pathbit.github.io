@@ -10,12 +10,12 @@
 <body class="theme-investidor">
   <div class="dashboard">
     <div class="mobile-header">
-      <a href="../../index.html" class="logo">CrowdInvest</a>
+      <a href="dashboard.html" class="logo">Alba Invest</a>
     </div>
 
     <aside class="sidebar">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo">CrowdInvest</a>
+        <a href="dashboard.html" class="logo">Alba Invest</a>
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
@@ -25,7 +25,7 @@
         <li><a href="extrato.html"><i class="bi bi-list-ul"></i> Extrato</a></li>
         <li><a href="documentos.html" class="active"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -41,14 +41,44 @@
         </div>
       </div>
 
+      <!-- Filtros -->
+      <div class="card mb-20">
+        <div class="flex-between" style="flex-wrap: wrap; gap: 15px;">
+          <div class="flex gap-15" style="flex-wrap: wrap; flex: 1;">
+            <div style="flex: 1; min-width: 200px; max-width: 300px;">
+              <div style="position: relative;">
+                <i class="bi bi-search" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+                <input type="text" class="form-input" placeholder="Buscar documento..." style="padding-left: 38px;">
+              </div>
+            </div>
+            <select class="form-input" style="width: auto; min-width: 150px;">
+              <option value="">Todas Empresas</option>
+              <option value="techstart">TechStart Inovação</option>
+              <option value="ecofood">EcoFood Organicos</option>
+              <option value="healthtech">HealthTech Solutions</option>
+            </select>
+            <select class="form-input" style="width: auto; min-width: 150px;">
+              <option value="">Todos os Tipos</option>
+              <option value="termo">Termo de Adesao</option>
+              <option value="comprovante">Comprovante PIX</option>
+              <option value="contrato">Contrato</option>
+              <option value="participação">Participação</option>
+            </select>
+          </div>
+          <div class="text-muted" style="font-size: 0.875rem;">
+            <i class="bi bi-file-earmark"></i> 12 documentos
+          </div>
+        </div>
+      </div>
+
       <!-- Tabs -->
       <div class="tabs">
-        <button class="tab active" onclick="switchTab(this, 'participacoes')">Participacoes</button>
+        <button class="tab active" onclick="switchTab(this, 'participacoes')">Participações</button>
         <button class="tab" onclick="switchTab(this, 'contratos')">Contratos</button>
         <button class="tab" onclick="switchTab(this, 'comprovantes')">Comprovantes</button>
       </div>
 
-      <!-- Participacoes -->
+      <!-- Participações -->
       <div id="participacoes" class="tab-content">
         <div class="grid-2">
           <!-- TechStart -->
@@ -56,22 +86,44 @@
             <div class="flex gap-20" style="align-items: center; margin-bottom: 20px;">
               <div style="width: 50px; height: 50px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">TS</div>
               <div>
-                <h4>TechStart Inovacao</h4>
+                <h4>TechStart Inovação</h4>
                 <p class="text-muted">1.5% equity | R$ 5.000</p>
               </div>
             </div>
             <div style="display: flex; flex-direction: column; gap: 10px;">
-              <a href="#" class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius); text-decoration: none; color: var(--text);">
-                <span>[PDF] Termo de Adesao</span>
-                <span class="text-muted">120 KB</span>
+              <a href="#" class="document-item" onclick="Modals.view('Termo de Adesao'); return false;">
+                <div class="document-item-left">
+                  <div class="document-icon document-icon-pdf"><i class="bi bi-file-earmark-pdf"></i></div>
+                  <div>
+                    <span class="document-name">Termo de Adesao</span>
+                    <span class="document-meta">PDF • 15/03/2024</span>
+                  </div>
+                </div>
+                <span class="document-size">120 KB</span>
               </a>
-              <a href="#" class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius); text-decoration: none; color: var(--text);">
-                <span>[PDF] Comprovante de Investimento</span>
-                <span class="text-muted">85 KB</span>
+              <a href="#" class="document-item" onclick="Modals.view('Comprovante de Investimento'); return false;">
+                <div class="document-item-left">
+                  <div class="document-icon document-icon-pdf"><i class="bi bi-file-earmark-pdf"></i></div>
+                  <div>
+                    <span class="document-name">Comprovante de Investimento</span>
+                    <span class="document-meta">PDF • 15/03/2024</span>
+                  </div>
+                </div>
+                <span class="document-size">85 KB</span>
+              </a>
+              <a href="#" class="document-item" onclick="Modals.view('Instrumento Particular de Participação'); return false;">
+                <div class="document-item-left">
+                  <div class="document-icon document-icon-contract"><i class="bi bi-file-earmark-text"></i></div>
+                  <div>
+                    <span class="document-name">Instrumento Particular de Participação</span>
+                    <span class="document-meta">PDF • 20/04/2024</span>
+                  </div>
+                </div>
+                <span class="document-size">250 KB</span>
               </a>
             </div>
             <p class="text-muted mt-20" style="font-size: 0.75rem;">
-              * Documentos finais de participacao serao disponibilizados apos o encerramento da oferta
+              <i class="bi bi-check-circle" style="color: var(--success);"></i> Oferta encerrada - Documentos completos disponíveis
             </p>
           </div>
 
@@ -85,17 +137,29 @@
               </div>
             </div>
             <div style="display: flex; flex-direction: column; gap: 10px;">
-              <a href="#" class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius); text-decoration: none; color: var(--text);">
-                <span>[PDF] Termo de Adesao</span>
-                <span class="text-muted">118 KB</span>
+              <a href="#" class="document-item" onclick="Modals.view('Termo de Adesao - EcoFood'); return false;">
+                <div class="document-item-left">
+                  <div class="document-icon document-icon-pdf"><i class="bi bi-file-earmark-pdf"></i></div>
+                  <div>
+                    <span class="document-name">Termo de Adesao</span>
+                    <span class="document-meta">PDF • 10/06/2024</span>
+                  </div>
+                </div>
+                <span class="document-size">118 KB</span>
               </a>
-              <a href="#" class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius); text-decoration: none; color: var(--text);">
-                <span>[PDF] Comprovante de Investimento</span>
-                <span class="text-muted">82 KB</span>
+              <a href="#" class="document-item" onclick="Modals.view('Comprovante de Investimento - EcoFood'); return false;">
+                <div class="document-item-left">
+                  <div class="document-icon document-icon-pdf"><i class="bi bi-file-earmark-pdf"></i></div>
+                  <div>
+                    <span class="document-name">Comprovante de Investimento</span>
+                    <span class="document-meta">PDF • 10/06/2024</span>
+                  </div>
+                </div>
+                <span class="document-size">82 KB</span>
               </a>
             </div>
             <p class="text-muted mt-20" style="font-size: 0.75rem;">
-              * Documentos finais de participacao serao disponibilizados apos o encerramento da oferta
+              <i class="bi bi-clock" style="color: var(--warning);"></i> Oferta em andamento - Documentos finais em 30 dias
             </p>
           </div>
 
@@ -109,17 +173,29 @@
               </div>
             </div>
             <div style="display: flex; flex-direction: column; gap: 10px;">
-              <a href="#" class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius); text-decoration: none; color: var(--text);">
-                <span>[PDF] Termo de Adesao</span>
-                <span class="text-muted">125 KB</span>
+              <a href="#" class="document-item" onclick="Modals.view('Termo de Adesao - HealthTech'); return false;">
+                <div class="document-item-left">
+                  <div class="document-icon document-icon-pdf"><i class="bi bi-file-earmark-pdf"></i></div>
+                  <div>
+                    <span class="document-name">Termo de Adesao</span>
+                    <span class="document-meta">PDF • 05/01/2026</span>
+                  </div>
+                </div>
+                <span class="document-size">125 KB</span>
               </a>
-              <a href="#" class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius); text-decoration: none; color: var(--text);">
-                <span>[PDF] Comprovante de Investimento</span>
-                <span class="text-muted">90 KB</span>
+              <a href="#" class="document-item" onclick="Modals.view('Comprovante de Investimento - HealthTech'); return false;">
+                <div class="document-item-left">
+                  <div class="document-icon document-icon-pdf"><i class="bi bi-file-earmark-pdf"></i></div>
+                  <div>
+                    <span class="document-name">Comprovante de Investimento</span>
+                    <span class="document-meta">PDF • 05/01/2026</span>
+                  </div>
+                </div>
+                <span class="document-size">90 KB</span>
               </a>
             </div>
             <p class="text-muted mt-20" style="font-size: 0.75rem;">
-              * Documentos finais de participacao serao disponibilizados apos o encerramento da oferta
+              <i class="bi bi-clock" style="color: var(--warning);"></i> Oferta em andamento - Documentos finais após encerramento
             </p>
           </div>
         </div>
@@ -128,27 +204,47 @@
       <!-- Contratos -->
       <div id="contratos" class="tab-content" style="display: none;">
         <div class="card">
-          <div style="display: flex; flex-direction: column; gap: 15px;">
-            <a href="#" class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius); text-decoration: none; color: var(--text);">
-              <div>
-                <strong>[PDF] Termos de Uso da Plataforma</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Aceito em 01/01/2026</p>
+          <h4 style="margin-bottom: 15px;"><i class="bi bi-file-earmark-ruled"></i> Documentos Legais e Regulatórios</h4>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <a href="#" class="document-item" onclick="Modals.view('Termos de Uso da Plataforma'); return false;">
+              <div class="document-item-left">
+                <div class="document-icon document-icon-legal"><i class="bi bi-file-earmark-ruled"></i></div>
+                <div>
+                  <span class="document-name">Termos de Uso da Plataforma</span>
+                  <span class="document-meta">Aceito em 01/01/2026 • Versão 2.1</span>
+                </div>
               </div>
-              <span class="text-muted">245 KB</span>
+              <span class="document-size">245 KB</span>
             </a>
-            <a href="#" class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius); text-decoration: none; color: var(--text);">
-              <div>
-                <strong>[PDF] Politica de Privacidade</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Aceito em 01/01/2026</p>
+            <a href="#" class="document-item" onclick="Modals.view('Política de Privacidade'); return false;">
+              <div class="document-item-left">
+                <div class="document-icon document-icon-privacy"><i class="bi bi-shield-lock"></i></div>
+                <div>
+                  <span class="document-name">Política de Privacidade</span>
+                  <span class="document-meta">Aceito em 01/01/2026 • LGPD Compliant</span>
+                </div>
               </div>
-              <span class="text-muted">180 KB</span>
+              <span class="document-size">180 KB</span>
             </a>
-            <a href="#" class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius); text-decoration: none; color: var(--text);">
-              <div>
-                <strong>[PDF] Regulamento da Plataforma</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">RCVM 88/2022</p>
+            <a href="#" class="document-item" onclick="Modals.view('Regulamento da Plataforma'); return false;">
+              <div class="document-item-left">
+                <div class="document-icon document-icon-regulation"><i class="bi bi-bank"></i></div>
+                <div>
+                  <span class="document-name">Regulamento da Plataforma</span>
+                  <span class="document-meta">Conforme RCVM 88/2022</span>
+                </div>
               </div>
-              <span class="text-muted">320 KB</span>
+              <span class="document-size">320 KB</span>
+            </a>
+            <a href="#" class="document-item" onclick="Modals.view('Material Informativo ao Investidor'); return false;">
+              <div class="document-item-left">
+                <div class="document-icon document-icon-info"><i class="bi bi-info-circle"></i></div>
+                <div>
+                  <span class="document-name">Material Informativo ao Investidor</span>
+                  <span class="document-meta">Atualizado em 15/01/2026</span>
+                </div>
+              </div>
+              <span class="document-size">150 KB</span>
             </a>
           </div>
         </div>
@@ -172,48 +268,54 @@
                 <tr>
                   <td data-label="Data">19/01/2026</td>
                   <td data-label="Tipo">Investimento PIX</td>
-                  <td data-label="Empresa">TechStart Inovacao</td>
+                  <td data-label="Empresa">TechStart Inovação</td>
                   <td data-label="Valor">R$ 5.000,00</td>
-                  <td data-label="Documento"><a href="#" class="btn btn-outline btn-sm">Download</a></td>
+                  <td data-label="Documento"><a href="#" class="btn btn-outline btn-sm" onclick="Modals.export('pdf', 'comprovante-pix'); return false;">Download</a></td>
                 </tr>
                 <tr>
                   <td data-label="Data">15/01/2026</td>
                   <td data-label="Tipo">Investimento PIX</td>
-                  <td data-label="Empresa">TechStart Inovacao</td>
+                  <td data-label="Empresa">TechStart Inovação</td>
                   <td data-label="Valor">R$ 5.000,00</td>
-                  <td data-label="Documento"><a href="#" class="btn btn-outline btn-sm">Download</a></td>
+                  <td data-label="Documento"><a href="#" class="btn btn-outline btn-sm" onclick="Modals.export('pdf', 'comprovante-pix'); return false;">Download</a></td>
                 </tr>
                 <tr>
                   <td data-label="Data">10/01/2026</td>
                   <td data-label="Tipo">Investimento PIX</td>
                   <td data-label="Empresa">EcoFood Organicos</td>
                   <td data-label="Valor">R$ 3.000,00</td>
-                  <td data-label="Documento"><a href="#" class="btn btn-outline btn-sm">Download</a></td>
+                  <td data-label="Documento"><a href="#" class="btn btn-outline btn-sm" onclick="Modals.export('pdf', 'comprovante-pix'); return false;">Download</a></td>
                 </tr>
                 <tr>
                   <td data-label="Data">05/01/2026</td>
                   <td data-label="Tipo">Investimento PIX</td>
                   <td data-label="Empresa">HealthTech Solutions</td>
                   <td data-label="Valor">R$ 7.000,00</td>
-                  <td data-label="Documento"><a href="#" class="btn btn-outline btn-sm">Download</a></td>
+                  <td data-label="Documento"><a href="#" class="btn btn-outline btn-sm" onclick="Modals.export('pdf', 'comprovante-pix'); return false;">Download</a></td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
   </div>
 
   <script src="../../js/app.js"></script>
+  
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
 </body>
 </html>

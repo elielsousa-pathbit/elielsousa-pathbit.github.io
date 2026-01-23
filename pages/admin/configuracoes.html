@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Configuracoes - Admin - CrowdInvest</title>
+  <title>Configurações - Admin - CrowdInvest</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../../css/style.css">
 </head>
@@ -11,26 +11,26 @@
   <div class="dashboard">
     <div class="mobile-header">
       <div style="display: flex; align-items: center; gap: 10px;">
-        <a href="../../index.html" class="logo" style="color: var(--primary);">CrowdInvest</a>
+        <a href="dashboard.html" class="logo" style="color: var(--primary);">CrowdInvest</a>
         <span class="badge badge-warning">Admin</span>
       </div>
     </div>
 
     <aside class="sidebar sidebar-dark">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo" style="color: white;">CrowdInvest</a>
+        <a href="dashboard.html" class="logo" style="color: white;">CrowdInvest</a>
         <span class="badge badge-warning" style="margin-left: 10px;">Admin</span>
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
         <li><a href="ofertas.html"><i class="bi bi-megaphone"></i> Ofertas</a></li>
         <li><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
-        <li><a href="kyc-fila.html"><i class="bi bi-person-check"></i> Validacao Cadastro</a></li>
-        <li><a href="moderacao.html"><i class="bi bi-shield-check"></i> Moderacao</a></li>
+        <li><a href="kyc-fila.html"><i class="bi bi-person-check"></i> Validação Cadastro</a></li>
+        <li><a href="moderacao.html"><i class="bi bi-shield-check"></i> Moderação</a></li>
         <li><a href="parceiros.html"><i class="bi bi-building"></i> Parceiros</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
-        <li><a href="configuracoes.html" class="active"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html" class="active"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../admin-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -40,14 +40,14 @@
       <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
 
       <div class="page-header">
-        <h1 class="page-title">Configuracoes do Sistema</h1>
+        <h1 class="page-title">Configurações do Sistema</h1>
       </div>
 
       <!-- Tabs -->
       <div class="tabs">
         <button class="tab active" onclick="switchTab(this, 'geral')">Geral</button>
-        <button class="tab" onclick="switchTab(this, 'usuarios')">Usuarios</button>
-        <button class="tab" onclick="switchTab(this, 'integ')">Integracoes</button>
+        <button class="tab" onclick="switchTab(this, 'usuarios')">Usuários</button>
+        <button class="tab" onclick="switchTab(this, 'integ')">Integrações</button>
       </div>
 
       <!-- Geral -->
@@ -62,17 +62,17 @@
                 <p class="form-hint">Definido pela RCVM 88/2022</p>
               </div>
               <div class="form-group">
-                <label class="form-label">Prazo Maximo de Oferta (dias)</label>
+                <label class="form-label">Prazo Máximo de Oferta (dias)</label>
                 <input type="text" class="form-input" value="180" readonly style="background: var(--bg);">
                 <p class="form-hint">Definido pela RCVM 88/2022</p>
               </div>
               <div class="form-group">
-                <label class="form-label">Periodo de Desistencia (dias)</label>
+                <label class="form-label">Período de Desistência (dias)</label>
                 <input type="text" class="form-input" value="5" readonly style="background: var(--bg);">
                 <p class="form-hint">Definido pela RCVM 88/2022</p>
               </div>
               <div class="form-group">
-                <label class="form-label">Valor Maximo por Oferta (R$)</label>
+                <label class="form-label">Valor Máximo por Oferta (R$)</label>
                 <input type="text" class="form-input" value="15.000.000,00" readonly style="background: var(--bg);">
                 <p class="form-hint">Definido pela RCVM 88/2022</p>
               </div>
@@ -81,29 +81,29 @@
         </div>
 
         <div class="card">
-          <h3 style="margin-bottom: 20px;">Configuracoes de Seguranca</h3>
+          <h3 style="margin-bottom: 20px;">Configurações de Segurança</h3>
           <div style="display: flex; flex-direction: column; gap: 20px;">
             <label class="toggle">
               <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
-              <span>Verificacao em duas etapas obrigatoria para investidores</span>
+              <span>Verificação em duas etapas obrigatória para investidores</span>
             </label>
             <label class="toggle">
               <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
-              <span>Verificacao por aplicativo obrigatoria para admins</span>
+              <span>Verificação por aplicativo obrigatória para admins</span>
             </label>
             <label class="toggle">
               <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
-              <span>Validacao de cadastro automatica via Bureau</span>
+              <span>Validação de cadastro automatica via Bureau</span>
             </label>
           </div>
         </div>
       </div>
 
-      <!-- Usuarios -->
+      <!-- Usuários -->
       <div id="usuarios" class="tab-content" style="display: none;">
         <div class="card">
           <div class="flex-between mb-20">
-            <h3>Usuarios Administradores</h3>
+            <h3>Usuários Administradores</h3>
             <button class="btn btn-primary btn-sm" onclick="showModal('novoAdminModal')">+ Novo Admin</button>
           </div>
           <div class="table-container">
@@ -112,25 +112,25 @@
                 <tr>
                   <th>Nome</th>
                   <th>Email</th>
-                  <th>Verificacao</th>
-                  <th>Ultimo Acesso</th>
-                  <th>Acoes</th>
+                  <th>Verificação</th>
+                  <th>Último Acesso</th>
+                  <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td data-label="Nome"><strong>Admin Principal</strong></td>
-                  <td data-label="Email">admin@crowdinvest.com.br</td>
-                  <td data-label="Verificacao"><span class="badge badge-success">Ativo</span></td>
-                  <td data-label="Ultimo Acesso">19/01/2026 10:30</td>
-                  <td data-label="Acoes"><button class="btn btn-outline btn-sm">Editar</button></td>
+                  <td data-label="Email">admin@albainvest.com.br</td>
+                  <td data-label="Verificação"><span class="badge badge-success">Ativo</span></td>
+                  <td data-label="Último Acesso">19/01/2026 10:30</td>
+                  <td data-label="Ações"><button class="btn btn-outline btn-sm">Editar</button></td>
                 </tr>
                 <tr>
                   <td data-label="Nome"><strong>Operador 1</strong></td>
-                  <td data-label="Email">operador1@crowdinvest.com.br</td>
-                  <td data-label="Verificacao"><span class="badge badge-success">Ativo</span></td>
-                  <td data-label="Ultimo Acesso">18/01/2026 16:45</td>
-                  <td data-label="Acoes"><button class="btn btn-outline btn-sm">Editar</button></td>
+                  <td data-label="Email">operador1@albainvest.com.br</td>
+                  <td data-label="Verificação"><span class="badge badge-success">Ativo</span></td>
+                  <td data-label="Último Acesso">18/01/2026 16:45</td>
+                  <td data-label="Ações"><button class="btn btn-outline btn-sm">Editar</button></td>
                 </tr>
               </tbody>
             </table>
@@ -138,15 +138,15 @@
         </div>
       </div>
 
-      <!-- Integracoes -->
+      <!-- Integrações -->
       <div id="integ" class="tab-content" style="display: none;">
         <div class="card">
-          <h3 style="margin-bottom: 20px;">Integracoes Ativas</h3>
+          <h3 style="margin-bottom: 20px;">Integrações Ativas</h3>
           <div style="display: flex; flex-direction: column; gap: 15px;">
             <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
               <div>
                 <strong>Bureau de Dados (Serasa/SPC)</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Validacao de cadastro automatica</p>
+                <p class="text-muted" style="font-size: 0.875rem;">Validação de cadastro automatica</p>
               </div>
               <span class="badge badge-success">Conectado</span>
             </div>
@@ -160,27 +160,27 @@
             <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
               <div>
                 <strong>Email (SendGrid)</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Envio de emails e codigos de verificacao</p>
+                <p class="text-muted" style="font-size: 0.875rem;">Envio de emails e códigos de verificação</p>
               </div>
               <span class="badge badge-success">Conectado</span>
             </div>
             <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
               <div>
                 <strong>SMS/WhatsApp (Twilio)</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Envio de codigos de verificacao</p>
+                <p class="text-muted" style="font-size: 0.875rem;">Envio de códigos de verificação</p>
               </div>
               <span class="badge badge-success">Conectado</span>
             </div>
           </div>
         </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
@@ -200,7 +200,7 @@
       </div>
       <div class="form-group">
         <label class="form-label">E-mail</label>
-        <input type="email" class="form-input" placeholder="email@crowdinvest.com.br">
+        <input type="email" class="form-input" placeholder="email@albainvest.com.br">
       </div>
       <div class="form-group">
         <label class="form-label">Perfil de Acesso</label>
@@ -212,13 +212,17 @@
       </div>
 
       <div class="alert alert-info">
-        <i class="bi bi-info-circle"></i> O novo usuario recebera um e-mail para configurar sua senha e ativar a verificacao em duas etapas.
+        <i class="bi bi-info-circle"></i>
+        <div>
+          <strong>Ativação:</strong><br>
+          O novo usuário receberá um e-mail para configurar sua senha e ativar a verificação em duas etapas.
+        </div>
       </div>
 
       <div class="flex gap-10 mt-20">
         <button class="btn btn-secondary" onclick="hideModal('novoAdminModal')" style="flex: 1;">Cancelar</button>
         <button class="btn btn-primary" onclick="hideModal('novoAdminModal'); showModal('adminCriadoModal');" style="flex: 1;">
-          <i class="bi bi-plus"></i> Criar Usuario
+          <i class="bi bi-plus"></i> Criar Usuário
         </button>
       </div>
     </div>
@@ -229,7 +233,7 @@
     <div class="modal text-center" style="max-width: 400px;">
       <div style="padding: 30px;">
         <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
-        <h3 style="margin: 15px 0;">Usuario Criado!</h3>
+        <h3 style="margin: 15px 0;">Usuário Criado!</h3>
         <p class="text-muted">Um e-mail foi enviado para o novo administrador com instrucoes de acesso.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('adminCriadoModal')">OK</button>
       </div>
@@ -237,5 +241,7 @@
   </div>
 
   <script src="../../js/app.js"></script>
+  
+
 </body>
 </html>

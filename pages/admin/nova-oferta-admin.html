@@ -11,26 +11,26 @@
   <div class="dashboard">
     <div class="mobile-header">
       <div style="display: flex; align-items: center; gap: 10px;">
-        <a href="../../index.html" class="logo" style="color: var(--primary);">CrowdInvest</a>
+        <a href="dashboard.html" class="logo" style="color: var(--primary);">CrowdInvest</a>
         <span class="badge badge-warning">Admin</span>
       </div>
     </div>
 
     <aside class="sidebar sidebar-dark">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo" style="color: white;">CrowdInvest</a>
+        <a href="dashboard.html" class="logo" style="color: white;">CrowdInvest</a>
         <span class="badge badge-warning" style="margin-left: 10px;">Admin</span>
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
         <li><a href="ofertas.html" class="active"><i class="bi bi-megaphone"></i> Ofertas</a></li>
         <li><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
-        <li><a href="kyc-fila.html"><i class="bi bi-person-check"></i> Validacao Cadastro</a></li>
-        <li><a href="moderacao.html"><i class="bi bi-shield-check"></i> Moderacao</a></li>
+        <li><a href="kyc-fila.html"><i class="bi bi-person-check"></i> Validação Cadastro</a></li>
+        <li><a href="moderacao.html"><i class="bi bi-shield-check"></i> Moderação</a></li>
         <li><a href="parceiros.html"><i class="bi bi-building"></i> Parceiros</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../admin-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -43,7 +43,7 @@
         <div class="flex gap-10" style="align-items: center;">
           <a href="ofertas.html" class="btn btn-outline btn-sm"><i class="bi bi-arrow-left"></i></a>
           <div>
-            <h1 class="page-title">Nova Oferta de Captacao</h1>
+            <h1 class="page-title">Nova Oferta de Captação</h1>
             <p class="text-muted">Criar oferta em nome de um parceiro</p>
           </div>
         </div>
@@ -51,7 +51,11 @@
 
       <!-- Alert Info -->
       <div class="alert alert-warning mb-20">
-        <i class="bi bi-exclamation-triangle"></i> <strong>Atencao:</strong> Esta funcao cria uma oferta em nome de um parceiro cadastrado. O parceiro sera notificado e devera aprovar a oferta antes de ser publicada.
+        <i class="bi bi-exclamation-triangle"></i>
+        <div>
+          <strong>Atencao:</strong><br>
+          Esta funcao cria uma oferta em nome de um parceiro cadastrado. O parceiro sera notificado e devera aprovar a oferta antes de ser publicada.
+        </div>
       </div>
 
       <!-- Step 1 - Selecionar Parceiro -->
@@ -64,7 +68,7 @@
           <label class="form-label">Parceiro/Emissor *</label>
           <select class="form-input" id="selectParceiro" onchange="loadParceiroData()">
             <option value="">Selecione um parceiro cadastrado...</option>
-            <option value="1">TechStart Inovacao LTDA - 12.345.678/0001-90</option>
+            <option value="1">TechStart Inovação LTDA - 12.345.678/0001-90</option>
             <option value="2">EcoFood Organicos SA - 23.456.789/0001-01</option>
             <option value="3">MedTech Diagnosticos SA - 34.567.890/0001-12</option>
             <option value="4">AgriSmart LTDA - 45.678.901/0001-23</option>
@@ -77,7 +81,7 @@
           <div class="flex gap-20" style="align-items: flex-start;">
             <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #059669, #047857); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.5rem;">TS</div>
             <div style="flex: 1;">
-              <h4 style="margin: 0;">TechStart Inovacao LTDA</h4>
+              <h4 style="margin: 0;">TechStart Inovação LTDA</h4>
               <p class="text-muted" style="margin: 5px 0;">CNPJ: 12.345.678/0001-90 | Tecnologia / SaaS</p>
               <div class="flex gap-10 mt-10">
                 <span class="badge badge-success"><i class="bi bi-check-circle"></i> Cadastro Aprovado</span>
@@ -99,18 +103,18 @@
         <div class="grid-2" style="gap: 15px;">
           <label class="form-group" style="padding: 20px; border: 2px solid var(--primary); border-radius: var(--radius); cursor: pointer; background: rgba(37, 99, 235, 0.05);">
             <input type="radio" name="tipoOferta" value="equity" checked style="margin-right: 10px;">
-            <strong style="color: #7c3aed;"><i class="bi bi-graph-up"></i> Equity (Participacao)</strong>
-            <p class="text-muted" style="margin: 10px 0 0; font-size: 0.875rem;">Clientes recebem participacao societaria na empresa.</p>
+            <strong style="color: #7c3aed;"><i class="bi bi-graph-up"></i> Equity (Participação)</strong>
+            <p class="text-muted" style="margin: 10px 0 0; font-size: 0.875rem;">Clientes recebem participação societária na empresa.</p>
           </label>
           <label class="form-group" style="padding: 20px; border: 2px solid var(--border); border-radius: var(--radius); cursor: pointer;">
             <input type="radio" name="tipoOferta" value="cri" style="margin-right: 10px;">
             <strong style="color: #0891b2;"><i class="bi bi-building"></i> CRI (Imobiliario)</strong>
-            <p class="text-muted" style="margin: 10px 0 0; font-size: 0.875rem;">Certificado de Recebiveis Imobiliarios - Renda Fixa.</p>
+            <p class="text-muted" style="margin: 10px 0 0; font-size: 0.875rem;">Certificado de Recebiveis Imobiliários - Renda Fixa.</p>
           </label>
           <label class="form-group" style="padding: 20px; border: 2px solid var(--border); border-radius: var(--radius); cursor: pointer;">
             <input type="radio" name="tipoOferta" value="cra" style="margin-right: 10px;">
-            <strong style="color: #22c55e;"><i class="bi bi-tree"></i> CRA (Agronegocio)</strong>
-            <p class="text-muted" style="margin: 10px 0 0; font-size: 0.875rem;">Certificado de Recebiveis do Agronegocio - Renda Fixa.</p>
+            <strong style="color: #22c55e;"><i class="bi bi-tree"></i> CRA (Agronegócio)</strong>
+            <p class="text-muted" style="margin: 10px 0 0; font-size: 0.875rem;">Certificado de Recebiveis do Agronegócio - Renda Fixa.</p>
           </label>
           <label class="form-group" style="padding: 20px; border: 2px solid var(--border); border-radius: var(--radius); cursor: pointer;">
             <input type="radio" name="tipoOferta" value="cr" style="margin-right: 10px;">
@@ -143,29 +147,29 @@
                 <option value="ecommerce">E-commerce</option>
                 <option value="foodtech">Foodtech</option>
                 <option value="imobiliario">Imobiliario</option>
-                <option value="agronegocio">Agronegocio</option>
+                <option value="agronegócio">Agronegócio</option>
                 <option value="energia">Energia</option>
                 <option value="outros">Outros</option>
               </select>
             </div>
             <div class="form-group">
-              <label class="form-label">Meta de Captacao (R$) *</label>
+              <label class="form-label">Meta de Captação (R$) *</label>
               <input type="text" class="form-input" placeholder="500.000" required>
-              <small class="text-muted">Maximo: R$ 15.000.000 (RCVM 88/2022)</small>
+              <small class="text-muted">Máximo: R$ 15.000.000 (RCVM 88/2022)</small>
             </div>
             <div class="form-group">
               <label class="form-label">Meta Minima (R$) *</label>
               <input type="text" class="form-input" placeholder="250.000" required>
-              <small class="text-muted">Valor minimo para sucesso da oferta (2/3 da meta)</small>
+              <small class="text-muted">Valor mínimo para sucesso da oferta (2/3 da meta)</small>
             </div>
             <div class="form-group">
-              <label class="form-label">Investimento Minimo (R$) *</label>
+              <label class="form-label">Investimento Mínimo (R$) *</label>
               <input type="text" class="form-input" placeholder="1.000" required>
             </div>
             <div class="form-group">
-              <label class="form-label">Prazo de Captacao (dias) *</label>
+              <label class="form-label">Prazo de Captação (dias) *</label>
               <input type="number" class="form-input" value="90" min="30" max="180" required>
-              <small class="text-muted">Maximo: 180 dias (RCVM 88/2022)</small>
+              <small class="text-muted">Máximo: 180 dias (RCVM 88/2022)</small>
             </div>
           </div>
 
@@ -174,9 +178,9 @@
             <h4 style="margin-bottom: 15px; color: #7c3aed;"><i class="bi bi-graph-up"></i> Dados de Equity</h4>
             <div class="grid-2" style="gap: 20px;">
               <div class="form-group">
-                <label class="form-label">Participacao Oferecida (%) *</label>
+                <label class="form-label">Participação Oferecida (%) *</label>
                 <input type="number" class="form-input" placeholder="10" min="0.1" max="49.9" step="0.1">
-                <small class="text-muted">Maximo 49,9% (controle permanece com fundadores)</small>
+                <small class="text-muted">Máximo 49,9% (controle permanece com fundadores)</small>
               </div>
               <div class="form-group">
                 <label class="form-label">Valuation Pre-Money (R$) *</label>
@@ -203,7 +207,7 @@
                 <small class="text-muted">Spread sobre o indexador</small>
               </div>
               <div class="form-group">
-                <label class="form-label">Prazo do Titulo (meses) *</label>
+                <label class="form-label">Prazo do Título (meses) *</label>
                 <input type="number" class="form-input" placeholder="24" min="6" max="120">
               </div>
               <div class="form-group">
@@ -216,7 +220,7 @@
                 </select>
               </div>
               <div class="form-group">
-                <label class="form-label">Tipo de Amortizacao *</label>
+                <label class="form-label">Tipo de Amortização *</label>
                 <select class="form-input">
                   <option value="bullet">Bullet (no vencimento)</option>
                   <option value="sac">SAC</option>
@@ -225,25 +229,29 @@
               </div>
               <div class="form-group">
                 <label class="form-label">Garantia Principal *</label>
-                <input type="text" class="form-input" placeholder="Ex: Alienacao Fiduciaria, Penhor de Safra">
+                <input type="text" class="form-input" placeholder="Ex: Alienação Fiduciaria, Penhor de Safra">
               </div>
             </div>
           </div>
 
           <div class="form-group mt-20">
-            <label class="form-label">Descricao da Oferta *</label>
-            <textarea class="form-input" rows="4" required placeholder="Descreva os objetivos da captacao, uso dos recursos, diferenciais competitivos..."></textarea>
+            <label class="form-label">Descrição da Oferta *</label>
+            <textarea class="form-input" rows="4" required placeholder="Descreva os objetivos da captação, uso dos recursos, diferenciais competitivos..."></textarea>
           </div>
 
           <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
 
           <!-- Step 4 - Documentos -->
           <div class="card-header" style="padding: 0; border: none; margin-bottom: 20px;">
-            <h3 class="card-title"><i class="bi bi-folder"></i> 4. Documentos Obrigatorios</h3>
+            <h3 class="card-title"><i class="bi bi-folder"></i> 4. Documentos Obrigatórios</h3>
           </div>
 
           <div class="alert alert-info mb-20">
-            <i class="bi bi-info-circle"></i> Todos os documentos serao validados pela equipe de compliance antes da aprovacao.
+            <i class="bi bi-info-circle"></i>
+            <div>
+              <strong>Validação:</strong><br>
+              Todos os documentos serao validados pela equipe de compliance antes da aprovação.
+            </div>
           </div>
 
           <div style="display: flex; flex-direction: column; gap: 15px;">
@@ -251,9 +259,9 @@
               <div class="flex-between">
                 <div>
                   <strong><i class="bi bi-file-earmark-pdf"></i> Contrato Social Atualizado</strong>
-                  <p class="text-muted" style="font-size: 0.875rem; margin: 5px 0 0;">PDF - Maximo 10MB</p>
+                  <p class="text-muted" style="font-size: 0.875rem; margin: 5px 0 0;">PDF - Máximo 10MB</p>
                 </div>
-                <div class="flex gap-10">
+                <div class="header-user-info">
                   <button type="button" class="btn btn-outline btn-sm"><i class="bi bi-upload"></i> Upload</button>
                   <span class="badge badge-secondary">Pendente</span>
                 </div>
@@ -262,10 +270,10 @@
             <div style="padding: 15px; background: var(--bg); border-radius: var(--radius); border-left: 4px solid var(--primary);">
               <div class="flex-between">
                 <div>
-                  <strong><i class="bi bi-file-earmark-pdf"></i> Demonstracoes Financeiras</strong>
-                  <p class="text-muted" style="font-size: 0.875rem; margin: 5px 0 0;">Ultimos 2 anos - PDF - Maximo 20MB</p>
+                  <strong><i class="bi bi-file-earmark-pdf"></i> Demonstrações Financeiras</strong>
+                  <p class="text-muted" style="font-size: 0.875rem; margin: 5px 0 0;">Últimos 2 anos - PDF - Máximo 20MB</p>
                 </div>
-                <div class="flex gap-10">
+                <div class="header-user-info">
                   <button type="button" class="btn btn-outline btn-sm"><i class="bi bi-upload"></i> Upload</button>
                   <span class="badge badge-secondary">Pendente</span>
                 </div>
@@ -275,9 +283,9 @@
               <div class="flex-between">
                 <div>
                   <strong><i class="bi bi-file-earmark-pdf"></i> Business Plan / Pitch Deck</strong>
-                  <p class="text-muted" style="font-size: 0.875rem; margin: 5px 0 0;">PDF ou PPTX - Maximo 30MB</p>
+                  <p class="text-muted" style="font-size: 0.875rem; margin: 5px 0 0;">PDF ou PPTX - Máximo 30MB</p>
                 </div>
-                <div class="flex gap-10">
+                <div class="header-user-info">
                   <button type="button" class="btn btn-outline btn-sm"><i class="bi bi-upload"></i> Upload</button>
                   <span class="badge badge-secondary">Pendente</span>
                 </div>
@@ -287,9 +295,9 @@
               <div class="flex-between">
                 <div>
                   <strong><i class="bi bi-file-earmark-pdf"></i> Termo de Adesao RCVM 88</strong>
-                  <p class="text-muted" style="font-size: 0.875rem; margin: 5px 0 0;">Modelo padrao da plataforma</p>
+                  <p class="text-muted" style="font-size: 0.875rem; margin: 5px 0 0;">Modelo padrão da plataforma</p>
                 </div>
-                <div class="flex gap-10">
+                <div class="header-user-info">
                   <button type="button" class="btn btn-outline btn-sm"><i class="bi bi-download"></i> Baixar Modelo</button>
                   <span class="badge badge-success"><i class="bi bi-check"></i> Gerado</span>
                 </div>
@@ -299,22 +307,22 @@
 
           <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border);">
 
-          <!-- Opcoes Admin -->
+          <!-- Opções Admin -->
           <div class="card-header" style="padding: 0; border: none; margin-bottom: 20px;">
-            <h3 class="card-title"><i class="bi bi-sliders"></i> 5. Opcoes Administrativas</h3>
+            <h3 class="card-title"><i class="bi bi-sliders"></i> 5. Opções Administrativas</h3>
           </div>
 
           <div class="grid-2" style="gap: 20px;">
             <div class="form-group">
               <label class="form-label">Status Inicial *</label>
               <select class="form-input">
-                <option value="rascunho">Rascunho (nao visivel)</option>
-                <option value="aguardando" selected>Aguardando Aprovacao Parceiro</option>
-                <option value="analise">Em Analise Compliance</option>
+                <option value="rascunho">Rascunho (não visível)</option>
+                <option value="águardando" selected>Águardando Aprovação Parceiro</option>
+                <option value="análise">Em Análise Compliance</option>
               </select>
             </div>
             <div class="form-group">
-              <label class="form-label">Prioridade de Analise</label>
+              <label class="form-label">Prioridade de Análise</label>
               <select class="form-input">
                 <option value="normal" selected>Normal</option>
                 <option value="alta">Alta</option>
@@ -325,13 +333,13 @@
 
           <div class="form-group">
             <label class="form-label">Notas Internas (opcional)</label>
-            <textarea class="form-input" rows="3" placeholder="Observacoes para a equipe de analise..."></textarea>
+            <textarea class="form-input" rows="3" placeholder="Observações para a equipe de análise..."></textarea>
           </div>
 
           <div class="form-group">
             <label style="display: flex; align-items: center; gap: 10px;">
               <input type="checkbox" checked>
-              <span>Notificar parceiro por e-mail sobre a criacao da oferta</span>
+              <span>Notificar parceiro por e-mail sobre a criação da oferta</span>
             </label>
           </div>
 
@@ -339,7 +347,7 @@
 
           <div class="flex-between">
             <a href="ofertas.html" class="btn btn-outline">Cancelar</a>
-            <div class="flex gap-10">
+            <div class="header-user-info">
               <button type="button" class="btn btn-outline" onclick="salvarRascunho()">
                 <i class="bi bi-save"></i> Salvar Rascunho
               </button>
@@ -350,19 +358,20 @@
           </div>
         </form>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
   </div>
 
   <script src="../../js/app.js"></script>
+  
 
   <!-- Modal Sucesso -->
   <div class="modal-overlay" id="sucessoModal" style="display: none;">
@@ -372,10 +381,10 @@
           <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
         </div>
         <h3 style="margin-bottom: 10px;">Oferta Criada com Sucesso!</h3>
-        <p class="text-muted">A oferta foi criada e o parceiro sera notificado para aprovar os termos.</p>
+        <p class="text-muted">A oferta foi criada e o parceiro será notificado para aprovar os termos.</p>
         <div style="background: var(--bg); padding: 15px; border-radius: var(--radius); margin: 20px 0;">
-          <p style="margin: 0;"><strong>Codigo da Oferta:</strong> OFR-2026-0089</p>
-          <p style="margin: 5px 0 0;" class="text-muted">Status: Aguardando Aprovacao Parceiro</p>
+          <p style="margin: 0;"><strong>Código da Oferta:</strong> OFR-0089</p>
+          <p style="margin: 5px 0 0;" class="text-muted">Status: Águardando Aprovação Parceiro</p>
         </div>
         <div class="flex gap-10" style="justify-content: center;">
           <a href="ofertas.html" class="btn btn-outline">Voltar para Ofertas</a>
@@ -435,10 +444,11 @@
       <div style="padding: 30px;">
         <i class="bi bi-save" style="font-size: 3rem; color: var(--primary);"></i>
         <h3 style="margin: 15px 0;">Rascunho Salvo!</h3>
-        <p class="text-muted">Voce pode continuar editando a oferta depois.</p>
+        <p class="text-muted">Você pode continuar editando a oferta depois.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('rascunhoModal')">OK</button>
       </div>
     </div>
   </div>
+
 </body>
 </html>

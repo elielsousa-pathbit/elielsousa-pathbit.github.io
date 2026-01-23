@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Emissores - Parceiro - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="theme-parceiro">
+  <div class="dashboard">
+    <div class="mobile-header">
+      <a href="dashboard.html" class="logo">Alba Invest</a>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar sidebar-green">
+      <div class="sidebar-logo">
+        <a href="dashboard.html" class="logo">Alba Invest</a>
+        <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
+      </div>
+      <!-- Profile Mode Card -->
+      <div class="profile-mode-card" id="profileModeCard">
+        <div class="profile-mode-current">
+          <div class="profile-mode-icon emissor" id="profileIcon">
+            <i class="bi bi-broadcast"></i>
+          </div>
+          <div class="profile-mode-info">
+            <div class="profile-mode-label">Visualizando como</div>
+            <div class="profile-mode-name" id="profileName">Emissor</div>
+          </div>
+          <span class="profile-mode-tag emissor" id="profileTag">
+            <i class="bi bi-broadcast"></i> Emissor
+          </span>
+        </div>
+        <button class="profile-mode-switch-btn" onclick="showModal('selecionarPerfilModal')">
+          <i class="bi bi-arrow-left-right"></i> Trocar modo de acesso
+        </button>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li class="hide-on-originador"><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponíveis</span></a></li>
+        <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
+        <li class="hide-on-originador"><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
+        <li class="hide-on-originador"><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
+        <li class="originador-content" style="display:none;"><a href="meus-emissores.html" class="active"><i class="bi bi-building"></i> Meus Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Ofertas dos Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="comissoes-originador.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
+        <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
+
+      <!-- ========================================== -->
+      <!-- CONTEUDO ORIGINADOR -->
+      <!-- ========================================== -->
+      <div class="originador-content">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Meus Emissores</h1>
+            <p class="text-muted">Empresas que você trouxe para a plataforma</p>
+          </div>
+          <div class="header-user-info">
+            <span class="badge badge-success"><i class="bi bi-lightning-charge"></i> Modo Originador</span>
+          </div>
+        </div>
+
+        <!-- KPIs -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">Total de Emissores</div>
+            <div class="kpi-value" style="color: #059669;">12</div>
+            <div class="kpi-change positive">+2 este mês</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Com Oferta Ativa</div>
+            <div class="kpi-value">5</div>
+            <div class="kpi-change">em captação</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Volume Total Originado</div>
+            <div class="kpi-value">R$ 2,8M</div>
+            <div class="kpi-change positive">+R$ 450k este mês</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Comissões Geradas</div>
+            <div class="kpi-value">R$ 55.400</div>
+            <div class="kpi-change">acumulado 2026</div>
+          </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="card mb-20">
+          <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center;">
+            <div class="form-group" style="margin: 0; flex: 1; min-width: 200px;">
+              <input type="text" class="form-input" placeholder="Buscar emissor...">
+            </div>
+            <div class="form-group" style="margin: 0; width: 180px;">
+              <select class="form-input">
+                <option value="">Todos os Status</option>
+                <option value="ativo">Com Oferta Ativa</option>
+                <option value="encerrado">Oferta Encerrada</option>
+                <option value="pendente">Pendente</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin: 0; width: 180px;">
+              <select class="form-input">
+                <option value="">Todos os Setores</option>
+                <option value="tech">Tecnologia</option>
+                <option value="agro">Agronegócio</option>
+                <option value="energia">Energia</option>
+                <option value="saude">Saúde</option>
+                <option value="varejo">Varejo</option>
+              </select>
+            </div>
+            <button class="btn btn-outline"><i class="bi bi-funnel"></i> Filtrar</button>
+          </div>
+        </div>
+
+        <!-- Lista de Emissores -->
+        <div class="card">
+          <div class="card-header flex-between">
+            <h3 class="card-title"><i class="bi bi-building"></i> Emissores Originados</h3>
+            <button class="btn btn-primary" onclick="showModal('indicarEmissorModal')">
+              <i class="bi bi-plus-lg"></i> Indicar Novo Emissor
+            </button>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Emissor</th>
+                  <th>Setor</th>
+                  <th>Data Indicação</th>
+                  <th>Ofertas</th>
+                  <th>Volume Captado</th>
+                  <th>Sua Comissão</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #059669, #047857); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">TS</div>
+                      <div>
+                        <strong>TechStart Inovação</strong>
+                        <br><small class="text-muted">CNPJ: 12.345.678/0001-90</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge badge-info">Tecnologia</span></td>
+                  <td>15/08/2025</td>
+                  <td>2</td>
+                  <td>R$ 875.000</td>
+                  <td style="color: #059669; font-weight: 600;">R$ 6.125</td>
+                  <td><span class="badge badge-success">Oferta Ativa</span></td>
+                  <td>
+                    <a href="emissor-detalhe.html" class="btn btn-sm btn-outline"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #22c55e, #16a34a); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">EF</div>
+                      <div>
+                        <strong>EcoFood Organicos</strong>
+                        <br><small class="text-muted">CNPJ: 23.456.789/0001-01</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge" style="background: #dcfce7; color: #166534;">Agronegócio</span></td>
+                  <td>02/09/2025</td>
+                  <td>1</td>
+                  <td>R$ 420.000</td>
+                  <td style="color: #059669; font-weight: 600;">R$ 2.940</td>
+                  <td><span class="badge badge-secondary">Encerrada</span></td>
+                  <td>
+                    <a href="emissor-detalhe.html" class="btn btn-sm btn-outline"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">SE</div>
+                      <div>
+                        <strong>Solar Energy Brasil</strong>
+                        <br><small class="text-muted">CNPJ: 34.567.890/0001-12</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge" style="background: #fef3c7; color: #92400e;">Energia</span></td>
+                  <td>18/10/2025</td>
+                  <td>1</td>
+                  <td>R$ 650.000</td>
+                  <td style="color: #059669; font-weight: 600;">R$ 2.925</td>
+                  <td><span class="badge badge-warning">Em Captação</span></td>
+                  <td>
+                    <a href="emissor-detalhe.html" class="btn btn-sm btn-outline"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #ec4899, #db2777); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">HS</div>
+                      <div>
+                        <strong>HealthSoft</strong>
+                        <br><small class="text-muted">CNPJ: 45.678.901/0001-23</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge" style="background: #fce7f3; color: #9d174d;">Saúde</span></td>
+                  <td>05/11/2025</td>
+                  <td>1</td>
+                  <td>R$ 380.000</td>
+                  <td style="color: #059669; font-weight: 600;">R$ 2.660</td>
+                  <td><span class="badge badge-success">Oferta Ativa</span></td>
+                  <td>
+                    <a href="emissor-detalhe.html" class="btn btn-sm btn-outline"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #6366f1, #4f46e5); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">VD</div>
+                      <div>
+                        <strong>VarejoDigital</strong>
+                        <br><small class="text-muted">CNPJ: 56.789.012/0001-34</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge" style="background: #e0e7ff; color: #3730a3;">Varejo</span></td>
+                  <td>22/12/2025</td>
+                  <td>0</td>
+                  <td>R$ 0</td>
+                  <td style="color: #94a3b8; font-weight: 600;">-</td>
+                  <td><span class="badge" style="background: #fef3c7; color: #92400e;">Cadastro Pendente</span></td>
+                  <td>
+                    <a href="emissor-detalhe.html" class="btn btn-sm btn-outline"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #059669, #047857); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">FA</div>
+                      <div>
+                        <strong>FinApp Soluções</strong>
+                        <br><small class="text-muted">CNPJ: 67.890.123/0001-45</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge badge-info">Tecnologia</span></td>
+                  <td>08/01/2026</td>
+                  <td>0</td>
+                  <td>R$ 0</td>
+                  <td style="color: #94a3b8; font-weight: 600;">-</td>
+                  <td><span class="badge" style="background: #dbeafe; color: #1e40af;">Em Análise</span></td>
+                  <td>
+                    <a href="emissor-detalhe.html" class="btn btn-sm btn-outline"><i class="bi bi-eye"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer flex-between" style="padding: 15px 20px; background: var(--bg); border-top: 1px solid var(--border);">
+            <span class="text-muted">Mostrando 6 de 12 emissores</span>
+            <div class="pagination">
+              <button class="btn btn-sm btn-outline" disabled>&laquo;</button>
+              <button class="btn btn-sm btn-primary">1</button>
+              <button class="btn btn-sm btn-outline">2</button>
+              <button class="btn btn-sm btn-outline">&raquo;</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info Box -->
+        <div class="alert alert-info mt-20">
+          <i class="bi bi-info-circle"></i>
+          <div>
+            <strong>Como funciona a originação:</strong><br>
+            Você indica empresas para captar recursos na plataforma. Após aprovação e início da oferta, você recebe comissão sobre o volume captado. A taxa varia de acordo com o tipo de oferta e volume.
+          </div>
+        </div>
+
+        <!-- Disclaimer Regulatório CVM -->
+        <div class="dashboard-disclaimer">
+          <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+          <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p>
+          <p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
+          <div class="warning-text">
+            <i class="bi bi-exclamation-triangle"></i>
+            <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura.</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal Indicar Emissor -->
+  <div class="modal-overlay" id="indicarEmissorModal" style="display: none;">
+    <div class="modal" style="max-width: 500px;">
+      <div class="modal-header">
+        <h3><i class="bi bi-building-add"></i> Indicar Novo Emissor</h3>
+        <button class="modal-close" onclick="hideModal('indicarEmissorModal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="text-muted mb-20">Preencha os dados básicos da empresa que deseja indicar para captar na plataforma.</p>
+
+        <div class="form-group">
+          <label class="form-label">Nome da Empresa *</label>
+          <input type="text" class="form-input" placeholder="Ex: TechStart Inovação">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">CNPJ *</label>
+          <input type="text" class="form-input" placeholder="00.000.000/0001-00">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Setor de Atuação *</label>
+          <select class="form-input">
+            <option value="">Selecione...</option>
+            <option value="tech">Tecnologia</option>
+            <option value="agro">Agronegócio</option>
+            <option value="energia">Energia</option>
+            <option value="saude">Saúde</option>
+            <option value="varejo">Varejo</option>
+            <option value="industria">Indústria</option>
+            <option value="servicos">Serviços</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Nome do Contato *</label>
+          <input type="text" class="form-input" placeholder="Nome do representante">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">E-mail do Contato *</label>
+          <input type="email" class="form-input" placeholder="contato@empresa.com">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Telefone</label>
+          <input type="text" class="form-input" placeholder="(11) 99999-9999">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Valor Estimado de Captação</label>
+          <select class="form-input">
+            <option value="">Selecione...</option>
+            <option value="ate100k">Até R$ 100.000</option>
+            <option value="100k-500k">R$ 100.000 a R$ 500.000</option>
+            <option value="500k-1m">R$ 500.000 a R$ 1.000.000</option>
+            <option value="1m-5m">R$ 1.000.000 a R$ 5.000.000</option>
+            <option value="5m+">Acima de R$ 5.000.000</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Observações</label>
+          <textarea class="form-input" rows="3" placeholder="Informações adicionais sobre a empresa..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="hideModal('indicarEmissorModal')">Cancelar</button>
+        <button class="btn btn-primary" onclick="hideModal('indicarEmissorModal'); Modals.success('Indicação Enviada', 'Sua indicação foi enviada com sucesso! Entraremos em contato com a empresa indicada.');">
+          <i class="bi bi-send"></i> Enviar Indicação
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Selecionar Perfil -->
+  <div class="modal-overlay" id="selecionarPerfilModal" style="display: none;">
+    <div class="modal profile-select-modal">
+      <div class="modal-header">
+        <h3><i class="bi bi-person-gear"></i> Modo de Acesso</h3>
+        <button class="modal-close" onclick="hideModal('selecionarPerfilModal')">&times;</button>
+      </div>
+      <p class="text-muted mb-20">Escolha como deseja visualizar e operar na plataforma.</p>
+
+      <!-- Opcao Emissor -->
+      <div class="profile-option emissor" id="optionEmissor" onclick="selectProfileOption('emissor')">
+        <div class="profile-option-icon emissor"><i class="bi bi-broadcast"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Emissor</div>
+          <p class="profile-option-desc">Crie e gerencie suas próprias ofertas de captação.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
+      </div>
+
+      <!-- Opcao Distribuidor -->
+      <div class="profile-option distribuidor" id="optionDistribuidor" onclick="selectProfileOption('distribuidor')">
+        <div class="profile-option-icon distribuidor"><i class="bi bi-diagram-3"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Distribuidor</div>
+          <p class="profile-option-desc">Distribua ofertas de terceiros para seus clientes.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
+      </div>
+
+      <!-- Opcao Originador -->
+      <div class="profile-option originador" id="optionOriginador" onclick="selectProfileOption('originador')">
+        <div class="profile-option-icon originador"><i class="bi bi-lightning-charge"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Originador</div>
+          <p class="profile-option-desc">Traga novas empresas para captar recursos.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
+      </div>
+
+      <div class="flex gap-10 mt-20">
+        <button class="btn btn-outline" onclick="hideModal('selecionarPerfilModal')" style="flex: 1;">Cancelar</button>
+        <button class="btn btn-primary" onclick="confirmarPerfil()" style="flex: 1;"><i class="bi bi-check-lg"></i> Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/app.js"></script>
+  <script>
+    // Auto-set originador mode on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof ParceiroProfiles !== 'undefined') {
+        ParceiroProfiles.setProfile('originador');
+      }
+    });
+  </script>
+
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

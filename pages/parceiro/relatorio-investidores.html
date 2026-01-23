@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Investidores - Relatórios - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      .sidebar, .mobile-header, .menu-toggle, .mobile-overlay { display: none !important; }
+      .main-content { margin: 0; padding: 20px; }
+      .card { box-shadow: none; border: 1px solid #ddd; }
+      body { background: white; }
+      .dashboard { display: block; }
+    }
+  </style>
+</head>
+<body class="theme-parceiro">
+  <div class="dashboard">
+    <div class="mobile-header no-print">
+      <a href="dashboard.html" class="logo">Alba Invest</a>
+    </div>
+
+    <aside class="sidebar sidebar-green no-print">
+      <div class="sidebar-logo">
+        <a href="dashboard.html" class="logo">Alba Invest</a>
+        <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
+      </div>
+      <div class="profile-mode-card" id="profileModeCard">
+        <div class="profile-mode-current">
+          <div class="profile-mode-icon emissor" id="profileIcon">
+            <i class="bi bi-broadcast"></i>
+          </div>
+          <div class="profile-mode-info">
+            <div class="profile-mode-label">Visualizando como</div>
+            <div class="profile-mode-name" id="profileName">Emissor</div>
+          </div>
+          <span class="profile-mode-tag emissor" id="profileTag">
+            <i class="bi bi-broadcast"></i> Emissor
+          </span>
+        </div>
+        <button class="profile-mode-switch-btn" onclick="showModal('selecionarPerfilModal')">
+          <i class="bi bi-arrow-left-right"></i> Trocar modo de acesso
+        </button>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li class="hide-on-originador"><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponíveis</span></a></li>
+        <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
+        <li class="hide-on-originador"><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
+        <li class="hide-on-originador"><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
+        <li class="originador-content" style="display:none;"><a href="meus-emissores.html"><i class="bi bi-building"></i> Meus Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="comissoes-originador.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
+        <li><a href="relatorios.html" class="active"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
+        <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay no-print" onclick="closeMobileMenus()"></div>
+
+    <main class="main-content">
+      <button class="menu-toggle no-print" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
+
+      <!-- Cabecalho do Relatório -->
+      <div class="page-header no-print">
+        <div>
+          <a href="relatorios.html" class="text-muted" style="text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 10px;">
+            <i class="bi bi-arrow-left"></i> Voltar para Relatórios
+          </a>
+          <h1 class="page-title"><i class="bi bi-people"></i> Lista de Investidores</h1>
+          <p class="text-muted">Todos os investidores da oferta com dados completos</p>
+        </div>
+      </div>
+
+      <!-- Filtros e Ações -->
+      <div class="card mb-20 no-print">
+        <div class="flex-between" style="flex-wrap: wrap; gap: 15px;">
+          <div style="flex: 1; min-width: 200px;">
+            <label class="form-label">Oferta</label>
+            <select class="form-control" id="ofertaSelect">
+              <option value="todas">Todas as Ofertas</option>
+              <option value="oferta1" selected>TechStart Inovação</option>
+              <option value="oferta2">GreenEnergy Solar</option>
+              <option value="oferta3">HealthTech Solutions</option>
+            </select>
+          </div>
+          <div style="flex: 1; min-width: 200px;">
+            <label class="form-label">Status</label>
+            <select class="form-control">
+              <option value="todos">Todos</option>
+              <option value="ativo">Ativos</option>
+              <option value="desistente">Desistentes</option>
+            </select>
+          </div>
+          <div style="flex: 1; min-width: 200px;">
+            <label class="form-label">Buscar</label>
+            <input type="text" class="form-control" placeholder="Nome, CPF ou email...">
+          </div>
+          <div class="flex gap-10" style="align-items: flex-end;">
+            <button class="btn btn-primary"><i class="bi bi-search"></i> Buscar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ações de Exportação -->
+      <div class="card mb-20 no-print">
+        <div class="flex-between" style="flex-wrap: wrap; gap: 10px;">
+          <div>
+            <strong>Exportar Relatório</strong>
+            <p class="text-muted" style="font-size: 0.875rem;">Escolha o formato desejado</p>
+          </div>
+          <div class="header-user-info">
+            <button class="btn btn-outline" onclick="window.print()">
+              <i class="bi bi-printer"></i> Imprimir
+            </button>
+            <button class="btn btn-outline" onclick="Modals.export('pdf', 'investidores')">
+              <i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> PDF
+            </button>
+            <button class="btn btn-outline" onclick="Modals.export('excel', 'investidores')">
+              <i class="bi bi-file-earmark-excel" style="color: #217346;"></i> Excel
+            </button>
+            <button class="btn btn-outline" onclick="Modals.export('csv', 'investidores')">
+              <i class="bi bi-filetype-csv"></i> CSV
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPIs -->
+      <div class="kpi-grid mb-20">
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background: #dbeafe; color: #2563eb;">
+            <i class="bi bi-people"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Total Investidores</span>
+            <span class="kpi-value">47</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background: #dcfce7; color: #16a34a;">
+            <i class="bi bi-cash-stack"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Total Investido</span>
+            <span class="kpi-value">R$ 245.000</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background: #f3e8ff; color: #9333ea;">
+            <i class="bi bi-calculator"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Ticket Medio</span>
+            <span class="kpi-value">R$ 5.212</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background: #fef3c7; color: #d97706;">
+            <i class="bi bi-person-check"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Investidores Ativos</span>
+            <span class="kpi-value">43</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabela de Investidores -->
+      <div class="card mb-20">
+        <h3 style="margin-bottom: 20px;">Lista Completa de Investidores</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Investidor</th>
+                <th>CPF/CNPJ</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th style="text-align: right;">Valor Investido</th>
+                <th>Data</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Maria Silva Santos</strong></td>
+                <td>123.456.789-00</td>
+                <td>maria.silva@email.com</td>
+                <td>(11) 98765-4321</td>
+                <td style="text-align: right;">R$ 10.000,00</td>
+                <td>19/01/2026</td>
+                <td><span class="badge badge-success">Ativo</span></td>
+              </tr>
+              <tr>
+                <td><strong>Joao Pedro Oliveira</strong></td>
+                <td>987.654.321-00</td>
+                <td>joao.pedro@email.com</td>
+                <td>(11) 91234-5678</td>
+                <td style="text-align: right;">R$ 5.000,00</td>
+                <td>18/01/2026</td>
+                <td><span class="badge badge-success">Ativo</span></td>
+              </tr>
+              <tr>
+                <td><strong>Ana Paula Costa</strong></td>
+                <td>321.654.987-00</td>
+                <td>ana.costa@email.com</td>
+                <td>(21) 99876-5432</td>
+                <td style="text-align: right;">R$ 3.000,00</td>
+                <td>18/01/2026</td>
+                <td><span class="badge badge-warning">Desistente</span></td>
+              </tr>
+              <tr>
+                <td><strong>Carlos Eduardo Lima</strong></td>
+                <td>456.789.123-00</td>
+                <td>carlos.lima@email.com</td>
+                <td>(31) 98765-1234</td>
+                <td style="text-align: right;">R$ 15.000,00</td>
+                <td>17/01/2026</td>
+                <td><span class="badge badge-success">Ativo</span></td>
+              </tr>
+              <tr>
+                <td><strong>Patricia Mendes</strong></td>
+                <td>789.123.456-00</td>
+                <td>patricia.mendes@email.com</td>
+                <td>(41) 97654-3210</td>
+                <td style="text-align: right;">R$ 8.000,00</td>
+                <td>16/01/2026</td>
+                <td><span class="badge badge-success">Ativo</span></td>
+              </tr>
+              <tr>
+                <td><strong>Roberto Ferreira</strong></td>
+                <td>654.987.321-00</td>
+                <td>roberto.f@email.com</td>
+                <td>(51) 96543-2109</td>
+                <td style="text-align: right;">R$ 12.000,00</td>
+                <td>16/01/2026</td>
+                <td><span class="badge badge-success">Ativo</span></td>
+              </tr>
+              <tr>
+                <td><strong>Fernanda Rodrigues</strong></td>
+                <td>147.258.369-00</td>
+                <td>fernanda.r@email.com</td>
+                <td>(61) 95432-1098</td>
+                <td style="text-align: right;">R$ 7.500,00</td>
+                <td>15/01/2026</td>
+                <td><span class="badge badge-success">Ativo</span></td>
+              </tr>
+              <tr>
+                <td><strong>Lucas Almeida</strong></td>
+                <td>369.258.147-00</td>
+                <td>lucas.a@email.com</td>
+                <td>(71) 94321-0987</td>
+                <td style="text-align: right;">R$ 20.000,00</td>
+                <td>14/01/2026</td>
+                <td><span class="badge badge-success">Ativo</span></td>
+              </tr>
+              <tr>
+                <td><strong>Tech Solutions LTDA</strong></td>
+                <td>12.345.678/0001-90</td>
+                <td>contato@techsol.com.br</td>
+                <td>(11) 3456-7890</td>
+                <td style="text-align: right;">R$ 50.000,00</td>
+                <td>12/01/2026</td>
+                <td><span class="badge badge-success">Ativo</span></td>
+              </tr>
+              <tr>
+                <td><strong>Juliana Martins</strong></td>
+                <td>258.369.147-00</td>
+                <td>juliana.m@email.com</td>
+                <td>(81) 93210-9876</td>
+                <td style="text-align: right;">R$ 4.000,00</td>
+                <td>10/01/2026</td>
+                <td><span class="badge badge-success">Ativo</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="flex-between mt-20" style="flex-wrap: wrap; gap: 10px;">
+          <span class="text-muted">Mostrando 10 de 47 investidores</span>
+          <div class="header-user-info">
+            <button class="btn btn-outline btn-sm" disabled><i class="bi bi-chevron-left"></i></button>
+            <button class="btn btn-primary btn-sm">1</button>
+            <button class="btn btn-outline btn-sm">2</button>
+            <button class="btn btn-outline btn-sm">3</button>
+            <button class="btn btn-outline btn-sm">4</button>
+            <button class="btn btn-outline btn-sm">5</button>
+            <button class="btn btn-outline btn-sm"><i class="bi bi-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Disclaimer Regulatório CVM -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
+        <div class="warning-text">
+          <i class="bi bi-exclamation-triangle"></i>
+          <span>Os dados apresentados são confidenciais e de uso exclusivo do emissor. Divulgação não autorizada pode acarretar penalidades legais.</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/app.js"></script>
+  
+
+  <!-- Modal Selecionar Perfil -->
+  <div class="modal-overlay" id="selecionarPerfilModal" style="display: none;">
+    <div class="modal profile-select-modal">
+      <div class="modal-header">
+        <h3><i class="bi bi-person-gear"></i> Modo de Acesso</h3>
+        <button class="modal-close" onclick="hideModal('selecionarPerfilModal')">&times;</button>
+      </div>
+      <p class="text-muted mb-20">Escolha como deseja visualizar e operar na plataforma.</p>
+      <div class="profile-option emissor active" id="optionEmissor" onclick="selectProfileOption('emissor')">
+        <div class="profile-option-icon emissor"><i class="bi bi-broadcast"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Emissor</div>
+          <p class="profile-option-desc">Crie e gerencie suas proprias ofertas de investimento.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
+      </div>
+      <div class="profile-option distribuidor" id="optionDistribuidor" onclick="selectProfileOption('distribuidor')">
+        <div class="profile-option-icon distribuidor"><i class="bi bi-diagram-3"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Distribuidor</div>
+          <p class="profile-option-desc">Distribua ofertas de terceiros para seus clientes.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
+      </div>
+      
+      <!-- Opcao Originador -->
+      <div class="profile-option originador" id="optionOriginador" onclick="selectProfileOption('originador')">
+        <div class="profile-option-icon originador"><i class="bi bi-lightning-charge"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Originador</div>
+          <p class="profile-option-desc">Traga novas empresas para captar recursos.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
+      </div>
+      
+      <div class="flex gap-10 mt-20">
+        <button class="btn btn-outline" onclick="hideModal('selecionarPerfilModal')" style="flex: 1;">Cancelar</button>
+        <button class="btn btn-primary" onclick="confirmarPerfil()" style="flex: 1;"><i class="bi bi-check-lg"></i> Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

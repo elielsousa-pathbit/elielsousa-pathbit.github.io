@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - Portal do Emissor - CrowdInvest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        :root {
+            --emissor-primary: #7c3aed;
+            --emissor-dark: #5b21b6;
+            --emissor-light: #ede9fe;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, var(--emissor-primary) 0%, var(--emissor-dark) 100%);
+        }
+
+        .nav-link.active {
+            background-color: rgba(255,255,255,0.2) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--emissor-dark);
+            border-color: var(--emissor-dark);
+        }
+
+        .btn-outline-primary {
+            color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .text-primary {
+            color: var(--emissor-primary) !important;
+        }
+
+        /* Report cards */
+        .report-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .report-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .report-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        /* Chart placeholder */
+        .chart-placeholder {
+            height: 300px;
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+        }
+
+        /* Stats grid */
+        .stat-box {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #f9fafb;
+            border-radius: 12px;
+        }
+
+        .stat-box .value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .stat-box .label {
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+
+        /* Quick report */
+        .quick-report {
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s ease;
+        }
+
+        .quick-report:hover {
+            border-color: var(--emissor-primary);
+            background-color: var(--emissor-light);
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px; min-height: 100vh;">
+            <a href="dashboard.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <i class="bi bi-building me-2 fs-4"></i>
+                <span class="fs-5 fw-semibold">Portal Emissor</span>
+            </a>
+            <hr>
+
+            <!-- Company Card -->
+            <div class="card bg-white bg-opacity-10 border-0 mb-3">
+                <div class="card-body p-2">
+                    <div class="d-flex align-items-center">
+                        <div class="rounded-circle bg-white bg-opacity-25 p-2 me-2">
+                            <i class="bi bi-building text-white"></i>
+                        </div>
+                        <div>
+                            <div class="fw-semibold small">TechStart Soluções</div>
+                            <div class="text-white-50 small">CNPJ: 12.345.678/0001-90</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link text-white">
+                        <i class="bi bi-speedometer2 me-2"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="minhas-ofertas.html" class="nav-link text-white">
+                        <i class="bi bi-collection me-2"></i>
+                        Minhas Ofertas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="nova-oferta.html" class="nav-link text-white">
+                        <i class="bi bi-plus-circle me-2"></i>
+                        Nova Oferta
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="investidores.html" class="nav-link text-white">
+                        <i class="bi bi-people me-2"></i>
+                        Investidores
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pagamentos.html" class="nav-link text-white">
+                        <i class="bi bi-cash-stack me-2"></i>
+                        Pagamentos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="comunicados.html" class="nav-link text-white">
+                        <i class="bi bi-megaphone me-2"></i>
+                        Comunicados
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="documentos.html" class="nav-link text-white">
+                        <i class="bi bi-folder me-2"></i>
+                        Documentos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="relatorios.html" class="nav-link text-white active">
+                        <i class="bi bi-graph-up me-2"></i>
+                        Relatórios
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a href="configuracoes.html" class="nav-link text-white">
+                        <i class="bi bi-gear me-2"></i>
+                        Configurações
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../parceiro/dashboard.html" class="nav-link text-white">
+                        <i class="bi bi-box-arrow-left me-2"></i>
+                        Voltar ao Portal
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 bg-light">
+            <!-- Top Bar -->
+            <div class="bg-white border-bottom px-4 py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h4 class="mb-0">Relatórios</h4>
+                        <small class="text-muted">Análises e métricas das suas captações</small>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <select class="form-select" style="width: 150px;">
+                            <option>Todas ofertas</option>
+                            <option>Série A - SaaS</option>
+                            <option>Seed - MVP</option>
+                        </select>
+                        <select class="form-select" style="width: 140px;">
+                            <option>Últimos 30 dias</option>
+                            <option>Últimos 90 dias</option>
+                            <option>Este ano</option>
+                            <option>Todo período</option>
+                        </select>
+                        <button class="btn btn-primary">
+                            <i class="bi bi-download me-1"></i>
+                            Exportar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-4">
+                <!-- Quick Stats -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                        <div class="stat-box">
+                            <div class="value text-primary">R$ 2,1M</div>
+                            <div class="label">Total Captado</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-box">
+                            <div class="value text-success">109</div>
+                            <div class="label">Total Investidores</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-box">
+                            <div class="value text-warning">R$ 19,3k</div>
+                            <div class="label">Ticket Médio</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-box">
+                            <div class="value text-info">4</div>
+                            <div class="label">Ofertas Realizadas</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Report Types -->
+                <div class="row g-4 mb-4">
+                    <div class="col-md-4">
+                        <div class="card report-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="report-icon bg-primary bg-opacity-10 text-primary me-3">
+                                        <i class="bi bi-graph-up-arrow"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">Relatório de Captação</h6>
+                                        <small class="text-muted">Evolução e métricas</small>
+                                    </div>
+                                </div>
+                                <p class="text-muted small mb-3">Acompanhe a evolução da captação, ticket médio, origem dos investidores e taxa de conversão.</p>
+                                <button class="btn btn-outline-primary btn-sm w-100">
+                                    <i class="bi bi-eye me-1"></i>
+                                    Visualizar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card report-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="report-icon bg-success bg-opacity-10 text-success me-3">
+                                        <i class="bi bi-people"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">Relatório de Investidores</h6>
+                                        <small class="text-muted">Perfil e comportamento</small>
+                                    </div>
+                                </div>
+                                <p class="text-muted small mb-3">Análise do perfil dos investidores, distribuição geográfica, faixa de investimento e recorrência.</p>
+                                <button class="btn btn-outline-primary btn-sm w-100">
+                                    <i class="bi bi-eye me-1"></i>
+                                    Visualizar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card report-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="report-icon bg-warning bg-opacity-10 text-warning me-3">
+                                        <i class="bi bi-cash-stack"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">Relatório Financeiro</h6>
+                                        <small class="text-muted">Pagamentos e dividendos</small>
+                                    </div>
+                                </div>
+                                <p class="text-muted small mb-3">Histórico de pagamentos, dividendos distribuídos, taxas da plataforma e projeções.</p>
+                                <button class="btn btn-outline-primary btn-sm w-100">
+                                    <i class="bi bi-eye me-1"></i>
+                                    Visualizar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Chart Area -->
+                    <div class="col-lg-8">
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                                <h6 class="mb-0">Evolução da Captação</h6>
+                                <div class="btn-group btn-group-sm">
+                                    <button class="btn btn-outline-secondary active">Diário</button>
+                                    <button class="btn btn-outline-secondary">Semanal</button>
+                                    <button class="btn btn-outline-secondary">Mensal</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-placeholder">
+                                    <div class="text-center">
+                                        <i class="bi bi-graph-up fs-1 mb-2 d-block"></i>
+                                        <span>Gráfico de linha - Captação ao longo do tempo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-white py-3">
+                                        <h6 class="mb-0">Distribuição por Valor</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-placeholder" style="height: 200px;">
+                                            <div class="text-center">
+                                                <i class="bi bi-pie-chart fs-1 mb-2 d-block"></i>
+                                                <span>Gráfico pizza</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3">
+                                            <div class="d-flex justify-content-between small mb-2">
+                                                <span><span class="badge me-1" style="background-color: #7c3aed;">•</span> Até R$ 5.000</span>
+                                                <span>38 (35%)</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between small mb-2">
+                                                <span><span class="badge me-1" style="background-color: #a855f7;">•</span> R$ 5k - R$ 20k</span>
+                                                <span>49 (45%)</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between small">
+                                                <span><span class="badge me-1" style="background-color: #c084fc;">•</span> Acima de R$ 20k</span>
+                                                <span>22 (20%)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-white py-3">
+                                        <h6 class="mb-0">Origem dos Investidores</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-placeholder" style="height: 200px;">
+                                            <div class="text-center">
+                                                <i class="bi bi-bar-chart fs-1 mb-2 d-block"></i>
+                                                <span>Gráfico barras</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3">
+                                            <div class="d-flex justify-content-between small mb-2">
+                                                <span><span class="badge me-1 bg-primary">•</span> São Paulo</span>
+                                                <span>42 (38%)</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between small mb-2">
+                                                <span><span class="badge me-1 bg-success">•</span> Rio de Janeiro</span>
+                                                <span>23 (21%)</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between small">
+                                                <span><span class="badge me-1 bg-warning">•</span> Outros</span>
+                                                <span>44 (41%)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Reports & Downloads -->
+                    <div class="col-lg-4">
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-header bg-white py-3">
+                                <h6 class="mb-0">Relatórios para Download</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="quick-report d-flex align-items-center mb-3">
+                                    <div class="rounded bg-danger bg-opacity-10 p-2 me-3">
+                                        <i class="bi bi-file-earmark-pdf text-danger"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="fw-semibold small">Relatório Mensal - Janeiro 2025</div>
+                                        <div class="text-muted small">PDF • 1.2 MB</div>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-secondary">
+                                        <i class="bi bi-download"></i>
+                                    </button>
+                                </div>
+
+                                <div class="quick-report d-flex align-items-center mb-3">
+                                    <div class="rounded bg-success bg-opacity-10 p-2 me-3">
+                                        <i class="bi bi-file-earmark-excel text-success"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="fw-semibold small">Base de Investidores</div>
+                                        <div class="text-muted small">XLSX • 450 KB</div>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-secondary">
+                                        <i class="bi bi-download"></i>
+                                    </button>
+                                </div>
+
+                                <div class="quick-report d-flex align-items-center mb-3">
+                                    <div class="rounded bg-danger bg-opacity-10 p-2 me-3">
+                                        <i class="bi bi-file-earmark-pdf text-danger"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="fw-semibold small">Relatório Anual 2024</div>
+                                        <div class="text-muted small">PDF • 3.8 MB</div>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-secondary">
+                                        <i class="bi bi-download"></i>
+                                    </button>
+                                </div>
+
+                                <div class="quick-report d-flex align-items-center">
+                                    <div class="rounded bg-success bg-opacity-10 p-2 me-3">
+                                        <i class="bi bi-file-earmark-excel text-success"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="fw-semibold small">Histórico de Pagamentos</div>
+                                        <div class="text-muted small">XLSX • 280 KB</div>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-secondary">
+                                        <i class="bi bi-download"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Key Metrics -->
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white py-3">
+                                <h6 class="mb-0">Métricas Principais</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
+                                    <span class="text-muted">Taxa de Conversão</span>
+                                    <div class="text-end">
+                                        <div class="fw-bold">3,8%</div>
+                                        <small class="text-success"><i class="bi bi-arrow-up"></i> 0.5%</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
+                                    <span class="text-muted">Ticket Médio</span>
+                                    <div class="text-end">
+                                        <div class="fw-bold">R$ 19.266</div>
+                                        <small class="text-success"><i class="bi bi-arrow-up"></i> 12%</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
+                                    <span class="text-muted">Investidores Recorrentes</span>
+                                    <div class="text-end">
+                                        <div class="fw-bold">23%</div>
+                                        <small class="text-success"><i class="bi bi-arrow-up"></i> 5%</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
+                                    <span class="text-muted">Visualizações da Oferta</span>
+                                    <div class="text-end">
+                                        <div class="fw-bold">3.420</div>
+                                        <small class="text-muted">total</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-muted">Taxa de Sucesso</span>
+                                    <div class="text-end">
+                                        <div class="fw-bold text-success">75%</div>
+                                        <small class="text-muted">3 de 4 ofertas</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

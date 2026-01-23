@@ -10,13 +10,13 @@
 <body class="theme-parceiro">
   <div class="dashboard">
     <div class="mobile-header">
-      <a href="../../index.html" class="logo">CrowdInvest</a>
+      <a href="dashboard.html" class="logo">Alba Invest</a>
     </div>
 
     <!-- Sidebar -->
     <aside class="sidebar sidebar-green">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo">CrowdInvest</a>
+        <a href="dashboard.html" class="logo">Alba Invest</a>
         <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
       </div>
       <!-- Profile Mode Card - Elegante -->
@@ -39,15 +39,18 @@
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-        <li><a href="minhas-ofertas.html" class="active"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponiveis</span></a></li>
+        <li class="hide-on-originador"><a href="minhas-ofertas.html" class="active"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponíveis</span></a></li>
         <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
-        <li><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
-        <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
-        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissoes</a></li>
+        <li class="hide-on-originador"><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
+        <li class="hide-on-originador"><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
+        <li class="originador-content" style="display:none;"><a href="meus-emissores.html"><i class="bi bi-building"></i> Meus Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="minhas-ofertas.html" class="active"><i class="bi bi-megaphone"></i> Ofertas dos Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="comissoes-originador.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -57,12 +60,16 @@
     <main class="main-content">
       <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
 
+      <!-- ========================================= -->
+      <!-- CONTEUDO EMISSOR -->
+      <!-- ========================================= -->
+      <div class="emissor-content">
       <div class="page-header">
         <div>
           <h1 class="page-title">Minhas Ofertas</h1>
-          <p class="text-muted">Gerencie todas as suas ofertas de captacao</p>
+          <p class="text-muted">Gerencie todas as suas ofertas de captação</p>
         </div>
-        <div class="flex gap-10">
+        <div class="header-user-info">
           <a href="nova-oferta.html" class="btn btn-primary">
             <i class="bi bi-plus-lg"></i> Nova Oferta
           </a>
@@ -97,10 +104,10 @@
             <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #059669, #047857); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold;">TS</div>
             <div>
               <div class="flex gap-10" style="align-items: center; margin-bottom: 5px;">
-                <h2 style="margin: 0;">TechStart Inovacao</h2>
+                <h2 style="margin: 0;">TechStart Inovação</h2>
                 <span class="badge badge-success">Ativa</span>
               </div>
-              <p class="text-muted">Plataforma SaaS para gestao de startups</p>
+              <p class="text-muted">Plataforma SaaS para gestão de startups</p>
               <p class="text-muted" style="font-size: 0.875rem;"><i class="bi bi-calendar3"></i> 01/01/2026 - 11/02/2026 (23 dias restantes)</p>
             </div>
           </div>
@@ -125,7 +132,7 @@
           </div>
           <div style="text-align: center; padding: 15px; background: var(--bg); border-radius: var(--radius);">
             <div style="font-size: 1.5rem; font-weight: bold; color: var(--warning);">6</div>
-            <small class="text-muted">Em Desistencia</small>
+            <small class="text-muted">Em Desistência</small>
           </div>
           <div style="text-align: center; padding: 15px; background: var(--bg); border-radius: var(--radius);">
             <div style="font-size: 1.5rem; font-weight: bold;">3%</div>
@@ -136,7 +143,7 @@
         <div class="flex gap-10 mt-20">
           <a href="oferta-detalhe.html?id=1" class="btn btn-primary"><i class="bi bi-eye"></i> Ver Detalhes</a>
           <a href="clientes.html?oferta=1" class="btn btn-outline"><i class="bi bi-people"></i> Clientes</a>
-          <a href="relatorios.html?oferta=1" class="btn btn-outline"><i class="bi bi-bar-chart"></i> Relatorios</a>
+          <a href="relatorios.html?oferta=1" class="btn btn-outline"><i class="bi bi-bar-chart"></i> Relatórios</a>
         </div>
       </div>
 
@@ -178,7 +185,7 @@
 
           <div class="flex gap-10 mt-20" style="padding-top: 15px; border-top: 1px solid var(--border);">
             <a href="oferta-detalhe.html?id=2" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i> Detalhes</a>
-            <a href="relatorios.html?oferta=2" class="btn btn-outline btn-sm"><i class="bi bi-bar-chart"></i> Relatorios</a>
+            <a href="relatorios.html?oferta=2" class="btn btn-outline btn-sm"><i class="bi bi-bar-chart"></i> Relatórios</a>
           </div>
         </div>
 
@@ -191,7 +198,7 @@
                 <h3 style="margin: 0;">FinTech Solutions</h3>
                 <span class="badge badge-info">Meta Minima</span>
               </div>
-              <p class="text-muted" style="font-size: 0.875rem;">Solucoes financeiras para PMEs</p>
+              <p class="text-muted" style="font-size: 0.875rem;">Soluções financeiras para PMEs</p>
             </div>
           </div>
 
@@ -217,28 +224,405 @@
 
           <div class="flex gap-10 mt-20" style="padding-top: 15px; border-top: 1px solid var(--border);">
             <a href="oferta-detalhe.html?id=3" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i> Detalhes</a>
-            <a href="relatorios.html?oferta=3" class="btn btn-outline btn-sm"><i class="bi bi-bar-chart"></i> Relatorios</a>
+            <a href="relatorios.html?oferta=3" class="btn btn-outline btn-sm"><i class="bi bi-bar-chart"></i> Relatórios</a>
           </div>
         </div>
       </div>
 
       <!-- Info -->
       <div class="alert alert-info mt-20">
-        <strong>RCVM 88/2022:</strong> Cada empresa pode ter apenas uma oferta ativa por vez. Para criar uma nova oferta, a oferta atual deve ser encerrada ou cancelada. Ofertas anteriores concluidas ficam disponiveis para consulta e relatorios.
+        <i class="bi bi-info-circle"></i>
+        <div>
+          <strong>RCVM 88/2022:</strong><br>
+          Cada empresa pode ter apenas uma oferta ativa por vez. Para criar uma nova oferta, a oferta atual deve ser encerrada ou cancelada. Ofertas anteriores concluidas ficam disponíveis para consulta e relatórios.
+        </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      </div><!-- fim emissor-content -->
+
+      <!-- ========================================= -->
+      <!-- CONTEUDO DISTRIBUIDOR -->
+      <!-- ========================================= -->
+      <div class="distribuidor-content" style="display: none;">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Ofertas Disponíveis</h1>
+            <p class="text-muted">Ofertas disponíveis para distribuição aos seus clientes</p>
+          </div>
+          <div class="header-user-info">
+            <span class="badge badge-primary"><i class="bi bi-diagram-3"></i> Modo Distribuidor</span>
+          </div>
+        </div>
+
+        <!-- KPIs Distribuidor -->
+        <div class="kpi-grid mb-20">
+          <div class="kpi-card">
+            <div class="kpi-label">Ofertas Disponíveis</div>
+            <div class="kpi-value" style="color: var(--primary);">8</div>
+            <div class="kpi-change positive">+2 novas esta semana</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Minhas Distribuições</div>
+            <div class="kpi-value">15</div>
+            <div class="kpi-change">clientes investiram</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Volume Distribuído</div>
+            <div class="kpi-value">R$ 285k</div>
+            <div class="kpi-change positive">+R$ 45k este mês</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Comissões Geradas</div>
+            <div class="kpi-value" style="color: var(--success);">R$ 8.550</div>
+            <div class="kpi-change">acumulado 2026</div>
+          </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="card mb-20">
+          <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center;">
+            <div class="form-group" style="margin: 0; flex: 1; min-width: 200px;">
+              <input type="text" class="form-input" placeholder="Buscar oferta...">
+            </div>
+            <div class="form-group" style="margin: 0; width: 150px;">
+              <select class="form-input">
+                <option value="">Tipo</option>
+                <option value="equity">Equity</option>
+                <option value="cri">CRI</option>
+                <option value="cra">CRA</option>
+                <option value="cr">CR</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin: 0; width: 150px;">
+              <select class="form-input">
+                <option value="">Setor</option>
+                <option value="tech">Tecnologia</option>
+                <option value="agro">Agronegócio</option>
+                <option value="imob">Imobiliário</option>
+                <option value="energia">Energia</option>
+              </select>
+            </div>
+            <button class="btn btn-outline"><i class="bi bi-funnel"></i> Filtrar</button>
+          </div>
+        </div>
+
+        <!-- Grid de Ofertas -->
+        <div class="grid-3" style="gap: 20px;">
+          <!-- Oferta 1 - Equity -->
+          <div class="card" style="border-top: 4px solid #7c3aed;">
+            <div class="flex-between mb-15">
+              <span class="badge" style="background: #7c3aed; color: white;">Equity</span>
+              <span class="badge badge-warning">23 dias</span>
+            </div>
+            <div class="flex gap-15 mb-15" style="align-items: center;">
+              <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #059669, #047857); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">TS</div>
+              <div>
+                <h3 style="margin: 0; font-size: 1.1rem;">TechStart Inovação</h3>
+                <p class="text-muted" style="font-size: 0.85rem; margin: 0;">Tecnologia / SaaS</p>
+              </div>
+            </div>
+            <div class="progress mb-10" style="height: 8px;">
+              <div class="progress-bar" style="width: 75%; background: #059669;"></div>
+            </div>
+            <div class="flex-between mb-15" style="font-size: 0.85rem;">
+              <span>R$ 375k de R$ 500k</span>
+              <span><strong>75%</strong></span>
+            </div>
+            <div class="flex-between mb-15" style="font-size: 0.85rem; padding-top: 10px; border-top: 1px solid var(--border);">
+              <span class="text-muted">Sua Comissão:</span>
+              <strong style="color: var(--success);">3%</strong>
+            </div>
+            <a href="oferta-detalhe.html?id=1" class="btn btn-primary btn-block"><i class="bi bi-eye"></i> Ver Oferta</a>
+          </div>
+
+          <!-- Oferta 2 - CRI -->
+          <div class="card" style="border-top: 4px solid #059669;">
+            <div class="flex-between mb-15">
+              <span class="badge" style="background: #059669; color: white;">CRI</span>
+              <span class="badge badge-secondary">60 dias</span>
+            </div>
+            <div class="flex gap-15 mb-15" style="align-items: center;">
+              <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #059669, #0e7490); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">PF</div>
+              <div>
+                <h3 style="margin: 0; font-size: 1.1rem;">Parque das Flores</h3>
+                <p class="text-muted" style="font-size: 0.85rem; margin: 0;">Imobiliário / Residencial</p>
+              </div>
+            </div>
+            <div class="progress mb-10" style="height: 8px;">
+              <div class="progress-bar" style="width: 45%; background: #059669;"></div>
+            </div>
+            <div class="flex-between mb-15" style="font-size: 0.85rem;">
+              <span>R$ 450k de R$ 1M</span>
+              <span><strong>45%</strong></span>
+            </div>
+            <div class="flex-between mb-15" style="font-size: 0.85rem; padding-top: 10px; border-top: 1px solid var(--border);">
+              <span class="text-muted">Sua Comissão:</span>
+              <strong style="color: var(--success);">2,5%</strong>
+            </div>
+            <a href="oferta-detalhe.html?id=2" class="btn btn-primary btn-block"><i class="bi bi-eye"></i> Ver Oferta</a>
+          </div>
+
+          <!-- Oferta 3 - CRA -->
+          <div class="card" style="border-top: 4px solid #22c55e;">
+            <div class="flex-between mb-15">
+              <span class="badge" style="background: #22c55e; color: white;">CRA</span>
+              <span class="badge badge-warning">30 dias</span>
+            </div>
+            <div class="flex gap-15 mb-15" style="align-items: center;">
+              <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #22c55e, #16a34a); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">AV</div>
+              <div>
+                <h3 style="margin: 0; font-size: 1.1rem;">Coop. AgroVerde</h3>
+                <p class="text-muted" style="font-size: 0.85rem; margin: 0;">Agronegócio / Grãos</p>
+              </div>
+            </div>
+            <div class="progress mb-10" style="height: 8px;">
+              <div class="progress-bar success" style="width: 82%;"></div>
+            </div>
+            <div class="flex-between mb-15" style="font-size: 0.85rem;">
+              <span>R$ 656k de R$ 800k</span>
+              <span><strong>82%</strong></span>
+            </div>
+            <div class="flex-between mb-15" style="font-size: 0.85rem; padding-top: 10px; border-top: 1px solid var(--border);">
+              <span class="text-muted">Sua Comissão:</span>
+              <strong style="color: var(--success);">2%</strong>
+            </div>
+            <a href="oferta-detalhe.html?id=3" class="btn btn-primary btn-block"><i class="bi bi-eye"></i> Ver Oferta</a>
+          </div>
+        </div>
+
+        <!-- Info Distribuidor -->
+        <div class="alert alert-info mt-20">
+          <i class="bi bi-info-circle"></i>
+          <div>
+            <strong>Comissões de Distribuição:</strong><br>
+            Cada oferta possui uma taxa de comissão específica. Os valores são creditados após o período de desistência de 5 dias úteis de cada investimento realizado pelos seus clientes.
+          </div>
+        </div>
+      </div><!-- fim distribuidor-content -->
+
+      <!-- ========================================= -->
+      <!-- CONTEUDO ORIGINADOR -->
+      <!-- ========================================= -->
+      <div class="originador-content" style="display: none;">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Ofertas dos Emissores</h1>
+            <p class="text-muted">Acompanhe as ofertas das empresas que você originou</p>
+          </div>
+          <span class="badge badge-success"><i class="bi bi-lightning-charge"></i> Modo Originador</span>
+        </div>
+
+        <!-- KPIs Originador -->
+        <div class="kpi-grid mb-20">
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background: rgba(5, 150, 105, 0.15); color: #059669;">
+              <i class="bi bi-megaphone"></i>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">Ofertas dos Emissores</span>
+              <span class="kpi-value">5</span>
+              <span class="kpi-change positive">
+                <i class="bi bi-plus"></i> 2 novas este mês
+              </span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background: #dcfce7; color: #16a34a;">
+              <i class="bi bi-broadcast"></i>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">Ofertas Ativas</span>
+              <span class="kpi-value">3</span>
+              <span class="kpi-change">em captação</span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background: #dbeafe; color: #2563eb;">
+              <i class="bi bi-cash-stack"></i>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">Volume em Captação</span>
+              <span class="kpi-value">R$ 1,8M</span>
+              <span class="kpi-change positive">
+                <i class="bi bi-graph-up-arrow"></i> +R$ 320k este mês
+              </span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background: #f3e8ff; color: #9333ea;">
+              <i class="bi bi-percent"></i>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">Comissões Pendentes</span>
+              <span class="kpi-value">R$ 4.500</span>
+              <span class="kpi-change">aguardando liberação</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ofertas Ativas dos Emissores -->
+        <div class="card mb-20">
+          <h3 style="margin-bottom: 20px;"><i class="bi bi-broadcast" style="color: var(--success);"></i> Ofertas Ativas</h3>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Emissor</th>
+                  <th>Oferta</th>
+                  <th>Captação</th>
+                  <th>Progresso</th>
+                  <th>Sua Comissão</th>
+                  <th style="text-align: right;">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #059669, #047857); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">TS</div>
+                      <strong>TechStart Inovação</strong>
+                    </div>
+                  </td>
+                  <td>Equity - R$ 500k</td>
+                  <td><strong style="color: var(--success);">R$ 375.000</strong></td>
+                  <td>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <div class="progress" style="width: 100px; height: 8px;">
+                        <div class="progress-bar" style="width: 75%; background: #059669;"></div>
+                      </div>
+                      <span>75%</span>
+                    </div>
+                  </td>
+                  <td><strong style="color: #059669;">R$ 2.625</strong></td>
+                  <td style="text-align: right;">
+                    <a href="minha-oferta.html?id=1" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i> Detalhes</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">SE</div>
+                      <strong>Solar Energy Brasil</strong>
+                    </div>
+                  </td>
+                  <td>CRI - R$ 1M</td>
+                  <td><strong style="color: var(--success);">R$ 520.000</strong></td>
+                  <td>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <div class="progress" style="width: 100px; height: 8px;">
+                        <div class="progress-bar" style="width: 52%; background: #f59e0b;"></div>
+                      </div>
+                      <span>52%</span>
+                    </div>
+                  </td>
+                  <td><strong style="color: #059669;">R$ 2.340</strong></td>
+                  <td style="text-align: right;">
+                    <a href="minha-oferta.html?id=2" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i> Detalhes</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #ec4899, #db2777); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">HS</div>
+                      <strong>HealthSoft</strong>
+                    </div>
+                  </td>
+                  <td>Equity - R$ 500k</td>
+                  <td><strong style="color: var(--success);">R$ 315.000</strong></td>
+                  <td>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <div class="progress" style="width: 100px; height: 8px;">
+                        <div class="progress-bar" style="width: 63%; background: #ec4899;"></div>
+                      </div>
+                      <span>63%</span>
+                    </div>
+                  </td>
+                  <td><strong style="color: #059669;">R$ 2.205</strong></td>
+                  <td style="text-align: right;">
+                    <a href="minha-oferta.html?id=3" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i> Detalhes</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Ofertas Encerradas -->
+        <div class="card mb-20">
+          <h3 style="margin-bottom: 20px;"><i class="bi bi-check-circle" style="color: var(--primary);"></i> Ofertas Encerradas</h3>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Emissor</th>
+                  <th>Oferta</th>
+                  <th>Total Captado</th>
+                  <th>Status</th>
+                  <th>Sua Comissão</th>
+                  <th style="text-align: right;">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #22c55e, #16a34a); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">EF</div>
+                      <strong>EcoFood</strong>
+                    </div>
+                  </td>
+                  <td>CRA - R$ 800k</td>
+                  <td>R$ 820.000</td>
+                  <td><span class="badge badge-success"><i class="bi bi-check"></i> Sucesso</span></td>
+                  <td><strong style="color: var(--success);">R$ 4.100</strong></td>
+                  <td style="text-align: right;">
+                    <button class="btn btn-outline btn-sm"><i class="bi bi-file-earmark-text"></i> Relatório</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #6366f1, #4f46e5); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">LT</div>
+                      <strong>LogiTech</strong>
+                    </div>
+                  </td>
+                  <td>Equity - R$ 600k</td>
+                  <td>R$ 450.000</td>
+                  <td><span class="badge" style="background: #dbeafe; color: #2563eb;"><i class="bi bi-check"></i> Parcial</span></td>
+                  <td><strong style="color: var(--success);">R$ 2.250</strong></td>
+                  <td style="text-align: right;">
+                    <button class="btn btn-outline btn-sm"><i class="bi bi-file-earmark-text"></i> Relatório</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Info Originador -->
+        <div class="alert alert-info">
+          <i class="bi bi-info-circle"></i>
+          <div>
+            <strong>Suas Comissões:</strong><br>
+            As comissões de originação são calculadas sobre o volume captado pelas ofertas dos emissores que você originou. Os valores são liberados após o período de desistência de cada investimento.
+          </div>
+        </div>
+      </div><!-- fim originador-content -->
+
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
   </div>
 
   <script src="../../js/app.js"></script>
+  
 
 <!-- Modal Selecionar Perfil -->
 <div class="modal-overlay" id="selecionarPerfilModal" style="display: none;">
@@ -248,15 +632,17 @@
       <button class="modal-close" onclick="hideModal('selecionarPerfilModal')">&times;</button>
     </div>
     <p class="text-muted mb-20">Escolha como deseja visualizar e operar na plataforma.</p>
+    
     <!-- Opcao Emissor -->
     <div class="profile-option emissor active" id="optionEmissor" onclick="selectProfileOption('emissor')">
       <div class="profile-option-icon emissor"><i class="bi bi-broadcast"></i></div>
       <div class="profile-option-content">
         <div class="profile-option-title">Emissor</div>
-        <p class="profile-option-desc">Crie e gerencie suas proprias ofertas de investimento.</p>
+        <p class="profile-option-desc">Crie e gerencie suas proprias ofertas de captacao.</p>
       </div>
       <div class="profile-option-check"><i class="bi bi-check"></i></div>
     </div>
+    
     <!-- Opcao Distribuidor -->
     <div class="profile-option distribuidor" id="optionDistribuidor" onclick="selectProfileOption('distribuidor')">
       <div class="profile-option-icon distribuidor"><i class="bi bi-diagram-3"></i></div>
@@ -266,12 +652,28 @@
       </div>
       <div class="profile-option-check"><i class="bi bi-check"></i></div>
     </div>
+    
+    <!-- Opcao Originador -->
+    <div class="profile-option originador" id="optionOriginador" onclick="selectProfileOption('originador')">
+      <div class="profile-option-icon originador"><i class="bi bi-lightning-charge"></i></div>
+      <div class="profile-option-content">
+        <div class="profile-option-title">Originador</div>
+        <p class="profile-option-desc">Traga novas empresas para captar recursos.</p>
+      </div>
+      <div class="profile-option-check"><i class="bi bi-check"></i></div>
+    </div>
+    
     <div class="flex gap-10 mt-20">
       <button class="btn btn-outline" onclick="hideModal('selecionarPerfilModal')" style="flex: 1;">Cancelar</button>
       <button class="btn btn-primary" onclick="confirmarPerfil()" style="flex: 1;"><i class="bi bi-check-lg"></i> Confirmar</button>
     </div>
   </div>
 </div>
+
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
 
 </body>
 </html>

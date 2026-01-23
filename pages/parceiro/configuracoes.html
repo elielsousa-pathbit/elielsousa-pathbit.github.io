@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Configuracoes - Parceiro - CrowdInvest</title>
+  <title>Configurações - Parceiro - CrowdInvest</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body class="theme-parceiro">
   <div class="dashboard">
     <div class="mobile-header">
-      <a href="../../index.html" class="logo">CrowdInvest</a>
+      <a href="dashboard.html" class="logo">Alba Invest</a>
     </div>
 
     <aside class="sidebar sidebar-green">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo">CrowdInvest</a>
+        <a href="dashboard.html" class="logo">Alba Invest</a>
         <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
       </div>
       <!-- Profile Mode Card - Elegante -->
@@ -38,15 +38,18 @@
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponiveis</span></a></li>
+        <li class="hide-on-originador"><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponíveis</span></a></li>
         <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
-        <li><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
-        <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
-        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissoes</a></li>
+        <li class="hide-on-originador"><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
+        <li class="hide-on-originador"><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
+        <li class="originador-content" style="display:none;"><a href="meus-emissores.html"><i class="bi bi-building"></i> Meus Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Ofertas dos Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="comissoes-originador.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
-        <li><a href="configuracoes.html" class="active"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html" class="active"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -56,7 +59,8 @@
       <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
 
       <div class="page-header">
-        <h1 class="page-title">Configuracoes</h1>
+        <h1 class="page-title">Configurações</h1>
+        <span class="originador-content badge badge-success" style="display: none;"><i class="bi bi-lightning-charge"></i> Modo Originador</span>
       </div>
 
       <!-- Tabs -->
@@ -64,7 +68,7 @@
         <button class="tab active" onclick="switchTab(this, 'empresa')">Dados da Empresa</button>
         <button class="tab" onclick="switchTab(this, 'equipe')">Equipe</button>
         <button class="tab" onclick="switchTab(this, 'conta')">Conta de Acesso</button>
-        <button class="tab" onclick="switchTab(this, 'notif')">Notificacoes</button>
+        <button class="tab" onclick="switchTab(this, 'notif')">Notificações</button>
       </div>
 
       <!-- Empresa -->
@@ -75,7 +79,7 @@
             <div class="grid-2">
               <div class="form-group">
                 <label class="form-label">Razao Social</label>
-                <input type="text" class="form-input" value="TechStart Inovacao LTDA" readonly style="background: var(--bg);">
+                <input type="text" class="form-input" value="TechStart Inovação LTDA" readonly style="background: var(--bg);">
               </div>
               <div class="form-group">
                 <label class="form-label">CNPJ</label>
@@ -91,10 +95,10 @@
               </div>
               <div class="form-group" style="grid-column: span 2;">
                 <label class="form-label">Endereco</label>
-                <input type="text" class="form-input" value="Av. Paulista, 1000, Sala 501 - Sao Paulo/SP">
+                <input type="text" class="form-input" value="Av. Paulista, 1000, Sala 501 - São Paulo/SP">
               </div>
             </div>
-            <button type="button" class="btn btn-primary" onclick="showModal('dadosSalvosModal')">Salvar Alteracoes</button>
+            <button type="button" class="btn btn-primary" onclick="showModal('dadosSalvosModal')">Salvar Alterações</button>
           </form>
         </div>
       </div>
@@ -105,44 +109,69 @@
           <div class="flex-between mb-20">
             <div>
               <h3>Gerenciar Equipe</h3>
-              <p class="text-muted">Adicione e gerencie os usuarios que acessam a plataforma pela sua empresa</p>
+              <p class="text-muted">Adicione e gerencie os usuários que acessam a plataforma pela sua empresa</p>
             </div>
-            <button class="btn btn-primary" onclick="showModal('novoUsuarioModal')"><i class="bi bi-person-plus"></i> Novo Usuario</button>
+            <button class="btn btn-primary" onclick="showModal('novoUsuarioModal')"><i class="bi bi-person-plus"></i> Novo Usuário</button>
           </div>
 
-          <!-- Perfis info -->
-          <div class="grid-3 mb-20" style="gap: 15px;">
+          <!-- Perfis info - Emissor -->
+          <div class="emissor-content grid-4 mb-20" style="gap: 15px;">
             <div style="padding: 12px; background: rgba(139, 92, 246, 0.1); border-radius: var(--radius-sm); border-left: 3px solid #8b5cf6;">
               <strong style="color: #8b5cf6;"><i class="bi bi-shield-lock"></i> Administrador</strong>
-              <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Acesso total ao sistema, pode gerenciar usuarios e ofertas.</p>
+              <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Acesso total, gestão de usuários, ofertas e configurações.</p>
             </div>
-            <div style="padding: 12px; background: rgba(8, 145, 178, 0.1); border-radius: var(--radius-sm); border-left: 3px solid #0891b2;">
-              <strong style="color: #0891b2;"><i class="bi bi-gear"></i> Operador</strong>
-              <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Gerencia comunicados, documentos e visualiza relatorios.</p>
+            <div style="padding: 12px; background: rgba(5, 150, 105, 0.1); border-radius: var(--radius-sm); border-left: 3px solid #059669;">
+              <strong style="color: #0891b2;"><i class="bi bi-cash-coin"></i> Financeiro</strong>
+              <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Conciliação de pagamentos, relatórios financeiros e fluxo de caixa.</p>
+            </div>
+            <div style="padding: 12px; background: rgba(234, 88, 12, 0.1); border-radius: var(--radius-sm); border-left: 3px solid #ea580c;">
+              <strong style="color: #ea580c;"><i class="bi bi-megaphone"></i> Comunicação</strong>
+              <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Publicação de comunicados, fatos relevantes e marketing.</p>
+            </div>
+            <div style="padding: 12px; background: rgba(5, 150, 105, 0.1); border-radius: var(--radius-sm); border-left: 3px solid #059669;">
+              <strong style="color: #059669;"><i class="bi bi-people"></i> RI</strong>
+              <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Relações com Investidores, atendimento e informês periodicos.</p>
+            </div>
+          </div>
+
+          <!-- Perfis info - Distribuidor -->
+          <div class="distribuidor-content grid-4 mb-20" style="gap: 15px; display: none;">
+            <div style="padding: 12px; background: rgba(139, 92, 246, 0.1); border-radius: var(--radius-sm); border-left: 3px solid #8b5cf6;">
+              <strong style="color: #8b5cf6;"><i class="bi bi-shield-lock"></i> Administrador</strong>
+              <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Acesso total, gestão de usuários, metas e configurações.</p>
+            </div>
+            <div style="padding: 12px; background: rgba(5, 150, 105, 0.1); border-radius: var(--radius-sm); border-left: 3px solid #059669;">
+              <strong style="color: #0891b2;"><i class="bi bi-graph-up-arrow"></i> Gerente Comercial</strong>
+              <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Gestão da equipe de vendas, metas, comissões e relatórios.</p>
             </div>
             <div style="padding: 12px; background: rgba(5, 150, 105, 0.1); border-radius: var(--radius-sm); border-left: 3px solid #059669;">
               <strong style="color: #059669;"><i class="bi bi-person-badge"></i> Vendedor</strong>
-              <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Visualiza clientes, investimentos e relatorios de sua carteira.</p>
+              <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Atendimento a clientes, distribuição de ofertas e comissões.</p>
+            </div>
+            <div style="padding: 12px; background: rgba(234, 88, 12, 0.1); border-radius: var(--radius-sm); border-left: 3px solid #ea580c;">
+              <strong style="color: #ea580c;"><i class="bi bi-clipboard-check"></i> Backoffice</strong>
+              <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Operacional, documentação, compliance e suporte interno.</p>
             </div>
           </div>
 
-          <div class="table-container">
+          <!-- Tabela Equipe - Emissor -->
+          <div class="emissor-content table-container">
             <table>
               <thead>
                 <tr>
-                  <th>Usuario</th>
+                  <th>Usuário</th>
                   <th>E-mail</th>
                   <th>Perfil</th>
-                  <th>Ultimo Acesso</th>
+                  <th>Último Acesso</th>
                   <th>Status</th>
-                  <th>Acoes</th>
+                  <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>
                     <strong>Joao Silva</strong>
-                    <br><small class="text-muted">Voce</small>
+                    <br><small class="text-muted">Você</small>
                   </td>
                   <td>joao@techstart.com.br</td>
                   <td><span class="badge" style="background: #8b5cf6; color: white;"><i class="bi bi-shield-lock"></i> Administrador</span></td>
@@ -151,9 +180,9 @@
                   <td><button class="btn btn-outline btn-sm" disabled>Editar</button></td>
                 </tr>
                 <tr>
-                  <td><strong>Maria Santos</strong></td>
-                  <td>maria@techstart.com.br</td>
-                  <td><span class="badge" style="background: #0891b2; color: white;"><i class="bi bi-gear"></i> Operador</span></td>
+                  <td><strong>Carlos Mendes</strong></td>
+                  <td>carlos@techstart.com.br</td>
+                  <td><span class="badge" style="background: #0891b2; color: white;"><i class="bi bi-cash-coin"></i> Financeiro</span></td>
                   <td>19/01/2026 14:30</td>
                   <td><span class="badge badge-success">Ativo</span></td>
                   <td>
@@ -161,10 +190,10 @@
                   </td>
                 </tr>
                 <tr>
-                  <td><strong>Pedro Costa</strong></td>
-                  <td>pedro@techstart.com.br</td>
-                  <td><span class="badge" style="background: #059669; color: white;"><i class="bi bi-person-badge"></i> Vendedor</span></td>
-                  <td>18/01/2026 09:15</td>
+                  <td><strong>Mariana Costa</strong></td>
+                  <td>mariana@techstart.com.br</td>
+                  <td><span class="badge" style="background: #ea580c; color: white;"><i class="bi bi-megaphone"></i> Comunicação</span></td>
+                  <td>18/01/2026 16:45</td>
                   <td><span class="badge badge-success">Ativo</span></td>
                   <td>
                     <button class="btn btn-outline btn-sm" onclick="showModal('editarUsuarioModal')"><i class="bi bi-pencil"></i> Editar</button>
@@ -173,10 +202,160 @@
                 <tr style="background: #fffbeb;">
                   <td>
                     <strong>Ana Oliveira</strong>
-                    <br><small class="text-muted">Pendente ativacao</small>
+                    <br><small class="text-muted">Pendente ativação</small>
                   </td>
                   <td>ana@techstart.com.br</td>
+                  <td><span class="badge" style="background: #059669; color: white;"><i class="bi bi-people"></i> RI</span></td>
+                  <td>-</td>
+                  <td><span class="badge badge-warning"><i class="bi bi-clock"></i> Pendente</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" onclick="showModal('reenviarConviteModal')"><i class="bi bi-envelope"></i> Reenviar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Tabela Equipe - Distribuidor -->
+          <div class="distribuidor-content table-container" style="display: none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Usuário</th>
+                  <th>E-mail</th>
+                  <th>Perfil</th>
+                  <th>Último Acesso</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>Roberto Almeida</strong>
+                    <br><small class="text-muted">Você</small>
+                  </td>
+                  <td>roberto@investbroker.com.br</td>
+                  <td><span class="badge" style="background: #8b5cf6; color: white;"><i class="bi bi-shield-lock"></i> Administrador</span></td>
+                  <td>Agora</td>
+                  <td><span class="badge badge-success">Ativo</span></td>
+                  <td><button class="btn btn-outline btn-sm" disabled>Editar</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Patricia Lima</strong></td>
+                  <td>patricia@investbroker.com.br</td>
+                  <td><span class="badge" style="background: #0891b2; color: white;"><i class="bi bi-graph-up-arrow"></i> Gerente Comercial</span></td>
+                  <td>19/01/2026 11:20</td>
+                  <td><span class="badge badge-success">Ativo</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" onclick="showModal('editarUsuarioModal')"><i class="bi bi-pencil"></i> Editar</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Felipe Santos</strong></td>
+                  <td>felipe@investbroker.com.br</td>
                   <td><span class="badge" style="background: #059669; color: white;"><i class="bi bi-person-badge"></i> Vendedor</span></td>
+                  <td>18/01/2026 09:15</td>
+                  <td><span class="badge badge-success">Ativo</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" onclick="showModal('editarUsuarioModal')"><i class="bi bi-pencil"></i> Editar</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Julia Fernandes</strong></td>
+                  <td>julia@investbroker.com.br</td>
+                  <td><span class="badge" style="background: #059669; color: white;"><i class="bi bi-person-badge"></i> Vendedor</span></td>
+                  <td>17/01/2026 14:50</td>
+                  <td><span class="badge badge-success">Ativo</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" onclick="showModal('editarUsuarioModal')"><i class="bi bi-pencil"></i> Editar</button>
+                  </td>
+                </tr>
+                <tr style="background: #fffbeb;">
+                  <td>
+                    <strong>Lucas Pereira</strong>
+                    <br><small class="text-muted">Pendente ativação</small>
+                  </td>
+                  <td>lucas@investbroker.com.br</td>
+                  <td><span class="badge" style="background: #ea580c; color: white;"><i class="bi bi-clipboard-check"></i> Backoffice</span></td>
+                  <td>-</td>
+                  <td><span class="badge badge-warning"><i class="bi bi-clock"></i> Pendente</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" onclick="showModal('reenviarConviteModal')"><i class="bi bi-envelope"></i> Reenviar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Perfis info - Originador -->
+          <div class="originador-content grid-3 mb-20" style="gap: 15px; display: none;">
+            <div style="padding: 12px; background: rgba(5, 150, 105, 0.1); border-radius: var(--radius-sm); border-left: 3px solid #059669;">
+              <strong style="color: #0891b2;"><i class="bi bi-shield-lock"></i> Administrador</strong>
+              <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Acesso total, gestão de usuários e configurações de originação.</p>
+            </div>
+            <div style="padding: 12px; background: rgba(13, 148, 136, 0.1); border-radius: var(--radius-sm); border-left: 3px solid #0d9488;">
+              <strong style="color: #0d9488;"><i class="bi bi-lightning-charge"></i> Captador</strong>
+              <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Prospecção e indicação de novos emissores para a plataforma.</p>
+            </div>
+            <div style="padding: 12px; background: rgba(234, 88, 12, 0.1); border-radius: var(--radius-sm); border-left: 3px solid #ea580c;">
+              <strong style="color: #ea580c;"><i class="bi bi-clipboard-check"></i> Suporte</strong>
+              <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Acompanhamento de emissores indicados e relatórios.</p>
+            </div>
+          </div>
+
+          <!-- Tabela Equipe - Originador -->
+          <div class="originador-content table-container" style="display: none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Usuário</th>
+                  <th>E-mail</th>
+                  <th>Perfil</th>
+                  <th>Último Acesso</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>Carlos Originador</strong>
+                    <br><small class="text-muted">Você</small>
+                  </td>
+                  <td>carlos@originacoes.com.br</td>
+                  <td><span class="badge" style="background: #0891b2; color: white;"><i class="bi bi-shield-lock"></i> Administrador</span></td>
+                  <td>Agora</td>
+                  <td><span class="badge badge-success">Ativo</span></td>
+                  <td><button class="btn btn-outline btn-sm" disabled>Editar</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Ana Maria Costa</strong></td>
+                  <td>ana@originacoes.com.br</td>
+                  <td><span class="badge" style="background: #0d9488; color: white;"><i class="bi bi-lightning-charge"></i> Captador</span></td>
+                  <td>19/01/2026 15:30</td>
+                  <td><span class="badge badge-success">Ativo</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" onclick="showModal('editarUsuarioModal')"><i class="bi bi-pencil"></i> Editar</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Pedro Santos</strong></td>
+                  <td>pedro@originacoes.com.br</td>
+                  <td><span class="badge" style="background: #0d9488; color: white;"><i class="bi bi-lightning-charge"></i> Captador</span></td>
+                  <td>18/01/2026 11:45</td>
+                  <td><span class="badge badge-success">Ativo</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" onclick="showModal('editarUsuarioModal')"><i class="bi bi-pencil"></i> Editar</button>
+                  </td>
+                </tr>
+                <tr style="background: #fffbeb;">
+                  <td>
+                    <strong>Mariana Lima</strong>
+                    <br><small class="text-muted">Pendente ativação</small>
+                  </td>
+                  <td>mariana@originacoes.com.br</td>
+                  <td><span class="badge" style="background: #ea580c; color: white;"><i class="bi bi-clipboard-check"></i> Suporte</span></td>
                   <td>-</td>
                   <td><span class="badge badge-warning"><i class="bi bi-clock"></i> Pendente</span></td>
                   <td>
@@ -204,16 +383,20 @@
             </div>
             <div class="form-group">
               <label class="form-label">Nova Senha</label>
-              <input type="password" class="form-input" placeholder="Minimo 8 caracteres">
+              <input type="password" class="form-input" placeholder="Mínimo 8 caracteres">
             </div>
             <button type="button" class="btn btn-primary" onclick="showModal('senhaAlteradaModal')">Alterar Senha</button>
           </form>
         </div>
 
         <div class="card">
-          <h3 style="margin-bottom: 20px;">Verificacao em Duas Etapas</h3>
+          <h3 style="margin-bottom: 20px;">Verificação em Duas Etapas</h3>
           <div class="alert alert-success">
-            <strong><i class="bi bi-shield-check"></i> Verificacao Ativada</strong> - Metodo: E-mail
+            <i class="bi bi-shield-check"></i>
+            <div>
+              <strong>Verificação Ativada:</strong><br>
+              Metodo: E-mail
+            </div>
           </div>
           <div class="method-options">
             <label class="method-option selected" onclick="selectMethod(this)">
@@ -238,14 +421,14 @@
               </div>
             </label>
           </div>
-          <button type="button" class="btn btn-primary mt-20" onclick="showModal('verificacaoSalvaModal')">Salvar Verificacao</button>
+          <button type="button" class="btn btn-primary mt-20" onclick="showModal('verificacaoSalvaModal')">Salvar Verificação</button>
         </div>
       </div>
 
-      <!-- Notificacoes -->
+      <!-- Notificações -->
       <div id="notif" class="tab-content" style="display: none;">
         <div class="card">
-          <h3 style="margin-bottom: 20px;">Preferencias de Notificacao</h3>
+          <h3 style="margin-bottom: 20px;">Preferências de Notificação</h3>
           <div style="display: flex; flex-direction: column; gap: 20px;">
             <label class="toggle">
               <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
@@ -253,7 +436,7 @@
             </label>
             <label class="toggle">
               <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
-              <span>Desistencias</span>
+              <span>Desistências</span>
             </label>
             <label class="toggle">
               <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
@@ -268,16 +451,16 @@
               <span>Alertas de prazo (oferta)</span>
             </label>
           </div>
-          <button type="button" class="btn btn-primary mt-20" onclick="showModal('preferenciasSalvasModal')">Salvar Preferencias</button>
+          <button type="button" class="btn btn-primary mt-20" onclick="showModal('preferenciasSalvasModal')">Salvar Preferências</button>
         </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
@@ -289,7 +472,7 @@
       <div style="padding: 30px;">
         <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
         <h3 style="margin: 15px 0;">Dados Salvos!</h3>
-        <p class="text-muted">As alteracoes foram salvas com sucesso.</p>
+        <p class="text-muted">As alterações foram salvas com sucesso.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('dadosSalvosModal')">OK</button>
       </div>
     </div>
@@ -307,31 +490,32 @@
     </div>
   </div>
 
-  <!-- Modal Verificacao Salva -->
+  <!-- Modal Verificação Salva -->
   <div class="modal-overlay" id="verificacaoSalvaModal" style="display: none;">
     <div class="modal text-center" style="max-width: 400px;">
       <div style="padding: 30px;">
         <i class="bi bi-shield-lock" style="font-size: 3rem; color: var(--success);"></i>
-        <h3 style="margin: 15px 0;">Verificacao Atualizada!</h3>
-        <p class="text-muted">Suas configuracoes de verificacao foram salvas.</p>
+        <h3 style="margin: 15px 0;">Verificação Atualizada!</h3>
+        <p class="text-muted">Suas configurações de verificação foram salvas.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('verificacaoSalvaModal')">OK</button>
       </div>
     </div>
   </div>
 
-  <!-- Modal Preferencias Salvas -->
+  <!-- Modal Preferências Salvas -->
   <div class="modal-overlay" id="preferenciasSalvasModal" style="display: none;">
     <div class="modal text-center" style="max-width: 400px;">
       <div style="padding: 30px;">
         <i class="bi bi-bell-fill" style="font-size: 3rem; color: var(--success);"></i>
-        <h3 style="margin: 15px 0;">Preferencias Salvas!</h3>
-        <p class="text-muted">Suas preferencias de notificacao foram atualizadas.</p>
+        <h3 style="margin: 15px 0;">Preferências Salvas!</h3>
+        <p class="text-muted">Suas preferências de notificação foram atualizadas.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('preferenciasSalvasModal')">OK</button>
       </div>
     </div>
   </div>
 
   <script src="../../js/app.js"></script>
+  
 
 <!-- Modal Selecionar Perfil -->
 <div class="modal-overlay" id="selecionarPerfilModal" style="display: none;">
@@ -341,7 +525,7 @@
       <button class="modal-close" onclick="hideModal('selecionarPerfilModal')">&times;</button>
     </div>
     <p class="text-muted mb-20">Escolha como deseja visualizar e operar na plataforma.</p>
-    <!-- Opcao Emissor -->
+    <!-- Opção Emissor -->
     <div class="profile-option emissor active" id="optionEmissor" onclick="selectProfileOption('emissor')">
       <div class="profile-option-icon emissor"><i class="bi bi-broadcast"></i></div>
       <div class="profile-option-content">
@@ -359,12 +543,28 @@
       </div>
       <div class="profile-option-check"><i class="bi bi-check"></i></div>
     </div>
+    
+    <!-- Opcao Originador -->
+    <div class="profile-option originador" id="optionOriginador" onclick="selectProfileOption('originador')">
+      <div class="profile-option-icon originador"><i class="bi bi-lightning-charge"></i></div>
+      <div class="profile-option-content">
+        <div class="profile-option-title">Originador</div>
+        <p class="profile-option-desc">Traga novas empresas para captar recursos.</p>
+      </div>
+      <div class="profile-option-check"><i class="bi bi-check"></i></div>
+    </div>
+    
     <div class="flex gap-10 mt-20">
       <button class="btn btn-outline" onclick="hideModal('selecionarPerfilModal')" style="flex: 1;">Cancelar</button>
       <button class="btn btn-primary" onclick="confirmarPerfil()" style="flex: 1;"><i class="bi bi-check-lg"></i> Confirmar</button>
     </div>
   </div>
 </div>
+
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
 
 </body>
 </html>

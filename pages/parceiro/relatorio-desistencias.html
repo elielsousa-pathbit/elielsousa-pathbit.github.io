@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desistências - Relatórios - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      .sidebar, .mobile-header, .menu-toggle, .mobile-overlay { display: none !important; }
+      .main-content { margin: 0; padding: 20px; }
+      .card { box-shadow: none; border: 1px solid #ddd; }
+      body { background: white; }
+      .dashboard { display: block; }
+    }
+  </style>
+</head>
+<body class="theme-parceiro">
+  <div class="dashboard">
+    <div class="mobile-header no-print">
+      <a href="dashboard.html" class="logo">Alba Invest</a>
+    </div>
+
+    <aside class="sidebar sidebar-green no-print">
+      <div class="sidebar-logo">
+        <a href="dashboard.html" class="logo">Alba Invest</a>
+        <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
+      </div>
+      <div class="profile-mode-card" id="profileModeCard">
+        <div class="profile-mode-current">
+          <div class="profile-mode-icon emissor" id="profileIcon">
+            <i class="bi bi-broadcast"></i>
+          </div>
+          <div class="profile-mode-info">
+            <div class="profile-mode-label">Visualizando como</div>
+            <div class="profile-mode-name" id="profileName">Emissor</div>
+          </div>
+          <span class="profile-mode-tag emissor" id="profileTag">
+            <i class="bi bi-broadcast"></i> Emissor
+          </span>
+        </div>
+        <button class="profile-mode-switch-btn" onclick="showModal('selecionarPerfilModal')">
+          <i class="bi bi-arrow-left-right"></i> Trocar modo de acesso
+        </button>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li class="hide-on-originador"><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponíveis</span></a></li>
+        <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
+        <li class="hide-on-originador"><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
+        <li class="hide-on-originador"><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
+        <li class="originador-content" style="display:none;"><a href="meus-emissores.html"><i class="bi bi-building"></i> Meus Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="comissoes-originador.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
+        <li><a href="relatorios.html" class="active"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
+        <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay no-print" onclick="closeMobileMenus()"></div>
+
+    <main class="main-content">
+      <button class="menu-toggle no-print" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
+
+      <!-- Cabecalho do Relatório -->
+      <div class="page-header no-print">
+        <div>
+          <a href="relatorios.html" class="text-muted" style="text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 10px;">
+            <i class="bi bi-arrow-left"></i> Voltar para Relatórios
+          </a>
+          <h1 class="page-title"><i class="bi bi-x-circle"></i> Relatório de Desistências</h1>
+          <p class="text-muted">Investidores que exerceram direito de arrependimento (RCVM 88)</p>
+        </div>
+      </div>
+
+      <!-- Aviso RCVM 88 -->
+      <div class="alert alert-info mb-20">
+        <i class="bi bi-info-circle"></i>
+        <div>
+          <strong>Direito de Arrependimento - RCVM 88/2022:</strong><br>
+          Conforme Art. 4o da Resolução CVM 88/2022, o investidor tem o direito de desistir do investimento em até 5 (cinco) dias corridos, contados da confirmação do investimento. O estorno e processado em até 7 dias úteis.
+        </div>
+      </div>
+
+      <!-- Filtros e Ações -->
+      <div class="card mb-20 no-print">
+        <div class="flex-between" style="flex-wrap: wrap; gap: 15px;">
+          <div style="flex: 1; min-width: 200px;">
+            <label class="form-label">Oferta</label>
+            <select class="form-control" id="ofertaSelect">
+              <option value="todas">Todas as Ofertas</option>
+              <option value="oferta1" selected>TechStart Inovação</option>
+              <option value="oferta2">GreenEnergy Solar</option>
+              <option value="oferta3">HealthTech Solutions</option>
+            </select>
+          </div>
+          <div style="flex: 1; min-width: 200px;">
+            <label class="form-label">Status</label>
+            <select class="form-control">
+              <option value="todos">Todos</option>
+              <option value="processando">Em Processamento</option>
+              <option value="estornado">Estornado</option>
+            </select>
+          </div>
+          <div style="flex: 1; min-width: 200px;">
+            <label class="form-label">Período</label>
+            <div class="header-user-info">
+              <input type="date" class="form-control" value="2026-01-01">
+              <input type="date" class="form-control" value="2026-01-19">
+            </div>
+          </div>
+          <div class="flex gap-10" style="align-items: flex-end;">
+            <button class="btn btn-primary"><i class="bi bi-arrow-clockwise"></i> Atualizar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ações de Exportação -->
+      <div class="card mb-20 no-print">
+        <div class="flex-between" style="flex-wrap: wrap; gap: 10px;">
+          <div>
+            <strong>Exportar Relatório</strong>
+            <p class="text-muted" style="font-size: 0.875rem;">Escolha o formato desejado</p>
+          </div>
+          <div class="header-user-info">
+            <button class="btn btn-outline" onclick="window.print()">
+              <i class="bi bi-printer"></i> Imprimir
+            </button>
+            <button class="btn btn-outline" onclick="Modals.export('pdf', 'desistências')">
+              <i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> PDF
+            </button>
+            <button class="btn btn-outline" onclick="Modals.export('excel', 'desistências')">
+              <i class="bi bi-file-earmark-excel" style="color: #217346;"></i> Excel
+            </button>
+            <button class="btn btn-outline" onclick="Modals.export('csv', 'desistências')">
+              <i class="bi bi-filetype-csv"></i> CSV
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPIs -->
+      <div class="kpi-grid mb-20">
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background: #fef3c7; color: #d97706;">
+            <i class="bi bi-x-circle"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Total Desistências</span>
+            <span class="kpi-value">4</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background: #fee2e2; color: #dc2626;">
+            <i class="bi bi-cash"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Valor Estornado</span>
+            <span class="kpi-value">R$ 11.500</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background: #dbeafe; color: #2563eb;">
+            <i class="bi bi-hourglass-split"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Em Processamento</span>
+            <span class="kpi-value">1</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background: #dcfce7; color: #16a34a;">
+            <i class="bi bi-check-circle"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Já Estornados</span>
+            <span class="kpi-value">3</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabela de Desistências -->
+      <div class="card mb-20">
+        <h3 style="margin-bottom: 20px;">Detalhamento das Desistências</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Investidor</th>
+                <th>CPF</th>
+                <th style="text-align: right;">Valor</th>
+                <th>Data Investimento</th>
+                <th>Data Desistência</th>
+                <th>Dias</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Ana Paula Costa</strong>
+                  <br><small class="text-muted">ana.costa@email.com</small>
+                </td>
+                <td>321.654.987-00</td>
+                <td style="text-align: right;">R$ 3.000,00</td>
+                <td>14/01/2026</td>
+                <td>18/01/2026</td>
+                <td style="text-align: center;"><span class="badge" style="background: #dcfce7; color: #16a34a;">4 dias</span></td>
+                <td><span class="badge badge-warning">Em Processamento</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Carlos Mendes</strong>
+                  <br><small class="text-muted">carlos.m@email.com</small>
+                </td>
+                <td>789.123.456-00</td>
+                <td style="text-align: right;">R$ 2.000,00</td>
+                <td>12/01/2026</td>
+                <td>16/01/2026</td>
+                <td style="text-align: center;"><span class="badge" style="background: #dcfce7; color: #16a34a;">4 dias</span></td>
+                <td><span class="badge badge-success">Estornado</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Fernanda Lima</strong>
+                  <br><small class="text-muted">fernanda.l@email.com</small>
+                </td>
+                <td>456.321.789-00</td>
+                <td style="text-align: right;">R$ 5.000,00</td>
+                <td>10/01/2026</td>
+                <td>14/01/2026</td>
+                <td style="text-align: center;"><span class="badge" style="background: #dcfce7; color: #16a34a;">4 dias</span></td>
+                <td><span class="badge badge-success">Estornado</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Roberto Santos</strong>
+                  <br><small class="text-muted">roberto.s@email.com</small>
+                </td>
+                <td>654.987.321-00</td>
+                <td style="text-align: right;">R$ 1.500,00</td>
+                <td>05/01/2026</td>
+                <td>09/01/2026</td>
+                <td style="text-align: center;"><span class="badge" style="background: #dcfce7; color: #16a34a;">4 dias</span></td>
+                <td><span class="badge badge-success">Estornado</span></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr style="background: var(--bg); font-weight: bold;">
+                <td colspan="2">TOTAL: 4 desistências</td>
+                <td style="text-align: right;">R$ 11.500,00</td>
+                <td colspan="4"></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      <!-- Taxa de Desistência -->
+      <div class="card mb-20">
+        <h3 style="margin-bottom: 20px;">Análise de Desistências</h3>
+        <div class="grid-2">
+          <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
+            <strong>Taxa de Desistência</strong>
+            <p class="text-muted" style="font-size: 0.875rem; margin: 5px 0 15px;">Porcentagem de investidores que desistiram</p>
+            <div style="font-size: 2rem; font-weight: bold; color: var(--warning);">8.5%</div>
+            <small class="text-muted">4 de 47 investidores</small>
+          </div>
+          <div style="padding: 20px; background: var(--bg); border-radius: var(--radius);">
+            <strong>Impacto na Captação</strong>
+            <p class="text-muted" style="font-size: 0.875rem; margin: 5px 0 15px;">Valor que retornou aos investidores</p>
+            <div style="font-size: 2rem; font-weight: bold; color: #dc2626;">-R$ 11.500</div>
+            <small class="text-muted">4.5% do total captado</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Disclaimer Regulatório CVM -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. O direito de arrependimento e garantido pelo Art. 4o da RCVM 88/2022.</p>
+        <div class="warning-text">
+          <i class="bi bi-exclamation-triangle"></i>
+          <span>Os estornos são processados em até 7 dias úteis após a solicitação de desistência dentro do prazo legal.</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/app.js"></script>
+  
+
+  <!-- Modal Selecionar Perfil -->
+  <div class="modal-overlay" id="selecionarPerfilModal" style="display: none;">
+    <div class="modal profile-select-modal">
+      <div class="modal-header">
+        <h3><i class="bi bi-person-gear"></i> Modo de Acesso</h3>
+        <button class="modal-close" onclick="hideModal('selecionarPerfilModal')">&times;</button>
+      </div>
+      <p class="text-muted mb-20">Escolha como deseja visualizar e operar na plataforma.</p>
+      <div class="profile-option emissor active" id="optionEmissor" onclick="selectProfileOption('emissor')">
+        <div class="profile-option-icon emissor"><i class="bi bi-broadcast"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Emissor</div>
+          <p class="profile-option-desc">Crie e gerencie suas proprias ofertas de investimento.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
+      </div>
+      <div class="profile-option distribuidor" id="optionDistribuidor" onclick="selectProfileOption('distribuidor')">
+        <div class="profile-option-icon distribuidor"><i class="bi bi-diagram-3"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Distribuidor</div>
+          <p class="profile-option-desc">Distribua ofertas de terceiros para seus clientes.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
+      </div>
+      
+      <!-- Opcao Originador -->
+      <div class="profile-option originador" id="optionOriginador" onclick="selectProfileOption('originador')">
+        <div class="profile-option-icon originador"><i class="bi bi-lightning-charge"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Originador</div>
+          <p class="profile-option-desc">Traga novas empresas para captar recursos.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
+      </div>
+      
+      <div class="flex gap-10 mt-20">
+        <button class="btn btn-outline" onclick="hideModal('selecionarPerfilModal')" style="flex: 1;">Cancelar</button>
+        <button class="btn btn-primary" onclick="confirmarPerfil()" style="flex: 1;"><i class="bi bi-check-lg"></i> Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comissões - Parceiro - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="theme-parceiro">
+  <div class="dashboard">
+    <div class="mobile-header">
+      <a href="dashboard.html" class="logo">Alba Invest</a>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar sidebar-green">
+      <div class="sidebar-logo">
+        <a href="dashboard.html" class="logo">Alba Invest</a>
+        <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
+      </div>
+      <!-- Profile Mode Card -->
+      <div class="profile-mode-card" id="profileModeCard">
+        <div class="profile-mode-current">
+          <div class="profile-mode-icon emissor" id="profileIcon">
+            <i class="bi bi-broadcast"></i>
+          </div>
+          <div class="profile-mode-info">
+            <div class="profile-mode-label">Visualizando como</div>
+            <div class="profile-mode-name" id="profileName">Emissor</div>
+          </div>
+          <span class="profile-mode-tag emissor" id="profileTag">
+            <i class="bi bi-broadcast"></i> Emissor
+          </span>
+        </div>
+        <button class="profile-mode-switch-btn" onclick="showModal('selecionarPerfilModal')">
+          <i class="bi bi-arrow-left-right"></i> Trocar modo de acesso
+        </button>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li class="hide-on-originador"><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponíveis</span></a></li>
+        <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
+        <li class="hide-on-originador"><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
+        <li class="hide-on-originador"><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
+        <li class="originador-content" style="display:none;"><a href="meus-emissores.html"><i class="bi bi-building"></i> Meus Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Ofertas dos Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="comissoes-originador.html" class="active"><i class="bi bi-cash-stack"></i> Comissões</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
+        <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
+
+      <!-- ========================================== -->
+      <!-- CONTEUDO ORIGINADOR -->
+      <!-- ========================================== -->
+      <div class="originador-content">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Comissões</h1>
+            <p class="text-muted">Acompanhe suas comissões de originação</p>
+          </div>
+          <div class="header-user-info">
+            <span class="badge badge-success"><i class="bi bi-lightning-charge"></i> Modo Originador</span>
+          </div>
+        </div>
+
+        <!-- Card Saldo Disponível -->
+        <div class="card" style="background: linear-gradient(135deg, #059669, #047857); color: white; margin-bottom: 25px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div>
+              <p style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 5px;">Saldo Disponível para Saque</p>
+              <div style="font-size: 2.5rem; font-weight: bold;">R$ 15.800,00</div>
+              <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 8px;">
+                <i class="bi bi-info-circle"></i> Mínimo para saque: R$ 100,00
+              </p>
+            </div>
+            <button class="btn btn-lg" style="background: white; color: #059669; font-weight: 600;" onclick="showModal('saqueModal')">
+              <i class="bi bi-bank"></i> Solicitar Saque
+            </button>
+          </div>
+        </div>
+
+        <!-- KPIs -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">Comissões Este Mês</div>
+            <div class="kpi-value" style="color: #059669;">R$ 18.750</div>
+            <div class="kpi-change positive">+R$ 4.500 vs. mês anterior</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Total Acumulado 2026</div>
+            <div class="kpi-value">R$ 55.400</div>
+            <div class="kpi-change positive">+145% vs. 2025</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Pendente de Pagamento</div>
+            <div class="kpi-value" style="color: #f59e0b;">R$ 4.650</div>
+            <div class="kpi-change">de ofertas em andamento</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Taxa Média</div>
+            <div class="kpi-value">0,67%</div>
+            <div class="kpi-change">sobre volume captado</div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <!-- Gráfico de Comissões -->
+          <div class="card">
+            <div class="card-header flex-between">
+              <h3 class="card-title"><i class="bi bi-graph-up-arrow"></i> Evolução de Comissões</h3>
+              <select class="form-input" style="width: auto;">
+                <option>Últimos 6 meses</option>
+                <option>Último ano</option>
+                <option>Todo período</option>
+              </select>
+            </div>
+            <div style="display: flex; align-items: flex-end; height: 200px; gap: 15px; padding: 20px;">
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                <div style="background: #6ee7b7; width: 100%; height: 50px; border-radius: 4px 4px 0 0;"></div>
+                <small class="text-muted" style="margin-top: 5px;">Ago</small>
+                <small>R$ 6,2k</small>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                <div style="background: #6ee7b7; width: 100%; height: 70px; border-radius: 4px 4px 0 0;"></div>
+                <small class="text-muted" style="margin-top: 5px;">Set</small>
+                <small>R$ 8,5k</small>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                <div style="background: #6ee7b7; width: 100%; height: 80px; border-radius: 4px 4px 0 0;"></div>
+                <small class="text-muted" style="margin-top: 5px;">Out</small>
+                <small>R$ 10,1k</small>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                <div style="background: #6ee7b7; width: 100%; height: 100px; border-radius: 4px 4px 0 0;"></div>
+                <small class="text-muted" style="margin-top: 5px;">Nov</small>
+                <small>R$ 12,5k</small>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                <div style="background: #22d3ee; width: 100%; height: 115px; border-radius: 4px 4px 0 0;"></div>
+                <small class="text-muted" style="margin-top: 5px;">Dez</small>
+                <small>R$ 14,2k</small>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                <div style="background: #059669; width: 100%; height: 150px; border-radius: 4px 4px 0 0;"></div>
+                <small class="text-muted" style="margin-top: 5px;">Jan</small>
+                <small>R$ 18,7k</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Distribuição por Emissor -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title"><i class="bi bi-pie-chart"></i> Comissões por Emissor</h3>
+            </div>
+            <div class="text-center" style="padding: 20px;">
+              <div style="position: relative; width: 160px; height: 160px; border-radius: 50%; background: conic-gradient(#059669 0deg 108deg, #047857 108deg 198deg, #14b8a6 198deg 270deg, #6ee7b7 270deg 324deg, #a5f3fc 324deg 360deg); margin: 0 auto;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90px; height: 90px; background: white; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                  <strong style="font-size: 1.1rem;">R$ 55,4k</strong>
+                  <small class="text-muted">total</small>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 15px; font-size: 0.8rem;">
+                <div class="flex gap-10" style="align-items: center;">
+                  <div style="width: 10px; height: 10px; background: #059669; border-radius: 2px;"></div>
+                  <span>TechStart: R$ 16,6k (30%)</span>
+                </div>
+                <div class="flex gap-10" style="align-items: center;">
+                  <div style="width: 10px; height: 10px; background: #047857; border-radius: 2px;"></div>
+                  <span>Solar Energy: R$ 13,8k (25%)</span>
+                </div>
+                <div class="flex gap-10" style="align-items: center;">
+                  <div style="width: 10px; height: 10px; background: #14b8a6; border-radius: 2px;"></div>
+                  <span>EcoFood: R$ 11,1k (20%)</span>
+                </div>
+                <div class="flex gap-10" style="align-items: center;">
+                  <div style="width: 10px; height: 10px; background: #6ee7b7; border-radius: 2px;"></div>
+                  <span>HealthSoft: R$ 8,3k (15%)</span>
+                </div>
+                <div class="flex gap-10" style="align-items: center;">
+                  <div style="width: 10px; height: 10px; background: #a5f3fc; border-radius: 2px;"></div>
+                  <span>Outros: R$ 5,5k (10%)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabela de Comissões -->
+        <div class="card mt-20">
+          <div class="card-header flex-between">
+            <h3 class="card-title"><i class="bi bi-list-ul"></i> Histórico de Comissões</h3>
+            <div class="flex gap-10">
+              <select class="form-input" style="width: auto;">
+                <option>Todos os status</option>
+                <option>Disponível</option>
+                <option>Pendente</option>
+                <option>Pago</option>
+              </select>
+              <button class="btn btn-outline"><i class="bi bi-download"></i> Exportar</button>
+            </div>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Emissor / Oferta</th>
+                  <th>Tipo</th>
+                  <th>Volume Captado</th>
+                  <th>Taxa</th>
+                  <th>Comissão</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>19/01/2026</td>
+                  <td>
+                    <strong>TechStart Inovação</strong>
+                    <br><small class="text-muted">Equity Investimentos Alternativos</small>
+                  </td>
+                  <td><span class="badge" style="background: #7c3aed; color: white;">Equity</span></td>
+                  <td>R$ 375.000</td>
+                  <td>0,7%</td>
+                  <td style="color: #059669; font-weight: 600;">R$ 2.625,00</td>
+                  <td><span class="badge" style="background: #fef3c7; color: #92400e;">Pendente</span></td>
+                </tr>
+                <tr>
+                  <td>15/01/2026</td>
+                  <td>
+                    <strong>Solar Energy</strong>
+                    <br><small class="text-muted">CRA - Energia Limpa</small>
+                  </td>
+                  <td><span class="badge" style="background: #22c55e; color: white;">CRA</span></td>
+                  <td>R$ 450.000</td>
+                  <td>0,45%</td>
+                  <td style="color: #059669; font-weight: 600;">R$ 2.025,00</td>
+                  <td><span class="badge" style="background: #fef3c7; color: #92400e;">Pendente</span></td>
+                </tr>
+                <tr>
+                  <td>10/01/2026</td>
+                  <td>
+                    <strong>HealthSoft</strong>
+                    <br><small class="text-muted">Equity Investimentos Alternativos</small>
+                  </td>
+                  <td><span class="badge" style="background: #7c3aed; color: white;">Equity</span></td>
+                  <td>R$ 280.000</td>
+                  <td>0,7%</td>
+                  <td style="color: #059669; font-weight: 600;">R$ 1.960,00</td>
+                  <td><span class="badge badge-success">Disponível</span></td>
+                </tr>
+                <tr>
+                  <td>28/12/2025</td>
+                  <td>
+                    <strong>EcoFood Organicos</strong>
+                    <br><small class="text-muted">Equity Investimentos Alternativos</small>
+                  </td>
+                  <td><span class="badge" style="background: #7c3aed; color: white;">Equity</span></td>
+                  <td>R$ 420.000</td>
+                  <td>0,7%</td>
+                  <td style="color: #059669; font-weight: 600;">R$ 2.940,00</td>
+                  <td><span class="badge badge-success">Disponível</span></td>
+                </tr>
+                <tr>
+                  <td>15/12/2025</td>
+                  <td>
+                    <strong>TechStart Inovação</strong>
+                    <br><small class="text-muted">Rodada Anterior</small>
+                  </td>
+                  <td><span class="badge" style="background: #7c3aed; color: white;">Equity</span></td>
+                  <td>R$ 500.000</td>
+                  <td>0,7%</td>
+                  <td style="color: #059669; font-weight: 600;">R$ 3.500,00</td>
+                  <td><span class="badge badge-secondary">Pago</span></td>
+                </tr>
+                <tr>
+                  <td>01/12/2025</td>
+                  <td>
+                    <strong>Solar Energy</strong>
+                    <br><small class="text-muted">Primeira Oferta</small>
+                  </td>
+                  <td><span class="badge" style="background: #22c55e; color: white;">CRA</span></td>
+                  <td>R$ 200.000</td>
+                  <td>0,45%</td>
+                  <td style="color: #059669; font-weight: 600;">R$ 900,00</td>
+                  <td><span class="badge badge-secondary">Pago</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer flex-between" style="padding: 15px 20px; background: var(--bg); border-top: 1px solid var(--border);">
+            <span class="text-muted">Mostrando 6 de 24 registros</span>
+            <div class="pagination">
+              <button class="btn btn-sm btn-outline" disabled>&laquo;</button>
+              <button class="btn btn-sm btn-primary">1</button>
+              <button class="btn btn-sm btn-outline">2</button>
+              <button class="btn btn-sm btn-outline">3</button>
+              <button class="btn btn-sm btn-outline">4</button>
+              <button class="btn btn-sm btn-outline">&raquo;</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Histórico de Saques -->
+        <div class="card mt-20">
+          <div class="card-header flex-between">
+            <h3 class="card-title"><i class="bi bi-bank"></i> Histórico de Saques</h3>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Data Solicitação</th>
+                  <th>Valor</th>
+                  <th>Conta Destino</th>
+                  <th>Data Pagamento</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>05/01/2026</td>
+                  <td style="font-weight: 600;">R$ 12.000,00</td>
+                  <td>
+                    <strong>Banco Inter</strong>
+                    <br><small class="text-muted">Ag: 0001 | CC: 12345-6</small>
+                  </td>
+                  <td>07/01/2026</td>
+                  <td><span class="badge badge-success">Pago</span></td>
+                </tr>
+                <tr>
+                  <td>10/12/2025</td>
+                  <td style="font-weight: 600;">R$ 8.500,00</td>
+                  <td>
+                    <strong>Banco Inter</strong>
+                    <br><small class="text-muted">Ag: 0001 | CC: 12345-6</small>
+                  </td>
+                  <td>12/12/2025</td>
+                  <td><span class="badge badge-success">Pago</span></td>
+                </tr>
+                <tr>
+                  <td>15/11/2025</td>
+                  <td style="font-weight: 600;">R$ 6.200,00</td>
+                  <td>
+                    <strong>Banco Inter</strong>
+                    <br><small class="text-muted">Ag: 0001 | CC: 12345-6</small>
+                  </td>
+                  <td>18/11/2025</td>
+                  <td><span class="badge badge-success">Pago</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Info sobre Taxas -->
+        <div class="card mt-20" style="background: #f0fdfa; border: 1px solid #99f6e4;">
+          <div class="card-header" style="border-bottom: 1px solid #99f6e4;">
+            <h3 class="card-title"><i class="bi bi-calculator"></i> Tabela de Taxas de Originação</h3>
+          </div>
+          <div class="table-container" style="padding: 15px;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tipo de Oferta</th>
+                  <th>Taxa Padrão</th>
+                  <th>Observação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge" style="background: #7c3aed; color: white;">Equity Investimentos Alternativos</span></td>
+                  <td style="color: #059669; font-weight: 600;">0,5% - 1,0%</td>
+                  <td class="text-muted">Sobre o volume total captado</td>
+                </tr>
+                <tr>
+                  <td><span class="badge" style="background: #22c55e; color: white;">CRA</span></td>
+                  <td style="color: #059669; font-weight: 600;">0,3% - 0,5%</td>
+                  <td class="text-muted">Sobre o volume total captado</td>
+                </tr>
+                <tr>
+                  <td><span class="badge" style="background: #0ea5e9; color: white;">CRI</span></td>
+                  <td style="color: #059669; font-weight: 600;">0,3% - 0,5%</td>
+                  <td class="text-muted">Sobre o volume total captado</td>
+                </tr>
+                <tr>
+                  <td><span class="badge" style="background: #f59e0b; color: white;">CR (Cédula de Recebíveis)</span></td>
+                  <td style="color: #059669; font-weight: 600;">0,4% - 0,6%</td>
+                  <td class="text-muted">Sobre o volume total captado</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="text-muted" style="font-size: 0.85rem; margin-top: 15px;">
+              <i class="bi bi-info-circle"></i> As taxas podem variar de acordo com o volume e frequência de originação. Entre em contato para negociar taxas personalizadas.
+            </p>
+          </div>
+        </div>
+
+        <!-- Disclaimer Regulatório CVM -->
+        <div class="dashboard-disclaimer">
+          <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+          <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p>
+          <p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
+          <div class="warning-text">
+            <i class="bi bi-exclamation-triangle"></i>
+            <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura.</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal Solicitar Saque -->
+  <div class="modal-overlay" id="saqueModal" style="display: none;">
+    <div class="modal" style="max-width: 480px;">
+      <div class="modal-header">
+        <h3><i class="bi bi-bank"></i> Solicitar Saque</h3>
+        <button class="modal-close" onclick="hideModal('saqueModal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="background: linear-gradient(135deg, #059669, #047857); color: white; padding: 20px; border-radius: var(--radius); margin-bottom: 20px; text-align: center;">
+          <p style="font-size: 0.85rem; opacity: 0.9;">Saldo Disponível</p>
+          <div style="font-size: 2rem; font-weight: bold;">R$ 15.800,00</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Valor do Saque *</label>
+          <input type="text" class="form-input" placeholder="R$ 0,00" value="R$ 15.800,00">
+          <small class="text-muted">Mínimo: R$ 100,00 | Máximo: R$ 15.800,00</small>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Conta para Depósito</label>
+          <div style="background: var(--bg); padding: 15px; border-radius: var(--radius); border: 1px solid var(--border);">
+            <strong>Banco Inter</strong>
+            <p class="text-muted" style="margin: 5px 0 0;">Agência: 0001 | Conta: 12345-6</p>
+            <p class="text-muted" style="margin: 3px 0 0;">CPF: ***.456.789-**</p>
+          </div>
+          <a href="configuracoes.html" style="font-size: 0.85rem; color: var(--primary);">Alterar conta bancária</a>
+        </div>
+
+        <div class="alert alert-info" style="margin-top: 15px;">
+          <i class="bi bi-info-circle"></i>
+          <div>
+            <strong>Prazo de pagamento:</strong> até 2 dias úteis após a solicitação.
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="hideModal('saqueModal')">Cancelar</button>
+        <button class="btn btn-primary" onclick="hideModal('saqueModal'); Modals.success('Saque Solicitado', 'Sua solicitação de saque foi realizada com sucesso! O pagamento será processado em até 2 dias úteis.');">
+          <i class="bi bi-check-lg"></i> Confirmar Saque
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Selecionar Perfil -->
+  <div class="modal-overlay" id="selecionarPerfilModal" style="display: none;">
+    <div class="modal profile-select-modal">
+      <div class="modal-header">
+        <h3><i class="bi bi-person-gear"></i> Modo de Acesso</h3>
+        <button class="modal-close" onclick="hideModal('selecionarPerfilModal')">&times;</button>
+      </div>
+      <p class="text-muted mb-20">Escolha como deseja visualizar e operar na plataforma.</p>
+
+      <!-- Opcao Emissor -->
+      <div class="profile-option emissor" id="optionEmissor" onclick="selectProfileOption('emissor')">
+        <div class="profile-option-icon emissor"><i class="bi bi-broadcast"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Emissor</div>
+          <p class="profile-option-desc">Crie e gerencie suas próprias ofertas de captação.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
+      </div>
+
+      <!-- Opcao Distribuidor -->
+      <div class="profile-option distribuidor" id="optionDistribuidor" onclick="selectProfileOption('distribuidor')">
+        <div class="profile-option-icon distribuidor"><i class="bi bi-diagram-3"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Distribuidor</div>
+          <p class="profile-option-desc">Distribua ofertas de terceiros para seus clientes.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
+      </div>
+
+      <!-- Opcao Originador -->
+      <div class="profile-option originador" id="optionOriginador" onclick="selectProfileOption('originador')">
+        <div class="profile-option-icon originador"><i class="bi bi-lightning-charge"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Originador</div>
+          <p class="profile-option-desc">Traga novas empresas para captar recursos.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
+      </div>
+
+      <div class="flex gap-10 mt-20">
+        <button class="btn btn-outline" onclick="hideModal('selecionarPerfilModal')" style="flex: 1;">Cancelar</button>
+        <button class="btn btn-primary" onclick="confirmarPerfil()" style="flex: 1;"><i class="bi bi-check-lg"></i> Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/app.js"></script>
+  <script>
+    // Auto-set originador mode on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof ParceiroProfiles !== 'undefined') {
+        ParceiroProfiles.setProfile('originador');
+      }
+    });
+  </script>
+
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumo da Oferta - Relatórios - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      .sidebar, .mobile-header, .menu-toggle, .mobile-overlay { display: none !important; }
+      .main-content { margin: 0; padding: 20px; }
+      .card { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; }
+      body { background: white; }
+      .dashboard { display: block; }
+    }
+  </style>
+</head>
+<body class="theme-parceiro">
+  <div class="dashboard">
+    <div class="mobile-header no-print">
+      <a href="dashboard.html" class="logo">Alba Invest</a>
+    </div>
+
+    <aside class="sidebar sidebar-green no-print">
+      <div class="sidebar-logo">
+        <a href="dashboard.html" class="logo">Alba Invest</a>
+        <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
+      </div>
+      <div class="profile-mode-card" id="profileModeCard">
+        <div class="profile-mode-current">
+          <div class="profile-mode-icon emissor" id="profileIcon">
+            <i class="bi bi-broadcast"></i>
+          </div>
+          <div class="profile-mode-info">
+            <div class="profile-mode-label">Visualizando como</div>
+            <div class="profile-mode-name" id="profileName">Emissor</div>
+          </div>
+          <span class="profile-mode-tag emissor" id="profileTag">
+            <i class="bi bi-broadcast"></i> Emissor
+          </span>
+        </div>
+        <button class="profile-mode-switch-btn" onclick="showModal('selecionarPerfilModal')">
+          <i class="bi bi-arrow-left-right"></i> Trocar modo de acesso
+        </button>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li class="hide-on-originador"><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponíveis</span></a></li>
+        <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
+        <li class="hide-on-originador"><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
+        <li class="hide-on-originador"><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
+        <li class="originador-content" style="display:none;"><a href="meus-emissores.html"><i class="bi bi-building"></i> Meus Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="comissoes-originador.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
+        <li><a href="relatorios.html" class="active"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
+        <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay no-print" onclick="closeMobileMenus()"></div>
+
+    <main class="main-content">
+      <button class="menu-toggle no-print" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
+
+      <!-- Cabecalho do Relatório -->
+      <div class="page-header no-print">
+        <div>
+          <a href="relatorios.html" class="text-muted" style="text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 10px;">
+            <i class="bi bi-arrow-left"></i> Voltar para Relatórios
+          </a>
+          <h1 class="page-title"><i class="bi bi-file-earmark-text"></i> Resumo da Oferta</h1>
+          <p class="text-muted">Visão consolidada de todos os indicadores</p>
+        </div>
+      </div>
+
+      <!-- Seletor de Oferta -->
+      <div class="card mb-20 no-print">
+        <div class="flex-between" style="flex-wrap: wrap; gap: 15px;">
+          <div style="flex: 1; min-width: 250px;">
+            <label class="form-label">Selecione a Oferta</label>
+            <select class="form-control" id="ofertaSelect">
+              <option value="oferta1" selected>TechStart Inovação</option>
+              <option value="oferta2">GreenEnergy Solar</option>
+              <option value="oferta3">HealthTech Solutions</option>
+            </select>
+          </div>
+          <div class="flex gap-10" style="align-items: flex-end;">
+            <button class="btn btn-outline" onclick="window.print()">
+              <i class="bi bi-printer"></i> Imprimir
+            </button>
+            <button class="btn btn-outline" onclick="Modals.export('pdf', 'resumo-oferta')">
+              <i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> PDF
+            </button>
+            <button class="btn btn-outline" onclick="Modals.export('excel', 'resumo-oferta')">
+              <i class="bi bi-file-earmark-excel" style="color: #217346;"></i> Excel
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dados da Oferta -->
+      <div class="card mb-20">
+        <div class="flex gap-20" style="flex-wrap: wrap;">
+          <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #059669, #10b981); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+            <i class="bi bi-rocket-takeoff" style="font-size: 2rem; color: white;"></i>
+          </div>
+          <div style="flex: 1;">
+            <div class="flex-between" style="flex-wrap: wrap; gap: 10px;">
+              <div>
+                <h2 style="margin: 0;">TechStart Inovação</h2>
+                <p class="text-muted" style="margin: 5px 0;">Plataforma SaaS de gestão empresarial com IA</p>
+              </div>
+              <span class="badge badge-success" style="font-size: 0.875rem; padding: 8px 16px;">Em Captação</span>
+            </div>
+            <div class="flex gap-20 mt-15" style="flex-wrap: wrap;">
+              <div>
+                <small class="text-muted">CNPJ</small>
+                <br><strong>12.345.678/0001-90</strong>
+              </div>
+              <div>
+                <small class="text-muted">Início</small>
+                <br><strong>01/01/2026</strong>
+              </div>
+              <div>
+                <small class="text-muted">Encerramento</small>
+                <br><strong>01/03/2026</strong>
+              </div>
+              <div>
+                <small class="text-muted">Dias Restantes</small>
+                <br><strong style="color: #059669;">41 dias</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPIs Principais -->
+      <div class="kpi-grid mb-20">
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background: #dcfce7; color: #16a34a;">
+            <i class="bi bi-bullseye"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Meta de Captação</span>
+            <span class="kpi-value">R$ 500.000</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background: #dbeafe; color: #2563eb;">
+            <i class="bi bi-cash-stack"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Total Captado</span>
+            <span class="kpi-value">R$ 245.000</span>
+            <span class="kpi-change positive">49% da meta</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background: #f3e8ff; color: #9333ea;">
+            <i class="bi bi-people"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Investidores</span>
+            <span class="kpi-value">47</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background: #fef3c7; color: #d97706;">
+            <i class="bi bi-calculator"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Ticket Medio</span>
+            <span class="kpi-value">R$ 5.212</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progresso e Detalhes -->
+      <div class="grid-2 mb-20">
+        <div class="card">
+          <h3 style="margin-bottom: 20px;">Progresso da Captação</h3>
+          <div class="progress mb-15" style="height: 24px;">
+            <div class="progress-bar" style="width: 49%; background: linear-gradient(90deg, #059669, #10b981);">49%</div>
+          </div>
+          <div class="flex-between text-muted" style="font-size: 0.875rem;">
+            <span>R$ 0</span>
+            <span>Meta: R$ 500.000</span>
+          </div>
+          <hr style="margin: 20px 0;">
+          <div class="flex-between mb-10">
+            <span>Valor Bruto Captado</span>
+            <strong style="color: var(--success);">R$ 256.500,00</strong>
+          </div>
+          <div class="flex-between mb-10">
+            <span>Desistências (4)</span>
+            <strong style="color: var(--danger);">- R$ 11.500,00</strong>
+          </div>
+          <div class="flex-between" style="padding-top: 10px; border-top: 1px solid var(--border);">
+            <strong>Valor Liquido</strong>
+            <strong style="color: var(--primary);">R$ 245.000,00</strong>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom: 20px;">Condições da Oferta</h3>
+          <div class="flex-between mb-15" style="padding: 10px; background: var(--bg); border-radius: var(--radius);">
+            <span>Valor Mínimo Individual</span>
+            <strong>R$ 1.000</strong>
+          </div>
+          <div class="flex-between mb-15" style="padding: 10px; background: var(--bg); border-radius: var(--radius);">
+            <span>Valor Máximo Individual</span>
+            <strong>R$ 50.000</strong>
+          </div>
+          <div class="flex-between mb-15" style="padding: 10px; background: var(--bg); border-radius: var(--radius);">
+            <span>Tipo de Valor Mobiliario</span>
+            <strong>Contrato de Investimento Coletivo</strong>
+          </div>
+          <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius);">
+            <span>Remuneração Esperada</span>
+            <strong style="color: #059669;">15% a.a. + IPCA</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Estatisticas dos Investidores -->
+      <div class="card mb-20">
+        <h3 style="margin-bottom: 20px;">Perfil dos Investidores</h3>
+        <div class="grid-4">
+          <div style="text-align: center; padding: 20px; background: var(--bg); border-radius: var(--radius);">
+            <div style="font-size: 2rem; font-weight: bold; color: #2563eb;">38</div>
+            <small class="text-muted">Pessoa Fisica</small>
+          </div>
+          <div style="text-align: center; padding: 20px; background: var(--bg); border-radius: var(--radius);">
+            <div style="font-size: 2rem; font-weight: bold; color: #9333ea;">9</div>
+            <small class="text-muted">Pessoa Jurídica</small>
+          </div>
+          <div style="text-align: center; padding: 20px; background: var(--bg); border-radius: var(--radius);">
+            <div style="font-size: 2rem; font-weight: bold; color: #059669;">12</div>
+            <small class="text-muted">Investidores Recorrentes</small>
+          </div>
+          <div style="text-align: center; padding: 20px; background: var(--bg); border-radius: var(--radius);">
+            <div style="font-size: 2rem; font-weight: bold; color: #d97706;">35</div>
+            <small class="text-muted">Primeiro Investimento</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Distribuição por Faixa -->
+      <div class="card mb-20">
+        <h3 style="margin-bottom: 20px;">Distribuição por Faixa de Investimento</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Faixa de Valor</th>
+                <th style="text-align: center;">Investidores</th>
+                <th style="text-align: center;">%</th>
+                <th style="text-align: right;">Valor Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>R$ 1.000 - R$ 3.000</td>
+                <td style="text-align: center;">18</td>
+                <td style="text-align: center;">38%</td>
+                <td style="text-align: right;">R$ 36.000,00</td>
+              </tr>
+              <tr>
+                <td>R$ 3.001 - R$ 5.000</td>
+                <td style="text-align: center;">12</td>
+                <td style="text-align: center;">26%</td>
+                <td style="text-align: right;">R$ 48.000,00</td>
+              </tr>
+              <tr>
+                <td>R$ 5.001 - R$ 10.000</td>
+                <td style="text-align: center;">10</td>
+                <td style="text-align: center;">21%</td>
+                <td style="text-align: right;">R$ 75.000,00</td>
+              </tr>
+              <tr>
+                <td>R$ 10.001 - R$ 20.000</td>
+                <td style="text-align: center;">5</td>
+                <td style="text-align: center;">11%</td>
+                <td style="text-align: right;">R$ 65.000,00</td>
+              </tr>
+              <tr>
+                <td>R$ 20.001 - R$ 50.000</td>
+                <td style="text-align: center;">2</td>
+                <td style="text-align: center;">4%</td>
+                <td style="text-align: right;">R$ 70.000,00</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr style="background: var(--bg); font-weight: bold;">
+                <td>TOTAL</td>
+                <td style="text-align: center;">47</td>
+                <td style="text-align: center;">100%</td>
+                <td style="text-align: right;">R$ 294.000,00</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      <!-- Disclaimer Regulatório CVM -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Este relatório e de uso exclusivo do emissor e contem informações confidenciais.</p>
+        <div class="warning-text">
+          <i class="bi bi-exclamation-triangle"></i>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido.</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/app.js"></script>
+  
+
+  <!-- Modal Selecionar Perfil -->
+  <div class="modal-overlay" id="selecionarPerfilModal" style="display: none;">
+    <div class="modal profile-select-modal">
+      <div class="modal-header">
+        <h3><i class="bi bi-person-gear"></i> Modo de Acesso</h3>
+        <button class="modal-close" onclick="hideModal('selecionarPerfilModal')">&times;</button>
+      </div>
+      <p class="text-muted mb-20">Escolha como deseja visualizar e operar na plataforma.</p>
+      <div class="profile-option emissor active" id="optionEmissor" onclick="selectProfileOption('emissor')">
+        <div class="profile-option-icon emissor"><i class="bi bi-broadcast"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Emissor</div>
+          <p class="profile-option-desc">Crie e gerencie suas proprias ofertas de investimento.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
+      </div>
+      <div class="profile-option distribuidor" id="optionDistribuidor" onclick="selectProfileOption('distribuidor')">
+        <div class="profile-option-icon distribuidor"><i class="bi bi-diagram-3"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Distribuidor</div>
+          <p class="profile-option-desc">Distribua ofertas de terceiros para seus clientes.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
+      </div>
+      
+      <!-- Opcao Originador -->
+      <div class="profile-option originador" id="optionOriginador" onclick="selectProfileOption('originador')">
+        <div class="profile-option-icon originador"><i class="bi bi-lightning-charge"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Originador</div>
+          <p class="profile-option-desc">Traga novas empresas para captar recursos.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
+      </div>
+      
+      <div class="flex gap-10 mt-20">
+        <button class="btn btn-outline" onclick="hideModal('selecionarPerfilModal')" style="flex: 1;">Cancelar</button>
+        <button class="btn btn-primary" onclick="confirmarPerfil()" style="flex: 1;"><i class="bi bi-check-lg"></i> Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

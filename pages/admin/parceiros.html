@@ -11,26 +11,26 @@
   <div class="dashboard">
     <div class="mobile-header">
       <div style="display: flex; align-items: center; gap: 10px;">
-        <a href="../../index.html" class="logo" style="color: var(--primary);">CrowdInvest</a>
+        <a href="dashboard.html" class="logo" style="color: var(--primary);">CrowdInvest</a>
         <span class="badge badge-warning">Admin</span>
       </div>
     </div>
 
     <aside class="sidebar sidebar-dark">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo" style="color: white;">CrowdInvest</a>
+        <a href="dashboard.html" class="logo" style="color: white;">CrowdInvest</a>
         <span class="badge badge-warning" style="margin-left: 10px;">Admin</span>
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
         <li><a href="ofertas.html"><i class="bi bi-megaphone"></i> Ofertas</a></li>
         <li><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
-        <li><a href="kyc-fila.html"><i class="bi bi-person-check"></i> Validacao Cadastro</a></li>
-        <li><a href="moderacao.html"><i class="bi bi-shield-check"></i> Moderacao</a></li>
+        <li><a href="kyc-fila.html"><i class="bi bi-person-check"></i> Validação Cadastro</a></li>
+        <li><a href="moderacao.html"><i class="bi bi-shield-check"></i> Moderação</a></li>
         <li><a href="parceiros.html" class="active"><i class="bi bi-building"></i> Parceiros</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../admin-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -41,17 +41,17 @@
 
       <div class="page-header">
         <div>
-          <h1 class="page-title">Gestao de Parceiros</h1>
+          <h1 class="page-title">Gestão de Parceiros</h1>
           <p class="text-muted">Emissores, Distribuidores e Parceiros da plataforma</p>
         </div>
         <button class="btn btn-primary" onclick="showModal('novoParceiroModal')"><i class="bi bi-plus-lg"></i> Novo Parceiro</button>
       </div>
 
       <!-- Stats por Tipo -->
-      <div class="kpi-grid" style="grid-template-columns: repeat(5, 1fr); margin-bottom: 20px;">
+      <div class="kpi-grid" style="grid-template-columns: repeat(6, 1fr); margin-bottom: 20px;">
         <div class="kpi-card">
           <div class="kpi-label">Total</div>
-          <div class="kpi-value">18</div>
+          <div class="kpi-value">21</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label"><i class="bi bi-broadcast" style="color: #8b5cf6;"></i> Emissores</div>
@@ -64,6 +64,10 @@
         <div class="kpi-card">
           <div class="kpi-label"><i class="bi bi-arrows-angle-expand" style="color: #059669;"></i> Ambos</div>
           <div class="kpi-value" style="color: #059669;">4</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label"><i class="bi bi-briefcase" style="color: #ea580c;"></i> Originadores</div>
+          <div class="kpi-value" style="color: #ea580c;">3</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">Total Captado</div>
@@ -79,6 +83,7 @@
             <button class="btn btn-outline btn-sm"><i class="bi bi-broadcast"></i> Emissores</button>
             <button class="btn btn-outline btn-sm"><i class="bi bi-diagram-3"></i> Distribuidores</button>
             <button class="btn btn-outline btn-sm"><i class="bi bi-arrows-angle-expand"></i> Ambos</button>
+            <button class="btn btn-outline btn-sm"><i class="bi bi-briefcase"></i> Originadores</button>
           </div>
           <div style="flex: 1; min-width: 200px;">
             <input type="text" class="form-input" placeholder="Buscar por nome, CNPJ..." style="padding: 8px 12px; font-size: 0.85rem;">
@@ -102,10 +107,11 @@
                 <th>Tipo</th>
                 <th>CNPJ</th>
                 <th>Ofertas</th>
-                <th>Distribuicoes</th>
+                <th>Distrib.</th>
+                <th>Orig.</th>
                 <th>Volume</th>
                 <th>Status</th>
-                <th>Acoes</th>
+                <th>Ações</th>
               </tr>
             </thead>
             <tbody>
@@ -117,10 +123,11 @@
                 <td data-label="Tipo"><span class="badge" style="background: #8b5cf6; color: white;"><i class="bi bi-broadcast"></i> Emissor</span></td>
                 <td data-label="CNPJ">12.345.678/0001-90</td>
                 <td data-label="Ofertas"><strong>2</strong></td>
-                <td data-label="Distribuicoes">-</td>
+                <td data-label="Distrib.">-</td>
+                <td data-label="Orig.">-</td>
                 <td data-label="Volume">R$ 875k</td>
                 <td data-label="Status"><span class="badge badge-success">Ativo</span></td>
-                <td data-label="Acoes"><a href="parceiro-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
+                <td data-label="Ações"><a href="parceiro-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
               </tr>
               <tr>
                 <td data-label="Empresa">
@@ -130,62 +137,81 @@
                 <td data-label="Tipo"><span class="badge" style="background: #0891b2; color: white;"><i class="bi bi-diagram-3"></i> Distribuidor</span></td>
                 <td data-label="CNPJ">22.333.444/0001-55</td>
                 <td data-label="Ofertas">-</td>
-                <td data-label="Distribuicoes"><strong>12</strong></td>
+                <td data-label="Distrib."><strong>12</strong></td>
+                <td data-label="Orig.">-</td>
                 <td data-label="Volume">R$ 3.2M</td>
                 <td data-label="Status"><span class="badge badge-success">Ativo</span></td>
-                <td data-label="Acoes"><a href="parceiro-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
+                <td data-label="Ações"><a href="parceiro-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
               </tr>
               <tr>
                 <td data-label="Empresa">
-                  <strong>FinPay Solucoes</strong>
+                  <strong>FinPay Soluções</strong>
                   <br><small class="text-muted">Fintech • contato@finpay.com.br</small>
                 </td>
                 <td data-label="Tipo"><span class="badge" style="background: #059669; color: white;"><i class="bi bi-arrows-angle-expand"></i> Ambos</span></td>
                 <td data-label="CNPJ">55.666.777/0001-88</td>
                 <td data-label="Ofertas"><strong>3</strong></td>
-                <td data-label="Distribuicoes"><strong>5</strong></td>
+                <td data-label="Distrib."><strong>5</strong></td>
+                <td data-label="Orig.">-</td>
                 <td data-label="Volume">R$ 2.1M</td>
                 <td data-label="Status"><span class="badge badge-success">Ativo</span></td>
-                <td data-label="Acoes"><a href="parceiro-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
+                <td data-label="Ações"><a href="parceiro-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
               </tr>
               <tr>
                 <td data-label="Empresa">
-                  <strong>EcoFood SA</strong>
-                  <br><small class="text-muted">Alimentacao • contato@ecofood.com.br</small>
+                  <strong>Marcos Banker Consultoria</strong>
+                  <br><small class="text-muted">Banker • marcos@bankerconsultoria.com.br</small>
                 </td>
-                <td data-label="Tipo"><span class="badge" style="background: #8b5cf6; color: white;"><i class="bi bi-broadcast"></i> Emissor</span></td>
-                <td data-label="CNPJ">98.765.432/0001-10</td>
-                <td data-label="Ofertas"><strong>1</strong></td>
-                <td data-label="Distribuicoes">-</td>
-                <td data-label="Volume">R$ 180k</td>
+                <td data-label="Tipo"><span class="badge" style="background: #ea580c; color: white;"><i class="bi bi-briefcase"></i> Originador</span></td>
+                <td data-label="CNPJ">44.555.666/0001-22</td>
+                <td data-label="Ofertas">-</td>
+                <td data-label="Distrib.">-</td>
+                <td data-label="Orig."><strong>5</strong></td>
+                <td data-label="Volume">R$ 1.5M</td>
                 <td data-label="Status"><span class="badge badge-success">Ativo</span></td>
-                <td data-label="Acoes"><a href="parceiro-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
+                <td data-label="Ações"><a href="parceiro-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
               </tr>
               <tr>
                 <td data-label="Empresa">
                   <strong>Capital Partners</strong>
-                  <br><small class="text-muted">Assessoria • contato@capitalpartners.com.br</small>
+                  <br><small class="text-muted">Distribuição • contato@capitalpartners.com.br</small>
                 </td>
                 <td data-label="Tipo"><span class="badge" style="background: #0891b2; color: white;"><i class="bi bi-diagram-3"></i> Distribuidor</span></td>
                 <td data-label="CNPJ">77.888.999/0001-11</td>
                 <td data-label="Ofertas">-</td>
-                <td data-label="Distribuicoes"><strong>8</strong></td>
+                <td data-label="Distrib."><strong>8</strong></td>
+                <td data-label="Orig.">-</td>
                 <td data-label="Volume">R$ 1.8M</td>
                 <td data-label="Status"><span class="badge badge-success">Ativo</span></td>
-                <td data-label="Acoes"><a href="parceiro-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
+                <td data-label="Ações"><a href="parceiro-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
+              </tr>
+              <tr>
+                <td data-label="Empresa">
+                  <strong>Deal Finder Partners</strong>
+                  <br><small class="text-muted">Banker • contato@dealfinder.com.br</small>
+                </td>
+                <td data-label="Tipo"><span class="badge" style="background: #ea580c; color: white;"><i class="bi bi-briefcase"></i> Originador</span></td>
+                <td data-label="CNPJ">88.999.111/0001-33</td>
+                <td data-label="Ofertas">-</td>
+                <td data-label="Distrib.">-</td>
+                <td data-label="Orig."><strong>3</strong></td>
+                <td data-label="Volume">R$ 680k</td>
+                <td data-label="Status"><span class="badge badge-success">Ativo</span></td>
+                <td data-label="Ações"><a href="parceiro-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
               </tr>
               <tr>
                 <td data-label="Empresa">
                   <strong>HealthTech LTDA</strong>
-                  <br><small class="text-muted">Saude • contato@healthtech.com.br</small>
+                  <br><small class="text-muted">Saúde • contato@healthtech.com.br</small>
                 </td>
                 <td data-label="Tipo"><span class="badge" style="background: #8b5cf6; color: white;"><i class="bi bi-broadcast"></i> Emissor</span></td>
                 <td data-label="CNPJ">11.222.333/0001-44</td>
                 <td data-label="Ofertas"><strong>1</strong></td>
-                <td data-label="Distribuicoes">-</td>
+                <td data-label="Distrib.">-</td>
+                <td data-label="Orig.">-</td>
                 <td data-label="Volume">R$ 562k</td>
                 <td data-label="Status"><span class="badge badge-success">Ativo</span></td>
-                <td data-label="Acoes"><a href="parceiro-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
+                <td data-label="Ações"><a href="parceiro-detalhe.html" class="btn btn-outline btn-sm">Ver</a></td>
               </tr>
               <tr style="background: #fffbeb;">
                 <td data-label="Empresa">
@@ -195,21 +221,17 @@
                 <td data-label="Tipo"><span class="badge" style="background: #8b5cf6; color: white;"><i class="bi bi-broadcast"></i> Emissor</span></td>
                 <td data-label="CNPJ">33.444.555/0001-66</td>
                 <td data-label="Ofertas">0</td>
-                <td data-label="Distribuicoes">-</td>
+                <td data-label="Distrib.">-</td>
+                <td data-label="Orig.">-</td>
                 <td data-label="Volume">-</td>
                 <td data-label="Status"><span class="badge badge-warning"><i class="bi bi-clock"></i> Pendente</span></td>
-                <td data-label="Acoes">
-                  <div class="flex gap-5">
-                    <button class="btn btn-success btn-sm" onclick="showModal('aprovarParceiroModal')"><i class="bi bi-check-circle"></i> Aprovar</button>
-                    <button class="btn btn-danger btn-sm" onclick="showModal('recusarParceiroModal')"><i class="bi bi-x-circle"></i> Reprovar</button>
-                  </div>
-                </td>
+                <td data-label="Ações"><a href="parceiro-detalhe.html?status=pendente" class="btn btn-outline btn-sm">Ver</a></td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <!-- Paginacao Minimalista -->
+        <!-- Páginação Minimalista -->
         <div class="pagination-wrapper">
           <span class="pagination-info">Mostrando <strong>1-7</strong> de <strong>18</strong></span>
           <nav class="pagination-minimal">
@@ -225,7 +247,7 @@
       <!-- Info sobre tipos -->
       <div class="card mt-20" style="padding: 16px;">
         <h4 style="margin-bottom: 12px;"><i class="bi bi-info-circle"></i> Tipos de Parceiros</h4>
-        <div class="grid-3" style="gap: 16px;">
+        <div class="grid-4" style="gap: 16px;">
           <div style="padding: 12px; background: rgba(139, 92, 246, 0.1); border-radius: var(--radius-sm); border-left: 3px solid #8b5cf6;">
             <strong style="color: #8b5cf6;"><i class="bi bi-broadcast"></i> Emissor</strong>
             <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Cria e gerencia suas proprias ofertas de investimento na plataforma.</p>
@@ -234,19 +256,110 @@
             <strong style="color: #0891b2;"><i class="bi bi-diagram-3"></i> Distribuidor</strong>
             <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Distribui ofertas de terceiros para sua base de clientes (assessores, corretoras).</p>
           </div>
+          <div style="padding: 12px; background: rgba(234, 88, 12, 0.1); border-radius: var(--radius-sm); border-left: 3px solid #ea580c;">
+            <strong style="color: #ea580c;"><i class="bi bi-briefcase"></i> Originador</strong>
+            <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Banker ou intermediario que traz operações para a plataforma e recebe comissão.</p>
+          </div>
           <div style="padding: 12px; background: rgba(5, 150, 105, 0.1); border-radius: var(--radius-sm); border-left: 3px solid #059669;">
             <strong style="color: #059669;"><i class="bi bi-arrows-angle-expand"></i> Ambos</strong>
-            <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Pode criar ofertas proprias e tambem distribuir ofertas de outros emissores.</p>
+            <p class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Pode criar ofertas proprias e também distribuir ofertas de outros emissores.</p>
           </div>
         </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+
+      <!-- Fluxo de Aprovação -->
+      <div class="card mt-20" style="padding: 16px;">
+        <h4 style="margin-bottom: 12px;"><i class="bi bi-diagram-2"></i> Fluxo de Aprovação de Parceiros</h4>
+        <div class="grid-3" style="gap: 20px;">
+          <!-- Emissor -->
+          <div style="padding: 16px; background: rgba(139, 92, 246, 0.05); border-radius: var(--radius-sm); border: 1px solid rgba(139, 92, 246, 0.2);">
+            <strong style="color: #8b5cf6;"><i class="bi bi-broadcast"></i> Aprovação de Emissor</strong>
+            <p class="text-muted" style="font-size: 0.85rem; margin: 10px 0 12px;">O emissor deve trazer uma operação para ser aprovado.</p>
+            <div style="font-size: 0.8rem;">
+              <div class="flex gap-8 mb-8" style="align-items: flex-start;">
+                <i class="bi bi-1-circle" style="color: #8b5cf6;"></i>
+                <span><strong>Cadastro:</strong> Parceiro se cadastra como Emissor</span>
+              </div>
+              <div class="flex gap-8 mb-8" style="align-items: flex-start;">
+                <i class="bi bi-2-circle" style="color: #8b5cf6;"></i>
+                <span><strong>Oferta:</strong> Deve submeter proposta de oferta junto ao cadastro</span>
+              </div>
+              <div class="flex gap-8 mb-8" style="align-items: flex-start;">
+                <i class="bi bi-3-circle" style="color: #8b5cf6;"></i>
+                <span><strong>Análise:</strong> Compliance analisa empresa + viabilidade da oferta</span>
+              </div>
+              <div class="flex gap-8" style="align-items: flex-start;">
+                <i class="bi bi-4-circle" style="color: #8b5cf6;"></i>
+                <span><strong>Aprovação:</strong> Parceiro e oferta aprovados simultaneamente</span>
+              </div>
+            </div>
+            <div class="alert alert-info mt-15" style="font-size: 0.75rem; padding: 8px 12px;">
+              <i class="bi bi-lightbulb"></i> Emissor so e ativado quando tem oferta aprovada
+            </div>
+          </div>
+
+          <!-- Distribuidor -->
+          <div style="padding: 16px; background: rgba(8, 145, 178, 0.05); border-radius: var(--radius-sm); border: 1px solid rgba(8, 145, 178, 0.2);">
+            <strong style="color: #0891b2;"><i class="bi bi-diagram-3"></i> Aprovação de Distribuidor</strong>
+            <p class="text-muted" style="font-size: 0.85rem; margin: 10px 0 12px;">Validação focada no setor de atuação e compliance.</p>
+            <div style="font-size: 0.8rem;">
+              <div class="flex gap-8 mb-8" style="align-items: flex-start;">
+                <i class="bi bi-1-circle" style="color: #0891b2;"></i>
+                <span><strong>Cadastro:</strong> Parceiro se cadastra como Distribuidor</span>
+              </div>
+              <div class="flex gap-8 mb-8" style="align-items: flex-start;">
+                <i class="bi bi-2-circle" style="color: #0891b2;"></i>
+                <span><strong>Setor:</strong> Validar setor (assessor, corretora, AAI, etc.)</span>
+              </div>
+              <div class="flex gap-8 mb-8" style="align-items: flex-start;">
+                <i class="bi bi-3-circle" style="color: #0891b2;"></i>
+                <span><strong>Documentos:</strong> Verificar habilitação CVM/ANCORD se aplicavel</span>
+              </div>
+              <div class="flex gap-8" style="align-items: flex-start;">
+                <i class="bi bi-4-circle" style="color: #0891b2;"></i>
+                <span><strong>Aprovação:</strong> Parceiro liberado para distribuir ofertas</span>
+              </div>
+            </div>
+            <div class="alert alert-info mt-15" style="font-size: 0.75rem; padding: 8px 12px;">
+              <i class="bi bi-lightbulb"></i> Distribuidor pode ser aprovado sem oferta vinculada
+            </div>
+          </div>
+
+          <!-- Originador -->
+          <div style="padding: 16px; background: rgba(234, 88, 12, 0.05); border-radius: var(--radius-sm); border: 1px solid rgba(234, 88, 12, 0.2);">
+            <strong style="color: #ea580c;"><i class="bi bi-briefcase"></i> Aprovação de Originador</strong>
+            <p class="text-muted" style="font-size: 0.85rem; margin: 10px 0 12px;">Bankers e intermediarios que trazem negócios para a plataforma.</p>
+            <div style="font-size: 0.8rem;">
+              <div class="flex gap-8 mb-8" style="align-items: flex-start;">
+                <i class="bi bi-1-circle" style="color: #ea580c;"></i>
+                <span><strong>Cadastro:</strong> Parceiro se cadastra como Originador</span>
+              </div>
+              <div class="flex gap-8 mb-8" style="align-items: flex-start;">
+                <i class="bi bi-2-circle" style="color: #ea580c;"></i>
+                <span><strong>Background:</strong> Verificar experiência e histórico no mercado</span>
+              </div>
+              <div class="flex gap-8 mb-8" style="align-items: flex-start;">
+                <i class="bi bi-3-circle" style="color: #ea580c;"></i>
+                <span><strong>Contrato:</strong> Definir modelo de comissão por originação</span>
+              </div>
+              <div class="flex gap-8" style="align-items: flex-start;">
+                <i class="bi bi-4-circle" style="color: #ea580c;"></i>
+                <span><strong>Aprovação:</strong> Parceiro liberado para indicar operações</span>
+              </div>
+            </div>
+            <div class="alert alert-info mt-15" style="font-size: 0.75rem; padding: 8px 12px;">
+              <i class="bi bi-lightbulb"></i> Originador recebe % sobre ofertas originadas
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
@@ -262,8 +375,8 @@
 
       <div class="form-group">
         <label class="form-label">Tipo de Parceiro *</label>
-        <div class="flex gap-10" style="margin-top: 8px;">
-          <label class="method-option" style="flex: 1; padding: 12px; cursor: pointer; border: 2px solid var(--border); border-radius: var(--radius-sm);" onclick="this.querySelector('input').checked = true; document.querySelectorAll('.method-option').forEach(o => o.style.borderColor = 'var(--border)'); this.style.borderColor = '#8b5cf6';">
+        <div class="grid-2" style="gap: 10px; margin-top: 8px;">
+          <label class="method-option" style="padding: 12px; cursor: pointer; border: 2px solid var(--border); border-radius: var(--radius-sm);" onclick="this.querySelector('input').checked = true; document.querySelectorAll('.method-option').forEach(o => o.style.borderColor = 'var(--border)'); this.style.borderColor = '#8b5cf6';">
             <input type="radio" name="tipo_parceiro" value="emissor" style="display: none;">
             <div class="text-center">
               <i class="bi bi-broadcast" style="font-size: 1.5rem; color: #8b5cf6;"></i>
@@ -271,7 +384,7 @@
               <small class="text-muted">Cria ofertas</small>
             </div>
           </label>
-          <label class="method-option" style="flex: 1; padding: 12px; cursor: pointer; border: 2px solid var(--border); border-radius: var(--radius-sm);" onclick="this.querySelector('input').checked = true; document.querySelectorAll('.method-option').forEach(o => o.style.borderColor = 'var(--border)'); this.style.borderColor = '#0891b2';">
+          <label class="method-option" style="padding: 12px; cursor: pointer; border: 2px solid var(--border); border-radius: var(--radius-sm);" onclick="this.querySelector('input').checked = true; document.querySelectorAll('.method-option').forEach(o => o.style.borderColor = 'var(--border)'); this.style.borderColor = '#0891b2';">
             <input type="radio" name="tipo_parceiro" value="distribuidor" style="display: none;">
             <div class="text-center">
               <i class="bi bi-diagram-3" style="font-size: 1.5rem; color: #0891b2;"></i>
@@ -279,7 +392,15 @@
               <small class="text-muted">Distribui ofertas</small>
             </div>
           </label>
-          <label class="method-option" style="flex: 1; padding: 12px; cursor: pointer; border: 2px solid var(--border); border-radius: var(--radius-sm);" onclick="this.querySelector('input').checked = true; document.querySelectorAll('.method-option').forEach(o => o.style.borderColor = 'var(--border)'); this.style.borderColor = '#059669';">
+          <label class="method-option" style="padding: 12px; cursor: pointer; border: 2px solid var(--border); border-radius: var(--radius-sm);" onclick="this.querySelector('input').checked = true; document.querySelectorAll('.method-option').forEach(o => o.style.borderColor = 'var(--border)'); this.style.borderColor = '#ea580c';">
+            <input type="radio" name="tipo_parceiro" value="originador" style="display: none;">
+            <div class="text-center">
+              <i class="bi bi-briefcase" style="font-size: 1.5rem; color: #ea580c;"></i>
+              <div style="font-weight: 600; margin-top: 4px;">Originador</div>
+              <small class="text-muted">Traz negócios</small>
+            </div>
+          </label>
+          <label class="method-option" style="padding: 12px; cursor: pointer; border: 2px solid var(--border); border-radius: var(--radius-sm);" onclick="this.querySelector('input').checked = true; document.querySelectorAll('.method-option').forEach(o => o.style.borderColor = 'var(--border)'); this.style.borderColor = '#059669';">
             <input type="radio" name="tipo_parceiro" value="ambos" style="display: none;">
             <div class="text-center">
               <i class="bi bi-arrows-angle-expand" style="font-size: 1.5rem; color: #059669;"></i>
@@ -297,7 +418,7 @@
         </div>
         <div class="form-group">
           <label class="form-label">CNPJ *</label>
-          <input type="text" class="form-input" placeholder="00.000.000/0001-00">
+          <input type="text" class="form-input" placeholder="43.413.213/0001-58">
         </div>
       </div>
 
@@ -313,25 +434,25 @@
       </div>
 
       <div class="form-group">
-        <label class="form-label">Setor de Atuacao</label>
+        <label class="form-label">Setor de Atuação</label>
         <select class="form-input">
           <option value="">Selecione...</option>
           <option>Tecnologia</option>
           <option>Financeiro / Fintech</option>
-          <option>Saude</option>
-          <option>Agronegocio</option>
+          <option>Saúde</option>
+          <option>Agronegócio</option>
           <option>Imobiliario</option>
           <option>Energia</option>
-          <option>Alimentacao</option>
-          <option>Educacao</option>
-          <option>Assessoria de Investimentos</option>
+          <option>Alimentação</option>
+          <option>Educação</option>
+          <option>Distribuidora de Investimentos</option>
           <option>Corretora</option>
           <option>Outro</option>
         </select>
       </div>
 
       <div class="alert alert-info" style="font-size: 0.85rem;">
-        <i class="bi bi-info-circle"></i> O parceiro recebera um e-mail com instrucoes para completar o cadastro e acessar a plataforma.
+        <i class="bi bi-info-circle"></i> O parceiro receberá um e-mail com instrucoes para completar o cadastro e acessar a plataforma.
       </div>
 
       <div class="flex gap-10 mt-20">
@@ -370,7 +491,7 @@
           <div class="flex-between"><span class="text-muted">Contato:</span> <strong>contato@startupxyz.com.br</strong></div>
         </div>
         <div class="alert alert-info mt-15" style="font-size: 0.8rem;">
-          <i class="bi bi-info-circle"></i> O parceiro sera notificado e podera criar ofertas imediatamente.
+          <i class="bi bi-info-circle"></i> O parceiro será notificado e podera criar ofertas imediatamente.
         </div>
         <div class="flex gap-10 mt-15">
           <button class="btn btn-outline" onclick="hideModal('aprovarParceiroModal')" style="flex: 1;">Cancelar</button>
@@ -394,7 +515,7 @@
           <textarea class="form-input" rows="3" placeholder="Informe o motivo para o parceiro..."></textarea>
         </div>
         <div class="alert alert-warning" style="font-size: 0.8rem;">
-          <i class="bi bi-exclamation-triangle"></i> O parceiro sera notificado sobre a recusa e o motivo informado.
+          <i class="bi bi-exclamation-triangle"></i> O parceiro será notificado sobre a recusa e o motivo informado.
         </div>
         <div class="flex gap-10 mt-15">
           <button class="btn btn-outline" onclick="hideModal('recusarParceiroModal')" style="flex: 1;">Cancelar</button>
@@ -410,12 +531,14 @@
       <div style="padding: 30px;">
         <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
         <h3 style="margin: 15px 0;">Parceiro Aprovado!</h3>
-        <p class="text-muted">Nova Startup XYZ foi aprovada e ja pode acessar a plataforma.</p>
+        <p class="text-muted">Nova Startup XYZ foi aprovada e já pode acessar a plataforma.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('parceiroAprovadoModal')">OK</button>
       </div>
     </div>
   </div>
 
   <script src="../../js/app.js"></script>
+  
+
 </body>
 </html>

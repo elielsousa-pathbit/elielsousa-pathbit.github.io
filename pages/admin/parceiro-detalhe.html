@@ -11,26 +11,26 @@
   <div class="dashboard">
     <div class="mobile-header">
       <div style="display: flex; align-items: center; gap: 10px;">
-        <a href="../../index.html" class="logo" style="color: var(--primary);">CrowdInvest</a>
+        <a href="dashboard.html" class="logo" style="color: var(--primary);">CrowdInvest</a>
         <span class="badge badge-warning">Admin</span>
       </div>
     </div>
 
     <aside class="sidebar sidebar-dark">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo" style="color: white;">CrowdInvest</a>
+        <a href="dashboard.html" class="logo" style="color: white;">CrowdInvest</a>
         <span class="badge badge-warning" style="margin-left: 10px;">Admin</span>
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
         <li><a href="ofertas.html"><i class="bi bi-megaphone"></i> Ofertas</a></li>
         <li><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
-        <li><a href="kyc-fila.html"><i class="bi bi-person-check"></i> Validacao Cadastro</a></li>
-        <li><a href="moderacao.html"><i class="bi bi-shield-check"></i> Moderacao</a></li>
+        <li><a href="kyc-fila.html"><i class="bi bi-person-check"></i> Validação Cadastro</a></li>
+        <li><a href="moderacao.html"><i class="bi bi-shield-check"></i> Moderação</a></li>
         <li><a href="parceiros.html" class="active"><i class="bi bi-building"></i> Parceiros</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../admin-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -44,21 +44,39 @@
           <a href="parceiros.html" class="btn btn-outline btn-sm"><i class="bi bi-arrow-left"></i></a>
           <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #059669, #047857); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.5rem;">TS</div>
           <div>
-            <h1 class="page-title">TechStart Inovacao LTDA</h1>
+            <h1 class="page-title">TechStart Inovação LTDA</h1>
             <p class="text-muted">CNPJ: 12.345.678/0001-90 | Tecnologia / SaaS</p>
           </div>
         </div>
-        <div class="flex gap-10">
+        <div class="header-user-info">
           <button class="btn btn-outline" onclick="showModal('editarModal')"><i class="bi bi-pencil"></i> Editar</button>
           <a href="nova-oferta-admin.html" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Nova Oferta</a>
         </div>
       </div>
 
-      <!-- Status e Badges -->
-      <div class="flex gap-10 mb-20">
+      <!-- Status e Badges - Parceiro Aprovado -->
+      <div class="flex gap-10 mb-20" id="statusAprovado">
         <span class="badge badge-success" style="padding: 8px 16px;"><i class="bi bi-check-circle"></i> Cadastro Aprovado</span>
         <span class="badge badge-info" style="padding: 8px 16px;"><i class="bi bi-broadcast"></i> 1 Oferta Ativa</span>
         <span class="badge" style="padding: 8px 16px; background: var(--bg);"><i class="bi bi-calendar"></i> Desde 15/03/2024</span>
+      </div>
+
+      <!-- Status e Badges - Parceiro Pendente -->
+      <div id="statusPendente" style="display: none;">
+        <div class="alert alert-warning mb-20" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+          <div>
+            <strong><i class="bi bi-hourglass-split"></i> Cadastro Pendente de Aprovação</strong>
+            <p style="margin: 5px 0 0; font-size: 0.9rem;">Análise os dados e documentos do parceiro antes de aprovar ou reprovar o cadastro.</p>
+          </div>
+          <div class="header-user-info">
+            <button class="btn btn-danger" onclick="showModal('reprovarParceiroModal')"><i class="bi bi-x-circle"></i> Reprovar</button>
+            <button class="btn btn-success" onclick="showModal('aprovarParceiroModal')"><i class="bi bi-check-circle"></i> Aprovar Parceiro</button>
+          </div>
+        </div>
+        <div class="flex gap-10 mb-20">
+          <span class="badge badge-warning" style="padding: 8px 16px;"><i class="bi bi-clock"></i> Águardando Aprovação</span>
+          <span class="badge" style="padding: 8px 16px; background: var(--bg);"><i class="bi bi-calendar"></i> Cadastrado em 19/01/2026</span>
+        </div>
       </div>
 
       <!-- KPIs -->
@@ -74,7 +92,7 @@
           <div class="kpi-change positive">+375k oferta atual</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Clientes Unicos</div>
+          <div class="kpi-label">Clientes Únicos</div>
           <div class="kpi-value">283</div>
           <div class="kpi-change">em todas ofertas</div>
         </div>
@@ -97,7 +115,7 @@
             <div style="display: flex; flex-direction: column; gap: 15px;">
               <div class="flex-between" style="padding-bottom: 15px; border-bottom: 1px solid var(--border);">
                 <span class="text-muted">Razao Social</span>
-                <strong>TechStart Inovacao LTDA</strong>
+                <strong>TechStart Inovação LTDA</strong>
               </div>
               <div class="flex-between" style="padding-bottom: 15px; border-bottom: 1px solid var(--border);">
                 <span class="text-muted">Nome Fantasia</span>
@@ -112,7 +130,7 @@
                 <strong>Tecnologia / SaaS</strong>
               </div>
               <div class="flex-between" style="padding-bottom: 15px; border-bottom: 1px solid var(--border);">
-                <span class="text-muted">Ano de Fundacao</span>
+                <span class="text-muted">Ano de Fundação</span>
                 <strong>2021</strong>
               </div>
               <div class="flex-between" style="padding-bottom: 15px; border-bottom: 1px solid var(--border);">
@@ -121,7 +139,7 @@
               </div>
               <div class="flex-between" style="padding-bottom: 15px; border-bottom: 1px solid var(--border);">
                 <span class="text-muted">Endereco</span>
-                <strong>Av. Paulista, 1000 - Sao Paulo/SP</strong>
+                <strong>Av. Paulista, 1000 - São Paulo/SP</strong>
               </div>
               <div class="flex-between">
                 <span class="text-muted">Website</span>
@@ -143,7 +161,7 @@
                     <span class="badge badge-info" style="margin-left: 10px; font-size: 0.65rem;">Principal</span>
                     <p class="text-muted" style="margin: 5px 0 0; font-size: 0.875rem;">CEO / Socio Fundador</p>
                   </div>
-                  <div class="flex gap-10">
+                  <div class="header-user-info">
                     <button class="btn btn-outline btn-sm" title="E-mail"><i class="bi bi-envelope"></i></button>
                     <button class="btn btn-outline btn-sm" title="Telefone"><i class="bi bi-telephone"></i></button>
                   </div>
@@ -159,7 +177,7 @@
                     <strong>Maria Santos</strong>
                     <p class="text-muted" style="margin: 5px 0 0; font-size: 0.875rem;">CFO</p>
                   </div>
-                  <div class="flex gap-10">
+                  <div class="header-user-info">
                     <button class="btn btn-outline btn-sm" title="E-mail"><i class="bi bi-envelope"></i></button>
                     <button class="btn btn-outline btn-sm" title="Telefone"><i class="bi bi-telephone"></i></button>
                   </div>
@@ -188,7 +206,7 @@
                 </div>
               </div>
               <div class="flex-between" style="padding: 12px; background: var(--bg); border-radius: var(--radius);">
-                <span><i class="bi bi-file-earmark-pdf" style="color: #ef4444;"></i> Demonstracoes Financeiras 2024</span>
+                <span><i class="bi bi-file-earmark-pdf" style="color: #ef4444;"></i> Demonstrações Financeiras 2024</span>
                 <div class="flex gap-10" style="align-items: center;">
                   <span class="text-muted" style="font-size: 0.75rem;">10/01/2025</span>
                   <span class="badge badge-success" style="font-size: 0.65rem;"><i class="bi bi-check"></i> Validado</span>
@@ -229,11 +247,11 @@
               <div class="flex-between mb-10">
                 <div class="flex gap-10" style="align-items: center;">
                   <span class="badge" style="background: #7c3aed; color: white;">Equity</span>
-                  <span class="badge badge-success"><i class="bi bi-broadcast"></i> Em Captacao</span>
+                  <span class="badge badge-success"><i class="bi bi-broadcast"></i> Em Captação</span>
                 </div>
                 <a href="oferta-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i> Ver</a>
               </div>
-              <h4 style="margin: 0 0 10px;">TechStart Inovacao - Serie A</h4>
+              <h4 style="margin: 0 0 10px;">TechStart Inovação - Serie A</h4>
               <div class="flex-between text-muted" style="font-size: 0.875rem;">
                 <span>Meta: R$ 500.000</span>
                 <span style="color: var(--success);"><strong>R$ 375.000</strong> (75%)</span>
@@ -274,14 +292,14 @@
           <!-- Timeline de Atividades -->
           <div class="card mb-20">
             <div class="card-header">
-              <h3 class="card-title"><i class="bi bi-clock-history"></i> Historico de Atividades</h3>
+              <h3 class="card-title"><i class="bi bi-clock-history"></i> Histórico de Atividades</h3>
             </div>
             <div style="display: flex; flex-direction: column; gap: 0;">
               <div style="display: flex; gap: 15px; padding: 15px 0; border-bottom: 1px solid var(--border);">
                 <div style="width: 10px; height: 10px; background: var(--success); border-radius: 50%; margin-top: 5px; flex-shrink: 0;"></div>
                 <div>
                   <p style="margin: 0;"><strong>Nova oferta publicada</strong></p>
-                  <p class="text-muted" style="margin: 5px 0 0; font-size: 0.875rem;">TechStart Inovacao - Serie A iniciou captacao</p>
+                  <p class="text-muted" style="margin: 5px 0 0; font-size: 0.875rem;">TechStart Inovação - Serie A iníciou captação</p>
                   <p class="text-muted" style="margin: 5px 0 0; font-size: 0.75rem;">15/01/2026 as 10:30</p>
                 </div>
               </div>
@@ -289,7 +307,7 @@
                 <div style="width: 10px; height: 10px; background: var(--primary); border-radius: 50%; margin-top: 5px; flex-shrink: 0;"></div>
                 <div>
                   <p style="margin: 0;"><strong>Comunicado publicado</strong></p>
-                  <p class="text-muted" style="margin: 5px 0 0; font-size: 0.875rem;">Atualizacao sobre lancamento de novo produto</p>
+                  <p class="text-muted" style="margin: 5px 0 0; font-size: 0.875rem;">Atualização sobre lancamento de novo produto</p>
                   <p class="text-muted" style="margin: 5px 0 0; font-size: 0.75rem;">12/01/2026 as 14:20</p>
                 </div>
               </div>
@@ -305,7 +323,7 @@
                 <div style="width: 10px; height: 10px; background: var(--warning); border-radius: 50%; margin-top: 5px; flex-shrink: 0;"></div>
                 <div>
                   <p style="margin: 0;"><strong>Documentos atualizados</strong></p>
-                  <p class="text-muted" style="margin: 5px 0 0; font-size: 0.875rem;">Demonstracoes Financeiras 2024 enviadas</p>
+                  <p class="text-muted" style="margin: 5px 0 0; font-size: 0.875rem;">Demonstrações Financeiras 2024 enviadas</p>
                   <p class="text-muted" style="margin: 5px 0 0; font-size: 0.75rem;">05/01/2026 as 09:15</p>
                 </div>
               </div>
@@ -318,20 +336,20 @@
                 </div>
               </div>
             </div>
-            <a href="#" class="btn btn-outline btn-sm mt-15" style="width: 100%;">Ver Historico Completo</a>
+            <a href="#" class="btn btn-outline btn-sm mt-15" style="width: 100%;" onclick="Modals.info('Histórico Completo', 'O histórico completo de atividades do parceiro será exibido em uma nova página.'); return false;">Ver Histórico Completo</a>
           </div>
 
-          <!-- Acoes Administrativas -->
+          <!-- Ações Administrativas -->
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title"><i class="bi bi-sliders"></i> Acoes Administrativas</h3>
+              <h3 class="card-title"><i class="bi bi-sliders"></i> Ações Administrativas</h3>
             </div>
             <div style="display: flex; flex-direction: column; gap: 10px;">
               <button class="btn btn-outline" style="width: 100%; justify-content: flex-start; text-align: left;">
                 <i class="bi bi-envelope"></i> Enviar Mensagem
               </button>
               <button class="btn btn-outline" style="width: 100%; justify-content: flex-start; text-align: left;">
-                <i class="bi bi-file-earmark-text"></i> Gerar Relatorio
+                <i class="bi bi-file-earmark-text"></i> Gerar Relatório
               </button>
               <button class="btn btn-outline" style="width: 100%; justify-content: flex-start; text-align: left;">
                 <i class="bi bi-clock-history"></i> Ver Logs de Acesso
@@ -347,19 +365,102 @@
           </div>
         </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
   </div>
 
   <script src="../../js/app.js"></script>
+  
+  <script>
+    // Detectar status pendente via URL
+    document.addEventListener('DOMContentLoaded', function() {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('status') === 'pendente') {
+        document.getElementById('statusAprovado').style.display = 'none';
+        document.getElementById('statusPendente').style.display = 'block';
+      }
+    });
+  </script>
+
+  <!-- Modal Aprovar Parceiro -->
+  <div class="modal-overlay" id="aprovarParceiroModal" style="display: none;">
+    <div class="modal" style="max-width: 450px;">
+      <div class="modal-header">
+        <h3><i class="bi bi-check-circle" style="color: var(--success);"></i> Aprovar Parceiro</h3>
+        <button class="modal-close" onclick="hideModal('aprovarParceiroModal')">&times;</button>
+      </div>
+      <div style="padding: 0 20px 20px;">
+        <p>Confirmar a aprovação do cadastro deste parceiro?</p>
+        <div style="background: var(--bg); padding: 12px; border-radius: var(--radius-sm); margin-top: 12px; font-size: 0.85rem;">
+          <div class="flex-between mb-8"><span class="text-muted">Empresa:</span> <strong>TechStart Inovação LTDA</strong></div>
+          <div class="flex-between mb-8"><span class="text-muted">CNPJ:</span> <strong>12.345.678/0001-90</strong></div>
+          <div class="flex-between"><span class="text-muted">Tipo:</span> <strong>Emissor</strong></div>
+        </div>
+        <div class="alert alert-info mt-15" style="font-size: 0.8rem;">
+          <i class="bi bi-info-circle"></i> O parceiro será notificado e podera criar ofertas imediatamente.
+        </div>
+        <div class="flex gap-10 mt-15">
+          <button class="btn btn-outline" onclick="hideModal('aprovarParceiroModal')" style="flex: 1;">Cancelar</button>
+          <button class="btn btn-success" onclick="hideModal('aprovarParceiroModal'); showModal('parceiroAprovadoModal');" style="flex: 1;"><i class="bi bi-check-lg"></i> Aprovar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Reprovar Parceiro -->
+  <div class="modal-overlay" id="reprovarParceiroModal" style="display: none;">
+    <div class="modal" style="max-width: 450px;">
+      <div class="modal-header">
+        <h3><i class="bi bi-x-circle" style="color: var(--danger);"></i> Reprovar Parceiro</h3>
+        <button class="modal-close" onclick="hideModal('reprovarParceiroModal')">&times;</button>
+      </div>
+      <div style="padding: 0 20px 20px;">
+        <p>Reprovar o cadastro deste parceiro?</p>
+        <div class="form-group mt-15">
+          <label class="form-label">Motivo da reprovação *</label>
+          <select class="form-input">
+            <option value="">Selecione o motivo...</option>
+            <option>Documentação incompleta</option>
+            <option>CNPJ com pendências</option>
+            <option>Setor não elegivel</option>
+            <option>Informações inconsistentes</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Detalhes para o parceiro</label>
+          <textarea class="form-input" rows="3" placeholder="Informe detalhes sobre a reprovação..."></textarea>
+        </div>
+        <div class="alert alert-warning" style="font-size: 0.8rem;">
+          <i class="bi bi-exclamation-triangle"></i> O parceiro será notificado sobre a reprovação e o motivo informado.
+        </div>
+        <div class="flex gap-10 mt-15">
+          <button class="btn btn-outline" onclick="hideModal('reprovarParceiroModal')" style="flex: 1;">Cancelar</button>
+          <button class="btn btn-danger" onclick="hideModal('reprovarParceiroModal'); window.location.href='parceiros.html';" style="flex: 1;"><i class="bi bi-x-lg"></i> Reprovar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Parceiro Aprovado -->
+  <div class="modal-overlay" id="parceiroAprovadoModal" style="display: none;">
+    <div class="modal text-center" style="max-width: 380px;">
+      <div style="padding: 30px;">
+        <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
+        <h3 style="margin: 15px 0;">Parceiro Aprovado!</h3>
+        <p class="text-muted">O parceiro foi notificado e já pode acessar a plataforma.</p>
+        <button class="btn btn-primary mt-20" onclick="hideModal('parceiroAprovadoModal'); window.location.href='parceiros.html';">OK</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Modal Editar -->
   <div class="modal-overlay" id="editarModal" style="display: none;">
@@ -372,7 +473,7 @@
       <div class="grid-2" style="gap: 15px;">
         <div class="form-group">
           <label class="form-label">Razao Social</label>
-          <input type="text" class="form-input" value="TechStart Inovacao LTDA">
+          <input type="text" class="form-input" value="TechStart Inovação LTDA">
         </div>
         <div class="form-group">
           <label class="form-label">Nome Fantasia</label>
@@ -396,7 +497,7 @@
 
       <div class="form-group mt-15">
         <label class="form-label">Endereco</label>
-        <input type="text" class="form-input" value="Av. Paulista, 1000 - Sao Paulo/SP">
+        <input type="text" class="form-input" value="Av. Paulista, 1000 - São Paulo/SP">
       </div>
 
       <div class="form-group">
@@ -416,10 +517,11 @@
       <div class="flex gap-10 mt-20">
         <button class="btn btn-secondary" onclick="hideModal('editarModal')" style="flex: 1;">Cancelar</button>
         <button class="btn btn-primary" onclick="hideModal('editarModal')" style="flex: 1;">
-          <i class="bi bi-check"></i> Salvar Alteracoes
+          <i class="bi bi-check"></i> Salvar Alterações
         </button>
       </div>
     </div>
   </div>
+
 </body>
 </html>

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamentos - Portal do Emissor - CrowdInvest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        :root {
+            --emissor-primary: #7c3aed;
+            --emissor-dark: #5b21b6;
+            --emissor-light: #ede9fe;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, var(--emissor-primary) 0%, var(--emissor-dark) 100%);
+        }
+
+        .nav-link.active {
+            background-color: rgba(255,255,255,0.2) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--emissor-dark);
+            border-color: var(--emissor-dark);
+        }
+
+        .btn-outline-primary {
+            color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .text-primary {
+            color: var(--emissor-primary) !important;
+        }
+
+        /* Payment cards */
+        .payment-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .payment-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        .payment-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        /* Payment status */
+        .status-pago {
+            background-color: #d1fae5;
+            color: #059669;
+        }
+
+        .status-pendente {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+
+        .status-agendado {
+            background-color: #dbeafe;
+            color: #2563eb;
+        }
+
+        /* Schedule card */
+        .schedule-item {
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: #f9fafb;
+            margin-bottom: 0.75rem;
+        }
+
+        .schedule-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Alert box */
+        .alert-payment {
+            background: linear-gradient(135deg, var(--emissor-light) 0%, #faf5ff 100%);
+            border: 1px solid #ddd6fe;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px; min-height: 100vh;">
+            <a href="dashboard.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <i class="bi bi-building me-2 fs-4"></i>
+                <span class="fs-5 fw-semibold">Portal Emissor</span>
+            </a>
+            <hr>
+
+            <!-- Company Card -->
+            <div class="card bg-white bg-opacity-10 border-0 mb-3">
+                <div class="card-body p-2">
+                    <div class="d-flex align-items-center">
+                        <div class="rounded-circle bg-white bg-opacity-25 p-2 me-2">
+                            <i class="bi bi-building text-white"></i>
+                        </div>
+                        <div>
+                            <div class="fw-semibold small">TechStart Soluções</div>
+                            <div class="text-white-50 small">CNPJ: 12.345.678/0001-90</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link text-white">
+                        <i class="bi bi-speedometer2 me-2"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="minhas-ofertas.html" class="nav-link text-white">
+                        <i class="bi bi-collection me-2"></i>
+                        Minhas Ofertas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="nova-oferta.html" class="nav-link text-white">
+                        <i class="bi bi-plus-circle me-2"></i>
+                        Nova Oferta
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="investidores.html" class="nav-link text-white">
+                        <i class="bi bi-people me-2"></i>
+                        Investidores
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pagamentos.html" class="nav-link text-white active">
+                        <i class="bi bi-cash-stack me-2"></i>
+                        Pagamentos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="comunicados.html" class="nav-link text-white">
+                        <i class="bi bi-megaphone me-2"></i>
+                        Comunicados
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="documentos.html" class="nav-link text-white">
+                        <i class="bi bi-folder me-2"></i>
+                        Documentos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="relatorios.html" class="nav-link text-white">
+                        <i class="bi bi-graph-up me-2"></i>
+                        Relatórios
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a href="configuracoes.html" class="nav-link text-white">
+                        <i class="bi bi-gear me-2"></i>
+                        Configurações
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../parceiro/dashboard.html" class="nav-link text-white">
+                        <i class="bi bi-box-arrow-left me-2"></i>
+                        Voltar ao Portal
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 bg-light">
+            <!-- Top Bar -->
+            <div class="bg-white border-bottom px-4 py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h4 class="mb-0">Pagamentos</h4>
+                        <small class="text-muted">Gerencie dividendos e pagamentos aos investidores</small>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-secondary">
+                            <i class="bi bi-download me-1"></i>
+                            Exportar
+                        </button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#novoPagamentoModal">
+                            <i class="bi bi-plus-lg me-1"></i>
+                            Novo Pagamento
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-4">
+                <!-- Alert -->
+                <div class="alert-payment p-4 mb-4">
+                    <div class="d-flex align-items-start">
+                        <div class="rounded-circle bg-primary bg-opacity-10 p-3 me-3">
+                            <i class="bi bi-info-circle text-primary fs-4"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h6 class="mb-1">Próximo pagamento de dividendos</h6>
+                            <p class="text-muted mb-2">Você tem um pagamento de dividendos agendado para <strong>15/02/2025</strong> no valor de <strong>R$ 52.000</strong> para 62 investidores da oferta Seed - Produto MVP.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                        <div class="card payment-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="payment-icon bg-success bg-opacity-10 text-success me-3">
+                                        <i class="bi bi-check-circle"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-muted small">Total Pago</div>
+                                        <div class="fs-4 fw-bold">R$ 156.000</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card payment-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="payment-icon bg-warning bg-opacity-10 text-warning me-3">
+                                        <i class="bi bi-clock"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-muted small">Pendente</div>
+                                        <div class="fs-4 fw-bold">R$ 0</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card payment-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="payment-icon bg-primary bg-opacity-10 text-primary me-3">
+                                        <i class="bi bi-calendar-check"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-muted small">Agendado</div>
+                                        <div class="fs-4 fw-bold">R$ 52.000</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card payment-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="payment-icon bg-info bg-opacity-10 text-info me-3">
+                                        <i class="bi bi-cash-coin"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-muted small">Yield Médio</div>
+                                        <div class="fs-4 fw-bold">12% a.a.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Payment History -->
+                    <div class="col-lg-8">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                                <h6 class="mb-0">Histórico de Pagamentos</h6>
+                                <div class="d-flex gap-2">
+                                    <select class="form-select form-select-sm" style="width: 150px;">
+                                        <option>Todas ofertas</option>
+                                        <option>Seed - MVP</option>
+                                        <option>Série A - SaaS</option>
+                                    </select>
+                                    <select class="form-select form-select-sm" style="width: 120px;">
+                                        <option>2025</option>
+                                        <option>2024</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Descrição</th>
+                                                <th>Oferta</th>
+                                                <th>Valor</th>
+                                                <th>Data</th>
+                                                <th>Status</th>
+                                                <th>Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="rounded bg-primary bg-opacity-10 p-2 me-2">
+                                                            <i class="bi bi-calendar-check text-primary"></i>
+                                                        </div>
+                                                        <div>
+                                                            <div class="fw-semibold">Dividendos Q1 2025</div>
+                                                            <div class="text-muted small">62 investidores</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Seed - MVP</td>
+                                                <td class="fw-semibold">R$ 52.000</td>
+                                                <td>15/02/2025</td>
+                                                <td><span class="badge status-agendado">Agendado</span></td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="dropdown">
+                                                            <i class="bi bi-three-dots"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-end">
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Ver Detalhes</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Editar</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-x-circle me-2"></i>Cancelar</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="rounded bg-success bg-opacity-10 p-2 me-2">
+                                                            <i class="bi bi-check-circle text-success"></i>
+                                                        </div>
+                                                        <div>
+                                                            <div class="fw-semibold">Dividendos Q4 2024</div>
+                                                            <div class="text-muted small">62 investidores</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Seed - MVP</td>
+                                                <td class="fw-semibold">R$ 52.000</td>
+                                                <td>15/11/2024</td>
+                                                <td><span class="badge status-pago">Pago</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-secondary">
+                                                        <i class="bi bi-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="rounded bg-success bg-opacity-10 p-2 me-2">
+                                                            <i class="bi bi-check-circle text-success"></i>
+                                                        </div>
+                                                        <div>
+                                                            <div class="fw-semibold">Dividendos Q3 2024</div>
+                                                            <div class="text-muted small">62 investidores</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Seed - MVP</td>
+                                                <td class="fw-semibold">R$ 52.000</td>
+                                                <td>15/08/2024</td>
+                                                <td><span class="badge status-pago">Pago</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-secondary">
+                                                        <i class="bi bi-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="rounded bg-success bg-opacity-10 p-2 me-2">
+                                                            <i class="bi bi-check-circle text-success"></i>
+                                                        </div>
+                                                        <div>
+                                                            <div class="fw-semibold">Dividendos Q2 2024</div>
+                                                            <div class="text-muted small">62 investidores</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Seed - MVP</td>
+                                                <td class="fw-semibold">R$ 52.000</td>
+                                                <td>15/05/2024</td>
+                                                <td><span class="badge status-pago">Pago</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-secondary">
+                                                        <i class="bi bi-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Schedule -->
+                    <div class="col-lg-4">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white py-3">
+                                <h6 class="mb-0">Cronograma de Pagamentos</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="schedule-item">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <div class="fw-semibold">Dividendos Q1 2025</div>
+                                            <div class="text-muted small">Seed - Produto MVP</div>
+                                        </div>
+                                        <span class="badge status-agendado">Agendado</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between small">
+                                        <span class="text-muted">15/02/2025</span>
+                                        <span class="fw-semibold">R$ 52.000</span>
+                                    </div>
+                                </div>
+
+                                <div class="schedule-item">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <div class="fw-semibold">Dividendos Q2 2025</div>
+                                            <div class="text-muted small">Seed - Produto MVP</div>
+                                        </div>
+                                        <span class="badge bg-secondary">Previsto</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between small">
+                                        <span class="text-muted">15/05/2025</span>
+                                        <span class="fw-semibold">R$ 52.000</span>
+                                    </div>
+                                </div>
+
+                                <div class="schedule-item">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <div class="fw-semibold">Dividendos Q3 2025</div>
+                                            <div class="text-muted small">Seed - Produto MVP</div>
+                                        </div>
+                                        <span class="badge bg-secondary">Previsto</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between small">
+                                        <span class="text-muted">15/08/2025</span>
+                                        <span class="fw-semibold">R$ 52.000</span>
+                                    </div>
+                                </div>
+
+                                <div class="schedule-item">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <div class="fw-semibold">Dividendos Q4 2025</div>
+                                            <div class="text-muted small">Seed - Produto MVP</div>
+                                        </div>
+                                        <span class="badge bg-secondary">Previsto</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between small">
+                                        <span class="text-muted">15/11/2025</span>
+                                        <span class="fw-semibold">R$ 52.000</span>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="d-flex justify-content-between fw-semibold">
+                                    <span>Total previsto 2025</span>
+                                    <span class="text-primary">R$ 208.000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="card border-0 shadow-sm mt-4">
+                            <div class="card-header bg-white py-3">
+                                <h6 class="mb-0">Conta para Débito</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="rounded bg-warning bg-opacity-10 p-2 me-3">
+                                        <i class="bi bi-bank text-warning fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-semibold">Banco do Brasil</div>
+                                        <div class="text-muted small">Ag: 1234-5 • CC: 12345-6</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline-primary btn-sm w-100">
+                                    <i class="bi bi-pencil me-1"></i>
+                                    Alterar Conta
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Novo Pagamento Modal -->
+    <div class="modal fade" id="novoPagamentoModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-cash-stack me-2"></i>
+                        Novo Pagamento
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Oferta</label>
+                            <select class="form-select">
+                                <option>Selecione a oferta</option>
+                                <option>Seed - Produto MVP (62 investidores)</option>
+                                <option selected>Série A - Expansão SaaS (47 investidores)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Tipo de Pagamento</label>
+                            <select class="form-select">
+                                <option>Dividendos</option>
+                                <option>Juros</option>
+                                <option>Amortização</option>
+                                <option>Bonificação</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Valor Total</label>
+                            <div class="input-group">
+                                <span class="input-group-text">R$</span>
+                                <input type="text" class="form-control" placeholder="0,00">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Data de Pagamento</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Descrição</label>
+                            <input type="text" class="form-control" placeholder="Ex: Dividendos referentes ao Q1 2025">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Observações (opcional)</label>
+                            <textarea class="form-control" rows="3" placeholder="Informações adicionais sobre o pagamento..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info mt-4">
+                        <div class="d-flex">
+                            <i class="bi bi-info-circle me-2"></i>
+                            <div>
+                                <strong>Distribuição proporcional:</strong> O valor será dividido proporcionalmente entre todos os investidores com base no percentual de participação de cada um na oferta.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">
+                        <i class="bi bi-check-lg me-1"></i>
+                        Agendar Pagamento
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

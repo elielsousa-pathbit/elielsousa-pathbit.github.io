@@ -10,13 +10,13 @@
 <body class="theme-parceiro">
   <div class="dashboard">
     <div class="mobile-header">
-      <a href="../../index.html" class="logo">CrowdInvest</a>
+      <a href="dashboard.html" class="logo">Alba Invest</a>
     </div>
 
     <!-- Sidebar -->
     <aside class="sidebar sidebar-green">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo">CrowdInvest</a>
+        <a href="dashboard.html" class="logo">Alba Invest</a>
         <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
       </div>
       <!-- Profile Switcher na Sidebar -->
@@ -33,14 +33,16 @@
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-        <li><a href="minhas-ofertas.html" class="active"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li class="hide-on-originador"><a href="minhas-ofertas.html" class="active"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
         <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
-        <li><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
-        <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="hide-on-originador"><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
+        <li class="hide-on-originador"><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="originador-content" style="display:none;"><a href="meus-emissores.html"><i class="bi bi-building"></i> Meus Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="comissoes-originador.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -54,7 +56,7 @@
         <div class="flex gap-10" style="align-items: center;">
           <a href="minhas-ofertas.html" class="btn btn-outline btn-sm"><i class="bi bi-arrow-left"></i></a>
           <div>
-            <h1 class="page-title">Nova Oferta de Captacao</h1>
+            <h1 class="page-title">Nova Oferta de Captação</h1>
             <p class="text-muted">Preencha os dados para criar uma nova oferta</p>
           </div>
         </div>
@@ -76,13 +78,17 @@
         </div>
         <div class="step">
           <div class="step-number">4</div>
-          <div class="step-label">Revisao</div>
+          <div class="step-label">Revisão</div>
         </div>
       </div>
 
       <!-- Alert Info -->
       <div class="alert alert-info mb-20">
-        <i class="bi bi-info-circle"></i> <strong>RCVM 88/2022:</strong> Voce so pode ter uma oferta ativa por vez. Esta oferta sera submetida para analise antes de ser publicada.
+        <i class="bi bi-info-circle"></i>
+        <div>
+          <strong>RCVM 88/2022:</strong><br>
+          Voce so pode ter uma oferta ativa por vez. Esta oferta sera submetida para analise antes de ser publicada.
+        </div>
       </div>
 
       <!-- Form Step 1 -->
@@ -95,14 +101,14 @@
           <div class="grid-2" style="gap: 20px;">
             <div class="form-group">
               <label class="form-label">Razao Social *</label>
-              <input type="text" class="form-input" value="TechStart Inovacao LTDA" required>
+              <input type="text" class="form-input" value="TechStart Inovação LTDA" required>
             </div>
             <div class="form-group">
               <label class="form-label">CNPJ *</label>
               <input type="text" class="form-input" value="12.345.678/0001-90" required>
             </div>
             <div class="form-group">
-              <label class="form-label">Setor de Atuacao *</label>
+              <label class="form-label">Setor de Atuação *</label>
               <select class="form-input" required>
                 <option value="">Selecione...</option>
                 <option value="tecnologia" selected>Tecnologia / SaaS</option>
@@ -115,22 +121,22 @@
               </select>
             </div>
             <div class="form-group">
-              <label class="form-label">Ano de Fundacao *</label>
+              <label class="form-label">Ano de Fundação *</label>
               <input type="number" class="form-input" value="2021" min="1900" max="2026" required>
             </div>
             <div class="form-group">
               <label class="form-label">Cidade/UF *</label>
-              <input type="text" class="form-input" value="Sao Paulo/SP" required>
+              <input type="text" class="form-input" value="São Paulo/SP" required>
             </div>
             <div class="form-group">
-              <label class="form-label">Numero de Funcionarios *</label>
+              <label class="form-label">Número de Funcionarios *</label>
               <input type="number" class="form-input" value="15" min="1" required>
             </div>
           </div>
 
           <div class="form-group mt-20">
-            <label class="form-label">Descricao da Empresa *</label>
-            <textarea class="form-input" rows="4" required placeholder="Descreva brevemente o que sua empresa faz, seu modelo de negocio e diferenciais...">A TechStart Inovacao e uma empresa de tecnologia focada em solucoes SaaS para gestao de startups. Nossa plataforma ajuda empreendedores a gerenciar suas operacoes, metricas e relacionamento com investidores de forma integrada.</textarea>
+            <label class="form-label">Descrição da Empresa *</label>
+            <textarea class="form-input" rows="4" required placeholder="Descreva brevemente o que sua empresa faz, seu modelo de negócio e diferenciais...">A TechStart Inovação é uma empresa de tecnologia focada em soluções SaaS para gestão de startups. Nossa plataforma ajuda empreendedores a gerenciar suas operações, métricas e relacionamento com investidores de forma integrada.</textarea>
           </div>
 
           <div class="form-group">
@@ -148,23 +154,29 @@
           <div class="flex-between">
             <a href="minhas-ofertas.html" class="btn btn-outline">Cancelar</a>
             <a href="nova-oferta-step2.html" class="btn btn-primary">
-              Proximo: Detalhes da Oferta <i class="bi bi-arrow-right"></i>
+              Próximo: Detalhes da Oferta <i class="bi bi-arrow-right"></i>
             </a>
           </div>
         </form>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
   </div>
 
   <script src="../../js/app.js"></script>
+  
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
 </body>
 </html>

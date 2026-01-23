@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investidores - Portal do Emissor - CrowdInvest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        :root {
+            --emissor-primary: #7c3aed;
+            --emissor-dark: #5b21b6;
+            --emissor-light: #ede9fe;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, var(--emissor-primary) 0%, var(--emissor-dark) 100%);
+        }
+
+        .nav-link.active {
+            background-color: rgba(255,255,255,0.2) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--emissor-dark);
+            border-color: var(--emissor-dark);
+        }
+
+        .btn-outline-primary {
+            color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .text-primary {
+            color: var(--emissor-primary) !important;
+        }
+
+        /* Investor Avatar */
+        .investor-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--emissor-light) 0%, #f3e8ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--emissor-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .investor-avatar.large {
+            width: 64px;
+            height: 64px;
+            font-size: 1.25rem;
+        }
+
+        /* Badge styles */
+        .badge-qualificado {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-comum {
+            background-color: #e0e7ff;
+            color: #3730a3;
+        }
+
+        /* Stats cards */
+        .stat-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        /* Filter tabs */
+        .filter-tabs .nav-link {
+            color: #6b7280;
+            border: none;
+            padding: 0.75rem 1.25rem;
+            font-weight: 500;
+        }
+
+        .filter-tabs .nav-link.active {
+            color: var(--emissor-primary);
+            background: var(--emissor-light);
+            border-radius: 8px;
+        }
+
+        /* Detail Modal */
+        .detail-section {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .detail-section:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px; min-height: 100vh;">
+            <a href="dashboard.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <i class="bi bi-building me-2 fs-4"></i>
+                <span class="fs-5 fw-semibold">Portal Emissor</span>
+            </a>
+            <hr>
+
+            <!-- Company Card -->
+            <div class="card bg-white bg-opacity-10 border-0 mb-3">
+                <div class="card-body p-2">
+                    <div class="d-flex align-items-center">
+                        <div class="rounded-circle bg-white bg-opacity-25 p-2 me-2">
+                            <i class="bi bi-building text-white"></i>
+                        </div>
+                        <div>
+                            <div class="fw-semibold small">TechStart Soluções</div>
+                            <div class="text-white-50 small">CNPJ: 12.345.678/0001-90</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link text-white">
+                        <i class="bi bi-speedometer2 me-2"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="minhas-ofertas.html" class="nav-link text-white">
+                        <i class="bi bi-collection me-2"></i>
+                        Minhas Ofertas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="nova-oferta.html" class="nav-link text-white">
+                        <i class="bi bi-plus-circle me-2"></i>
+                        Nova Oferta
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="investidores.html" class="nav-link text-white active">
+                        <i class="bi bi-people me-2"></i>
+                        Investidores
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pagamentos.html" class="nav-link text-white">
+                        <i class="bi bi-cash-stack me-2"></i>
+                        Pagamentos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="comunicados.html" class="nav-link text-white">
+                        <i class="bi bi-megaphone me-2"></i>
+                        Comunicados
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="documentos.html" class="nav-link text-white">
+                        <i class="bi bi-folder me-2"></i>
+                        Documentos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="relatorios.html" class="nav-link text-white">
+                        <i class="bi bi-graph-up me-2"></i>
+                        Relatórios
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a href="configuracoes.html" class="nav-link text-white">
+                        <i class="bi bi-gear me-2"></i>
+                        Configurações
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../parceiro/dashboard.html" class="nav-link text-white">
+                        <i class="bi bi-box-arrow-left me-2"></i>
+                        Voltar ao Portal
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 bg-light">
+            <!-- Top Bar -->
+            <div class="bg-white border-bottom px-4 py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h4 class="mb-0">Investidores</h4>
+                        <small class="text-muted">Gerencie todos os investidores das suas ofertas</small>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-secondary">
+                            <i class="bi bi-download me-1"></i>
+                            Exportar
+                        </button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comunicadoModal">
+                            <i class="bi bi-megaphone me-1"></i>
+                            Enviar Comunicado
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-4">
+                <!-- Stats Cards -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                        <div class="card stat-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="rounded-circle bg-primary bg-opacity-10 p-3 me-3">
+                                        <i class="bi bi-people text-primary fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-muted small">Total Investidores</div>
+                                        <div class="fs-4 fw-bold">109</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stat-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="rounded-circle bg-warning bg-opacity-10 p-3 me-3">
+                                        <i class="bi bi-award text-warning fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-muted small">Qualificados</div>
+                                        <div class="fs-4 fw-bold">23</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stat-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="rounded-circle bg-success bg-opacity-10 p-3 me-3">
+                                        <i class="bi bi-currency-dollar text-success fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-muted small">Total Investido</div>
+                                        <div class="fs-4 fw-bold">R$ 2,1M</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stat-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="rounded-circle bg-info bg-opacity-10 p-3 me-3">
+                                        <i class="bi bi-cash-coin text-info fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-muted small">Ticket Médio</div>
+                                        <div class="fs-4 fw-bold">R$ 19,3k</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters and Table -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-white py-3">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                            <ul class="nav filter-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Todos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Oferta Ativa</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Série A - SaaS</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Seed - MVP</a>
+                                </li>
+                            </ul>
+
+                            <div class="d-flex gap-2">
+                                <div class="input-group" style="width: 250px;">
+                                    <span class="input-group-text bg-white border-end-0">
+                                        <i class="bi bi-search text-muted"></i>
+                                    </span>
+                                    <input type="text" class="form-control border-start-0" placeholder="Buscar investidor...">
+                                </div>
+                                <select class="form-select" style="width: 160px;">
+                                    <option>Todos os tipos</option>
+                                    <option>Qualificados</option>
+                                    <option>Comuns</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>
+                                            <input type="checkbox" class="form-check-input">
+                                        </th>
+                                        <th>Investidor</th>
+                                        <th>Tipo</th>
+                                        <th>Oferta</th>
+                                        <th>Valor Investido</th>
+                                        <th>Data</th>
+                                        <th>Status</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox" class="form-check-input"></td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="investor-avatar me-2">MC</div>
+                                                <div>
+                                                    <div class="fw-semibold">Maria Costa</div>
+                                                    <div class="text-muted small">maria.costa@email.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-qualificado">Qualificado</span></td>
+                                        <td>Série A - Expansão SaaS</td>
+                                        <td class="fw-semibold">R$ 50.000</td>
+                                        <td>22/01/2025</td>
+                                        <td><span class="badge bg-success">Confirmado</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#investorModal">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="form-check-input"></td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="investor-avatar me-2">JS</div>
+                                                <div>
+                                                    <div class="fw-semibold">João Silva</div>
+                                                    <div class="text-muted small">joao.silva@email.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-comum">Comum</span></td>
+                                        <td>Série A - Expansão SaaS</td>
+                                        <td class="fw-semibold">R$ 15.000</td>
+                                        <td>22/01/2025</td>
+                                        <td><span class="badge bg-success">Confirmado</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-secondary">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="form-check-input"></td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="investor-avatar me-2">PO</div>
+                                                <div>
+                                                    <div class="fw-semibold">Pedro Oliveira</div>
+                                                    <div class="text-muted small">pedro.oliveira@email.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-comum">Comum</span></td>
+                                        <td>Série A - Expansão SaaS</td>
+                                        <td class="fw-semibold">R$ 5.000</td>
+                                        <td>21/01/2025</td>
+                                        <td><span class="badge bg-warning">Pendente</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-secondary">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="form-check-input"></td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="investor-avatar me-2">AF</div>
+                                                <div>
+                                                    <div class="fw-semibold">Ana Ferreira</div>
+                                                    <div class="text-muted small">ana.ferreira@email.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-qualificado">Qualificado</span></td>
+                                        <td>Série A - Expansão SaaS</td>
+                                        <td class="fw-semibold">R$ 25.000</td>
+                                        <td>21/01/2025</td>
+                                        <td><span class="badge bg-success">Confirmado</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-secondary">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="form-check-input"></td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="investor-avatar me-2">CS</div>
+                                                <div>
+                                                    <div class="fw-semibold">Carlos Santos</div>
+                                                    <div class="text-muted small">carlos.santos@email.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-comum">Comum</span></td>
+                                        <td>Seed - Produto MVP</td>
+                                        <td class="fw-semibold">R$ 10.000</td>
+                                        <td>15/11/2024</td>
+                                        <td><span class="badge bg-success">Confirmado</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-secondary">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="form-check-input"></td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="investor-avatar me-2">LM</div>
+                                                <div>
+                                                    <div class="fw-semibold">Lucia Mendes</div>
+                                                    <div class="text-muted small">lucia.mendes@email.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-qualificado">Qualificado</span></td>
+                                        <td>Seed - Produto MVP</td>
+                                        <td class="fw-semibold">R$ 35.000</td>
+                                        <td>12/11/2024</td>
+                                        <td><span class="badge bg-success">Confirmado</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-secondary">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="form-check-input"></td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="investor-avatar me-2">RB</div>
+                                                <div>
+                                                    <div class="fw-semibold">Roberto Barros</div>
+                                                    <div class="text-muted small">roberto.barros@email.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge badge-comum">Comum</span></td>
+                                        <td>Seed - Produto MVP</td>
+                                        <td class="fw-semibold">R$ 8.000</td>
+                                        <td>10/11/2024</td>
+                                        <td><span class="badge bg-success">Confirmado</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-secondary">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="text-muted small">Mostrando 7 de 109 investidores</span>
+                                <div class="vr mx-2"></div>
+                                <button class="btn btn-sm btn-outline-primary" disabled>
+                                    <i class="bi bi-envelope me-1"></i>
+                                    Enviar para selecionados
+                                </button>
+                            </div>
+                            <nav>
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">...</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">16</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Investor Detail Modal -->
+    <div class="modal fade" id="investorModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body pt-0">
+                    <div class="text-center mb-4">
+                        <div class="investor-avatar large mx-auto mb-3">MC</div>
+                        <h5 class="mb-1">Maria Costa</h5>
+                        <span class="badge badge-qualificado">Investidor Qualificado</span>
+                    </div>
+
+                    <div class="detail-section">
+                        <h6 class="text-muted small text-uppercase mb-3">Informações de Contato</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-2">
+                                    <small class="text-muted">E-mail</small>
+                                    <div>maria.costa@email.com</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-2">
+                                    <small class="text-muted">Telefone</small>
+                                    <div>(11) 99999-1234</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h6 class="text-muted small text-uppercase mb-3">Investimentos na Empresa</h6>
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Oferta</th>
+                                        <th>Valor</th>
+                                        <th>Data</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Série A - Expansão SaaS</td>
+                                        <td class="fw-semibold">R$ 50.000</td>
+                                        <td>22/01/2025</td>
+                                        <td><span class="badge bg-success">Confirmado</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Seed - Produto MVP</td>
+                                        <td class="fw-semibold">R$ 25.000</td>
+                                        <td>05/10/2024</td>
+                                        <td><span class="badge bg-success">Confirmado</span></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="table-light">
+                                    <tr>
+                                        <td class="fw-semibold">Total Investido</td>
+                                        <td class="fw-bold text-primary" colspan="3">R$ 75.000</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h6 class="text-muted small text-uppercase mb-3">Comunicações</h6>
+                        <div class="d-flex justify-content-between align-items-center mb-2 p-2 bg-light rounded">
+                            <div>
+                                <div class="fw-semibold small">Atualização semanal - Semana 3</div>
+                                <div class="text-muted small">Enviado em 18/01/2025</div>
+                            </div>
+                            <span class="badge bg-success">Lido</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-2 p-2 bg-light rounded">
+                            <div>
+                                <div class="fw-semibold small">Confirmação de investimento</div>
+                                <div class="text-muted small">Enviado em 22/01/2025</div>
+                            </div>
+                            <span class="badge bg-success">Lido</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button class="btn btn-outline-secondary">
+                        <i class="bi bi-envelope me-1"></i>
+                        Enviar Mensagem
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comunicado Modal -->
+    <div class="modal fade" id="comunicadoModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-megaphone me-2"></i>
+                        Enviar Comunicado
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Destinatários</label>
+                        <select class="form-select">
+                            <option>Todos os investidores (109)</option>
+                            <option>Investidores da oferta ativa (47)</option>
+                            <option>Investidores qualificados (23)</option>
+                            <option>Selecionar manualmente...</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Assunto</label>
+                        <input type="text" class="form-control" placeholder="Ex: Atualização semanal - Janeiro 2025">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Mensagem</label>
+                        <textarea class="form-control" rows="8" placeholder="Digite sua mensagem..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Anexos (opcional)</label>
+                        <input type="file" class="form-control" multiple>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">
+                        <i class="bi bi-send me-1"></i>
+                        Enviar Comunicado
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

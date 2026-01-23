@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Relatorios - Parceiro - CrowdInvest</title>
+  <title>Relatórios - Parceiro - CrowdInvest</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body class="theme-parceiro">
   <div class="dashboard">
     <div class="mobile-header">
-      <a href="../../index.html" class="logo">CrowdInvest</a>
+      <a href="dashboard.html" class="logo">Alba Invest</a>
     </div>
 
     <aside class="sidebar sidebar-green">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo">CrowdInvest</a>
+        <a href="dashboard.html" class="logo">Alba Invest</a>
         <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
       </div>
       <!-- Profile Mode Card - Elegante -->
@@ -38,15 +38,18 @@
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponiveis</span></a></li>
+        <li class="hide-on-originador"><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponíveis</span></a></li>
         <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
-        <li><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
-        <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
-        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissoes</a></li>
+        <li class="hide-on-originador"><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
+        <li class="hide-on-originador"><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
+        <li class="originador-content" style="display:none;"><a href="meus-emissores.html"><i class="bi bi-building"></i> Meus Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Ofertas dos Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="comissoes-originador.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="relatorios.html" class="active"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="relatorios.html" class="active"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -55,423 +58,866 @@
     <main class="main-content">
       <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
 
+      <!-- CONTEUDO ORIGINADOR -->
+      <div class="originador-content" style="display: none;">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Relatórios de Originação</h1>
+            <p class="text-muted">Relatórios dos emissores que você originou</p>
+          </div>
+          <span class="badge badge-success"><i class="bi bi-lightning-charge"></i> Modo Originador</span>
+        </div>
+
+        <!-- KPIs Originador -->
+        <div class="kpi-grid mb-20">
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background: rgba(5, 150, 105, 0.15); color: #059669;">
+              <i class="bi bi-building"></i>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">Emissores Ativos</span>
+              <span class="kpi-value">5</span>
+              <span class="kpi-change positive">
+                <i class="bi bi-plus"></i> 2 este mês
+              </span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background: #dcfce7; color: #16a34a;">
+              <i class="bi bi-cash-stack"></i>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">Volume Originado</span>
+              <span class="kpi-value">R$ 2,8M</span>
+              <span class="kpi-change positive">
+                <i class="bi bi-graph-up-arrow"></i> +R$ 450k
+              </span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background: #dbeafe; color: #2563eb;">
+              <i class="bi bi-percent"></i>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">Comissões Geradas</span>
+              <span class="kpi-value">R$ 55.400</span>
+              <span class="kpi-change">acumulado 2026</span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background: #fef3c7; color: #d97706;">
+              <i class="bi bi-check-circle"></i>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">Taxa de Aprovação</span>
+              <span class="kpi-value">83%</span>
+              <span class="kpi-change positive">
+                <i class="bi bi-graph-up-arrow"></i> +5% vs anterior
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Relatórios Disponíveis Originador -->
+        <div class="card mb-20">
+          <h3 style="margin-bottom: 20px;"><i class="bi bi-file-earmark-bar-graph"></i> Relatórios Disponíveis</h3>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Relatório</th>
+                  <th>Descrição</th>
+                  <th>Última Geração</th>
+                  <th style="text-align: right;">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 40px; height: 40px; background: rgba(5, 150, 105, 0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-building" style="color: #059669;"></i>
+                      </div>
+                      <strong>Emissores Originados</strong>
+                    </div>
+                  </td>
+                  <td class="text-muted">Lista completa de empresas que você originou</td>
+                  <td class="text-muted">19/01/2026 10:30</td>
+                  <td style="text-align: right;">
+                    <button class="btn btn-primary btn-sm" style="background: linear-gradient(135deg, #059669, #047857);"><i class="bi bi-eye"></i> Abrir</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 40px; height: 40px; background: #dcfce7; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-cash-stack" style="color: #16a34a;"></i>
+                      </div>
+                      <strong>Comissões de Originação</strong>
+                    </div>
+                  </td>
+                  <td class="text-muted">Detalhamento de comissões por emissor e período</td>
+                  <td class="text-muted">19/01/2026 09:15</td>
+                  <td style="text-align: right;">
+                    <button class="btn btn-primary btn-sm" style="background: linear-gradient(135deg, #059669, #047857);"><i class="bi bi-eye"></i> Abrir</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 40px; height: 40px; background: #dbeafe; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-graph-up" style="color: #2563eb;"></i>
+                      </div>
+                      <strong>Performance das Ofertas</strong>
+                    </div>
+                  </td>
+                  <td class="text-muted">Evolução da captação dos seus emissores</td>
+                  <td class="text-muted">18/01/2026 14:00</td>
+                  <td style="text-align: right;">
+                    <button class="btn btn-primary btn-sm" style="background: linear-gradient(135deg, #059669, #047857);"><i class="bi bi-eye"></i> Abrir</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 40px; height: 40px; background: #fef3c7; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-hourglass-split" style="color: #d97706;"></i>
+                      </div>
+                      <strong>Pipeline de Indicações</strong>
+                    </div>
+                  </td>
+                  <td class="text-muted">Status das empresas indicadas em análise</td>
+                  <td class="text-muted">19/01/2026 08:00</td>
+                  <td style="text-align: right;">
+                    <button class="btn btn-primary btn-sm" style="background: linear-gradient(135deg, #059669, #047857);"><i class="bi bi-eye"></i> Abrir</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Emissores por Performance -->
+        <div class="card mb-20">
+          <h3 style="margin-bottom: 20px;"><i class="bi bi-lightning"></i> Performance por Emissor</h3>
+
+          <div class="grid-3">
+            <!-- TechStart -->
+            <div style="border: 1px solid var(--border); border-radius: var(--radius); padding: 20px;">
+              <div class="flex-between mb-10">
+                <span class="badge badge-success">Oferta Ativa</span>
+                <span class="text-muted" style="font-size: 0.75rem;">75% da meta</span>
+              </div>
+              <h4 style="margin-bottom: 5px;">TechStart Inovação</h4>
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 15px;">R$ 375.000 de R$ 500.000</p>
+              <div class="progress mb-15">
+                <div class="progress-bar" style="width: 75%; background: #059669;"></div>
+              </div>
+              <div class="flex-between" style="font-size: 0.875rem;">
+                <span class="text-muted">Sua comissão:</span>
+                <strong style="color: #059669;">R$ 2.625</strong>
+              </div>
+            </div>
+
+            <!-- Solar Energy -->
+            <div style="border: 1px solid var(--border); border-radius: var(--radius); padding: 20px;">
+              <div class="flex-between mb-10">
+                <span class="badge badge-warning">Em Captação</span>
+                <span class="text-muted" style="font-size: 0.75rem;">52% da meta</span>
+              </div>
+              <h4 style="margin-bottom: 5px;">Solar Energy Brasil</h4>
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 15px;">R$ 520.000 de R$ 1.000.000</p>
+              <div class="progress mb-15">
+                <div class="progress-bar" style="width: 52%; background: #f59e0b;"></div>
+              </div>
+              <div class="flex-between" style="font-size: 0.875rem;">
+                <span class="text-muted">Sua comissão:</span>
+                <strong style="color: #059669;">R$ 2.340</strong>
+              </div>
+            </div>
+
+            <!-- HealthSoft -->
+            <div style="border: 1px solid var(--border); border-radius: var(--radius); padding: 20px;">
+              <div class="flex-between mb-10">
+                <span class="badge badge-success">Oferta Ativa</span>
+                <span class="text-muted" style="font-size: 0.75rem;">63% da meta</span>
+              </div>
+              <h4 style="margin-bottom: 5px;">HealthSoft</h4>
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 15px;">R$ 315.000 de R$ 500.000</p>
+              <div class="progress mb-15">
+                <div class="progress-bar" style="width: 63%; background: #ec4899;"></div>
+              </div>
+              <div class="flex-between" style="font-size: 0.875rem;">
+                <span class="text-muted">Sua comissão:</span>
+                <strong style="color: #059669;">R$ 2.205</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gráfico de Evolução Originador -->
+        <div class="card mb-20">
+          <div class="flex-between mb-20">
+            <h3><i class="bi bi-graph-up"></i> Evolução do Volume Originado</h3>
+            <span class="text-muted">Últimos 6 meses</span>
+          </div>
+          <div style="display: flex; align-items: flex-end; height: 200px; gap: 8px; padding: 20px;">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+              <div style="background: #059669; width: 100%; height: 60px; border-radius: 4px 4px 0 0;"></div>
+              <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">Ago</small>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+              <div style="background: #059669; width: 100%; height: 85px; border-radius: 4px 4px 0 0;"></div>
+              <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">Set</small>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+              <div style="background: #059669; width: 100%; height: 110px; border-radius: 4px 4px 0 0;"></div>
+              <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">Out</small>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+              <div style="background: #059669; width: 100%; height: 95px; border-radius: 4px 4px 0 0;"></div>
+              <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">Nov</small>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+              <div style="background: #059669; width: 100%; height: 130px; border-radius: 4px 4px 0 0;"></div>
+              <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">Dez</small>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+              <div style="background: #047857; width: 100%; height: 160px; border-radius: 4px 4px 0 0;"></div>
+              <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">Jan</small>
+            </div>
+          </div>
+        </div>
+      </div><!-- fim originador-content -->
+
+      <!-- CONTEUDO EMISSOR/DISTRIBUIDOR (padrão) -->
+      <div class="emissor-content distribuidor-show">
       <div class="page-header">
         <div>
-          <h1 class="page-title">Relatorios</h1>
-          <p class="text-muted">Gere e exporte relatorios da sua oferta</p>
+          <h1 class="page-title">Relatórios</h1>
+          <p class="text-muted">Gere e exporte relatórios das suas ofertas</p>
         </div>
-        <div class="flex gap-10">
-          <div class="dropdown" style="position: relative;">
-            <button class="btn btn-outline" onclick="toggleDropdown('exportDropdown')">
-              <i class="bi bi-download"></i> Exportar <i class="bi bi-chevron-down"></i>
+      </div>
+
+      <!-- Seletor de Ofertas -->
+      <div class="card mb-20">
+        <div class="flex-between" style="flex-wrap: wrap; gap: 15px;">
+          <div style="flex: 1; min-width: 250px;">
+            <label class="form-label">Selecione a Oferta</label>
+            <select class="form-control" id="ofertaSelect" onchange="atualizarRelatorios()">
+              <option value="todas">Todas as Ofertas (Consolidado)</option>
+              <option value="oferta1" selected>TechStart Inovação - Em Captação</option>
+              <option value="oferta2">GreenEnergy Solar - Encerrada (Sucesso)</option>
+              <option value="oferta3">HealthTech Solutions - Encerrada (Sucesso)</option>
+            </select>
+          </div>
+          <div style="flex: 1; min-width: 250px;">
+            <label class="form-label">Período</label>
+            <div class="header-user-info">
+              <input type="date" class="form-control" value="2026-01-01">
+              <input type="date" class="form-control" value="2026-01-19">
+            </div>
+          </div>
+          <div style="display: flex; align-items: flex-end;">
+            <button class="btn btn-primary" onclick="atualizarRelatorios()">
+              <i class="bi bi-arrow-clockwise"></i> Atualizar
             </button>
-            <div id="exportDropdown" class="dropdown-menu" style="display: none; position: absolute; right: 0; top: 100%; background: white; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-width: 160px; z-index: 100;">
-              <a href="#" onclick="showModal('exportandoExcelModal'); return false;" style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; text-decoration: none; color: var(--text);">
-                <i class="bi bi-file-earmark-excel" style="color: #217346;"></i> Excel (.xlsx)
-              </a>
-              <a href="#" onclick="showModal('exportandoCSVModal'); return false;" style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; text-decoration: none; color: var(--text);">
-                <i class="bi bi-filetype-csv" style="color: #6c757d;"></i> CSV (.csv)
-              </a>
-              <a href="#" onclick="showModal('exportandoPDFModal'); return false;" style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; text-decoration: none; color: var(--text);">
-                <i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> PDF (.pdf)
-              </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPIs da Oferta Selecionada -->
+      <div class="kpi-grid mb-20" id="kpiOferta">
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background: #dcfce7; color: #16a34a;">
+            <i class="bi bi-cash-stack"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Total Captado</span>
+            <span class="kpi-value">R$ 245.000</span>
+            <span class="kpi-change positive">
+              <i class="bi bi-graph-up-arrow"></i> 49% da meta
+            </span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background: #dbeafe; color: #2563eb;">
+            <i class="bi bi-people"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Investidores</span>
+            <span class="kpi-value">47</span>
+            <span class="kpi-change positive">
+              <i class="bi bi-plus"></i> 3 novos hoje
+            </span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background: #fef3c7; color: #d97706;">
+            <i class="bi bi-x-circle"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Desistências</span>
+            <span class="kpi-value">4</span>
+            <span class="kpi-change">
+              R$ 11.500 estornados
+            </span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background: #f3e8ff; color: #9333ea;">
+            <i class="bi bi-percent"></i>
+          </div>
+          <div class="kpi-content">
+            <span class="kpi-label">Taxa Conversão</span>
+            <span class="kpi-value">8.5%</span>
+            <span class="kpi-change positive">
+              <i class="bi bi-graph-up-arrow"></i> +1.2% vs mês anterior
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Relatórios Disponíveis -->
+      <div class="card mb-20">
+        <h3 style="margin-bottom: 20px;"><i class="bi bi-file-earmark-bar-graph"></i> Relatórios Disponíveis</h3>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Relatório</th>
+                <th>Descrição</th>
+                <th>Última Geração</th>
+                <th style="text-align: right;">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="flex gap-10" style="align-items: center;">
+                    <div style="width: 40px; height: 40px; background: #dcfce7; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                      <i class="bi bi-calendar3" style="color: #16a34a;"></i>
+                    </div>
+                    <strong>Captação Diaria</strong>
+                  </div>
+                </td>
+                <td class="text-muted">Valores captados por dia com detalhamento</td>
+                <td class="text-muted">19/01/2026 10:30</td>
+                <td style="text-align: right;">
+                  <a href="relatorio-captacao-diaria.html" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i> Abrir</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="flex gap-10" style="align-items: center;">
+                    <div style="width: 40px; height: 40px; background: #dbeafe; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                      <i class="bi bi-people" style="color: #2563eb;"></i>
+                    </div>
+                    <strong>Lista de Investidores</strong>
+                  </div>
+                </td>
+                <td class="text-muted">Todos os investidores com dados completos</td>
+                <td class="text-muted">19/01/2026 09:15</td>
+                <td style="text-align: right;">
+                  <a href="relatorio-investidores.html" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i> Abrir</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="flex gap-10" style="align-items: center;">
+                    <div style="width: 40px; height: 40px; background: #fef3c7; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                      <i class="bi bi-x-circle" style="color: #d97706;"></i>
+                    </div>
+                    <strong>Desistências</strong>
+                  </div>
+                </td>
+                <td class="text-muted">Investidores que exerceram direito de arrependimento</td>
+                <td class="text-muted">18/01/2026 14:00</td>
+                <td style="text-align: right;">
+                  <a href="relatorio-desistencias.html" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i> Abrir</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="flex gap-10" style="align-items: center;">
+                    <div style="width: 40px; height: 40px; background: #f3e8ff; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                      <i class="bi bi-graph-up" style="color: #9333ea;"></i>
+                    </div>
+                    <strong>Evolução da Captação</strong>
+                  </div>
+                </td>
+                <td class="text-muted">Gráfico e dados de evolução ao longo do tempo</td>
+                <td class="text-muted">19/01/2026 08:00</td>
+                <td style="text-align: right;">
+                  <a href="relatorio-evolucao.html" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i> Abrir</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="flex gap-10" style="align-items: center;">
+                    <div style="width: 40px; height: 40px; background: #fce7f3; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                      <i class="bi bi-file-earmark-text" style="color: #db2777;"></i>
+                    </div>
+                    <strong>Resumo da Oferta</strong>
+                  </div>
+                </td>
+                <td class="text-muted">Visão geral consolidada da oferta</td>
+                <td class="text-muted">19/01/2026 07:00</td>
+                <td style="text-align: right;">
+                  <a href="relatorio-resumo.html" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i> Abrir</a>
+                </td>
+              </tr>
+              <tr class="distribuidor-content" style="display: none;">
+                <td>
+                  <div class="flex gap-10" style="align-items: center;">
+                    <div style="width: 40px; height: 40px; background: #ede9fe; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                      <i class="bi bi-cash-stack" style="color: #7c3aed;"></i>
+                    </div>
+                    <strong>Comissões</strong>
+                  </div>
+                </td>
+                <td class="text-muted">Detalhamento de comissões por oferta e período</td>
+                <td class="text-muted">19/01/2026 06:00</td>
+                <td style="text-align: right;">
+                  <a href="comissoes.html" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i> Abrir</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Acesso Rápido - Ofertas Recentes -->
+      <div class="card mb-20">
+        <h3 style="margin-bottom: 20px;"><i class="bi bi-lightning"></i> Acesso Rápido por Oferta</h3>
+
+        <div class="grid-3">
+          <!-- Oferta 1 - Em Captação -->
+          <div style="border: 1px solid var(--border); border-radius: var(--radius); padding: 20px;">
+            <div class="flex-between mb-10">
+              <span class="badge badge-success">Em Captação</span>
+              <span class="text-muted" style="font-size: 0.75rem;">49% da meta</span>
+            </div>
+            <h4 style="margin-bottom: 5px;">TechStart Inovação</h4>
+            <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 15px;">R$ 245.000 de R$ 500.000</p>
+            <div class="progress mb-15">
+              <div class="progress-bar" style="width: 49%; background: #059669;"></div>
+            </div>
+            <div class="header-user-info">
+              <a href="relatorio-captacao-diaria.html?oferta=1" class="btn btn-outline btn-sm" style="flex: 1;"><i class="bi bi-calendar3"></i></a>
+              <a href="relatorio-investidores.html?oferta=1" class="btn btn-outline btn-sm" style="flex: 1;"><i class="bi bi-people"></i></a>
+              <a href="relatorio-resumo.html?oferta=1" class="btn btn-primary btn-sm" style="flex: 1;"><i class="bi bi-eye"></i></a>
+            </div>
+          </div>
+
+          <!-- Oferta 2 - Encerrada -->
+          <div style="border: 1px solid var(--border); border-radius: var(--radius); padding: 20px;">
+            <div class="flex-between mb-10">
+              <span class="badge" style="background: #dbeafe; color: #2563eb;">Encerrada</span>
+              <span class="text-muted" style="font-size: 0.75rem;">100% da meta</span>
+            </div>
+            <h4 style="margin-bottom: 5px;">GreenEnergy Solar</h4>
+            <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 15px;">R$ 1.200.000 de R$ 1.000.000</p>
+            <div class="progress mb-15">
+              <div class="progress-bar" style="width: 100%; background: #2563eb;"></div>
+            </div>
+            <div class="header-user-info">
+              <a href="relatorio-captacao-diaria.html?oferta=2" class="btn btn-outline btn-sm" style="flex: 1;"><i class="bi bi-calendar3"></i></a>
+              <a href="relatorio-investidores.html?oferta=2" class="btn btn-outline btn-sm" style="flex: 1;"><i class="bi bi-people"></i></a>
+              <a href="relatorio-resumo.html?oferta=2" class="btn btn-primary btn-sm" style="flex: 1;"><i class="bi bi-eye"></i></a>
+            </div>
+          </div>
+
+          <!-- Oferta 3 - Encerrada -->
+          <div style="border: 1px solid var(--border); border-radius: var(--radius); padding: 20px;">
+            <div class="flex-between mb-10">
+              <span class="badge" style="background: #dbeafe; color: #2563eb;">Encerrada</span>
+              <span class="text-muted" style="font-size: 0.75rem;">85% da meta</span>
+            </div>
+            <h4 style="margin-bottom: 5px;">HealthTech Solutions</h4>
+            <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 15px;">R$ 425.000 de R$ 500.000</p>
+            <div class="progress mb-15">
+              <div class="progress-bar" style="width: 85%; background: #2563eb;"></div>
+            </div>
+            <div class="header-user-info">
+              <a href="relatorio-captacao-diaria.html?oferta=3" class="btn btn-outline btn-sm" style="flex: 1;"><i class="bi bi-calendar3"></i></a>
+              <a href="relatorio-investidores.html?oferta=3" class="btn btn-outline btn-sm" style="flex: 1;"><i class="bi bi-people"></i></a>
+              <a href="relatorio-resumo.html?oferta=3" class="btn btn-primary btn-sm" style="flex: 1;"><i class="bi bi-eye"></i></a>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="grid-2">
-        <div class="card">
-          <h3 style="margin-bottom: 20px;">Relatorios Disponiveis</h3>
-          <div style="display: flex; flex-direction: column; gap: 15px;">
-            <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
-              <div>
-                <strong>Captacao Diaria</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Valores captados por dia</p>
-              </div>
-              <div class="flex gap-10">
-                <button class="btn btn-primary btn-sm" onclick="showModal('captacaoDiariaModal')"><i class="bi bi-eye"></i> Visualizar</button>
-                <button class="btn btn-outline btn-sm" onclick="showModal('gerandoExcelModal')"><i class="bi bi-file-earmark-excel"></i></button>
-                <button class="btn btn-outline btn-sm" onclick="showModal('gerandoPDFModal')"><i class="bi bi-file-earmark-pdf"></i></button>
-              </div>
-            </div>
-            <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
-              <div>
-                <strong>Lista de Clientes</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Todos os investidores da oferta</p>
-              </div>
-              <div class="flex gap-10">
-                <a href="clientes.html" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i> Visualizar</a>
-                <button class="btn btn-outline btn-sm" onclick="showModal('gerandoExcelModal')"><i class="bi bi-file-earmark-excel"></i></button>
-                <button class="btn btn-outline btn-sm" onclick="showModal('gerandoPDFModal')"><i class="bi bi-file-earmark-pdf"></i></button>
-              </div>
-            </div>
-            <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
-              <div>
-                <strong>Desistencias</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Clientes que desistiram</p>
-              </div>
-              <div class="flex gap-10">
-                <button class="btn btn-primary btn-sm" onclick="showModal('desistenciasModal')"><i class="bi bi-eye"></i> Visualizar</button>
-                <button class="btn btn-outline btn-sm" onclick="showModal('gerandoExcelModal')"><i class="bi bi-file-earmark-excel"></i></button>
-                <button class="btn btn-outline btn-sm" onclick="showModal('gerandoPDFModal')"><i class="bi bi-file-earmark-pdf"></i></button>
-              </div>
-            </div>
-            <div class="flex-between" style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
-              <div>
-                <strong>Resumo da Oferta</strong>
-                <p class="text-muted" style="font-size: 0.875rem;">Visao geral consolidada</p>
-              </div>
-              <div class="flex gap-10">
-                <a href="minha-oferta.html" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i> Visualizar</a>
-                <button class="btn btn-outline btn-sm" onclick="showModal('gerandoExcelModal')"><i class="bi bi-file-earmark-excel"></i></button>
-                <button class="btn btn-outline btn-sm" onclick="showModal('gerandoPDFModal')"><i class="bi bi-file-earmark-pdf"></i></button>
-              </div>
-            </div>
-          </div>
+      <!-- Gráfico de Evolução -->
+      <div class="card mb-20">
+        <div class="flex-between mb-20">
+          <h3><i class="bi bi-graph-up"></i> Evolução da Captação</h3>
+          <span class="text-muted">TechStart Inovação - Últimos 30 dias</span>
         </div>
-
-        <div class="card">
-          <h3 style="margin-bottom: 20px;">Metricas em Tempo Real</h3>
-          <div class="kpi-grid" style="grid-template-columns: 1fr;">
-            <div class="kpi-card">
-              <div class="flex-between">
-                <span class="kpi-label">Captacao Hoje</span>
-                <strong style="color: var(--success);">R$ 12.500</strong>
-              </div>
-            </div>
-            <div class="kpi-card">
-              <div class="flex-between">
-                <span class="kpi-label">Novos Clientes Hoje</span>
-                <strong>3</strong>
-              </div>
-            </div>
-            <div class="kpi-card">
-              <div class="flex-between">
-                <span class="kpi-label">Desistencias Hoje</span>
-                <strong style="color: var(--warning);">1</strong>
-              </div>
-            </div>
-            <div class="kpi-card">
-              <div class="flex-between">
-                <span class="kpi-label">Taxa de Conversao</span>
-                <strong>8.5%</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Grafico simplificado -->
-      <div class="card mt-20">
-        <h3 style="margin-bottom: 20px;">Evolucao da Captacao</h3>
-        <div style="display: flex; align-items: flex-end; height: 200px; gap: 10px; padding: 20px;">
+        <div style="display: flex; align-items: flex-end; height: 200px; gap: 8px; padding: 20px;">
           <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-            <div style="background: #059669; width: 100%; height: 40px; border-radius: 4px 4px 0 0;"></div>
-            <small class="text-muted" style="margin-top: 5px;">01/01</small>
+            <div style="background: #059669; width: 100%; height: 20px; border-radius: 4px 4px 0 0;"></div>
+            <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">01/01</small>
+          </div>
+          <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <div style="background: #059669; width: 100%; height: 35px; border-radius: 4px 4px 0 0;"></div>
+            <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">03/01</small>
+          </div>
+          <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <div style="background: #059669; width: 100%; height: 50px; border-radius: 4px 4px 0 0;"></div>
+            <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">05/01</small>
           </div>
           <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
             <div style="background: #059669; width: 100%; height: 65px; border-radius: 4px 4px 0 0;"></div>
-            <small class="text-muted" style="margin-top: 5px;">05/01</small>
+            <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">07/01</small>
+          </div>
+          <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <div style="background: #059669; width: 100%; height: 80px; border-radius: 4px 4px 0 0;"></div>
+            <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">09/01</small>
           </div>
           <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
             <div style="background: #059669; width: 100%; height: 95px; border-radius: 4px 4px 0 0;"></div>
-            <small class="text-muted" style="margin-top: 5px;">10/01</small>
+            <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">11/01</small>
+          </div>
+          <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <div style="background: #059669; width: 100%; height: 115px; border-radius: 4px 4px 0 0;"></div>
+            <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">13/01</small>
           </div>
           <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
             <div style="background: #059669; width: 100%; height: 130px; border-radius: 4px 4px 0 0;"></div>
-            <small class="text-muted" style="margin-top: 5px;">15/01</small>
+            <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">15/01</small>
           </div>
           <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-            <div style="background: #22c55e; width: 100%; height: 150px; border-radius: 4px 4px 0 0;"></div>
-            <small class="text-muted" style="margin-top: 5px;">19/01</small>
+            <div style="background: #059669; width: 100%; height: 145px; border-radius: 4px 4px 0 0;"></div>
+            <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">17/01</small>
+          </div>
+          <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <div style="background: #22c55e; width: 100%; height: 160px; border-radius: 4px 4px 0 0;"></div>
+            <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">19/01</small>
           </div>
         </div>
+        <div class="text-center">
+          <a href="relatorio-evolucao.html" class="btn btn-outline"><i class="bi bi-arrows-fullscreen"></i> Ver Relatório Completo</a>
+        </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      </div><!-- fim emissor-content -->
+
+      <!-- ========================================= -->
+      <!-- CONTEUDO DISTRIBUIDOR -->
+      <!-- ========================================= -->
+      <div class="distribuidor-content" style="display: none;">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Relatórios de Distribuição</h1>
+            <p class="text-muted">Acompanhe o desempenho da sua distribuição</p>
+          </div>
+          <span class="badge badge-success"><i class="bi bi-diagram-3"></i> Modo Distribuidor</span>
+        </div>
+
+        <!-- KPIs Distribuidor -->
+        <div class="kpi-grid mb-20">
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background: #dcfce7; color: #16a34a;">
+              <i class="bi bi-cash-stack"></i>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">Comissões Acumuladas</span>
+              <span class="kpi-value">R$ 28.750</span>
+              <span class="kpi-change positive">
+                <i class="bi bi-graph-up-arrow"></i> +R$ 1.250 este mês
+              </span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background: #dbeafe; color: #2563eb;">
+              <i class="bi bi-people"></i>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">Clientes Indicados</span>
+              <span class="kpi-value">156</span>
+              <span class="kpi-change positive">
+                <i class="bi bi-plus"></i> 12 este mês
+              </span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background: #f3e8ff; color: #9333ea;">
+              <i class="bi bi-wallet2"></i>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">Volume Distribuído</span>
+              <span class="kpi-value">R$ 1,2M</span>
+              <span class="kpi-change positive">
+                <i class="bi bi-graph-up-arrow"></i> +R$ 85k este mês
+              </span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon" style="background: #fef3c7; color: #d97706;">
+              <i class="bi bi-percent"></i>
+            </div>
+            <div class="kpi-content">
+              <span class="kpi-label">Taxa de Conversão</span>
+              <span class="kpi-value">12.5%</span>
+              <span class="kpi-change positive">
+                <i class="bi bi-graph-up-arrow"></i> +2.1% vs mês anterior
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Relatórios Disponíveis Distribuidor -->
+        <div class="card mb-20">
+          <h3 style="margin-bottom: 20px;"><i class="bi bi-file-earmark-bar-graph"></i> Relatórios Disponíveis</h3>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Relatório</th>
+                  <th>Descrição</th>
+                  <th>Última Geração</th>
+                  <th style="text-align: right;">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 40px; height: 40px; background: #dcfce7; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-cash-stack" style="color: #16a34a;"></i>
+                      </div>
+                      <strong>Comissões por Período</strong>
+                    </div>
+                  </td>
+                  <td class="text-muted">Detalhamento de comissões ganhas</td>
+                  <td class="text-muted">19/01/2026 10:30</td>
+                  <td style="text-align: right;">
+                    <button class="btn btn-primary btn-sm"><i class="bi bi-eye"></i> Abrir</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 40px; height: 40px; background: #dbeafe; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-people" style="color: #2563eb;"></i>
+                      </div>
+                      <strong>Clientes Indicados</strong>
+                    </div>
+                  </td>
+                  <td class="text-muted">Lista de todos os clientes que você indicou</td>
+                  <td class="text-muted">19/01/2026 09:15</td>
+                  <td style="text-align: right;">
+                    <button class="btn btn-primary btn-sm"><i class="bi bi-eye"></i> Abrir</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 40px; height: 40px; background: #f3e8ff; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-graph-up" style="color: #9333ea;"></i>
+                      </div>
+                      <strong>Evolução de Performance</strong>
+                    </div>
+                  </td>
+                  <td class="text-muted">Acompanhe sua evolução como distribuidor</td>
+                  <td class="text-muted">18/01/2026 14:00</td>
+                  <td style="text-align: right;">
+                    <button class="btn btn-primary btn-sm"><i class="bi bi-eye"></i> Abrir</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 40px; height: 40px; background: #fef3c7; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-wallet2" style="color: #d97706;"></i>
+                      </div>
+                      <strong>Investimentos dos Clientes</strong>
+                    </div>
+                  </td>
+                  <td class="text-muted">Volume investido pelos seus clientes indicados</td>
+                  <td class="text-muted">19/01/2026 08:00</td>
+                  <td style="text-align: right;">
+                    <button class="btn btn-primary btn-sm"><i class="bi bi-eye"></i> Abrir</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="flex gap-10" style="align-items: center;">
+                      <div style="width: 40px; height: 40px; background: #fce7f3; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-file-earmark-text" style="color: #db2777;"></i>
+                      </div>
+                      <strong>Resumo Mensal</strong>
+                    </div>
+                  </td>
+                  <td class="text-muted">Visão consolidada do mês</td>
+                  <td class="text-muted">19/01/2026 07:00</td>
+                  <td style="text-align: right;">
+                    <button class="btn btn-primary btn-sm"><i class="bi bi-eye"></i> Abrir</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Ofertas com Melhor Performance -->
+        <div class="card mb-20">
+          <h3 style="margin-bottom: 20px;"><i class="bi bi-trophy"></i> Ofertas com Melhor Performance</h3>
+
+          <div class="grid-3">
+            <!-- Oferta 1 -->
+            <div style="border: 1px solid var(--border); border-radius: var(--radius); padding: 20px;">
+              <div class="flex-between mb-10">
+                <span class="badge badge-success">Em Captação</span>
+                <span class="text-muted" style="font-size: 0.75rem;">R$ 4.500 comissão</span>
+              </div>
+              <h4 style="margin-bottom: 5px;">TechStart Inovação</h4>
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 15px;">12 clientes indicados</p>
+              <div class="flex-between" style="font-size: 0.875rem;">
+                <span class="text-muted">Volume:</span>
+                <strong style="color: var(--success);">R$ 180.000</strong>
+              </div>
+            </div>
+
+            <!-- Oferta 2 -->
+            <div style="border: 1px solid var(--border); border-radius: var(--radius); padding: 20px;">
+              <div class="flex-between mb-10">
+                <span class="badge" style="background: #dbeafe; color: #2563eb;">Encerrada</span>
+                <span class="text-muted" style="font-size: 0.75rem;">R$ 8.200 comissão</span>
+              </div>
+              <h4 style="margin-bottom: 5px;">GreenEnergy Solar</h4>
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 15px;">28 clientes indicados</p>
+              <div class="flex-between" style="font-size: 0.875rem;">
+                <span class="text-muted">Volume:</span>
+                <strong style="color: var(--success);">R$ 410.000</strong>
+              </div>
+            </div>
+
+            <!-- Oferta 3 -->
+            <div style="border: 1px solid var(--border); border-radius: var(--radius); padding: 20px;">
+              <div class="flex-between mb-10">
+                <span class="badge" style="background: #dbeafe; color: #2563eb;">Encerrada</span>
+                <span class="text-muted" style="font-size: 0.75rem;">R$ 6.050 comissão</span>
+              </div>
+              <h4 style="margin-bottom: 5px;">HealthTech Solutions</h4>
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 15px;">18 clientes indicados</p>
+              <div class="flex-between" style="font-size: 0.875rem;">
+                <span class="text-muted">Volume:</span>
+                <strong style="color: var(--success);">R$ 302.500</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gráfico de Evolução Distribuidor -->
+        <div class="card mb-20">
+          <div class="flex-between mb-20">
+            <h3><i class="bi bi-graph-up"></i> Evolução das Comissões</h3>
+            <span class="text-muted">Últimos 6 meses</span>
+          </div>
+          <div style="display: flex; align-items: flex-end; height: 200px; gap: 8px; padding: 20px;">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+              <div style="background: #059669; width: 100%; height: 60px; border-radius: 4px 4px 0 0;"></div>
+              <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">Ago</small>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+              <div style="background: #059669; width: 100%; height: 85px; border-radius: 4px 4px 0 0;"></div>
+              <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">Set</small>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+              <div style="background: #059669; width: 100%; height: 110px; border-radius: 4px 4px 0 0;"></div>
+              <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">Out</small>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+              <div style="background: #059669; width: 100%; height: 95px; border-radius: 4px 4px 0 0;"></div>
+              <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">Nov</small>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+              <div style="background: #059669; width: 100%; height: 130px; border-radius: 4px 4px 0 0;"></div>
+              <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">Dez</small>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+              <div style="background: #22c55e; width: 100%; height: 160px; border-radius: 4px 4px 0 0;"></div>
+              <small class="text-muted" style="margin-top: 5px; font-size: 0.7rem;">Jan</small>
+            </div>
+          </div>
+        </div>
+      </div><!-- fim distribuidor-content -->
+
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
   </div>
 
-  <!-- Modal Captacao Diaria -->
-  <div id="captacaoDiariaModal" class="modal-overlay" style="display: none;">
-    <div class="modal" style="max-width: 800px;">
-      <div class="modal-header">
-        <h3><i class="bi bi-calendar3"></i> Captacao Diaria</h3>
-        <button class="modal-close" onclick="hideModal('captacaoDiariaModal')">&times;</button>
-      </div>
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Data</th>
-              <th>Investimentos</th>
-              <th>Valor</th>
-              <th>Desistencias</th>
-              <th>Saldo Dia</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>19/01/2026</td>
-              <td>3</td>
-              <td style="color: var(--success);">R$ 12.500,00</td>
-              <td style="color: var(--warning);">1</td>
-              <td><strong>R$ 10.500,00</strong></td>
-            </tr>
-            <tr>
-              <td>18/01/2026</td>
-              <td>5</td>
-              <td style="color: var(--success);">R$ 18.000,00</td>
-              <td>0</td>
-              <td><strong>R$ 18.000,00</strong></td>
-            </tr>
-            <tr>
-              <td>17/01/2026</td>
-              <td>4</td>
-              <td style="color: var(--success);">R$ 15.500,00</td>
-              <td style="color: var(--warning);">1</td>
-              <td><strong>R$ 13.500,00</strong></td>
-            </tr>
-            <tr>
-              <td>16/01/2026</td>
-              <td>8</td>
-              <td style="color: var(--success);">R$ 32.000,00</td>
-              <td>0</td>
-              <td><strong>R$ 32.000,00</strong></td>
-            </tr>
-            <tr>
-              <td>15/01/2026</td>
-              <td>6</td>
-              <td style="color: var(--success);">R$ 24.000,00</td>
-              <td style="color: var(--warning);">2</td>
-              <td><strong>R$ 20.000,00</strong></td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr style="background: var(--bg);">
-              <td><strong>Total</strong></td>
-              <td><strong>26</strong></td>
-              <td><strong style="color: var(--success);">R$ 102.000,00</strong></td>
-              <td><strong style="color: var(--warning);">4</strong></td>
-              <td><strong>R$ 94.000,00</strong></td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-      <div class="flex gap-10 mt-20">
-        <button class="btn btn-outline" onclick="showModal('exportandoExcelModalBtn')"><i class="bi bi-file-earmark-excel"></i> Excel</button>
-        <button class="btn btn-outline" onclick="showModal('exportandoPDFModalBtn')"><i class="bi bi-file-earmark-pdf"></i> PDF</button>
-        <button class="btn btn-outline" onclick="hideModal('captacaoDiariaModal')">Fechar</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Desistencias -->
-  <div id="desistenciasModal" class="modal-overlay" style="display: none;">
-    <div class="modal" style="max-width: 800px;">
-      <div class="modal-header">
-        <h3><i class="bi bi-x-circle"></i> Desistencias</h3>
-        <button class="modal-close" onclick="hideModal('desistenciasModal')">&times;</button>
-      </div>
-      <div class="alert alert-info mb-20">
-        <i class="bi bi-info-circle"></i> Conforme RCVM 88/2022, investidores podem desistir em ate 5 dias corridos apos a confirmacao do investimento.
-      </div>
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Investidor</th>
-              <th>Valor</th>
-              <th>Data Investimento</th>
-              <th>Data Desistencia</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <strong>Ana Paula Costa</strong>
-                <br><small class="text-muted">321.654.987-00</small>
-              </td>
-              <td>R$ 3.000,00</td>
-              <td>14/01/2026</td>
-              <td>18/01/2026</td>
-              <td><span class="badge badge-warning">Em processamento</span></td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Carlos Mendes</strong>
-                <br><small class="text-muted">789.123.456-00</small>
-              </td>
-              <td>R$ 2.000,00</td>
-              <td>12/01/2026</td>
-              <td>16/01/2026</td>
-              <td><span class="badge badge-success">Estornado</span></td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Fernanda Lima</strong>
-                <br><small class="text-muted">456.321.789-00</small>
-              </td>
-              <td>R$ 5.000,00</td>
-              <td>10/01/2026</td>
-              <td>14/01/2026</td>
-              <td><span class="badge badge-success">Estornado</span></td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Roberto Santos</strong>
-                <br><small class="text-muted">654.987.321-00</small>
-              </td>
-              <td>R$ 1.500,00</td>
-              <td>05/01/2026</td>
-              <td>09/01/2026</td>
-              <td><span class="badge badge-success">Estornado</span></td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr style="background: var(--bg);">
-              <td><strong>Total: 4 desistencias</strong></td>
-              <td><strong>R$ 11.500,00</strong></td>
-              <td colspan="3"></td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-      <div class="flex gap-10 mt-20">
-        <button class="btn btn-outline" onclick="showModal('exportandoExcelModalBtn')"><i class="bi bi-file-earmark-excel"></i> Excel</button>
-        <button class="btn btn-outline" onclick="showModal('exportandoPDFModalBtn')"><i class="bi bi-file-earmark-pdf"></i> PDF</button>
-        <button class="btn btn-outline" onclick="hideModal('desistenciasModal')">Fechar</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Exportando Excel (dropdown) -->
-  <div class="modal-overlay" id="exportandoExcelModal" style="display: none;">
-    <div class="modal text-center" style="max-width: 400px;">
-      <div style="padding: 30px;">
-        <i class="bi bi-file-earmark-excel" style="font-size: 3rem; color: #217346;"></i>
-        <h3 style="margin: 15px 0;">Exportando Excel</h3>
-        <p class="text-muted">Seu arquivo Excel esta sendo gerado.</p>
-        <button class="btn btn-primary mt-20" onclick="hideModal('exportandoExcelModal')">OK</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Exportando CSV -->
-  <div class="modal-overlay" id="exportandoCSVModal" style="display: none;">
-    <div class="modal text-center" style="max-width: 400px;">
-      <div style="padding: 30px;">
-        <i class="bi bi-filetype-csv" style="font-size: 3rem; color: #6c757d;"></i>
-        <h3 style="margin: 15px 0;">Exportando CSV</h3>
-        <p class="text-muted">Seu arquivo CSV esta sendo gerado.</p>
-        <button class="btn btn-primary mt-20" onclick="hideModal('exportandoCSVModal')">OK</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Exportando PDF (dropdown) -->
-  <div class="modal-overlay" id="exportandoPDFModal" style="display: none;">
-    <div class="modal text-center" style="max-width: 400px;">
-      <div style="padding: 30px;">
-        <i class="bi bi-file-earmark-pdf" style="font-size: 3rem; color: #dc3545;"></i>
-        <h3 style="margin: 15px 0;">Exportando PDF</h3>
-        <p class="text-muted">Seu arquivo PDF esta sendo gerado.</p>
-        <button class="btn btn-primary mt-20" onclick="hideModal('exportandoPDFModal')">OK</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Gerando Excel -->
-  <div class="modal-overlay" id="gerandoExcelModal" style="display: none;">
-    <div class="modal text-center" style="max-width: 400px;">
-      <div style="padding: 30px;">
-        <i class="bi bi-file-earmark-excel" style="font-size: 3rem; color: #217346;"></i>
-        <h3 style="margin: 15px 0;">Gerando Excel</h3>
-        <p class="text-muted">Seu relatorio Excel esta sendo preparado.</p>
-        <button class="btn btn-primary mt-20" onclick="hideModal('gerandoExcelModal')">OK</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Gerando PDF -->
-  <div class="modal-overlay" id="gerandoPDFModal" style="display: none;">
-    <div class="modal text-center" style="max-width: 400px;">
-      <div style="padding: 30px;">
-        <i class="bi bi-file-earmark-pdf" style="font-size: 3rem; color: #dc3545;"></i>
-        <h3 style="margin: 15px 0;">Gerando PDF</h3>
-        <p class="text-muted">Seu relatorio PDF esta sendo preparado.</p>
-        <button class="btn btn-primary mt-20" onclick="hideModal('gerandoPDFModal')">OK</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Exportando Excel (button) -->
-  <div class="modal-overlay" id="exportandoExcelModalBtn" style="display: none;">
-    <div class="modal text-center" style="max-width: 400px;">
-      <div style="padding: 30px;">
-        <i class="bi bi-file-earmark-excel" style="font-size: 3rem; color: #217346;"></i>
-        <h3 style="margin: 15px 0;">Exportando Excel</h3>
-        <p class="text-muted">Seu arquivo Excel esta sendo gerado.</p>
-        <button class="btn btn-primary mt-20" onclick="hideModal('exportandoExcelModalBtn')">OK</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Exportando PDF (button) -->
-  <div class="modal-overlay" id="exportandoPDFModalBtn" style="display: none;">
-    <div class="modal text-center" style="max-width: 400px;">
-      <div style="padding: 30px;">
-        <i class="bi bi-file-earmark-pdf" style="font-size: 3rem; color: #dc3545;"></i>
-        <h3 style="margin: 15px 0;">Exportando PDF</h3>
-        <p class="text-muted">Seu arquivo PDF esta sendo gerado.</p>
-        <button class="btn btn-primary mt-20" onclick="hideModal('exportandoPDFModalBtn')">OK</button>
-      </div>
-    </div>
-  </div>
-
   <script src="../../js/app.js"></script>
+  
 
-<!-- Modal Selecionar Perfil -->
-<div class="modal-overlay" id="selecionarPerfilModal" style="display: none;">
-  <div class="modal profile-select-modal">
-    <div class="modal-header">
-      <h3><i class="bi bi-person-gear"></i> Modo de Acesso</h3>
-      <button class="modal-close" onclick="hideModal('selecionarPerfilModal')">&times;</button>
-    </div>
-    <p class="text-muted mb-20">Escolha como deseja visualizar e operar na plataforma.</p>
-    <!-- Opcao Emissor -->
-    <div class="profile-option emissor active" id="optionEmissor" onclick="selectProfileOption('emissor')">
-      <div class="profile-option-icon emissor"><i class="bi bi-broadcast"></i></div>
-      <div class="profile-option-content">
-        <div class="profile-option-title">Emissor</div>
-        <p class="profile-option-desc">Crie e gerencie suas proprias ofertas de investimento.</p>
+  <!-- Modal Selecionar Perfil -->
+  <div class="modal-overlay" id="selecionarPerfilModal" style="display: none;">
+    <div class="modal profile-select-modal">
+      <div class="modal-header">
+        <h3><i class="bi bi-person-gear"></i> Modo de Acesso</h3>
+        <button class="modal-close" onclick="hideModal('selecionarPerfilModal')">&times;</button>
       </div>
-      <div class="profile-option-check"><i class="bi bi-check"></i></div>
-    </div>
-    <!-- Opcao Distribuidor -->
-    <div class="profile-option distribuidor" id="optionDistribuidor" onclick="selectProfileOption('distribuidor')">
-      <div class="profile-option-icon distribuidor"><i class="bi bi-diagram-3"></i></div>
-      <div class="profile-option-content">
-        <div class="profile-option-title">Distribuidor</div>
-        <p class="profile-option-desc">Distribua ofertas de terceiros para seus clientes.</p>
+      <p class="text-muted mb-20">Escolha como deseja visualizar e operar na plataforma.</p>
+      <!-- Opção Emissor -->
+      <div class="profile-option emissor active" id="optionEmissor" onclick="selectProfileOption('emissor')">
+        <div class="profile-option-icon emissor"><i class="bi bi-broadcast"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Emissor</div>
+          <p class="profile-option-desc">Crie e gerencie suas proprias ofertas de investimento.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
       </div>
-      <div class="profile-option-check"><i class="bi bi-check"></i></div>
-    </div>
-    <div class="flex gap-10 mt-20">
-      <button class="btn btn-outline" onclick="hideModal('selecionarPerfilModal')" style="flex: 1;">Cancelar</button>
-      <button class="btn btn-primary" onclick="confirmarPerfil()" style="flex: 1;"><i class="bi bi-check-lg"></i> Confirmar</button>
+      <!-- Opção Distribuidor -->
+      <div class="profile-option distribuidor" id="optionDistribuidor" onclick="selectProfileOption('distribuidor')">
+        <div class="profile-option-icon distribuidor"><i class="bi bi-diagram-3"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Distribuidor</div>
+          <p class="profile-option-desc">Distribua ofertas de terceiros para seus clientes.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
+      </div>
+      
+      <!-- Opcao Originador -->
+      <div class="profile-option originador" id="optionOriginador" onclick="selectProfileOption('originador')">
+        <div class="profile-option-icon originador"><i class="bi bi-lightning-charge"></i></div>
+        <div class="profile-option-content">
+          <div class="profile-option-title">Originador</div>
+          <p class="profile-option-desc">Traga novas empresas para captar recursos.</p>
+        </div>
+        <div class="profile-option-check"><i class="bi bi-check"></i></div>
+      </div>
+      
+      <div class="flex gap-10 mt-20">
+        <button class="btn btn-outline" onclick="hideModal('selecionarPerfilModal')" style="flex: 1;">Cancelar</button>
+        <button class="btn btn-primary" onclick="confirmarPerfil()" style="flex: 1;"><i class="bi bi-check-lg"></i> Confirmar</button>
+      </div>
     </div>
   </div>
-</div>
+
+  <script>
+    function atualizarRelatorios() {
+      var oferta = document.getElementById('ofertaSelect').value;
+      // Simulação de atualização - em produção faria requisicao AJAX
+      console.log('Atualizando relatórios para:', oferta);
+    }
+  </script>
+
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
 
 </body>
 </html>

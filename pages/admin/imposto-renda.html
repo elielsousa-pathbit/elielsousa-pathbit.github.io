@@ -11,7 +11,7 @@
   <div class="dashboard">
     <div class="mobile-header">
       <div style="display: flex; align-items: center; gap: 10px;">
-        <a href="../../index.html" class="logo" style="color: var(--primary);">CrowdInvest</a>
+        <a href="dashboard.html" class="logo" style="color: var(--primary);">CrowdInvest</a>
         <span class="badge badge-warning">Admin</span>
       </div>
     </div>
@@ -19,19 +19,19 @@
     <!-- Sidebar -->
     <aside class="sidebar sidebar-dark">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo" style="color: white;">CrowdInvest</a>
+        <a href="dashboard.html" class="logo" style="color: white;">CrowdInvest</a>
         <span class="badge badge-warning" style="margin-left: 10px;">Admin</span>
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
         <li><a href="ofertas.html"><i class="bi bi-megaphone"></i> Ofertas</a></li>
         <li><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
-        <li><a href="kyc-fila.html"><i class="bi bi-person-check"></i> Validacao Cadastro</a></li>
-        <li><a href="moderacao.html"><i class="bi bi-shield-check"></i> Moderacao</a></li>
+        <li><a href="kyc-fila.html"><i class="bi bi-person-check"></i> Validação Cadastro</a></li>
+        <li><a href="moderacao.html"><i class="bi bi-shield-check"></i> Moderação</a></li>
         <li><a href="parceiros.html"><i class="bi bi-building"></i> Parceiros</a></li>
         <li><a href="imposto-renda.html" class="active"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../admin-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -43,8 +43,8 @@
 
       <div class="page-header">
         <div>
-          <h1 class="page-title">Gestao de Imposto de Renda</h1>
-          <p class="text-muted">Gerenciamento de informes de rendimentos para investidores</p>
+          <h1 class="page-title">Gestão de Imposto de Renda</h1>
+          <p class="text-muted">Gerenciamento de informês de rendimentos para investidores</p>
         </div>
         <div style="min-width: 180px;">
           <select class="form-input" style="padding: 10px 14px; font-size: 0.95rem;">
@@ -60,17 +60,17 @@
       <!-- Status Cards -->
       <div class="kpi-grid" style="margin-bottom: 30px;">
         <div class="kpi-card">
-          <div class="kpi-label">Clientes com Movimentacao</div>
+          <div class="kpi-label">Clientes com Movimentação</div>
           <div class="kpi-value">1.892</div>
           <div class="kpi-change">em 2025</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Informes Gerados</div>
+          <div class="kpi-label">Informês Gerados</div>
           <div class="kpi-value" style="color: var(--success);">0</div>
-          <div class="kpi-change">aguardando processamento</div>
+          <div class="kpi-change">águardando processamento</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Informes Enviados</div>
+          <div class="kpi-label">Informês Enviados</div>
           <div class="kpi-value" style="color: var(--primary);">0</div>
           <div class="kpi-change">por e-mail</div>
         </div>
@@ -83,13 +83,17 @@
 
       <!-- Alert -->
       <div class="alert alert-warning">
-        <i class="bi bi-exclamation-triangle"></i> <strong>Acao Pendente:</strong> Os informes de rendimentos do ano-calendario 2025 devem ser disponibilizados ate 28/02/2026. O processamento pode ser iniciado a partir de 15/01/2026.
+        <i class="bi bi-exclamation-triangle"></i>
+        <div>
+          <strong>Acao Pendente:</strong><br>
+          Os informes de rendimentos do ano-calendario 2025 devem ser disponibilizados ate 28/02/2026. O processamento pode ser iniciado a partir de 15/01/2026.
+        </div>
       </div>
 
       <!-- Workflow Steps -->
       <div class="card mb-20">
         <div class="card-header">
-          <h3 class="card-title"><i class="bi bi-list-check"></i> Fluxo de Geracao de Informes</h3>
+          <h3 class="card-title"><i class="bi bi-list-check"></i> Fluxo de Geração de Informes</h3>
         </div>
 
         <div class="steps" style="margin: 30px 0;">
@@ -99,25 +103,25 @@
           </div>
           <div class="step active">
             <div class="step-number">2</div>
-            <div class="step-label">Validacao de Dados</div>
+            <div class="step-label">Validação de Dados</div>
           </div>
           <div class="step">
             <div class="step-number">3</div>
-            <div class="step-label">Geracao em Lote</div>
+            <div class="step-label">Geração em Lote</div>
           </div>
           <div class="step">
             <div class="step-number">4</div>
-            <div class="step-label">Revisao e Aprovacao</div>
+            <div class="step-label">Revisão e Aprovação</div>
           </div>
           <div class="step">
             <div class="step-number">5</div>
-            <div class="step-label">Disponibilizacao</div>
+            <div class="step-label">Disponibilização</div>
           </div>
         </div>
 
-        <div class="flex gap-10">
+        <div class="header-user-info">
           <button class="btn btn-primary" onclick="showModal('validacaoModal')">
-            <i class="bi bi-play-fill"></i> Iniciar Validacao
+            <i class="bi bi-play-fill"></i> Iniciar Validação
           </button>
           <button class="btn btn-outline">
             <i class="bi bi-file-earmark-text"></i> Ver Log de Processamento
@@ -138,7 +142,7 @@
               <strong style="color: var(--success);">R$ 2.450.000,00</strong>
             </div>
             <div class="flex-between" style="padding: 12px; background: var(--bg); border-radius: var(--radius);">
-              <span>Amortizacoes Pagas</span>
+              <span>Amortizações Pagas</span>
               <strong style="color: var(--primary);">R$ 890.000,00</strong>
             </div>
             <div class="flex-between" style="padding: 12px; background: var(--bg); border-radius: var(--radius);">
@@ -157,17 +161,17 @@
           </div>
         </div>
 
-        <!-- Acoes Rapidas -->
+        <!-- Ações Rápidas -->
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Acoes Rapidas</h3>
+            <h3 class="card-title">Ações Rápidas</h3>
           </div>
 
           <div style="display: flex; flex-direction: column; gap: 12px;">
             <a href="#" class="flex gap-15" style="padding: 15px; background: var(--bg); border-radius: var(--radius); text-decoration: none; color: var(--text); transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='var(--bg)'">
               <i class="bi bi-file-earmark-plus" style="font-size: 1.5rem; color: var(--primary);"></i>
               <div>
-                <strong>Gerar Informes em Lote</strong>
+                <strong>Gerar Informês em Lote</strong>
                 <p class="text-muted" style="font-size: 0.875rem; margin: 0;">Processar todos os investidores de uma vez</p>
               </div>
             </a>
@@ -175,7 +179,7 @@
             <a href="#" class="flex gap-15" style="padding: 15px; background: var(--bg); border-radius: var(--radius); text-decoration: none; color: var(--text); transition: background 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='var(--bg)'">
               <i class="bi bi-envelope" style="font-size: 1.5rem; color: var(--success);"></i>
               <div>
-                <strong>Enviar Informes por E-mail</strong>
+                <strong>Enviar Informês por E-mail</strong>
                 <p class="text-muted" style="font-size: 0.875rem; margin: 0;">Disparo automatico para investidores</p>
               </div>
             </a>
@@ -203,17 +207,17 @@
       <div class="card mt-20">
         <div class="card-header flex-between">
           <h3 class="card-title">Clientes com Rendimentos em 2025</h3>
-          <div class="flex gap-10">
+          <div class="header-user-info">
             <input type="text" class="form-input" placeholder="Buscar por CPF ou nome..." style="width: 250px;">
             <div class="dropdown" style="position: relative;">
               <button class="btn btn-outline" onclick="toggleDropdown('exportDropdown')">
                 <i class="bi bi-download"></i> Exportar <i class="bi bi-chevron-down"></i>
               </button>
               <div id="exportDropdown" class="dropdown-menu" style="display: none; position: absolute; right: 0; top: 100%; background: white; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-width: 160px; z-index: 100;">
-                <a href="#" onclick="showModal('exportExcelModal'); return false;" style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; text-decoration: none; color: var(--text);">
+                <a href="#" onclick="Modals.export('excel', 'admin-imposto-renda'); return false;" style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; text-decoration: none; color: var(--text);">
                   <i class="bi bi-file-earmark-excel" style="color: #217346;"></i> Excel (.xlsx)
                 </a>
-                <a href="#" onclick="showModal('exportCsvModal'); return false;" style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; text-decoration: none; color: var(--text);">
+                <a href="#" onclick="Modals.export('csv', 'admin-imposto-renda'); return false;" style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; text-decoration: none; color: var(--text);">
                   <i class="bi bi-filetype-csv" style="color: #6c757d;"></i> CSV (.csv)
                 </a>
               </div>
@@ -230,7 +234,7 @@
                 <th>Rendimentos</th>
                 <th>IRRF</th>
                 <th>Informe</th>
-                <th>Acoes</th>
+                <th>Ações</th>
               </tr>
             </thead>
             <tbody>
@@ -243,7 +247,7 @@
                 <td data-label="Rendimentos">R$ 3.250,00</td>
                 <td data-label="IRRF">R$ 487,50</td>
                 <td data-label="Informe"><span class="badge badge-secondary">Pendente</span></td>
-                <td data-label="Acoes">
+                <td data-label="Ações">
                   <button class="btn btn-outline btn-sm" onclick="showModal('gerandoInformeModal')">Gerar</button>
                 </td>
               </tr>
@@ -256,7 +260,7 @@
                 <td data-label="Rendimentos">R$ 1.850,00</td>
                 <td data-label="IRRF">R$ 277,50</td>
                 <td data-label="Informe"><span class="badge badge-secondary">Pendente</span></td>
-                <td data-label="Acoes">
+                <td data-label="Ações">
                   <button class="btn btn-outline btn-sm" onclick="showModal('gerandoInformeModal')">Gerar</button>
                 </td>
               </tr>
@@ -269,7 +273,7 @@
                 <td data-label="Rendimentos">R$ 5.420,00</td>
                 <td data-label="IRRF">R$ 813,00</td>
                 <td data-label="Informe"><span class="badge badge-secondary">Pendente</span></td>
-                <td data-label="Acoes">
+                <td data-label="Ações">
                   <button class="btn btn-outline btn-sm" onclick="showModal('gerandoInformeModal')">Gerar</button>
                 </td>
               </tr>
@@ -282,7 +286,7 @@
                 <td data-label="Rendimentos">R$ 780,00</td>
                 <td data-label="IRRF">R$ 117,00</td>
                 <td data-label="Informe"><span class="badge badge-secondary">Pendente</span></td>
-                <td data-label="Acoes">
+                <td data-label="Ações">
                   <button class="btn btn-outline btn-sm" onclick="showModal('gerandoInformeModal')">Gerar</button>
                 </td>
               </tr>
@@ -304,27 +308,31 @@
 
       <!-- Regulatory Info -->
       <div class="alert alert-info mt-20">
-        <strong>Obrigacoes Legais:</strong> De acordo com a IN RFB 2.060/2021, a plataforma de crowdfunding deve fornecer informe de rendimentos a todos os investidores que receberam rendimentos no ano-calendario, ate o ultimo dia util de fevereiro do ano seguinte.
+        <i class="bi bi-info-circle"></i>
+        <div>
+          <strong>Obrigações Legais:</strong><br>
+          De acordo com a IN RFB 2.060/2021, a plataforma de investimentos alternativos deve fornecer informe de rendimentos a todos os investidores que receberám rendimentos no ano-calendário, até o último dia util de fevereiro do ano seguinte.
+        </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
   </div>
 
-  <!-- Validacao Modal -->
+  <!-- Validação Modal -->
   <div class="modal-overlay" id="validacaoModal" style="display: none;">
     <div class="modal text-center" style="max-width: 400px;">
       <div style="padding: 30px;">
         <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
-        <h3 style="margin: 15px 0;">Validacao Iniciada</h3>
-        <p class="text-muted">Iniciando validacao de dados...</p>
+        <h3 style="margin: 15px 0;">Validação Iniciada</h3>
+        <p class="text-muted">Iniciando validação de dados...</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('validacaoModal')">OK</button>
       </div>
     </div>
@@ -335,7 +343,7 @@
     <div class="modal text-center" style="max-width: 400px;">
       <div style="padding: 30px;">
         <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
-        <h3 style="margin: 15px 0;">Exportacao Excel</h3>
+        <h3 style="margin: 15px 0;">Exportação Excel</h3>
         <p class="text-muted">Exportando Excel...</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('exportExcelModal')">OK</button>
       </div>
@@ -347,7 +355,7 @@
     <div class="modal text-center" style="max-width: 400px;">
       <div style="padding: 30px;">
         <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
-        <h3 style="margin: 15px 0;">Exportacao CSV</h3>
+        <h3 style="margin: 15px 0;">Exportação CSV</h3>
         <p class="text-muted">Exportando CSV...</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('exportCsvModal')">OK</button>
       </div>
@@ -367,5 +375,7 @@
   </div>
 
   <script src="../../js/app.js"></script>
+  
+
 </body>
 </html>

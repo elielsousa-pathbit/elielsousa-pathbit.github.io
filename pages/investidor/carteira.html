@@ -10,12 +10,12 @@
 <body class="theme-investidor">
   <div class="dashboard">
     <div class="mobile-header">
-      <a href="../../index.html" class="logo">CrowdInvest</a>
+      <a href="dashboard.html" class="logo">Alba Invest</a>
     </div>
 
     <aside class="sidebar">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo">CrowdInvest</a>
+        <a href="dashboard.html" class="logo">Alba Invest</a>
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
@@ -25,7 +25,7 @@
         <li><a href="extrato.html"><i class="bi bi-list-ul"></i> Extrato</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -68,14 +68,14 @@
           <div class="kpi-change-compact text-muted">5 ativos</div>
         </div>
         <div class="kpi-card-compact">
-          <div class="kpi-label-compact">Saldo Disponivel</div>
+          <div class="kpi-label-compact">Saldo Disponível</div>
           <div class="kpi-value-compact" style="color: var(--success);">R$ 2.350</div>
           <div class="kpi-change-compact text-muted">Dividendos + Estornos</div>
         </div>
         <div class="kpi-card-compact">
           <div class="kpi-label-compact">Rendimentos 2026</div>
           <div class="kpi-value-compact" style="color: var(--success);">R$ 850</div>
-          <div class="kpi-change-compact positive">+R$ 350 este mes</div>
+          <div class="kpi-change-compact positive">+R$ 350 este mês</div>
         </div>
         <div class="kpi-card-compact">
           <div class="kpi-label-compact">Limite 2026</div>
@@ -93,13 +93,13 @@
           <i class="bi bi-cash-stack"></i> Saldo
         </button>
         <button class="tab-compact" onclick="switchTab(this, 'composicao')">
-          <i class="bi bi-pie-chart"></i> Composicao
+          <i class="bi bi-pie-chart"></i> Composição
         </button>
       </div>
 
       <!-- Tab: Investimentos -->
       <div id="investimentos" class="tab-content">
-        <!-- Filtro rapido -->
+        <!-- Filtro rápido -->
         <div class="flex gap-10 mb-15" style="flex-wrap: wrap;">
           <button class="btn btn-outline btn-sm active">Todos (5)</button>
           <button class="btn btn-outline btn-sm">Equity (2)</button>
@@ -108,10 +108,10 @@
         </div>
 
         <!-- Investment Items Compactos - MELHORADO -->
-        <div class="investment-item-compact success" onclick="showModal('detalheTechStartModal')">
+        <div class="investment-item-compact success" onclick="window.location.href='investimento-detalhe.html'" style="cursor: pointer;">
           <div class="inv-logo-compact" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark));">TS</div>
           <div class="inv-info-compact">
-            <div class="inv-title-compact">TechStart Inovacao</div>
+            <div class="inv-title-compact">TechStart Inovação</div>
             <div class="inv-meta-compact">
               <span class="badge-compact" style="background: #7c3aed; color: white;">Equity</span>
               <span>Tecnologia</span>
@@ -124,7 +124,7 @@
               <div class="inv-value-number-compact">R$ 5.000</div>
             </div>
             <div class="inv-value-item-compact">
-              <div class="inv-value-label-compact">Participacao</div>
+              <div class="inv-value-label-compact">Participação</div>
               <div class="inv-value-number-compact" style="color: var(--primary);">1.5%</div>
             </div>
             <div class="inv-value-item-compact">
@@ -135,13 +135,13 @@
           <i class="bi bi-chevron-right text-muted" style="font-size: 1.2rem;"></i>
         </div>
 
-        <div class="investment-item-compact info" onclick="showModal('detalheHealthTechModal')">
+        <div class="investment-item-compact info" onclick="window.location.href='investimento-detalhe.html'" style="cursor: pointer;">
           <div class="inv-logo-compact" style="background: linear-gradient(135deg, #ef4444, #dc2626);">HT</div>
           <div class="inv-info-compact">
             <div class="inv-title-compact">HealthTech Solutions</div>
             <div class="inv-meta-compact">
               <span class="badge-compact" style="background: #7c3aed; color: white;">Equity</span>
-              <span>Saude</span>
+              <span>Saúde</span>
               <span class="text-muted">• 05/12/2025</span>
             </div>
           </div>
@@ -162,13 +162,13 @@
           <i class="bi bi-chevron-right text-muted" style="font-size: 1.2rem;"></i>
         </div>
 
-        <div class="investment-item-compact success" onclick="showModal('detalheCRAModal')">
+        <div class="investment-item-compact success" onclick="window.location.href='investimento-detalhe.html'" style="cursor: pointer;">
           <div class="inv-logo-compact" style="background: linear-gradient(135deg, #22c55e, #16a34a);">CRA</div>
           <div class="inv-info-compact">
             <div class="inv-title-compact">Cooperativa AgroVerde</div>
             <div class="inv-meta-compact">
               <span class="badge-compact" style="background: #22c55e; color: white;">CRA</span>
-              <span>Agronegocio</span>
+              <span>Agronegócio</span>
               <span class="text-muted">• Venc. 01/2028</span>
             </div>
           </div>
@@ -190,7 +190,7 @@
         </div>
 
         <!-- Item com RESGATE DISPONIVEL -->
-        <div class="investment-item-compact warning" onclick="showModal('detalheCRIModal')">
+        <div class="investment-item-compact warning" onclick="window.location.href='investimento-detalhe.html'" style="cursor: pointer;">
           <div class="inv-logo-compact" style="background: linear-gradient(135deg, #0891b2, #0e7490);">CRI</div>
           <div class="inv-info-compact">
             <div class="inv-title-compact">Residencial Parque das Flores</div>
@@ -217,7 +217,7 @@
           <i class="bi bi-chevron-right text-muted" style="font-size: 1.2rem;"></i>
         </div>
 
-        <div class="investment-item-compact" onclick="showModal('detalheCRModal')" style="border-left-color: #8b5cf6;">
+        <div class="investment-item-compact" onclick="window.location.href='investimento-detalhe.html'" style="border-left-color: #8b5cf6; cursor: pointer;">
           <div class="inv-logo-compact" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">CR</div>
           <div class="inv-info-compact">
             <div class="inv-title-compact">SolarTech Energia</div>
@@ -238,14 +238,14 @@
             </div>
             <div class="inv-value-item-compact">
               <div class="inv-value-label-compact">Status</div>
-              <div class="inv-value-number-compact"><span class="badge-compact badge-secondary"><i class="bi bi-clock"></i> Em Captacao</span></div>
+              <div class="inv-value-number-compact"><span class="badge-compact badge-secondary"><i class="bi bi-clock"></i> Em Captação</span></div>
             </div>
           </div>
           <i class="bi bi-chevron-right text-muted" style="font-size: 1.2rem;"></i>
         </div>
 
         <div class="alert alert-info mt-15" style="font-size: 0.85rem; padding: 12px;">
-          <i class="bi bi-info-circle"></i> Ordens pendentes (aguardando PIX, processando ou desistencia) estao em <a href="minhas-ordens.html" style="color: inherit; font-weight: bold;">Minhas Ordens</a>.
+          <i class="bi bi-info-circle"></i> Ordens pendentes (águardando PIX, processando ou desistência) estão em <a href="minhas-ordens.html" style="color: inherit; font-weight: bold;">Minhas Ordens</a>.
         </div>
       </div>
 
@@ -254,9 +254,9 @@
         <div class="grid-2" style="gap: 16px;">
           <!-- Saldo Card -->
           <div class="card" style="padding: 16px;">
-            <h4 style="font-size: 0.9rem; margin-bottom: 12px;"><i class="bi bi-cash-stack"></i> Saldo Disponivel</h4>
+            <h4 style="font-size: 0.9rem; margin-bottom: 12px;"><i class="bi bi-cash-stack"></i> Saldo Disponível</h4>
             <div style="background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 16px; border-radius: var(--radius); margin-bottom: 12px;">
-              <div style="font-size: 0.8rem; opacity: 0.9;">Disponivel para saque</div>
+              <div style="font-size: 0.8rem; opacity: 0.9;">Disponível para saque</div>
               <div style="font-size: 1.75rem; font-weight: 700;">R$ 2.350,00</div>
             </div>
             <div style="font-size: 0.85rem;">
@@ -295,10 +295,10 @@
           </div>
         </div>
 
-        <!-- Movimentacoes -->
+        <!-- Movimentações -->
         <div class="card mt-15" style="padding: 16px;">
           <div class="flex-between mb-10">
-            <h4 style="font-size: 0.9rem;"><i class="bi bi-arrow-left-right"></i> Movimentacoes Recentes</h4>
+            <h4 style="font-size: 0.9rem;"><i class="bi bi-arrow-left-right"></i> Movimentações Recentes</h4>
             <a href="extrato.html" style="color: var(--primary); font-size: 0.8rem;">Ver todas</a>
           </div>
           <div style="font-size: 0.85rem;">
@@ -336,29 +336,29 @@
         </div>
       </div>
 
-      <!-- Tab: Composicao -->
+      <!-- Tab: Composição -->
       <div id="composicao" class="tab-content" style="display: none;">
         <div class="grid-2" style="gap: 16px;">
           <div class="card" style="padding: 16px;">
             <h4 style="font-size: 0.9rem; margin-bottom: 12px;"><i class="bi bi-pie-chart"></i> Por Tipo</h4>
             <div style="font-size: 0.85rem;">
               <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius); border-left: 3px solid #7c3aed; margin-bottom: 8px;">
-                <div><strong style="color: #7c3aed;">Equity</strong><br><small class="text-muted">2 participacoes</small></div>
+                <div><strong style="color: #7c3aed;">Equity</strong><br><small class="text-muted">2 participações</small></div>
                 <strong>R$ 12.000 (65%)</strong>
               </div>
               <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius); border-left: 3px solid #22c55e; margin-bottom: 8px;">
-                <div><strong style="color: #22c55e;">CRA</strong><br><small class="text-muted">1 titulo</small></div>
+                <div><strong style="color: #22c55e;">CRA</strong><br><small class="text-muted">1 título</small></div>
                 <strong>R$ 3.500 (19%)</strong>
               </div>
               <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius); border-left: 3px solid #0891b2;">
-                <div><strong style="color: #0891b2;">CRI</strong><br><small class="text-muted">1 titulo</small></div>
+                <div><strong style="color: #0891b2;">CRI</strong><br><small class="text-muted">1 título</small></div>
                 <strong>R$ 3.000 (16%)</strong>
               </div>
             </div>
           </div>
 
           <div class="card" style="padding: 16px;">
-            <h4 style="font-size: 0.9rem; margin-bottom: 12px;"><i class="bi bi-graph-up"></i> Grafico</h4>
+            <h4 style="font-size: 0.9rem; margin-bottom: 12px;"><i class="bi bi-graph-up"></i> Gráfico</h4>
             <div style="text-align: center;">
               <div style="position: relative; width: 140px; height: 140px; margin: 0 auto;">
                 <div style="width: 100%; height: 100%; border-radius: 50%; background: conic-gradient(#7c3aed 0deg 234deg, #22c55e 234deg 302deg, #0891b2 302deg 360deg);"></div>
@@ -383,22 +383,22 @@
             <table style="font-size: 0.85rem;">
               <thead><tr><th>Setor</th><th>Qtd</th><th>Valor</th><th>%</th></tr></thead>
               <tbody>
-                <tr><td data-label="Setor"><strong>Saude</strong></td><td data-label="Qtd">1</td><td data-label="Valor">R$ 7.000</td><td data-label="%">38%</td></tr>
+                <tr><td data-label="Setor"><strong>Saúde</strong></td><td data-label="Qtd">1</td><td data-label="Valor">R$ 7.000</td><td data-label="%">38%</td></tr>
                 <tr><td data-label="Setor"><strong>Tecnologia</strong></td><td data-label="Qtd">1</td><td data-label="Valor">R$ 5.000</td><td data-label="%">27%</td></tr>
-                <tr><td data-label="Setor"><strong>Agronegocio</strong></td><td data-label="Qtd">1</td><td data-label="Valor">R$ 3.500</td><td data-label="%">19%</td></tr>
+                <tr><td data-label="Setor"><strong>Agronegócio</strong></td><td data-label="Qtd">1</td><td data-label="Valor">R$ 3.500</td><td data-label="%">19%</td></tr>
                 <tr><td data-label="Setor"><strong>Imobiliario</strong></td><td data-label="Qtd">1</td><td data-label="Valor">R$ 3.000</td><td data-label="%">16%</td></tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
@@ -411,7 +411,7 @@
         <div class="flex gap-10" style="align-items: center;">
           <div style="width: 40px; height: 40px; border-radius: 8px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold;">TS</div>
           <div>
-            <h3 style="margin: 0; font-size: 1rem;">TechStart Inovacao</h3>
+            <h3 style="margin: 0; font-size: 1rem;">TechStart Inovação</h3>
             <p class="text-muted" style="margin: 0; font-size: 0.8rem;">Equity • Tecnologia</p>
           </div>
         </div>
@@ -419,7 +419,8 @@
       </div>
       <div style="padding: 0 16px 16px;">
         <div class="alert alert-success mb-15" style="padding: 10px; font-size: 0.85rem;">
-          <i class="bi bi-check-circle"></i> <strong>Confirmado</strong> - Desistencia encerrou 20/01/2026
+          <i class="bi bi-check-circle"></i>
+          <div><strong>Confirmado</strong> - Desistencia encerrou 20/01/2026</div>
         </div>
         <div class="grid-2" style="gap: 12px; margin-bottom: 12px; font-size: 0.85rem;">
           <div style="background: var(--bg); padding: 12px; border-radius: var(--radius);">
@@ -433,7 +434,7 @@
             <div class="flex-between"><span class="text-muted">Prazo:</span> <strong>23 dias</strong></div>
           </div>
         </div>
-        <div class="flex gap-10">
+        <div class="header-user-info">
           <a href="investimento-detalhe.html" class="btn btn-primary btn-sm" style="flex: 1;"><i class="bi bi-eye"></i> Ver Detalhes</a>
           <button class="btn btn-outline btn-sm" onclick="hideModal('detalheTechStartModal')">Fechar</button>
         </div>
@@ -448,14 +449,15 @@
           <div style="width: 40px; height: 40px; border-radius: 8px; background: linear-gradient(135deg, #ef4444, #dc2626); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold;">HT</div>
           <div>
             <h3 style="margin: 0; font-size: 1rem;">HealthTech Solutions</h3>
-            <p class="text-muted" style="margin: 0; font-size: 0.8rem;">Equity • Saude</p>
+            <p class="text-muted" style="margin: 0; font-size: 0.8rem;">Equity • Saúde</p>
           </div>
         </div>
         <button class="modal-close" onclick="hideModal('detalheHealthTechModal')">&times;</button>
       </div>
       <div style="padding: 0 16px 16px;">
         <div class="alert alert-info mb-15" style="padding: 10px; font-size: 0.85rem;">
-          <i class="bi bi-trophy"></i> <strong>Oferta Concluida!</strong> - 234 investidores
+          <i class="bi bi-trophy"></i>
+          <div><strong>Oferta Concluida!</strong> - 234 investidores</div>
         </div>
         <div class="grid-2" style="gap: 12px; margin-bottom: 12px; font-size: 0.85rem;">
           <div style="background: var(--bg); padding: 12px; border-radius: var(--radius);">
@@ -465,10 +467,10 @@
           </div>
           <div style="background: #dcfce7; padding: 12px; border-radius: var(--radius);">
             <div class="flex-between mb-5"><span class="text-muted">Dividendos:</span> <strong style="color: var(--success);">R$ 850</strong></div>
-            <div class="flex-between"><span class="text-muted">Prox. Relatorio:</span> <strong>Mar/2026</strong></div>
+            <div class="flex-between"><span class="text-muted">Prox. Relatório:</span> <strong>Mar/2026</strong></div>
           </div>
         </div>
-        <div class="flex gap-10">
+        <div class="header-user-info">
           <a href="investimento-detalhe.html" class="btn btn-primary btn-sm" style="flex: 1;"><i class="bi bi-eye"></i> Ver Detalhes</a>
           <button class="btn btn-outline btn-sm" onclick="hideModal('detalheHealthTechModal')">Fechar</button>
         </div>
@@ -483,7 +485,7 @@
           <div style="width: 40px; height: 40px; border-radius: 8px; background: linear-gradient(135deg, #22c55e, #16a34a); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8rem;">CRA</div>
           <div>
             <h3 style="margin: 0; font-size: 1rem;">Cooperativa AgroVerde</h3>
-            <p class="text-muted" style="margin: 0; font-size: 0.8rem;">CRA • Agronegocio</p>
+            <p class="text-muted" style="margin: 0; font-size: 0.8rem;">CRA • Agronegócio</p>
           </div>
         </div>
         <button class="modal-close" onclick="hideModal('detalheCRAModal')">&times;</button>
@@ -500,7 +502,7 @@
             <div class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Penhor de Safra + Aval + Seguro</div>
           </div>
         </div>
-        <div class="flex gap-10">
+        <div class="header-user-info">
           <a href="oferta-detalhe-cra.html" class="btn btn-primary btn-sm" style="flex: 1;"><i class="bi bi-eye"></i> Ver Detalhes</a>
           <button class="btn btn-outline btn-sm" onclick="hideModal('detalheCRAModal')">Fechar</button>
         </div>
@@ -521,10 +523,10 @@
         <button class="modal-close" onclick="hideModal('detalheCRIModal')">&times;</button>
       </div>
       <div style="padding: 0 16px 16px;">
-        <!-- Resgate Disponivel -->
+        <!-- Resgate Disponível -->
         <div class="alert" style="background: #fef3c7; border: 1px solid #f59e0b; padding: 10px; margin-bottom: 12px; font-size: 0.85rem;">
-          <strong><i class="bi bi-unlock"></i> Resgate Disponivel!</strong>
-          <p style="margin: 4px 0 0;">Voce pode solicitar o resgate antecipado deste titulo.</p>
+          <strong><i class="bi bi-unlock"></i> Resgate Disponível!</strong>
+          <p style="margin: 4px 0 0;">Você pode solicitar o resgaté antecipado deste título.</p>
         </div>
         <div class="grid-2" style="gap: 12px; margin-bottom: 12px; font-size: 0.85rem;">
           <div style="background: var(--bg); padding: 12px; border-radius: var(--radius);">
@@ -534,10 +536,10 @@
           </div>
           <div style="background: #ecfeff; padding: 12px; border-radius: var(--radius); border-left: 3px solid #0891b2;">
             <div style="font-size: 0.8rem;"><strong><i class="bi bi-shield-check"></i> Garantias</strong></div>
-            <div class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Alienacao Fiduciaria + Fundo de Reserva</div>
+            <div class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Alienação Fiduciaria + Fundo de Reserva</div>
           </div>
         </div>
-        <div class="flex gap-10">
+        <div class="header-user-info">
           <button class="btn btn-warning btn-sm" style="flex: 1;" onclick="hideModal('detalheCRIModal'); showModal('resgateModal');"><i class="bi bi-unlock"></i> Solicitar Resgate</button>
           <a href="oferta-detalhe-cri.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
           <button class="btn btn-outline btn-sm" onclick="hideModal('detalheCRIModal')">Fechar</button>
@@ -554,7 +556,7 @@
       </div>
       <div style="padding: 0 16px 16px;">
         <div class="alert alert-warning" style="padding: 10px; font-size: 0.85rem; margin-bottom: 12px;">
-          <strong>Atencao:</strong> O resgate antecipado pode estar sujeito a deducoes e taxas previstas no regulamento da oferta.
+          <strong>Atenção:</strong> O resgaté antecipado pode estar sujeito a deducoes e taxas previstas no regulamento da oferta.
         </div>
         <div style="background: var(--bg); padding: 12px; border-radius: var(--radius); margin-bottom: 12px; font-size: 0.85rem;">
           <div class="flex-between mb-5"><span class="text-muted">Valor Investido:</span> <strong>R$ 3.000,00</strong></div>
@@ -563,8 +565,8 @@
           <hr style="margin: 10px 0; border: none; border-top: 1px solid var(--border);">
           <div class="flex-between"><span class="text-muted">Valor Estimado:</span> <strong style="font-size: 1.1rem;">R$ 3.090,00</strong></div>
         </div>
-        <p class="text-muted" style="font-size: 0.8rem; margin-bottom: 12px;">O valor sera creditado em ate 5 dias uteis apos aprovacao.</p>
-        <div class="flex gap-10">
+        <p class="text-muted" style="font-size: 0.8rem; margin-bottom: 12px;">O valor será creditado em até 5 dias úteis após aprovação.</p>
+        <div class="header-user-info">
           <button class="btn btn-secondary btn-sm" onclick="hideModal('resgateModal')" style="flex: 1;">Cancelar</button>
           <button class="btn btn-warning btn-sm" onclick="hideModal('resgateModal'); showModal('resgateConfirmadoModal');" style="flex: 1;"><i class="bi bi-check"></i> Confirmar Resgate</button>
         </div>
@@ -577,7 +579,7 @@
       <div style="padding: 24px;">
         <i class="bi bi-check-circle" style="font-size: 2.5rem; color: var(--success);"></i>
         <h3 style="margin: 12px 0; font-size: 1rem;">Resgate Solicitado!</h3>
-        <p class="text-muted" style="font-size: 0.85rem;">Sua solicitacao sera analisada e o valor creditado em ate 5 dias uteis.</p>
+        <p class="text-muted" style="font-size: 0.85rem;">Sua solicitação será analisada e o valor creditado em até 5 dias úteis.</p>
         <button class="btn btn-primary btn-sm mt-15" onclick="hideModal('resgateConfirmadoModal')">OK</button>
       </div>
     </div>
@@ -624,5 +626,11 @@
   </div>
 
   <script src="../../js/app.js"></script>
+  
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
 </body>
 </html>

@@ -10,12 +10,12 @@
 <body class="theme-investidor">
   <div class="dashboard">
     <div class="mobile-header">
-      <a href="../../index.html" class="logo">CrowdInvest</a>
+      <a href="dashboard.html" class="logo">Alba Invest</a>
     </div>
 
     <aside class="sidebar">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo">CrowdInvest</a>
+        <a href="dashboard.html" class="logo">Alba Invest</a>
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
@@ -25,7 +25,7 @@
         <li><a href="extrato.html"><i class="bi bi-list-ul"></i> Extrato</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -48,17 +48,37 @@
           <i class="bi bi-lightning"></i> Recentes (90 dias) <span class="badge-compact badge-warning" style="margin-left: 4px;">6</span>
         </button>
         <button class="tab-compact" data-tab="historico" onclick="switchTab(this, 'historico')">
-          <i class="bi bi-clock-history"></i> Historico Completo
+          <i class="bi bi-clock-history"></i> Histórico Completo
         </button>
       </div>
 
-      <!-- Tab: Ordens Recentes (ultimos 90 dias) -->
+      <!-- Tab: Ordens Recentes (últimos 90 dias) -->
       <div id="ordensHoje" class="tab-content">
+        <!-- Resumo no Topo -->
+        <div class="summary-top">
+          <div class="summary-top-item">
+            <span class="summary-top-label">Total em Ordens Ativas</span>
+            <span class="summary-top-value">R$ 23.500</span>
+          </div>
+          <div class="summary-top-item">
+            <span class="summary-top-label">Águardando PIX</span>
+            <span class="summary-top-value" style="color: var(--warning);">R$ 2.000</span>
+          </div>
+          <div class="summary-top-item">
+            <span class="summary-top-label">Em Processamento</span>
+            <span class="summary-top-value" style="color: var(--info);">R$ 5.000</span>
+          </div>
+          <div class="summary-top-item">
+            <span class="summary-top-label">Na Carteira</span>
+            <span class="summary-top-value" style="color: var(--success);">R$ 13.500</span>
+          </div>
+        </div>
+
         <!-- Info Compacto -->
         <div class="alert alert-info mb-15" style="padding: 12px 16px; font-size: 0.85rem;">
           <i class="bi bi-info-circle"></i>
-          <span>Mostrando ordens dos <strong>ultimos 90 dias</strong>.</span>
-          <br><small class="text-muted" style="margin-left: 20px;"><strong>Cancelar:</strong> ordens nao pagas | <strong>Desistir:</strong> ordens pagas (5 dias uteis - RCVM 88)</small>
+          <span>Mostrando ordens dos <strong>últimos 90 dias</strong>.</span>
+          <br><small class="text-muted" style="margin-left: 20px;"><strong>Cancelar:</strong> ordens não pagas | <strong>Desistir:</strong> ordens pagas (5 dias úteis - RCVM 88)</small>
         </div>
 
         <!-- Filter Buttons -->
@@ -67,22 +87,22 @@
             Todas <span class="filter-count">6</span>
           </button>
           <button class="filter-btn" data-filter="aguardando" onclick="filterOrders('aguardando', this)">
-            <i class="bi bi-qr-code"></i> Aguardando PIX <span class="filter-count">1</span>
+            <i class="bi bi-qr-code"></i> Águardando PIX <span class="filter-count">1</span>
           </button>
           <button class="filter-btn" data-filter="processando" onclick="filterOrders('processando', this)">
             <i class="bi bi-arrow-repeat"></i> Processando <span class="filter-count">1</span>
           </button>
           <button class="filter-btn" data-filter="desistencia" onclick="filterOrders('desistencia', this)">
-            <i class="bi bi-shield-exclamation"></i> Em Desistencia <span class="filter-count">1</span>
+            <i class="bi bi-shield-exclamation"></i> Em Desistência <span class="filter-count">1</span>
           </button>
           <button class="filter-btn" data-filter="concluidas" onclick="filterOrders('concluidas', this)">
             <i class="bi bi-check-circle"></i> Concluidas <span class="filter-count">3</span>
           </button>
         </div>
 
-        <!-- Lista de Ordens - Layout: Dados (esquerda) | Acoes (direita) -->
+        <!-- Lista de Ordens - Layout: Dados (esquerda) | Ações (direita) -->
         <div class="orders-list">
-          <!-- Ordem 1: Aguardando PIX -->
+          <!-- Ordem 1: Águardando PIX -->
           <div class="order-row status-aguardando" data-status="aguardando">
             <div class="order-row-left">
               <div class="order-logo" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">FT</div>
@@ -103,14 +123,14 @@
                     <span class="order-detail-value" style="color: var(--warning);"><i class="bi bi-clock"></i> 23:45:12</span>
                   </div>
                   <div class="order-detail-item">
-                    <span class="order-detail-label">Participacao</span>
+                    <span class="order-detail-label">Participação</span>
                     <span class="order-detail-value">0.33%</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="order-row-right">
-              <span class="badge-compact badge-warning order-status-badge"><i class="bi bi-qr-code"></i> Aguardando PIX</span>
+              <span class="badge-compact badge-warning order-status-badge"><i class="bi bi-qr-code"></i> Águardando PIX</span>
               <div class="order-timeline">
                 <div class="order-timeline-step done"></div>
                 <div class="order-timeline-step active"></div>
@@ -119,17 +139,17 @@
               </div>
               <div class="order-actions">
                 <a href="investir-pix.html" class="btn btn-primary btn-sm"><i class="bi bi-qr-code"></i> Pagar PIX</a>
-                <button class="btn btn-secondary btn-sm" onclick="showModal('cancelarOrdemModal')"><i class="bi bi-x-lg"></i> Cancelar Ordem</button>
+                <button class="btn btn-cancel btn-sm" onclick="showModal('cancelarOrdemModal')"><i class="bi bi-x-lg"></i> Cancelar Ordem</button>
               </div>
             </div>
           </div>
 
-          <!-- Ordem 2: Processando (PIX pago, aguardando confirmacao) -->
+          <!-- Ordem 2: Processando (PIX pago, aguardando confirmação) -->
           <div class="order-row status-processando" data-status="processando">
             <div class="order-row-left">
               <div class="order-logo" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark));">TS</div>
               <div class="order-row-content">
-                <div class="order-name">TechStart Inovacao</div>
+                <div class="order-name">TechStart Inovação</div>
                 <div class="order-meta">#ORD-00231 • Equity • Tecnologia</div>
                 <div class="order-details">
                   <div class="order-detail-item">
@@ -145,7 +165,7 @@
                     <span class="order-detail-value" style="color: var(--success);"><i class="bi bi-check"></i> 14:32</span>
                   </div>
                   <div class="order-detail-item">
-                    <span class="order-detail-label">Participacao</span>
+                    <span class="order-detail-label">Participação</span>
                     <span class="order-detail-value">1.0%</span>
                   </div>
                 </div>
@@ -160,19 +180,19 @@
                 <div class="order-timeline-step"></div>
               </div>
               <div class="order-actions">
-                <span class="text-muted" style="font-size: 0.8rem;"><i class="bi bi-clock"></i> Confirmacao em ~2h</span>
-                <button class="btn btn-outline btn-sm" onclick="showModal('desistirProcessandoModal')" title="Desistir do investimento"><i class="bi bi-arrow-counterclockwise"></i> Desistir</button>
+                <span class="text-muted" style="font-size: 0.8rem;"><i class="bi bi-clock"></i> Confirmação em ~2h</span>
+                <button class="btn btn-warning btn-sm" onclick="showModal('desistirProcessandoModal')" title="Desistir do investimento"><i class="bi bi-arrow-counterclockwise"></i> Desistir</button>
               </div>
             </div>
           </div>
 
-          <!-- Ordem 3: Em Periodo de Desistencia (PIX pago, dentro dos 5 dias) -->
+          <!-- Ordem 3: Em Período de Desistência (PIX pago, dentro dos 5 dias) -->
           <div class="order-row status-desistencia" data-status="desistencia">
             <div class="order-row-left">
               <div class="order-logo" style="background: linear-gradient(135deg, #22c55e, #16a34a);">EF</div>
               <div class="order-row-content">
                 <div class="order-name">EcoFood Organicos</div>
-                <div class="order-meta">#ORD-00228 • Equity • Alimentacao</div>
+                <div class="order-meta">#ORD-00228 • Equity • Alimentação</div>
                 <div class="order-details">
                   <div class="order-detail-item">
                     <span class="order-detail-label">Valor</span>
@@ -184,17 +204,17 @@
                   </div>
                   <div class="order-detail-item">
                     <span class="order-detail-label">Prazo desistir</span>
-                    <span class="order-detail-value" style="color: #ea580c;"><i class="bi bi-exclamation-triangle"></i> Ate 15/01</span>
+                    <span class="order-detail-value" style="color: #ea580c;"><i class="bi bi-exclamation-triangle"></i> Até 15/01</span>
                   </div>
                   <div class="order-detail-item">
-                    <span class="order-detail-label">Participacao</span>
+                    <span class="order-detail-label">Participação</span>
                     <span class="order-detail-value">1.0%</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="order-row-right">
-              <span class="badge-compact badge-warning order-status-badge"><i class="bi bi-shield-exclamation"></i> Em Desistencia</span>
+              <span class="badge-compact badge-warning order-status-badge"><i class="bi bi-shield-exclamation"></i> Em Desistência</span>
               <div class="order-timeline">
                 <div class="order-timeline-step done"></div>
                 <div class="order-timeline-step done"></div>
@@ -208,13 +228,13 @@
             </div>
           </div>
 
-          <!-- Ordem 4: Concluida (fora do periodo de desistencia) -->
+          <!-- Ordem 4: Concluida (fora do período de desistencia) -->
           <div class="order-row status-confirmado" data-status="concluidas">
             <div class="order-row-left">
               <div class="order-logo" style="background: linear-gradient(135deg, #ef4444, #dc2626);">HT</div>
               <div class="order-row-content">
                 <div class="order-name">HealthTech Solutions</div>
-                <div class="order-meta">#ORD-00225 • Equity • Saude</div>
+                <div class="order-meta">#ORD-00225 • Equity • Saúde</div>
                 <div class="order-details">
                   <div class="order-detail-item">
                     <span class="order-detail-label">Valor</span>
@@ -229,7 +249,7 @@
                     <span class="order-detail-value" style="color: var(--success);">12/01/2026</span>
                   </div>
                   <div class="order-detail-item">
-                    <span class="order-detail-label">Participacao</span>
+                    <span class="order-detail-label">Participação</span>
                     <span class="order-detail-value">0.93%</span>
                   </div>
                 </div>
@@ -298,7 +318,7 @@
               <div class="order-logo" style="background: linear-gradient(135deg, #84cc16, #65a30d);">AV</div>
               <div class="order-row-content">
                 <div class="order-name">Cooperativa AgroVerde</div>
-                <div class="order-meta">#ORD-00215 • CRA • Agronegocio</div>
+                <div class="order-meta">#ORD-00215 • CRA • Agronegócio</div>
                 <div class="order-details">
                   <div class="order-detail-item">
                     <span class="order-detail-label">Valor</span>
@@ -334,17 +354,9 @@
             </div>
           </div>
         </div>
-
-        <!-- Resumo -->
-        <div class="card mt-15" style="padding: 12px 16px;">
-          <div class="flex-between" style="font-size: 0.85rem;">
-            <span class="text-muted">Total em ordens ativas:</span>
-            <strong style="color: var(--primary);">R$ 23.500</strong>
-          </div>
-        </div>
       </div>
 
-      <!-- Tab: Historico -->
+      <!-- Tab: Histórico -->
       <div id="historico" class="tab-content" style="display: none;">
         <!-- Filtros Compactos -->
         <div class="card mb-15" style="padding: 12px;">
@@ -355,29 +367,29 @@
                 <option>Todos</option>
                 <option>Confirmados</option>
                 <option>Cancelados</option>
-                <option>Desistencias</option>
+                <option>Desistências</option>
               </select>
             </div>
             <div style="flex: 1; min-width: 120px;">
-              <label class="form-label" style="font-size: 0.7rem; margin-bottom: 2px;">Periodo</label>
+              <label class="form-label" style="font-size: 0.7rem; margin-bottom: 2px;">Período</label>
               <select class="form-input" style="padding: 6px 10px; font-size: 0.8rem;">
-                <option value="30">Ultimos 30 dias</option>
-                <option value="60">Ultimos 60 dias</option>
-                <option value="90" selected>Ultimos 90 dias</option>
-                <option value="180">Ultimos 6 meses</option>
-                <option value="365">Ultimo ano</option>
-                <option value="all">Todo o periodo</option>
+                <option value="30">Últimos 30 dias</option>
+                <option value="60">Últimos 60 dias</option>
+                <option value="90" selected>Últimos 90 dias</option>
+                <option value="180">Últimos 6 meses</option>
+                <option value="365">Último ano</option>
+                <option value="all">Todo o período</option>
               </select>
             </div>
             <div style="flex: 2; min-width: 150px;">
               <label class="form-label" style="font-size: 0.7rem; margin-bottom: 2px;">Buscar</label>
               <input type="text" class="form-input" placeholder="Empresa ou ordem..." style="padding: 6px 10px; font-size: 0.8rem;">
             </div>
-            <button class="btn btn-outline btn-sm" onclick="showModal('exportandoModal')"><i class="bi bi-download"></i></button>
+            <button class="btn btn-outline btn-sm" onclick="Modals.export('pdf', 'ordens')"><i class="bi bi-download"></i></button>
           </div>
         </div>
 
-        <!-- KPIs Historico -->
+        <!-- KPIs Histórico -->
         <div class="kpi-grid-compact mb-15">
           <div class="kpi-card-compact"><div class="kpi-label-compact">Total</div><div class="kpi-value-compact">12</div></div>
           <div class="kpi-card-compact"><div class="kpi-label-compact">Confirmadas</div><div class="kpi-value-compact" style="color: var(--success);">8</div></div>
@@ -385,14 +397,14 @@
           <div class="kpi-card-compact"><div class="kpi-label-compact">Expiradas</div><div class="kpi-value-compact" style="color: #6b7280;">1</div></div>
         </div>
 
-        <!-- Historico em Linhas - Layout: Dados (esquerda) | Acoes (direita) -->
+        <!-- Histórico em Linhas - Layout: Dados (esquerda) | Ações (direita) -->
         <div class="orders-list">
           <div class="order-row status-confirmado">
             <div class="order-row-left">
               <div class="order-logo" style="background: linear-gradient(135deg, #ef4444, #dc2626);">HT</div>
               <div class="order-row-content">
                 <div class="order-name">HealthTech Solutions</div>
-                <div class="order-meta">#ORD-00150 • Equity • Saude</div>
+                <div class="order-meta">#ORD-00150 • Equity • Saúde</div>
                 <div class="order-details">
                   <div class="order-detail-item">
                     <span class="order-detail-label">Valor</span>
@@ -421,7 +433,7 @@
             <div class="order-row-left">
               <div class="order-logo" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark));">TS</div>
               <div class="order-row-content">
-                <div class="order-name">TechStart Inovacao</div>
+                <div class="order-name">TechStart Inovação</div>
                 <div class="order-meta">#ORD-00142 • Equity • Tecnologia</div>
                 <div class="order-details">
                   <div class="order-detail-item">
@@ -494,7 +506,7 @@
                   </div>
                   <div class="order-detail-item">
                     <span class="order-detail-label">Motivo</span>
-                    <span class="order-detail-value" style="color: var(--danger);">Desistencia</span>
+                    <span class="order-detail-value" style="color: var(--danger);">Desistência</span>
                   </div>
                   <div class="order-detail-item">
                     <span class="order-detail-label">Estorno</span>
@@ -504,7 +516,7 @@
               </div>
             </div>
             <div class="order-row-right">
-              <span class="badge-compact badge-danger order-status-badge"><i class="bi bi-x"></i> Desistencia</span>
+              <span class="badge-compact badge-danger order-status-badge"><i class="bi bi-x"></i> Desistência</span>
               <div class="order-actions">
                 <button class="btn btn-outline btn-sm" onclick="showModal('detalheDesistenciaModal')"><i class="bi bi-eye"></i> Detalhes</button>
               </div>
@@ -516,7 +528,7 @@
               <div class="order-logo" style="background: linear-gradient(135deg, #84cc16, #65a30d);">AV</div>
               <div class="order-row-content">
                 <div class="order-name">Cooperativa AgroVerde</div>
-                <div class="order-meta">#ORD-00120 • CRA • Agronegocio</div>
+                <div class="order-meta">#ORD-00120 • CRA • Agronegócio</div>
                 <div class="order-details">
                   <div class="order-detail-item">
                     <span class="order-detail-label">Valor</span>
@@ -558,7 +570,7 @@
                   </div>
                   <div class="order-detail-item">
                     <span class="order-detail-label">Motivo</span>
-                    <span class="order-detail-value">PIX nao realizado</span>
+                    <span class="order-detail-value">PIX não realizado</span>
                   </div>
                 </div>
               </div>
@@ -572,7 +584,7 @@
           </div>
         </div>
 
-        <!-- Paginacao Minimalista -->
+        <!-- Páginação Minimalista -->
         <div class="pagination-wrapper">
           <span class="pagination-info">Mostrando <strong>1-6</strong> de <strong>12</strong></span>
           <nav class="pagination-minimal">
@@ -583,13 +595,13 @@
           </nav>
         </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
@@ -606,13 +618,14 @@
       </div>
       <div style="padding: 0 16px 16px;">
         <div class="alert alert-info" style="padding: 10px; font-size: 0.85rem; margin-bottom: 12px;">
-          <i class="bi bi-info-circle"></i> <strong>Ordem nao paga</strong> - sem custos para cancelar
+          <i class="bi bi-info-circle"></i>
+          <div><strong>Ordem nao paga</strong> - sem custos para cancelar</div>
         </div>
         <p style="font-size: 0.95rem;">Cancelar ordem de <strong>R$ 2.000</strong> na <strong>FinTech Solutions</strong>?</p>
-        <p class="text-muted" style="font-size: 0.85rem; margin-top: 10px;">A vaga sera liberada para outros investidores. Voce pode criar uma nova ordem a qualquer momento.</p>
+        <p class="text-muted" style="font-size: 0.85rem; margin-top: 10px;">A vaga será liberada para outros investidores. Você pode criar uma nova ordem a qualquer momento.</p>
         <div class="flex gap-10 mt-15">
           <button class="btn btn-outline btn-sm" onclick="hideModal('cancelarOrdemModal')" style="flex: 1;">Voltar</button>
-          <button class="btn btn-secondary btn-sm" onclick="hideModal('cancelarOrdemModal'); showModal('ordemCanceladaModal');" style="flex: 1;"><i class="bi bi-x-lg"></i> Cancelar Ordem</button>
+          <button class="btn btn-cancel btn-sm" onclick="hideModal('cancelarOrdemModal'); showModal('ordemCanceladaModal');" style="flex: 1;"><i class="bi bi-x-lg"></i> Cancelar Ordem</button>
         </div>
       </div>
     </div>
@@ -627,16 +640,17 @@
       </div>
       <div style="padding: 0 16px 16px;">
         <div class="alert alert-warning" style="padding: 10px; font-size: 0.85rem; margin-bottom: 12px;">
-          <i class="bi bi-shield-check"></i> <strong>Direito garantido pela RCVM 88</strong> - voce pode desistir em ate 5 dias uteis apos o pagamento
+          <i class="bi bi-shield-check"></i>
+          <div><strong>Direito garantido pela RCVM 88</strong> - voce pode desistir em ate 5 dias uteis apos o pagamento</div>
         </div>
         <p style="font-size: 0.95rem;">Desistir de <strong>R$ 3.000</strong> em <strong>EcoFood Organicos</strong>?</p>
         <div style="background: var(--bg); padding: 12px; border-radius: var(--radius-sm); margin-top: 12px; font-size: 0.85rem;">
           <div class="flex-between mb-8"><span class="text-muted">Valor investido:</span> <strong>R$ 3.000,00</strong></div>
-          <div class="flex-between"><span class="text-muted">Estorno via PIX:</span> <strong style="color: var(--success);">ate 5 dias uteis</strong></div>
+          <div class="flex-between"><span class="text-muted">Estorno via PIX:</span> <strong style="color: var(--success);">até 5 dias úteis</strong></div>
         </div>
         <div class="flex gap-10 mt-15">
           <button class="btn btn-outline btn-sm" onclick="hideModal('desistirOrdemModal')" style="flex: 1;">Voltar</button>
-          <a href="desistencia-confirmacao.html" class="btn btn-warning btn-sm" style="flex: 1;"><i class="bi bi-arrow-counterclockwise"></i> Confirmar Desistencia</a>
+          <a href="desistencia-confirmacao.html" class="btn btn-warning btn-sm" style="flex: 1;"><i class="bi bi-arrow-counterclockwise"></i> Confirmar Desistência</a>
         </div>
       </div>
     </div>
@@ -651,10 +665,11 @@
       </div>
       <div style="padding: 0 16px 16px;">
         <div class="alert alert-info" style="padding: 10px; font-size: 0.85rem; margin-bottom: 12px;">
-          <i class="bi bi-clock"></i> <strong>Ordem em processamento</strong> - aguarde a confirmacao para desistir
+          <i class="bi bi-clock"></i>
+          <div><strong>Ordem em processamento</strong> - aguarde a confirmacao para desistir</div>
         </div>
-        <p style="font-size: 0.95rem;">A ordem de <strong>R$ 5.000</strong> em <strong>TechStart Inovacao</strong> ainda esta sendo processada.</p>
-        <p class="text-muted" style="font-size: 0.85rem; margin-top: 10px;">Apos confirmacao, voce tera <strong>5 dias uteis</strong> para exercer seu direito de desistencia (RCVM 88).</p>
+        <p style="font-size: 0.95rem;">A ordem de <strong>R$ 5.000</strong> em <strong>TechStart Inovação</strong> ainda está sendo processada.</p>
+        <p class="text-muted" style="font-size: 0.85rem; margin-top: 10px;">Após confirmação, você tera <strong>5 dias úteis</strong> para exercer seu direito de desistencia (RCVM 88).</p>
         <div class="flex gap-10 mt-15">
           <button class="btn btn-primary btn-sm btn-block" onclick="hideModal('desistirProcessandoModal')">Entendi</button>
         </div>
@@ -694,7 +709,7 @@
         <div class="flex-between mb-10"><span class="text-muted">Ordem:</span> <strong>#ORD-00128</strong></div>
         <div class="flex-between mb-10"><span class="text-muted">Empresa:</span> <strong>GreenTech Solar</strong></div>
         <div class="flex-between mb-10"><span class="text-muted">Valor:</span> <strong>R$ 1.500</strong></div>
-        <div class="flex-between mb-10"><span class="text-muted">Desistencia:</span> <strong>14/01/2026</strong></div>
+        <div class="flex-between mb-10"><span class="text-muted">Desistência:</span> <strong>14/01/2026</strong></div>
         <div class="flex-between"><span class="text-muted">Estorno:</span> <span class="badge-compact badge-success">Creditado 16/01</span></div>
         <button class="btn btn-primary btn-sm btn-block mt-15" onclick="hideModal('detalheDesistenciaModal')">Fechar</button>
       </div>
@@ -711,15 +726,16 @@
         <div class="flex-between mb-10"><span class="text-muted">Ordem:</span> <strong>#ORD-00098</strong></div>
         <div class="flex-between mb-10"><span class="text-muted">Empresa:</span> <strong>StartUp XYZ</strong></div>
         <div class="flex-between mb-10"><span class="text-muted">Valor:</span> <strong>R$ 2.000</strong></div>
-        <div class="flex-between"><span class="text-muted">Motivo:</span> <strong>PIX nao realizado em 24h</strong></div>
+        <div class="flex-between"><span class="text-muted">Motivo:</span> <strong>PIX não realizado em 24h</strong></div>
         <button class="btn btn-primary btn-sm btn-block mt-15" onclick="hideModal('detalheExpiradoModal')">Fechar</button>
       </div>
     </div>
   </div>
 
   <script src="../../js/app.js"></script>
+  
   <script>
-    // Funcao para trocar tabs - apenas uma ativa por vez
+    // Função para trocar tabs - apenas uma ativa por vez
     function switchTab(btn, tabId) {
       // Remove active de todas as tabs do mesmo grupo
       const tabsContainer = btn.closest('.tabs-compact') || btn.closest('.tabs');
@@ -728,7 +744,7 @@
       }
       btn.classList.add('active');
 
-      // Esconde todo conteudo de tab e mostra apenas o selecionado
+      // Esconde todo conteúdo de tab e mostra apenas o selecionado
       document.querySelectorAll('.tab-content').forEach(content => {
         content.style.display = 'none';
       });
@@ -740,7 +756,7 @@
 
     // Filter orders by status
     function filterOrders(status, btn) {
-      // Update active button - apenas um ativo por vez
+      // Updaté active button - apenas um ativo por vez
       const filterContainer = btn.closest('.filter-buttons');
       if (filterContainer) {
         filterContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -757,5 +773,10 @@
       });
     }
   </script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
 </body>
 </html>

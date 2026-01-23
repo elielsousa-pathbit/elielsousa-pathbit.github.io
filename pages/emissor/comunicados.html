@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicados - Portal do Emissor - CrowdInvest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        :root {
+            --emissor-primary: #7c3aed;
+            --emissor-dark: #5b21b6;
+            --emissor-light: #ede9fe;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, var(--emissor-primary) 0%, var(--emissor-dark) 100%);
+        }
+
+        .nav-link.active {
+            background-color: rgba(255,255,255,0.2) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--emissor-dark);
+            border-color: var(--emissor-dark);
+        }
+
+        .btn-outline-primary {
+            color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--emissor-primary);
+            border-color: var(--emissor-primary);
+        }
+
+        .text-primary {
+            color: var(--emissor-primary) !important;
+        }
+
+        /* Comunicado card */
+        .comunicado-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .comunicado-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        .comunicado-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        /* Type badges */
+        .type-atualizacao {
+            background-color: #dbeafe;
+            color: #2563eb;
+        }
+
+        .type-fato-relevante {
+            background-color: #fee2e2;
+            color: #dc2626;
+        }
+
+        .type-assembleia {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+
+        .type-comunicado {
+            background-color: #d1fae5;
+            color: #059669;
+        }
+
+        /* Stats */
+        .stat-mini {
+            text-align: center;
+            padding: 1rem;
+            background-color: #f9fafb;
+            border-radius: 8px;
+        }
+
+        /* Templates */
+        .template-card {
+            border: 2px dashed #e5e7eb;
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .template-card:hover {
+            border-color: var(--emissor-primary);
+            background-color: var(--emissor-light);
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white" style="width: 280px; min-height: 100vh;">
+            <a href="dashboard.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <i class="bi bi-building me-2 fs-4"></i>
+                <span class="fs-5 fw-semibold">Portal Emissor</span>
+            </a>
+            <hr>
+
+            <!-- Company Card -->
+            <div class="card bg-white bg-opacity-10 border-0 mb-3">
+                <div class="card-body p-2">
+                    <div class="d-flex align-items-center">
+                        <div class="rounded-circle bg-white bg-opacity-25 p-2 me-2">
+                            <i class="bi bi-building text-white"></i>
+                        </div>
+                        <div>
+                            <div class="fw-semibold small">TechStart Soluções</div>
+                            <div class="text-white-50 small">CNPJ: 12.345.678/0001-90</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link text-white">
+                        <i class="bi bi-speedometer2 me-2"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="minhas-ofertas.html" class="nav-link text-white">
+                        <i class="bi bi-collection me-2"></i>
+                        Minhas Ofertas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="nova-oferta.html" class="nav-link text-white">
+                        <i class="bi bi-plus-circle me-2"></i>
+                        Nova Oferta
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="investidores.html" class="nav-link text-white">
+                        <i class="bi bi-people me-2"></i>
+                        Investidores
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pagamentos.html" class="nav-link text-white">
+                        <i class="bi bi-cash-stack me-2"></i>
+                        Pagamentos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="comunicados.html" class="nav-link text-white active">
+                        <i class="bi bi-megaphone me-2"></i>
+                        Comunicados
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="documentos.html" class="nav-link text-white">
+                        <i class="bi bi-folder me-2"></i>
+                        Documentos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="relatorios.html" class="nav-link text-white">
+                        <i class="bi bi-graph-up me-2"></i>
+                        Relatórios
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a href="configuracoes.html" class="nav-link text-white">
+                        <i class="bi bi-gear me-2"></i>
+                        Configurações
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../parceiro/dashboard.html" class="nav-link text-white">
+                        <i class="bi bi-box-arrow-left me-2"></i>
+                        Voltar ao Portal
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 bg-light">
+            <!-- Top Bar -->
+            <div class="bg-white border-bottom px-4 py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h4 class="mb-0">Comunicados</h4>
+                        <small class="text-muted">Envie comunicados e fatos relevantes aos investidores</small>
+                    </div>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#novoComunicadoModal">
+                        <i class="bi bi-plus-lg me-1"></i>
+                        Novo Comunicado
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-4">
+                <!-- Stats -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                        <div class="stat-mini">
+                            <div class="fs-3 fw-bold text-primary">12</div>
+                            <div class="text-muted small">Comunicados Enviados</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-mini">
+                            <div class="fs-3 fw-bold text-success">92%</div>
+                            <div class="text-muted small">Taxa de Abertura</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-mini">
+                            <div class="fs-3 fw-bold text-warning">2</div>
+                            <div class="text-muted small">Fatos Relevantes</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-mini">
+                            <div class="fs-3 fw-bold text-info">109</div>
+                            <div class="text-muted small">Investidores Alcançados</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Comunicados List -->
+                    <div class="col-lg-8">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                                <h6 class="mb-0">Histórico de Comunicados</h6>
+                                <div class="d-flex gap-2">
+                                    <select class="form-select form-select-sm" style="width: 130px;">
+                                        <option>Todos tipos</option>
+                                        <option>Atualização</option>
+                                        <option>Fato Relevante</option>
+                                        <option>Assembleia</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <!-- Comunicado Item -->
+                                <div class="p-3 border-bottom">
+                                    <div class="d-flex">
+                                        <div class="comunicado-icon bg-primary bg-opacity-10 text-primary me-3">
+                                            <i class="bi bi-newspaper"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                                <div>
+                                                    <span class="badge type-atualizacao me-2">Atualização</span>
+                                                    <span class="text-muted small">18/01/2025</span>
+                                                </div>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-link text-muted" data-bs-toggle="dropdown">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Ver</a></li>
+                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-copy me-2"></i>Duplicar</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <h6 class="mb-1">Atualização Semanal - Semana 3</h6>
+                                            <p class="text-muted small mb-2">Prezados investidores, compartilhamos as novidades da semana: fechamos 3 novos clientes enterprise...</p>
+                                            <div class="d-flex gap-4 small text-muted">
+                                                <span><i class="bi bi-people me-1"></i>109 destinatários</span>
+                                                <span><i class="bi bi-envelope-open me-1"></i>94% abertos</span>
+                                                <span><i class="bi bi-link-45deg me-1"></i>23 cliques</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Fato Relevante -->
+                                <div class="p-3 border-bottom bg-light">
+                                    <div class="d-flex">
+                                        <div class="comunicado-icon bg-danger bg-opacity-10 text-danger me-3">
+                                            <i class="bi bi-exclamation-triangle"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                                <div>
+                                                    <span class="badge type-fato-relevante me-2">Fato Relevante</span>
+                                                    <span class="text-muted small">10/01/2025</span>
+                                                </div>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-link text-muted" data-bs-toggle="dropdown">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Ver</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <h6 class="mb-1">Contrato com Cliente Enterprise</h6>
+                                            <p class="text-muted small mb-2">Comunicamos aos investidores a assinatura de contrato com grande cliente do setor financeiro, com valor anual de R$ 2,4 milhões...</p>
+                                            <div class="d-flex gap-4 small text-muted">
+                                                <span><i class="bi bi-people me-1"></i>109 destinatários</span>
+                                                <span><i class="bi bi-envelope-open me-1"></i>98% abertos</span>
+                                                <span><i class="bi bi-file-earmark-pdf me-1"></i>1 anexo</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Assembleia -->
+                                <div class="p-3 border-bottom">
+                                    <div class="d-flex">
+                                        <div class="comunicado-icon bg-warning bg-opacity-10 text-warning me-3">
+                                            <i class="bi bi-calendar-event"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                                <div>
+                                                    <span class="badge type-assembleia me-2">Assembleia</span>
+                                                    <span class="text-muted small">05/01/2025</span>
+                                                </div>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-link text-muted" data-bs-toggle="dropdown">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Ver</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <h6 class="mb-1">Convocação - AGO 2025</h6>
+                                            <p class="text-muted small mb-2">Convocamos os investidores para a Assembleia Geral Ordinária que ocorrerá em 15/02/2025...</p>
+                                            <div class="d-flex gap-4 small text-muted">
+                                                <span><i class="bi bi-people me-1"></i>62 destinatários</span>
+                                                <span><i class="bi bi-envelope-open me-1"></i>89% abertos</span>
+                                                <span><i class="bi bi-check2-all me-1"></i>45 confirmações</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Atualização -->
+                                <div class="p-3 border-bottom">
+                                    <div class="d-flex">
+                                        <div class="comunicado-icon bg-primary bg-opacity-10 text-primary me-3">
+                                            <i class="bi bi-newspaper"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                                <div>
+                                                    <span class="badge type-atualizacao me-2">Atualização</span>
+                                                    <span class="text-muted small">02/01/2025</span>
+                                                </div>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-link text-muted" data-bs-toggle="dropdown">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Ver</a></li>
+                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-copy me-2"></i>Duplicar</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <h6 class="mb-1">Lançamento da Nova Oferta - Série A</h6>
+                                            <p class="text-muted small mb-2">Temos o prazer de anunciar o início da captação da nossa Série A com meta de R$ 1,5 milhão...</p>
+                                            <div class="d-flex gap-4 small text-muted">
+                                                <span><i class="bi bi-people me-1"></i>62 destinatários</span>
+                                                <span><i class="bi bi-envelope-open me-1"></i>96% abertos</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Comunicado geral -->
+                                <div class="p-3">
+                                    <div class="d-flex">
+                                        <div class="comunicado-icon bg-success bg-opacity-10 text-success me-3">
+                                            <i class="bi bi-chat-dots"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                                <div>
+                                                    <span class="badge type-comunicado me-2">Comunicado</span>
+                                                    <span class="text-muted small">15/12/2024</span>
+                                                </div>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-link text-muted" data-bs-toggle="dropdown">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Ver</a></li>
+                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-copy me-2"></i>Duplicar</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <h6 class="mb-1">Feliz Natal e Boas Festas!</h6>
+                                            <p class="text-muted small mb-2">Agradecemos a confiança de todos os nossos investidores neste ano...</p>
+                                            <div class="d-flex gap-4 small text-muted">
+                                                <span><i class="bi bi-people me-1"></i>62 destinatários</span>
+                                                <span><i class="bi bi-envelope-open me-1"></i>88% abertos</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Templates & Quick Actions -->
+                    <div class="col-lg-4">
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-header bg-white py-3">
+                                <h6 class="mb-0">Templates Rápidos</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="template-card mb-3" data-bs-toggle="modal" data-bs-target="#novoComunicadoModal">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded bg-primary bg-opacity-10 p-2 me-3">
+                                            <i class="bi bi-newspaper text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold">Atualização Semanal</div>
+                                            <div class="text-muted small">Novidades e métricas da semana</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="template-card mb-3" data-bs-toggle="modal" data-bs-target="#novoComunicadoModal">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded bg-danger bg-opacity-10 p-2 me-3">
+                                            <i class="bi bi-exclamation-triangle text-danger"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold">Fato Relevante</div>
+                                            <div class="text-muted small">Eventos materiais obrigatórios</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="template-card mb-3" data-bs-toggle="modal" data-bs-target="#novoComunicadoModal">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded bg-success bg-opacity-10 p-2 me-3">
+                                            <i class="bi bi-bar-chart text-success"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold">Relatório Trimestral</div>
+                                            <div class="text-muted small">Resultados do período</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="template-card" data-bs-toggle="modal" data-bs-target="#novoComunicadoModal">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded bg-warning bg-opacity-10 p-2 me-3">
+                                            <i class="bi bi-calendar-event text-warning"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold">Convocação AGO</div>
+                                            <div class="text-muted small">Assembleia geral ordinária</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tips -->
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white py-3">
+                                <h6 class="mb-0">Dicas de Comunicação</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex mb-3">
+                                    <i class="bi bi-check-circle text-success me-2 mt-1"></i>
+                                    <div class="small">
+                                        <strong>Seja regular:</strong> Mantenha uma frequência de comunicação constante com seus investidores.
+                                    </div>
+                                </div>
+                                <div class="d-flex mb-3">
+                                    <i class="bi bi-check-circle text-success me-2 mt-1"></i>
+                                    <div class="small">
+                                        <strong>Transparência:</strong> Comunique tanto as boas quanto as más notícias de forma clara.
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <i class="bi bi-check-circle text-success me-2 mt-1"></i>
+                                    <div class="small">
+                                        <strong>Fatos Relevantes:</strong> Alguns eventos são de divulgação obrigatória conforme RCVM 88.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Novo Comunicado Modal -->
+    <div class="modal fade" id="novoComunicadoModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-megaphone me-2"></i>
+                        Novo Comunicado
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Tipo de Comunicado</label>
+                            <select class="form-select">
+                                <option value="atualizacao">Atualização</option>
+                                <option value="fato-relevante">Fato Relevante</option>
+                                <option value="assembleia">Convocação Assembleia</option>
+                                <option value="comunicado">Comunicado Geral</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Destinatários</label>
+                            <select class="form-select">
+                                <option>Todos os investidores (109)</option>
+                                <option>Investidores da oferta ativa (47)</option>
+                                <option>Investidores Seed - MVP (62)</option>
+                                <option>Investidores qualificados (23)</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Assunto</label>
+                            <input type="text" class="form-control" placeholder="Ex: Atualização semanal - Semana 4">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Mensagem</label>
+                            <textarea class="form-control" rows="10" placeholder="Digite sua mensagem..."></textarea>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Anexos (opcional)</label>
+                            <input type="file" class="form-control" multiple>
+                            <div class="form-text">Arquivos aceitos: PDF, DOCX, XLSX, PNG, JPG (máx. 10MB cada)</div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning mt-4" id="alertFatoRelevante" style="display: none;">
+                        <div class="d-flex">
+                            <i class="bi bi-exclamation-triangle me-2"></i>
+                            <div>
+                                <strong>Atenção:</strong> Fatos Relevantes devem ser divulgados conforme regulamentação RCVM 88. Certifique-se de que o comunicado contém todas as informações obrigatórias.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-outline-primary">
+                        <i class="bi bi-eye me-1"></i>
+                        Pré-visualizar
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        <i class="bi bi-send me-1"></i>
+                        Enviar Comunicado
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Show warning for Fato Relevante
+        document.querySelector('select').addEventListener('change', function() {
+            const alert = document.getElementById('alertFatoRelevante');
+            alert.style.display = this.value === 'fato-relevante' ? 'block' : 'none';
+        });
+    </script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

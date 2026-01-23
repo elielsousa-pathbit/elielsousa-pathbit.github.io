@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comissoes - Parceiro - CrowdInvest</title>
+  <title>Comissões - Parceiro - CrowdInvest</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body class="theme-parceiro">
   <div class="dashboard">
     <div class="mobile-header">
-      <a href="../../index.html" class="logo">CrowdInvest</a>
+      <a href="dashboard.html" class="logo">Alba Invest</a>
     </div>
 
     <!-- Sidebar -->
     <aside class="sidebar sidebar-green">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo">CrowdInvest</a>
+        <a href="dashboard.html" class="logo">Alba Invest</a>
         <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
       </div>
       <!-- Profile Mode Card - Elegante -->
@@ -39,15 +39,18 @@
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor" style="display:none;">Minhas Ofertas</span><span class="menu-text-distribuidor">Ofertas Disponiveis</span></a></li>
+        <li class="hide-on-originador"><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor" style="display:none;">Minhas Ofertas</span><span class="menu-text-distribuidor">Ofertas Disponíveis</span></a></li>
         <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
-        <li><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor" style="display:none;">Investidores</span><span class="menu-text-distribuidor">Meus Clientes</span></a></li>
-        <li><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
-        <li class="distribuidor-content"><a href="comissoes.html" class="active"><i class="bi bi-cash-stack"></i> Comissoes</a></li>
+        <li class="hide-on-originador"><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor" style="display:none;">Investidores</span><span class="menu-text-distribuidor">Meus Clientes</span></a></li>
+        <li class="hide-on-originador"><a href="investimentos.html"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="distribuidor-content"><a href="comissoes.html" class="active"><i class="bi bi-cash-stack"></i> Comissões</a></li>
+        <li class="originador-content" style="display:none;"><a href="meus-emissores.html"><i class="bi bi-building"></i> Meus Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Ofertas dos Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="comissoes-originador.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -59,19 +62,19 @@
 
       <div class="page-header">
         <div>
-          <h1 class="page-title">Minhas Comissoes</h1>
-          <p class="text-muted">Acompanhe seus ganhos de distribuicao</p>
+          <h1 class="page-title">Minhas Comissões</h1>
+          <p class="text-muted">Acompanhe seus ganhos de distribuição</p>
         </div>
-        <div class="flex gap-10">
+        <div class="header-user-info">
           <div class="dropdown" style="position: relative;">
             <button class="btn btn-outline" onclick="toggleDropdown('exportDropdown')">
               <i class="bi bi-download"></i> Exportar <i class="bi bi-chevron-down"></i>
             </button>
             <div id="exportDropdown" class="dropdown-menu" style="display: none; position: absolute; right: 0; top: 100%; background: white; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-width: 160px; z-index: 100;">
-              <a href="#" onclick="showModal('exportExcelModal'); return false;" style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; text-decoration: none; color: var(--text);">
+              <a href="#" onclick="Modals.export('excel', 'comissões'); return false;" style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; text-decoration: none; color: var(--text);">
                 <i class="bi bi-file-earmark-excel" style="color: #217346;"></i> Excel (.xlsx)
               </a>
-              <a href="#" onclick="showModal('exportPdfModal'); return false;" style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; text-decoration: none; color: var(--text);">
+              <a href="#" onclick="Modals.export('pdf', 'comissões'); return false;" style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; text-decoration: none; color: var(--text);">
                 <i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> PDF (.pdf)
               </a>
             </div>
@@ -84,34 +87,38 @@
         <div class="kpi-card">
           <div class="kpi-label">Total Acumulado</div>
           <div class="kpi-value" style="color: var(--success);">R$ 28.750</div>
-          <div class="kpi-change positive"><i class="bi bi-arrow-up"></i> +R$ 1.250 este mes</div>
+          <div class="kpi-change positive"><i class="bi bi-arrow-up"></i> +R$ 1.250 este mês</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Disponivel para Saque</div>
+          <div class="kpi-label">Disponível para Saque</div>
           <div class="kpi-value" style="color: var(--primary);">R$ 4.500</div>
-          <div class="kpi-change">Proximo pagamento: 25/01</div>
+          <div class="kpi-change">Próximo pagamento: 25/01</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Aguardando Liberacao</div>
+          <div class="kpi-label">Águardando Liberação</div>
           <div class="kpi-value" style="color: var(--warning);">R$ 2.250</div>
-          <div class="kpi-change">Em periodo de desistencia</div>
+          <div class="kpi-change">Em período de desistência</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Ja Pago</div>
+          <div class="kpi-label">Já Pago</div>
           <div class="kpi-value">R$ 22.000</div>
           <div class="kpi-change">12 pagamentos realizados</div>
         </div>
       </div>
 
-      <!-- Alerta de Proximo Pagamento -->
+      <!-- Alerta de Próximo Pagamento -->
       <div class="alert alert-success mb-20">
-        <i class="bi bi-calendar-check"></i> <strong>Proximo Pagamento:</strong> R$ 4.500,00 sera creditado em sua conta no dia 25/01/2026 (5 dias uteis apos confirmacao).
+        <i class="bi bi-calendar-check"></i>
+        <div>
+          <strong>Proximo Pagamento:</strong><br>
+          R$ 4.500,00 sera creditado em sua conta no dia 25/01/2026 (5 dias uteis apos confirmacao).
+        </div>
       </div>
 
       <!-- Tabs -->
       <div class="tabs" style="margin-bottom: 20px;">
         <button class="tab active" onclick="switchTab(this, 'por-oferta')">Por Oferta</button>
-        <button class="tab" onclick="switchTab(this, 'historico')">Historico de Pagamentos</button>
+        <button class="tab" onclick="switchTab(this, 'historico')">Histórico de Pagamentos</button>
         <button class="tab" onclick="switchTab(this, 'detalhado')">Extrato Detalhado</button>
       </div>
 
@@ -120,12 +127,12 @@
         <div class="card mb-20">
           <div class="flex gap-20" style="flex-wrap: wrap;">
             <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 150px;">
-              <label class="form-label">Periodo</label>
+              <label class="form-label">Período</label>
               <select class="form-input">
-                <option>Todo o periodo</option>
-                <option selected>Este mes</option>
-                <option>Ultimo mes</option>
-                <option>Ultimos 3 meses</option>
+                <option>Todo o período</option>
+                <option selected>Este mês</option>
+                <option>Último mês</option>
+                <option>Últimos 3 meses</option>
               </select>
             </div>
             <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 150px;">
@@ -146,15 +153,15 @@
               <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #059669, #047857); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.25rem; font-weight: bold;">TS</div>
               <div>
                 <div class="flex gap-10" style="align-items: center;">
-                  <h3 style="margin: 0;">TechStart Inovacao</h3>
+                  <h3 style="margin: 0;">TechStart Inovação</h3>
                   <span class="badge badge-success">Ativa</span>
                 </div>
-                <p class="text-muted" style="font-size: 0.875rem;">Taxa de comissao: 5%</p>
+                <p class="text-muted" style="font-size: 0.875rem;">Taxa de comissão: 5%</p>
               </div>
             </div>
             <div class="text-right">
               <div style="font-size: 1.5rem; font-weight: bold; color: var(--success);">R$ 3.750,00</div>
-              <small class="text-muted">Total de comissoes</small>
+              <small class="text-muted">Total de comissões</small>
             </div>
           </div>
 
@@ -173,7 +180,7 @@
             </div>
             <div style="text-align: center; padding: 12px; background: #fef3c7; border-radius: var(--radius);">
               <div style="font-size: 1.25rem; font-weight: bold; color: var(--warning);">R$ 1.250</div>
-              <small class="text-muted">Aguardando</small>
+              <small class="text-muted">Águardando</small>
             </div>
           </div>
 
@@ -193,12 +200,12 @@
                   <h3 style="margin: 0;">GreenSolar Energia</h3>
                   <span class="badge badge-success">Ativa</span>
                 </div>
-                <p class="text-muted" style="font-size: 0.875rem;">Taxa de comissao: 4%</p>
+                <p class="text-muted" style="font-size: 0.875rem;">Taxa de comissão: 4%</p>
               </div>
             </div>
             <div class="text-right">
               <div style="font-size: 1.5rem; font-weight: bold; color: var(--success);">R$ 2.000,00</div>
-              <small class="text-muted">Total de comissoes</small>
+              <small class="text-muted">Total de comissões</small>
             </div>
           </div>
 
@@ -217,7 +224,7 @@
             </div>
             <div style="text-align: center; padding: 12px; background: #fef3c7; border-radius: var(--radius);">
               <div style="font-size: 1.25rem; font-weight: bold; color: var(--warning);">R$ 1.000</div>
-              <small class="text-muted">Aguardando</small>
+              <small class="text-muted">Águardando</small>
             </div>
           </div>
 
@@ -237,12 +244,12 @@
                   <h3 style="margin: 0;">EcoFood Delivery</h3>
                   <span class="badge badge-secondary">Encerrada</span>
                 </div>
-                <p class="text-muted" style="font-size: 0.875rem;">Taxa de comissao: 5% | Encerrada em 30/06/2025</p>
+                <p class="text-muted" style="font-size: 0.875rem;">Taxa de comissão: 5% | Encerrada em 30/06/2025</p>
               </div>
             </div>
             <div class="text-right">
               <div style="font-size: 1.5rem; font-weight: bold;">R$ 23.000,00</div>
-              <small class="text-muted">Total de comissoes (100% pago)</small>
+              <small class="text-muted">Total de comissões (100% pago)</small>
             </div>
           </div>
 
@@ -272,7 +279,7 @@
         </div>
       </div>
 
-      <!-- Tab Content - Historico de Pagamentos -->
+      <!-- Tab Content - Histórico de Pagamentos -->
       <div id="historico" class="tab-content" style="display: none;">
         <div class="card">
           <div class="table-container">
@@ -285,12 +292,12 @@
                   <th>Ofertas</th>
                   <th>Metodo</th>
                   <th>Status</th>
-                  <th>Acoes</th>
+                  <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style="background: #dcfce7;">
-                  <td data-label="ID Pagamento"><code>#PAG-2026-0025</code></td>
+                  <td data-label="ID Pagamento"><code>#PAG-0025</code></td>
                   <td data-label="Data">25/01/2026<br><small class="text-muted">Previsto</small></td>
                   <td data-label="Valor"><strong style="color: var(--success);">R$ 4.500,00</strong></td>
                   <td data-label="Ofertas">
@@ -299,7 +306,7 @@
                   </td>
                   <td data-label="Metodo">PIX</td>
                   <td data-label="Status"><span class="badge badge-warning"><i class="bi bi-clock"></i> Agendado</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <button class="btn btn-outline btn-sm" onclick="showModal('comprovantePagamentoModal')"><i class="bi bi-eye"></i> Ver</button>
                   </td>
                 </tr>
@@ -313,7 +320,7 @@
                   </td>
                   <td data-label="Metodo">PIX</td>
                   <td data-label="Status"><span class="badge badge-success"><i class="bi bi-check-circle"></i> Pago</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <button class="btn btn-outline btn-sm" onclick="showModal('comprovantePagamentoModal')"><i class="bi bi-eye"></i> Ver</button>
                   </td>
                 </tr>
@@ -327,7 +334,7 @@
                   </td>
                   <td data-label="Metodo">PIX</td>
                   <td data-label="Status"><span class="badge badge-success"><i class="bi bi-check-circle"></i> Pago</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <button class="btn btn-outline btn-sm" onclick="showModal('comprovantePagamentoModal')"><i class="bi bi-eye"></i> Ver</button>
                   </td>
                 </tr>
@@ -340,7 +347,7 @@
                   </td>
                   <td data-label="Metodo">PIX</td>
                   <td data-label="Status"><span class="badge badge-success"><i class="bi bi-check-circle"></i> Pago</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <button class="btn btn-outline btn-sm" onclick="showModal('comprovantePagamentoModal')"><i class="bi bi-eye"></i> Ver</button>
                   </td>
                 </tr>
@@ -353,7 +360,7 @@
                   </td>
                   <td data-label="Metodo">PIX</td>
                   <td data-label="Status"><span class="badge badge-success"><i class="bi bi-check-circle"></i> Pago</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <button class="btn btn-outline btn-sm" onclick="showModal('comprovantePagamentoModal')"><i class="bi bi-eye"></i> Ver</button>
                   </td>
                 </tr>
@@ -366,7 +373,7 @@
                   </td>
                   <td data-label="Metodo">PIX</td>
                   <td data-label="Status"><span class="badge badge-success"><i class="bi bi-check-circle"></i> Pago</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <button class="btn btn-outline btn-sm" onclick="showModal('comprovantePagamentoModal')"><i class="bi bi-eye"></i> Ver</button>
                   </td>
                 </tr>
@@ -374,7 +381,7 @@
             </table>
           </div>
 
-          <!-- Pagination -->
+          <!-- Págination -->
           <div class="pagination-wrapper">
             <span class="pagination-info">Mostrando <strong>1-6</strong> de <strong>13</strong></span>
             <nav class="pagination-minimal">
@@ -393,19 +400,19 @@
         <div class="card mb-20">
           <div class="flex gap-20" style="flex-wrap: wrap;">
             <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 150px;">
-              <label class="form-label">Periodo</label>
+              <label class="form-label">Período</label>
               <select class="form-input">
-                <option>Todo o periodo</option>
-                <option selected>Este mes</option>
-                <option>Ultimo mes</option>
-                <option>Ultimos 3 meses</option>
+                <option>Todo o período</option>
+                <option selected>Este mês</option>
+                <option>Último mês</option>
+                <option>Últimos 3 meses</option>
               </select>
             </div>
             <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 150px;">
               <label class="form-label">Oferta</label>
               <select class="form-input">
                 <option>Todas</option>
-                <option>TechStart Inovacao</option>
+                <option>TechStart Inovação</option>
                 <option>GreenSolar Energia</option>
                 <option>EcoFood Delivery</option>
               </select>
@@ -415,7 +422,7 @@
               <select class="form-input">
                 <option>Todos</option>
                 <option>Liberado</option>
-                <option>Aguardando</option>
+                <option>Águardando</option>
                 <option>Pago</option>
               </select>
             </div>
@@ -432,7 +439,7 @@
                   <th>Oferta</th>
                   <th>Valor Investido</th>
                   <th>Taxa</th>
-                  <th>Comissao</th>
+                  <th>Comissão</th>
                   <th>Status</th>
                 </tr>
               </thead>
@@ -446,8 +453,8 @@
                   <td data-label="Oferta"><span class="badge badge-secondary">TechStart</span></td>
                   <td data-label="Valor Investido">R$ 10.000,00</td>
                   <td data-label="Taxa">5%</td>
-                  <td data-label="Comissao"><strong>R$ 500,00</strong></td>
-                  <td data-label="Status"><span class="badge badge-warning"><i class="bi bi-clock"></i> Aguardando</span></td>
+                  <td data-label="Comissão"><strong>R$ 500,00</strong></td>
+                  <td data-label="Status"><span class="badge badge-warning"><i class="bi bi-clock"></i> Águardando</span></td>
                 </tr>
                 <tr style="background: #fef3c7;">
                   <td data-label="Data">18/01/2026</td>
@@ -458,8 +465,8 @@
                   <td data-label="Oferta"><span class="badge badge-secondary">GreenSolar</span></td>
                   <td data-label="Valor Investido">R$ 5.000,00</td>
                   <td data-label="Taxa">4%</td>
-                  <td data-label="Comissao"><strong>R$ 200,00</strong></td>
-                  <td data-label="Status"><span class="badge badge-warning"><i class="bi bi-clock"></i> Aguardando</span></td>
+                  <td data-label="Comissão"><strong>R$ 200,00</strong></td>
+                  <td data-label="Status"><span class="badge badge-warning"><i class="bi bi-clock"></i> Águardando</span></td>
                 </tr>
                 <tr style="background: #dcfce7;">
                   <td data-label="Data">15/01/2026</td>
@@ -470,7 +477,7 @@
                   <td data-label="Oferta"><span class="badge badge-secondary">TechStart</span></td>
                   <td data-label="Valor Investido">R$ 8.000,00</td>
                   <td data-label="Taxa">5%</td>
-                  <td data-label="Comissao"><strong style="color: var(--success);">R$ 400,00</strong></td>
+                  <td data-label="Comissão"><strong style="color: var(--success);">R$ 400,00</strong></td>
                   <td data-label="Status"><span class="badge badge-success"><i class="bi bi-check"></i> Liberado</span></td>
                 </tr>
                 <tr style="background: #dcfce7;">
@@ -482,7 +489,7 @@
                   <td data-label="Oferta"><span class="badge badge-secondary">TechStart</span></td>
                   <td data-label="Valor Investido">R$ 3.000,00</td>
                   <td data-label="Taxa">5%</td>
-                  <td data-label="Comissao"><strong style="color: var(--success);">R$ 150,00</strong></td>
+                  <td data-label="Comissão"><strong style="color: var(--success);">R$ 150,00</strong></td>
                   <td data-label="Status"><span class="badge badge-success"><i class="bi bi-check"></i> Liberado</span></td>
                 </tr>
                 <tr style="background: #dcfce7;">
@@ -494,7 +501,7 @@
                   <td data-label="Oferta"><span class="badge badge-secondary">GreenSolar</span></td>
                   <td data-label="Valor Investido">R$ 7.500,00</td>
                   <td data-label="Taxa">4%</td>
-                  <td data-label="Comissao"><strong style="color: var(--success);">R$ 300,00</strong></td>
+                  <td data-label="Comissão"><strong style="color: var(--success);">R$ 300,00</strong></td>
                   <td data-label="Status"><span class="badge badge-success"><i class="bi bi-check"></i> Liberado</span></td>
                 </tr>
                 <tr>
@@ -506,14 +513,14 @@
                   <td data-label="Oferta"><span class="badge badge-secondary">TechStart</span></td>
                   <td data-label="Valor Investido">R$ 5.000,00</td>
                   <td data-label="Taxa">5%</td>
-                  <td data-label="Comissao"><strong>R$ 250,00</strong></td>
+                  <td data-label="Comissão"><strong>R$ 250,00</strong></td>
                   <td data-label="Status"><span class="badge badge-primary"><i class="bi bi-check-circle"></i> Pago</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <!-- Pagination -->
+          <!-- Págination -->
           <div class="pagination-wrapper">
             <span class="pagination-info">Mostrando <strong>1-6</strong> de <strong>125</strong></span>
             <nav class="pagination-minimal">
@@ -530,14 +537,14 @@
       <!-- Resumo Financeiro -->
       <div class="card mt-20">
         <div class="card-header">
-          <h3 class="card-title"><i class="bi bi-piggy-bank"></i> Resumo de Comissoes</h3>
+          <h3 class="card-title"><i class="bi bi-piggy-bank"></i> Resumo de Comissões</h3>
         </div>
         <div class="grid-2" style="gap: 30px;">
           <div>
-            <h4 style="margin-bottom: 15px; color: var(--text-muted);">Este Mes (Janeiro/2026)</h4>
+            <h4 style="margin-bottom: 15px; color: var(--text-muted);">Este Mês (Janeiro/2026)</h4>
             <div style="display: flex; flex-direction: column; gap: 10px;">
               <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius);">
-                <span>TechStart Inovacao</span>
+                <span>TechStart Inovação</span>
                 <strong style="color: var(--success);">R$ 1.050,00</strong>
               </div>
               <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius);">
@@ -552,7 +559,7 @@
             </div>
           </div>
           <div>
-            <h4 style="margin-bottom: 15px; color: var(--text-muted);">Dados Bancarios para Pagamento</h4>
+            <h4 style="margin-bottom: 15px; color: var(--text-muted);">Dados Bancários para Pagamento</h4>
             <div style="padding: 15px; background: var(--bg); border-radius: var(--radius);">
               <p style="margin-bottom: 10px;"><strong>Banco:</strong> Banco do Brasil (001)</p>
               <p style="margin-bottom: 10px;"><strong>Agencia:</strong> 1234-5</p>
@@ -560,63 +567,44 @@
               <p style="margin-bottom: 10px;"><strong>CPF/CNPJ:</strong> ***.456.789-**</p>
               <p style="margin-bottom: 0;"><strong>PIX:</strong> ***@email.com</p>
             </div>
-            <a href="configuracoes.html" class="btn btn-outline btn-sm mt-10"><i class="bi bi-pencil"></i> Atualizar Dados Bancarios</a>
+            <a href="configuracoes.html" class="btn btn-outline btn-sm mt-10"><i class="bi bi-pencil"></i> Atualizar Dados Bancários</a>
           </div>
         </div>
       </div>
 
       <!-- Info -->
       <div class="alert alert-info mt-20">
-        <strong>RCVM 88/2022:</strong> As comissoes sao liberadas apos o termino do periodo de desistencia de cada investimento (5 dias uteis). O pagamento e realizado a cada dia 25 do mes seguinte a liberacao.
+        <i class="bi bi-info-circle"></i>
+        <div>
+          <strong>RCVM 88/2022:</strong><br>
+          As comissões são liberadas após o término do período de desistência de cada investimento (5 dias úteis). O pagamento e realizado a cada dia 25 do mês seguinte a liberação.
+        </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
   </div>
 
-  <!-- Modals -->
-  <div class="modal-overlay" id="exportExcelModal" style="display: none;">
-    <div class="modal text-center" style="max-width: 400px;">
-      <div style="padding: 30px;">
-        <i class="bi bi-file-earmark-excel" style="font-size: 3rem; color: var(--success);"></i>
-        <h3 style="margin: 15px 0;">Exportando Excel</h3>
-        <p class="text-muted">O arquivo Excel esta sendo gerado para download.</p>
-        <button class="btn btn-primary mt-20" onclick="hideModal('exportExcelModal')">OK</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="exportPdfModal" style="display: none;">
-    <div class="modal text-center" style="max-width: 400px;">
-      <div style="padding: 30px;">
-        <i class="bi bi-file-earmark-pdf" style="font-size: 3rem; color: var(--success);"></i>
-        <h3 style="margin: 15px 0;">Exportando PDF</h3>
-        <p class="text-muted">O arquivo PDF esta sendo gerado para download.</p>
-        <button class="btn btn-primary mt-20" onclick="hideModal('exportPdfModal')">OK</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Detalhes Comissao -->
+  <!-- Modal Detalhes Comissão -->
   <div class="modal-overlay" id="detalhesComissaoModal" style="display: none;">
     <div class="modal" style="max-width: 600px;">
       <div class="modal-header">
-        <h3><i class="bi bi-cash-stack"></i> Detalhes da Comissao</h3>
+        <h3><i class="bi bi-cash-stack"></i> Detalhes da Comissão</h3>
         <button class="modal-close" onclick="hideModal('detalhesComissaoModal')">&times;</button>
       </div>
       <div class="modal-body">
         <div class="flex gap-15" style="align-items: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border);">
           <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #059669, #047857); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">TS</div>
           <div>
-            <h4 style="margin: 0;">TechStart Inovacao</h4>
-            <small class="text-muted">Taxa de comissao: 5%</small>
+            <h4 style="margin: 0;">TechStart Inovação</h4>
+            <small class="text-muted">Taxa de comissão: 5%</small>
           </div>
         </div>
 
@@ -626,26 +614,26 @@
             <strong style="font-size: 1.25rem;">R$ 75.000</strong>
           </div>
           <div style="padding: 15px; background: var(--bg); border-radius: var(--radius); text-align: center;">
-            <div class="text-muted" style="font-size: 0.75rem;">Comissao Total</div>
+            <div class="text-muted" style="font-size: 0.75rem;">Comissão Total</div>
             <strong style="font-size: 1.25rem; color: var(--success);">R$ 3.750</strong>
           </div>
         </div>
 
-        <h5 style="margin-bottom: 10px;">Breakdown de Comissoes</h5>
+        <h5 style="margin-bottom: 10px;">Breakdown de Comissões</h5>
         <div style="display: flex; flex-direction: column; gap: 8px;">
           <div class="flex-between" style="padding: 10px; background: #dcfce7; border-radius: var(--radius);">
             <span><i class="bi bi-check-circle" style="color: var(--success);"></i> Liberado</span>
             <strong>R$ 2.500,00</strong>
           </div>
           <div class="flex-between" style="padding: 10px; background: #fef3c7; border-radius: var(--radius);">
-            <span><i class="bi bi-clock" style="color: var(--warning);"></i> Aguardando Liberacao</span>
+            <span><i class="bi bi-clock" style="color: var(--warning);"></i> Águardando Liberação</span>
             <strong>R$ 1.250,00</strong>
           </div>
         </div>
       </div>
       <div class="modal-footer">
         <button class="btn btn-outline" onclick="hideModal('detalhesComissaoModal')">Fechar</button>
-        <button class="btn btn-primary"><i class="bi bi-download"></i> Exportar Relatorio</button>
+        <button class="btn btn-primary"><i class="bi bi-download"></i> Exportar Relatório</button>
       </div>
     </div>
   </div>
@@ -688,7 +676,7 @@
         <h5 style="margin-bottom: 10px;">Ofertas Incluidas</h5>
         <div style="display: flex; flex-direction: column; gap: 8px;">
           <div class="flex-between" style="padding: 8px; background: var(--bg); border-radius: var(--radius);">
-            <span>TechStart Inovacao</span>
+            <span>TechStart Inovação</span>
             <strong>R$ 1.800,00</strong>
           </div>
           <div class="flex-between" style="padding: 8px; background: var(--bg); border-radius: var(--radius);">
@@ -705,6 +693,7 @@
   </div>
 
   <script src="../../js/app.js"></script>
+  
 
 <!-- Modal Selecionar Perfil -->
 <div class="modal-overlay" id="selecionarPerfilModal" style="display: none;">
@@ -714,7 +703,7 @@
       <button class="modal-close" onclick="hideModal('selecionarPerfilModal')">&times;</button>
     </div>
     <p class="text-muted mb-20">Escolha como deseja visualizar e operar na plataforma.</p>
-    <!-- Opcao Emissor -->
+    <!-- Opção Emissor -->
     <div class="profile-option emissor" id="optionEmissor" onclick="selectProfileOption('emissor')">
       <div class="profile-option-icon emissor"><i class="bi bi-broadcast"></i></div>
       <div class="profile-option-content">
@@ -732,12 +721,28 @@
       </div>
       <div class="profile-option-check"><i class="bi bi-check"></i></div>
     </div>
+    
+    <!-- Opcao Originador -->
+    <div class="profile-option originador" id="optionOriginador" onclick="selectProfileOption('originador')">
+      <div class="profile-option-icon originador"><i class="bi bi-lightning-charge"></i></div>
+      <div class="profile-option-content">
+        <div class="profile-option-title">Originador</div>
+        <p class="profile-option-desc">Traga novas empresas para captar recursos.</p>
+      </div>
+      <div class="profile-option-check"><i class="bi bi-check"></i></div>
+    </div>
+    
     <div class="flex gap-10 mt-20">
       <button class="btn btn-outline" onclick="hideModal('selecionarPerfilModal')" style="flex: 1;">Cancelar</button>
       <button class="btn btn-primary" onclick="confirmarPerfil()" style="flex: 1;"><i class="bi bi-check-lg"></i> Confirmar</button>
     </div>
   </div>
 </div>
+
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
 
 </body>
 </html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Oferta - Dados da Operacao - Portal Emissor - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .wizard-progress {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .wizard-progress::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--border);
+      z-index: 0;
+    }
+    .wizard-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+    }
+    .wizard-step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 3px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      transition: all 0.3s;
+    }
+    .wizard-step.active .wizard-step-number {
+      background: #7c3aed;
+      border-color: #7c3aed;
+      color: white;
+    }
+    .wizard-step.completed .wizard-step-number {
+      background: #10b981;
+      border-color: #10b981;
+      color: white;
+    }
+    .wizard-step-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    .wizard-step.active .wizard-step-label {
+      color: #7c3aed;
+      font-weight: 600;
+    }
+    .titulo-option {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 20px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .titulo-option:hover {
+      border-color: #7c3aed;
+      background: var(--bg);
+    }
+    .titulo-option.selected {
+      border-color: #7c3aed;
+      background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+    }
+  </style>
+</head>
+<body class="theme-parceiro">
+  <div class="dashboard">
+    <div class="mobile-header">
+      <a href="dashboard.html" class="logo">Alba Invest</a>
+    </div>
+
+    <!-- Sidebar Emissor -->
+    <aside class="sidebar" style="background: linear-gradient(180deg, #5b21b6 0%, #7c3aed 100%);">
+      <div class="sidebar-logo">
+        <a href="dashboard.html" class="logo" style="color: white;">CrowdInvest</a>
+        <span class="badge" style="background: white; color: #7c3aed; margin-left: 10px;">Emissor</span>
+      </div>
+
+      <div style="padding: 15px 20px; background: rgba(255,255,255,0.1); margin: 10px 15px; border-radius: var(--radius);">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 40px; height: 40px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #7c3aed; font-weight: 700;">TS</div>
+          <div>
+            <div style="color: white; font-weight: 600; font-size: 0.9rem;">TechStart</div>
+            <div style="color: rgba(255,255,255,0.7); font-size: 0.75rem;">CNPJ: 12.345.678/0001-90</div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Minhas Ofertas</a></li>
+        <li><a href="nova-oferta.html" class="active"><i class="bi bi-plus-circle"></i> Nova Oferta</a></li>
+        <li><a href="investidores.html"><i class="bi bi-people"></i> Investidores</a></li>
+        <li><a href="pagamentos.html"><i class="bi bi-cash-stack"></i> Pagamentos</a></li>
+        <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
+        <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="../login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
+      </ul>
+    </aside>
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <button class="menu-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i><span> Menu</span></button>
+
+      <div class="page-header">
+        <div class="flex gap-10" style="align-items: center;">
+          <a href="nova-oferta-step4.html" class="btn btn-outline btn-sm"><i class="bi bi-arrow-left"></i></a>
+          <div>
+            <h1 class="page-title">Excelente! Vamos falar da Operacao</h1>
+            <p class="text-muted">Defina os parametros da sua oferta de captacao</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wizard Progress -->
+      <div class="card mb-20" style="padding: 25px 30px;">
+        <div class="wizard-progress">
+          <div class="wizard-step completed">
+            <div class="wizard-step-number"><i class="bi bi-check"></i></div>
+            <div class="wizard-step-label">Setor</div>
+          </div>
+          <div class="wizard-step completed">
+            <div class="wizard-step-number"><i class="bi bi-check"></i></div>
+            <div class="wizard-step-label">Segmento</div>
+          </div>
+          <div class="wizard-step completed">
+            <div class="wizard-step-number"><i class="bi bi-check"></i></div>
+            <div class="wizard-step-label">Negocio</div>
+          </div>
+          <div class="wizard-step completed">
+            <div class="wizard-step-number"><i class="bi bi-check"></i></div>
+            <div class="wizard-step-label">Financeiro</div>
+          </div>
+          <div class="wizard-step active">
+            <div class="wizard-step-number">5</div>
+            <div class="wizard-step-label">Operacao</div>
+          </div>
+          <div class="wizard-step">
+            <div class="wizard-step-number">6</div>
+            <div class="wizard-step-label">Documentos</div>
+          </div>
+          <div class="wizard-step">
+            <div class="wizard-step-number">7</div>
+            <div class="wizard-step-label">Revisao</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alert Limite -->
+      <div class="alert alert-warning mb-20">
+        <i class="bi bi-exclamation-triangle"></i>
+        <div>
+          <strong>Limite RCVM 88:</strong><br>
+          Captacao maxima de R$ 15.000.000,00 por ano. Sociedades Anonimas: ate R$ 10.000.000,00.
+        </div>
+      </div>
+
+      <!-- Step 5: Dados da Operacao -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title"><i class="bi bi-currency-dollar"></i> Parametros da Oferta</h3>
+        </div>
+
+        <form id="operacaoForm">
+          <h4 style="margin-bottom: 20px;"><i class="bi bi-file-earmark-text"></i> Tipo de Titulo</h4>
+
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 30px;">
+            <div class="titulo-option selected" onclick="selectTitulo(this, 'equity')">
+              <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #7c3aed, #a78bfa); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                <i class="bi bi-pie-chart"></i>
+              </div>
+              <div>
+                <strong>Equity (Participacao Societaria)</strong>
+                <p class="text-muted" style="margin: 5px 0 0; font-size: 0.85rem;">Investidor recebe participacao na empresa</p>
+              </div>
+            </div>
+
+            <div class="titulo-option" onclick="selectTitulo(this, 'conversivel')">
+              <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #0891b2, #67e8f9); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                <i class="bi bi-arrow-repeat"></i>
+              </div>
+              <div>
+                <strong>Titulo Conversivel</strong>
+                <p class="text-muted" style="margin: 5px 0 0; font-size: 0.85rem;">Divida que pode converter em participacao</p>
+              </div>
+            </div>
+
+            <div class="titulo-option" onclick="selectTitulo(this, 'divida')">
+              <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #f59e0b, #fcd34d); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                <i class="bi bi-cash-coin"></i>
+              </div>
+              <div>
+                <strong>Titulo de Divida</strong>
+                <p class="text-muted" style="margin: 5px 0 0; font-size: 0.85rem;">Investidor recebe juros sobre valor emprestado</p>
+              </div>
+            </div>
+
+            <div class="titulo-option" onclick="selectTitulo(this, 'cr')">
+              <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #22c55e, #86efac); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                <i class="bi bi-receipt"></i>
+              </div>
+              <div>
+                <strong>Certificado de Recebiveis (CR)</strong>
+                <p class="text-muted" style="margin: 5px 0 0; font-size: 0.85rem;">Lastreado em recebiveis da empresa</p>
+              </div>
+            </div>
+          </div>
+
+          <hr style="margin: 25px 0; border: none; border-top: 1px solid var(--border);">
+
+          <h4 style="margin-bottom: 20px;"><i class="bi bi-currency-dollar"></i> Valores da Captacao</h4>
+
+          <div class="grid-2" style="gap: 20px;">
+            <div class="form-group">
+              <label class="form-label">Quanto deseja captar? *</label>
+              <input type="text" class="form-input" placeholder="R$ 0,00" value="R$ 500.000,00" required style="font-size: 1.25rem; font-weight: 600;">
+              <small class="text-muted">Valor total da meta de captacao</small>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Meta Minima (Lote Minimo) *</label>
+              <input type="text" class="form-input" placeholder="R$ 0,00" value="R$ 300.000,00" required>
+              <small class="text-muted">Minimo para a oferta ser bem-sucedida</small>
+            </div>
+          </div>
+
+          <div class="grid-2" style="gap: 20px;">
+            <div class="form-group">
+              <label class="form-label">Investimento Minimo por Investidor *</label>
+              <input type="text" class="form-input" placeholder="R$ 0,00" value="R$ 1.000,00" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Investimento Maximo por Investidor *</label>
+              <input type="text" class="form-input" placeholder="R$ 0,00" value="R$ 20.000,00" required>
+              <small class="text-muted">Limite RCVM 88: R$ 20.000 para nao-qualificados</small>
+            </div>
+          </div>
+
+          <hr style="margin: 25px 0; border: none; border-top: 1px solid var(--border);">
+
+          <h4 style="margin-bottom: 20px;"><i class="bi bi-pie-chart"></i> Participacao Ofertada (para Equity)</h4>
+
+          <div class="grid-2" style="gap: 20px;">
+            <div class="form-group">
+              <label class="form-label">Percentual de Equity Ofertado (%) *</label>
+              <input type="number" class="form-input" placeholder="0%" value="15" min="1" max="100" step="0.1" required>
+              <small class="text-muted">Participacao que sera diluida para os investidores</small>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Valuation Pre-Money</label>
+              <input type="text" class="form-input" value="R$ 3.333.333,33" readonly style="background: var(--bg);">
+              <small class="text-muted">Calculado: Meta / % Equity</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Direitos dos Investidores *</label>
+            <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                <input type="checkbox" checked> Tag-Along
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                <input type="checkbox" checked> Voto em Assembleias
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                <input type="checkbox" checked> Dividendos Pro-rata
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                <input type="checkbox"> Preferencia em Novas Rodadas
+              </label>
+            </div>
+          </div>
+
+          <hr style="margin: 25px 0; border: none; border-top: 1px solid var(--border);">
+
+          <h4 style="margin-bottom: 20px;"><i class="bi bi-bullseye"></i> Utilizacao dos Recursos</h4>
+
+          <div class="form-group">
+            <label class="form-label">Qual sera a destinacao dos recursos captados? *</label>
+            <textarea class="form-input" rows="4" placeholder="Descreva como os recursos serao utilizados..." required>Os recursos captados serao utilizados para:
+- 40% Desenvolvimento de produto e expansao da plataforma
+- 30% Marketing e aquisicao de novos clientes (CAC)
+- 20% Contratacao de equipe (engenharia e comercial)
+- 10% Capital de giro e reserva operacional</textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Informacoes adicionais sobre a operacao (opcional)</label>
+            <textarea class="form-input" rows="3" placeholder="Alguma informacao adicional relevante para os investidores...">Ja temos conversas avancadas com investidor ancora interessado em liderar a rodada com R$ 100.000.</textarea>
+          </div>
+
+          <hr style="margin: 25px 0; border: none; border-top: 1px solid var(--border);">
+
+          <div class="flex-between">
+            <a href="nova-oferta-step4.html" class="btn btn-outline">
+              <i class="bi bi-arrow-left"></i> Voltar
+            </a>
+            <a href="nova-oferta-step6.html" class="btn btn-primary" style="background: linear-gradient(135deg, #7c3aed, #a78bfa);">
+              Continuar <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="dashboard-disclaimer">
+        <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/app.js"></script>
+  <script>
+    function selectTitulo(element, tipo) {
+      document.querySelectorAll('.titulo-option').forEach(opt => {
+        opt.classList.remove('selected');
+      });
+      element.classList.add('selected');
+    }
+  </script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

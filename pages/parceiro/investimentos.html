@@ -10,13 +10,13 @@
 <body class="theme-parceiro">
   <div class="dashboard">
     <div class="mobile-header">
-      <a href="../../index.html" class="logo">CrowdInvest</a>
+      <a href="dashboard.html" class="logo">Alba Invest</a>
     </div>
 
     <!-- Sidebar -->
     <aside class="sidebar sidebar-green">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo">CrowdInvest</a>
+        <a href="dashboard.html" class="logo">Alba Invest</a>
         <span class="badge" style="background: white; color: #059669; margin-left: 10px;">Parceiro</span>
       </div>
       <!-- Profile Mode Card - Elegante -->
@@ -39,15 +39,18 @@
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-        <li><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponiveis</span></a></li>
+        <li class="hide-on-originador"><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> <span class="menu-text-emissor">Minhas Ofertas</span><span class="menu-text-distribuidor" style="display:none;">Ofertas Disponíveis</span></a></li>
         <li><a href="comunicados.html"><i class="bi bi-chat-square-text"></i> Comunicados</a></li>
-        <li><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
-        <li><a href="investimentos.html" class="active"><i class="bi bi-wallet2"></i> Investimentos</a></li>
-        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissoes</a></li>
+        <li class="hide-on-originador"><a href="clientes.html"><i class="bi bi-people"></i> <span class="menu-text-emissor">Investidores</span><span class="menu-text-distribuidor" style="display:none;">Meus Clientes</span></a></li>
+        <li class="hide-on-originador"><a href="investimentos.html" class="active"><i class="bi bi-wallet2"></i> Investimentos</a></li>
+        <li class="distribuidor-content" style="display:none;"><a href="comissoes.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
+        <li class="originador-content" style="display:none;"><a href="meus-emissores.html"><i class="bi bi-building"></i> Meus Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="minhas-ofertas.html"><i class="bi bi-megaphone"></i> Ofertas dos Emissores</a></li>
+        <li class="originador-content" style="display:none;"><a href="comissoes-originador.html"><i class="bi bi-cash-stack"></i> Comissões</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../parceiro-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -60,18 +63,18 @@
       <div class="page-header">
         <div>
           <h1 class="page-title">Investimentos Recebidos</h1>
-          <p class="text-muted">Acompanhe todas as transacoes de investimento na sua oferta</p>
+          <p class="text-muted">Acompanhe todas as transações de investimento na sua oferta</p>
         </div>
-        <div class="flex gap-10">
+        <div class="header-user-info">
           <div class="dropdown" style="position: relative;">
             <button class="btn btn-outline" onclick="toggleDropdown('exportDropdown')">
               <i class="bi bi-download"></i> Exportar <i class="bi bi-chevron-down"></i>
             </button>
             <div id="exportDropdown" class="dropdown-menu" style="display: none; position: absolute; right: 0; top: 100%; background: white; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-width: 160px; z-index: 100;">
-              <a href="#" onclick="showModal('exportExcelModal'); return false;" style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; text-decoration: none; color: var(--text);">
+              <a href="#" onclick="Modals.export('excel', 'investimentos'); return false;" style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; text-decoration: none; color: var(--text);">
                 <i class="bi bi-file-earmark-excel" style="color: #217346;"></i> Excel (.xlsx)
               </a>
-              <a href="#" onclick="showModal('exportPdfModal'); return false;" style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; text-decoration: none; color: var(--text);">
+              <a href="#" onclick="Modals.export('pdf', 'investimentos'); return false;" style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; text-decoration: none; color: var(--text);">
                 <i class="bi bi-file-earmark-pdf" style="color: #dc3545;"></i> PDF (.pdf)
               </a>
             </div>
@@ -92,12 +95,12 @@
           <div class="kpi-change">R$ 360.000</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Aguardando Pagamento</div>
+          <div class="kpi-label">Águardando Pagamento</div>
           <div class="kpi-value" style="color: var(--warning);">3</div>
           <div class="kpi-change">R$ 8.500 pendente</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Em Periodo de Desistencia</div>
+          <div class="kpi-label">Em Período de Desistência</div>
           <div class="kpi-value" style="color: var(--info);">6</div>
           <div class="kpi-change">R$ 15.000 em risco</div>
         </div>
@@ -108,7 +111,7 @@
         <button class="tab active" onclick="switchTab(this, 'todos')">Todos (127)</button>
         <button class="tab" onclick="switchTab(this, 'confirmados')">Confirmados (118)</button>
         <button class="tab" onclick="switchTab(this, 'pendentes')">Pendentes (3)</button>
-        <button class="tab" onclick="switchTab(this, 'desistencia')">Em Desistencia (6)</button>
+        <button class="tab" onclick="switchTab(this, 'desistencia')">Em Desistência (6)</button>
         <button class="tab" onclick="switchTab(this, 'cancelados')">Cancelados (3)</button>
       </div>
 
@@ -116,19 +119,19 @@
       <div class="card mb-20">
         <div class="flex gap-20" style="flex-wrap: wrap;">
           <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 150px;">
-            <label class="form-label">Periodo</label>
+            <label class="form-label">Período</label>
             <select class="form-input">
-              <option>Todo o periodo</option>
+              <option>Todo o período</option>
               <option>Hoje</option>
-              <option>Ultimos 7 dias</option>
-              <option>Ultimos 30 dias</option>
+              <option>Últimos 7 dias</option>
+              <option>Últimos 30 dias</option>
             </select>
           </div>
           <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 150px;">
             <label class="form-label">Valor</label>
             <select class="form-input">
               <option>Todos os valores</option>
-              <option>Ate R$ 5.000</option>
+              <option>Até R$ 5.000</option>
               <option>R$ 5.000 - R$ 10.000</option>
               <option>Acima de R$ 10.000</option>
             </select>
@@ -144,7 +147,7 @@
           </div>
           <div class="form-group" style="margin-bottom: 0; flex: 2; min-width: 200px;">
             <label class="form-label">Buscar</label>
-            <input type="text" class="form-input" placeholder="ID da transacao ou investidor...">
+            <input type="text" class="form-input" placeholder="ID da transação ou investidor...">
           </div>
         </div>
       </div>
@@ -163,13 +166,13 @@
                   <th>Pagamento</th>
                   <th>Data</th>
                   <th>Status</th>
-                  <th>Acoes</th>
+                  <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
-                <!-- Aguardando Pagamento -->
+                <!-- Águardando Pagamento -->
                 <tr style="background: #fff7ed;">
-                  <td data-label="ID"><code>#INV-2026-0130</code></td>
+                  <td data-label="ID"><code>#INV-0130</code></td>
                   <td data-label="Investidor">
                     <strong>Lucas M.</strong>
                     <br><small class="text-muted">lucas.m***@email.com</small>
@@ -178,14 +181,14 @@
                   <td data-label="Equity">0.9%</td>
                   <td data-label="Pagamento"><span class="badge badge-secondary"><i class="bi bi-qr-code"></i> PIX</span></td>
                   <td data-label="Data">19/01/2026<br><small class="text-muted">14:35</small></td>
-                  <td data-label="Status"><span class="badge badge-warning"><i class="bi bi-clock"></i> Aguardando</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Status"><span class="badge badge-warning"><i class="bi bi-clock"></i> Águardando</span></td>
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
-                <!-- Em Desistencia -->
+                <!-- Em Desistência -->
                 <tr style="background: #fef3c7;">
-                  <td data-label="ID"><code>#INV-2026-0127</code></td>
+                  <td data-label="ID"><code>#INV-0127</code></td>
                   <td data-label="Investidor">
                     <strong>Joao Carlos S.</strong>
                     <br><small class="text-muted">joao.s***@email.com</small>
@@ -195,16 +198,16 @@
                   <td data-label="Pagamento"><span class="badge badge-success"><i class="bi bi-check-circle"></i> PIX</span></td>
                   <td data-label="Data">19/01/2026<br><small class="text-muted">10:22</small></td>
                   <td data-label="Status">
-                    <span class="badge badge-info"><i class="bi bi-hourglass-split"></i> Desistencia</span>
-                    <br><small style="color: var(--warning);">ate 24/01</small>
+                    <span class="badge badge-info"><i class="bi bi-hourglass-split"></i> Desistência</span>
+                    <br><small style="color: var(--warning);">até 24/01</small>
                   </td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
                 <!-- Confirmado -->
                 <tr>
-                  <td data-label="ID"><code>#INV-2026-0125</code></td>
+                  <td data-label="ID"><code>#INV-0125</code></td>
                   <td data-label="Investidor">
                     <strong>Maria L.</strong>
                     <br><small class="text-muted">maria.l***@email.com</small>
@@ -214,13 +217,13 @@
                   <td data-label="Pagamento"><span class="badge badge-success"><i class="bi bi-check-circle"></i> PIX</span></td>
                   <td data-label="Data">15/01/2026<br><small class="text-muted">09:15</small></td>
                   <td data-label="Status"><span class="badge badge-success"><i class="bi bi-check-circle"></i> Confirmado</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
                 <!-- Confirmado -->
                 <tr>
-                  <td data-label="ID"><code>#INV-2026-0124</code></td>
+                  <td data-label="ID"><code>#INV-0124</code></td>
                   <td data-label="Investidor">
                     <strong>Pedro M.</strong>
                     <br><small class="text-muted">pedro.m***@email.com</small>
@@ -230,13 +233,13 @@
                   <td data-label="Pagamento"><span class="badge badge-success"><i class="bi bi-check-circle"></i> TED</span></td>
                   <td data-label="Data">14/01/2026<br><small class="text-muted">16:42</small></td>
                   <td data-label="Status"><span class="badge badge-success"><i class="bi bi-check-circle"></i> Confirmado</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
                 <!-- Confirmado -->
                 <tr>
-                  <td data-label="ID"><code>#INV-2026-0120</code></td>
+                  <td data-label="ID"><code>#INV-0120</code></td>
                   <td data-label="Investidor">
                     <strong>Fernanda C.</strong>
                     <br><small class="text-muted">fernanda.c***@email.com</small>
@@ -246,13 +249,13 @@
                   <td data-label="Pagamento"><span class="badge badge-success"><i class="bi bi-check-circle"></i> PIX</span></td>
                   <td data-label="Data">12/01/2026<br><small class="text-muted">11:30</small></td>
                   <td data-label="Status"><span class="badge badge-success"><i class="bi bi-check-circle"></i> Confirmado</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
                 <!-- Cancelado/Desistiu -->
                 <tr style="background: #fee2e2;">
-                  <td data-label="ID"><code>#INV-2026-0098</code></td>
+                  <td data-label="ID"><code>#INV-0098</code></td>
                   <td data-label="Investidor">
                     <strong>Roberto A.</strong>
                     <br><small class="text-muted">roberto.a***@email.com</small>
@@ -262,7 +265,7 @@
                   <td data-label="Pagamento"><span class="badge badge-secondary"><i class="bi bi-arrow-return-left"></i> Estornado</span></td>
                   <td data-label="Data">08/01/2026<br><small class="text-muted">14:20</small></td>
                   <td data-label="Status"><span class="badge badge-danger"><i class="bi bi-x-circle"></i> Desistiu</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
@@ -270,7 +273,7 @@
             </table>
           </div>
 
-          <!-- Pagination -->
+          <!-- Págination -->
           <div class="pagination-wrapper">
             <span class="pagination-info">Mostrando <strong>1-6</strong> de <strong>127</strong></span>
             <nav class="pagination-minimal">
@@ -296,13 +299,13 @@
                   <th>Valor</th>
                   <th>Equity</th>
                   <th>Pagamento</th>
-                  <th>Data Confirmacao</th>
-                  <th>Acoes</th>
+                  <th>Data Confirmação</th>
+                  <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td data-label="ID"><code>#INV-2026-0125</code></td>
+                  <td data-label="ID"><code>#INV-0125</code></td>
                   <td data-label="Cliente">
                     <strong>Maria L.</strong>
                     <br><small class="text-muted">maria.l***@email.com</small>
@@ -310,13 +313,13 @@
                   <td data-label="Valor"><strong>R$ 10.000,00</strong></td>
                   <td data-label="Equity">3.0%</td>
                   <td data-label="Pagamento"><span class="badge badge-success"><i class="bi bi-check-circle"></i> PIX</span></td>
-                  <td data-label="Data Confirmacao">15/01/2026<br><small class="text-muted">09:15</small></td>
-                  <td data-label="Acoes">
+                  <td data-label="Data Confirmação">15/01/2026<br><small class="text-muted">09:15</small></td>
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
                 <tr>
-                  <td data-label="ID"><code>#INV-2026-0124</code></td>
+                  <td data-label="ID"><code>#INV-0124</code></td>
                   <td data-label="Cliente">
                     <strong>Pedro M.</strong>
                     <br><small class="text-muted">pedro.m***@email.com</small>
@@ -324,13 +327,13 @@
                   <td data-label="Valor"><strong>R$ 2.000,00</strong></td>
                   <td data-label="Equity">0.6%</td>
                   <td data-label="Pagamento"><span class="badge badge-success"><i class="bi bi-check-circle"></i> TED</span></td>
-                  <td data-label="Data Confirmacao">14/01/2026<br><small class="text-muted">16:42</small></td>
-                  <td data-label="Acoes">
+                  <td data-label="Data Confirmação">14/01/2026<br><small class="text-muted">16:42</small></td>
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
                 <tr>
-                  <td data-label="ID"><code>#INV-2026-0120</code></td>
+                  <td data-label="ID"><code>#INV-0120</code></td>
                   <td data-label="Cliente">
                     <strong>Fernanda C.</strong>
                     <br><small class="text-muted">fernanda.c***@email.com</small>
@@ -338,13 +341,13 @@
                   <td data-label="Valor"><strong>R$ 7.500,00</strong></td>
                   <td data-label="Equity">2.25%</td>
                   <td data-label="Pagamento"><span class="badge badge-success"><i class="bi bi-check-circle"></i> PIX</span></td>
-                  <td data-label="Data Confirmacao">12/01/2026<br><small class="text-muted">11:30</small></td>
-                  <td data-label="Acoes">
+                  <td data-label="Data Confirmação">12/01/2026<br><small class="text-muted">11:30</small></td>
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
                 <tr>
-                  <td data-label="ID"><code>#INV-2026-0115</code></td>
+                  <td data-label="ID"><code>#INV-0115</code></td>
                   <td data-label="Cliente">
                     <strong>Carlos R.</strong>
                     <br><small class="text-muted">carlos.r***@email.com</small>
@@ -352,13 +355,13 @@
                   <td data-label="Valor"><strong>R$ 5.000,00</strong></td>
                   <td data-label="Equity">1.5%</td>
                   <td data-label="Pagamento"><span class="badge badge-success"><i class="bi bi-check-circle"></i> PIX</span></td>
-                  <td data-label="Data Confirmacao">10/01/2026<br><small class="text-muted">14:20</small></td>
-                  <td data-label="Acoes">
+                  <td data-label="Data Confirmação">10/01/2026<br><small class="text-muted">14:20</small></td>
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
                 <tr>
-                  <td data-label="ID"><code>#INV-2026-0108</code></td>
+                  <td data-label="ID"><code>#INV-0108</code></td>
                   <td data-label="Cliente">
                     <strong>Ana Paula S.</strong>
                     <br><small class="text-muted">ana.s***@email.com</small>
@@ -366,8 +369,8 @@
                   <td data-label="Valor"><strong>R$ 3.500,00</strong></td>
                   <td data-label="Equity">1.05%</td>
                   <td data-label="Pagamento"><span class="badge badge-success"><i class="bi bi-check-circle"></i> TED</span></td>
-                  <td data-label="Data Confirmacao">08/01/2026<br><small class="text-muted">09:45</small></td>
-                  <td data-label="Acoes">
+                  <td data-label="Data Confirmação">08/01/2026<br><small class="text-muted">09:45</small></td>
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
@@ -391,7 +394,11 @@
       <div id="pendentes" class="tab-content" style="display: none;">
         <div class="card">
           <div class="alert alert-warning mb-20">
-            <i class="bi bi-exclamation-triangle"></i> <strong>3 investimentos aguardando pagamento.</strong> PIX expira em 30 minutos apos geracao.
+            <i class="bi bi-exclamation-triangle"></i>
+            <div>
+              <strong>3 investimentos aguardando pagamento.</strong><br>
+              PIX expira em 30 minutos apos geracao.
+            </div>
           </div>
           <div class="table-container">
             <table>
@@ -403,12 +410,12 @@
                   <th>Forma Pagamento</th>
                   <th>Gerado em</th>
                   <th>Expira em</th>
-                  <th>Acoes</th>
+                  <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style="background: #fff7ed;">
-                  <td data-label="ID"><code>#INV-2026-0130</code></td>
+                  <td data-label="ID"><code>#INV-0130</code></td>
                   <td data-label="Cliente">
                     <strong>Lucas M.</strong>
                     <br><small class="text-muted">lucas.m***@email.com</small>
@@ -417,12 +424,12 @@
                   <td data-label="Forma Pagamento"><span class="badge badge-secondary"><i class="bi bi-qr-code"></i> PIX</span></td>
                   <td data-label="Gerado em">19/01/2026<br><small class="text-muted">14:35</small></td>
                   <td data-label="Expira em"><strong style="color: var(--danger);">15 min</strong></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
                 <tr style="background: #fff7ed;">
-                  <td data-label="ID"><code>#INV-2026-0129</code></td>
+                  <td data-label="ID"><code>#INV-0129</code></td>
                   <td data-label="Cliente">
                     <strong>Patricia A.</strong>
                     <br><small class="text-muted">patricia.a***@email.com</small>
@@ -431,12 +438,12 @@
                   <td data-label="Forma Pagamento"><span class="badge badge-secondary"><i class="bi bi-qr-code"></i> PIX</span></td>
                   <td data-label="Gerado em">19/01/2026<br><small class="text-muted">14:20</small></td>
                   <td data-label="Expira em"><strong style="color: var(--warning);">22 min</strong></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
                 <tr style="background: #fff7ed;">
-                  <td data-label="ID"><code>#INV-2026-0128</code></td>
+                  <td data-label="ID"><code>#INV-0128</code></td>
                   <td data-label="Cliente">
                     <strong>Marcos V.</strong>
                     <br><small class="text-muted">marcos.v***@email.com</small>
@@ -445,7 +452,7 @@
                   <td data-label="Forma Pagamento"><span class="badge badge-secondary"><i class="bi bi-upc-scan"></i> Boleto</span></td>
                   <td data-label="Gerado em">19/01/2026<br><small class="text-muted">10:00</small></td>
                   <td data-label="Expira em">20/01/2026</td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
@@ -455,11 +462,15 @@
         </div>
       </div>
 
-      <!-- Tab Content - Desistencia -->
+      <!-- Tab Content - Desistência -->
       <div id="desistencia" class="tab-content" style="display: none;">
         <div class="card">
           <div class="alert alert-info mb-20">
-            <i class="bi bi-info-circle"></i> <strong>RCVM 88/2022:</strong> Clientes tem 5 dias uteis para exercer o direito de desistencia apos o pagamento.
+            <i class="bi bi-info-circle"></i>
+            <div>
+              <strong>RCVM 88/2022:</strong><br>
+              Clientes tem 5 dias uteis para exercer o direito de desistencia apos o pagamento.
+            </div>
           </div>
           <div class="table-container">
             <table>
@@ -469,93 +480,93 @@
                   <th>Cliente</th>
                   <th>Valor</th>
                   <th>Data Pagamento</th>
-                  <th>Prazo Desistencia</th>
+                  <th>Prazo Desistência</th>
                   <th>Dias Restantes</th>
-                  <th>Acoes</th>
+                  <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style="background: #fef3c7;">
-                  <td data-label="ID"><code>#INV-2026-0127</code></td>
+                  <td data-label="ID"><code>#INV-0127</code></td>
                   <td data-label="Cliente">
                     <strong>Joao Carlos S.</strong>
                     <br><small class="text-muted">joao.s***@email.com</small>
                   </td>
                   <td data-label="Valor"><strong>R$ 5.000,00</strong></td>
                   <td data-label="Data Pagamento">19/01/2026<br><small class="text-muted">10:22</small></td>
-                  <td data-label="Prazo Desistencia">24/01/2026</td>
+                  <td data-label="Prazo Desistência">24/01/2026</td>
                   <td data-label="Dias Restantes"><span class="badge badge-warning"><i class="bi bi-clock"></i> 5 dias</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
                 <tr style="background: #fef3c7;">
-                  <td data-label="ID"><code>#INV-2026-0126</code></td>
+                  <td data-label="ID"><code>#INV-0126</code></td>
                   <td data-label="Cliente">
                     <strong>Renata F.</strong>
                     <br><small class="text-muted">renata.f***@email.com</small>
                   </td>
                   <td data-label="Valor"><strong>R$ 2.000,00</strong></td>
                   <td data-label="Data Pagamento">18/01/2026<br><small class="text-muted">15:30</small></td>
-                  <td data-label="Prazo Desistencia">23/01/2026</td>
+                  <td data-label="Prazo Desistência">23/01/2026</td>
                   <td data-label="Dias Restantes"><span class="badge badge-warning"><i class="bi bi-clock"></i> 4 dias</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
                 <tr style="background: #fef3c7;">
-                  <td data-label="ID"><code>#INV-2026-0123</code></td>
+                  <td data-label="ID"><code>#INV-0123</code></td>
                   <td data-label="Cliente">
                     <strong>Bruno G.</strong>
                     <br><small class="text-muted">bruno.g***@email.com</small>
                   </td>
                   <td data-label="Valor"><strong>R$ 3.000,00</strong></td>
                   <td data-label="Data Pagamento">17/01/2026<br><small class="text-muted">11:45</small></td>
-                  <td data-label="Prazo Desistencia">22/01/2026</td>
+                  <td data-label="Prazo Desistência">22/01/2026</td>
                   <td data-label="Dias Restantes"><span class="badge badge-info"><i class="bi bi-clock"></i> 3 dias</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
                 <tr style="background: #fef3c7;">
-                  <td data-label="ID"><code>#INV-2026-0121</code></td>
+                  <td data-label="ID"><code>#INV-0121</code></td>
                   <td data-label="Cliente">
                     <strong>Amanda L.</strong>
                     <br><small class="text-muted">amanda.l***@email.com</small>
                   </td>
                   <td data-label="Valor"><strong>R$ 1.500,00</strong></td>
                   <td data-label="Data Pagamento">16/01/2026<br><small class="text-muted">09:10</small></td>
-                  <td data-label="Prazo Desistencia">21/01/2026</td>
+                  <td data-label="Prazo Desistência">21/01/2026</td>
                   <td data-label="Dias Restantes"><span class="badge badge-info"><i class="bi bi-clock"></i> 2 dias</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
                 <tr style="background: #fef3c7;">
-                  <td data-label="ID"><code>#INV-2026-0119</code></td>
+                  <td data-label="ID"><code>#INV-0119</code></td>
                   <td data-label="Cliente">
                     <strong>Felipe S.</strong>
                     <br><small class="text-muted">felipe.s***@email.com</small>
                   </td>
                   <td data-label="Valor"><strong>R$ 2.000,00</strong></td>
                   <td data-label="Data Pagamento">15/01/2026<br><small class="text-muted">14:00</small></td>
-                  <td data-label="Prazo Desistencia">20/01/2026</td>
+                  <td data-label="Prazo Desistência">20/01/2026</td>
                   <td data-label="Dias Restantes"><span class="badge" style="background: var(--danger); color: white;"><i class="bi bi-exclamation-triangle"></i> 1 dia</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
                 <tr style="background: #fef3c7;">
-                  <td data-label="ID"><code>#INV-2026-0117</code></td>
+                  <td data-label="ID"><code>#INV-0117</code></td>
                   <td data-label="Cliente">
                     <strong>Juliana M.</strong>
                     <br><small class="text-muted">juliana.m***@email.com</small>
                   </td>
                   <td data-label="Valor"><strong>R$ 1.500,00</strong></td>
                   <td data-label="Data Pagamento">14/01/2026<br><small class="text-muted">16:30</small></td>
-                  <td data-label="Prazo Desistencia">19/01/2026</td>
+                  <td data-label="Prazo Desistência">19/01/2026</td>
                   <td data-label="Dias Restantes"><span class="badge" style="background: var(--danger); color: white;"><i class="bi bi-exclamation-triangle"></i> Hoje</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
@@ -563,7 +574,11 @@
             </table>
           </div>
           <div class="alert alert-warning mt-20">
-            <strong><i class="bi bi-exclamation-triangle"></i> Atencao:</strong> R$ 15.000,00 em investimentos podem ser cancelados se os clientes exercerem o direito de desistencia.
+            <i class="bi bi-exclamation-triangle"></i>
+            <div>
+              <strong>Atenção:</strong><br>
+              R$ 15.000,00 em investimentos podem ser cancelados se os clientes exercerem o direito de desistencia.
+            </div>
           </div>
         </div>
       </div>
@@ -581,12 +596,12 @@
                   <th>Data Original</th>
                   <th>Data Cancelamento</th>
                   <th>Motivo</th>
-                  <th>Acoes</th>
+                  <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style="background: #fee2e2;">
-                  <td data-label="ID"><code>#INV-2026-0098</code></td>
+                  <td data-label="ID"><code>#INV-0098</code></td>
                   <td data-label="Cliente">
                     <strong>Roberto A.</strong>
                     <br><small class="text-muted">roberto.a***@email.com</small>
@@ -594,13 +609,13 @@
                   <td data-label="Valor"><s style="color: var(--text-muted);">R$ 5.000,00</s></td>
                   <td data-label="Data Original">08/01/2026<br><small class="text-muted">14:20</small></td>
                   <td data-label="Data Cancelamento">12/01/2026<br><small class="text-muted">10:15</small></td>
-                  <td data-label="Motivo"><span class="badge badge-danger"><i class="bi bi-x-circle"></i> Desistencia</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Motivo"><span class="badge badge-danger"><i class="bi bi-x-circle"></i> Desistência</span></td>
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
                 <tr style="background: #fee2e2;">
-                  <td data-label="ID"><code>#INV-2026-0085</code></td>
+                  <td data-label="ID"><code>#INV-0085</code></td>
                   <td data-label="Cliente">
                     <strong>Camila D.</strong>
                     <br><small class="text-muted">camila.d***@email.com</small>
@@ -608,13 +623,13 @@
                   <td data-label="Valor"><s style="color: var(--text-muted);">R$ 3.500,00</s></td>
                   <td data-label="Data Original">05/01/2026<br><small class="text-muted">09:30</small></td>
                   <td data-label="Data Cancelamento">08/01/2026<br><small class="text-muted">14:45</small></td>
-                  <td data-label="Motivo"><span class="badge badge-danger"><i class="bi bi-x-circle"></i> Desistencia</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Motivo"><span class="badge badge-danger"><i class="bi bi-x-circle"></i> Desistência</span></td>
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
                 <tr style="background: #fee2e2;">
-                  <td data-label="ID"><code>#INV-2026-0072</code></td>
+                  <td data-label="ID"><code>#INV-0072</code></td>
                   <td data-label="Cliente">
                     <strong>Eduardo P.</strong>
                     <br><small class="text-muted">eduardo.p***@email.com</small>
@@ -623,7 +638,7 @@
                   <td data-label="Data Original">03/01/2026<br><small class="text-muted">16:00</small></td>
                   <td data-label="Data Cancelamento">04/01/2026<br><small class="text-muted">11:20</small></td>
                   <td data-label="Motivo"><span class="badge badge-secondary"><i class="bi bi-clock"></i> Pagamento Expirado</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="investimento-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a>
                   </td>
                 </tr>
@@ -651,11 +666,11 @@
                 <strong style="color: var(--success);">R$ 360.000,00</strong>
               </div>
               <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius);">
-                <span>Em Periodo de Desistencia</span>
+                <span>Em Período de Desistência</span>
                 <strong style="color: var(--info);">R$ 15.000,00</strong>
               </div>
               <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius);">
-                <span>Aguardando Pagamento</span>
+                <span>Águardando Pagamento</span>
                 <strong style="color: var(--warning);">R$ 8.500,00</strong>
               </div>
             </div>
@@ -664,11 +679,11 @@
             <h4 style="margin-bottom: 15px; color: var(--text-muted);">Saidas</h4>
             <div style="display: flex; flex-direction: column; gap: 10px;">
               <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius);">
-                <span>Desistencias Efetivadas</span>
+                <span>Desistências Efetivadas</span>
                 <strong style="color: var(--danger);">- R$ 11.500,00</strong>
               </div>
               <div class="flex-between" style="padding: 10px; background: var(--bg); border-radius: var(--radius);">
-                <span>Pagamentos Nao Identificados</span>
+                <span>Pagamentos Não Identificados</span>
                 <strong style="color: var(--text-muted);">R$ 0,00</strong>
               </div>
             </div>
@@ -680,42 +695,20 @@
           </div>
         </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
   </div>
 
-  <!-- Modals -->
-  <div class="modal-overlay" id="exportExcelModal" style="display: none;">
-    <div class="modal text-center" style="max-width: 400px;">
-      <div style="padding: 30px;">
-        <i class="bi bi-file-earmark-excel" style="font-size: 3rem; color: var(--success);"></i>
-        <h3 style="margin: 15px 0;">Exportando Excel</h3>
-        <p class="text-muted">O arquivo Excel esta sendo gerado para download.</p>
-        <button class="btn btn-primary mt-20" onclick="hideModal('exportExcelModal')">OK</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="exportPdfModal" style="display: none;">
-    <div class="modal text-center" style="max-width: 400px;">
-      <div style="padding: 30px;">
-        <i class="bi bi-file-earmark-pdf" style="font-size: 3rem; color: var(--success);"></i>
-        <h3 style="margin: 15px 0;">Exportando PDF</h3>
-        <p class="text-muted">O arquivo PDF esta sendo gerado para download.</p>
-        <button class="btn btn-primary mt-20" onclick="hideModal('exportPdfModal')">OK</button>
-      </div>
-    </div>
-  </div>
-
   <script src="../../js/app.js"></script>
+  
 
 <!-- Modal Selecionar Perfil -->
 <div class="modal-overlay" id="selecionarPerfilModal" style="display: none;">
@@ -725,15 +718,17 @@
       <button class="modal-close" onclick="hideModal('selecionarPerfilModal')">&times;</button>
     </div>
     <p class="text-muted mb-20">Escolha como deseja visualizar e operar na plataforma.</p>
+    
     <!-- Opcao Emissor -->
     <div class="profile-option emissor active" id="optionEmissor" onclick="selectProfileOption('emissor')">
       <div class="profile-option-icon emissor"><i class="bi bi-broadcast"></i></div>
       <div class="profile-option-content">
         <div class="profile-option-title">Emissor</div>
-        <p class="profile-option-desc">Crie e gerencie suas proprias ofertas de investimento.</p>
+        <p class="profile-option-desc">Crie e gerencie suas proprias ofertas de captacao.</p>
       </div>
       <div class="profile-option-check"><i class="bi bi-check"></i></div>
     </div>
+    
     <!-- Opcao Distribuidor -->
     <div class="profile-option distribuidor" id="optionDistribuidor" onclick="selectProfileOption('distribuidor')">
       <div class="profile-option-icon distribuidor"><i class="bi bi-diagram-3"></i></div>
@@ -743,12 +738,28 @@
       </div>
       <div class="profile-option-check"><i class="bi bi-check"></i></div>
     </div>
+    
+    <!-- Opcao Originador -->
+    <div class="profile-option originador" id="optionOriginador" onclick="selectProfileOption('originador')">
+      <div class="profile-option-icon originador"><i class="bi bi-lightning-charge"></i></div>
+      <div class="profile-option-content">
+        <div class="profile-option-title">Originador</div>
+        <p class="profile-option-desc">Traga novas empresas para captar recursos.</p>
+      </div>
+      <div class="profile-option-check"><i class="bi bi-check"></i></div>
+    </div>
+    
     <div class="flex gap-10 mt-20">
       <button class="btn btn-outline" onclick="hideModal('selecionarPerfilModal')" style="flex: 1;">Cancelar</button>
       <button class="btn btn-primary" onclick="confirmarPerfil()" style="flex: 1;"><i class="bi bi-check-lg"></i> Confirmar</button>
     </div>
   </div>
 </div>
+
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
 
 </body>
 </html>

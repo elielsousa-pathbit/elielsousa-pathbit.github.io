@@ -10,12 +10,12 @@
 <body class="theme-investidor">
   <div class="dashboard">
     <div class="mobile-header">
-      <a href="../../index.html" class="logo">CrowdInvest</a>
+      <a href="dashboard.html" class="logo">Alba Invest</a>
     </div>
 
     <aside class="sidebar">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo">CrowdInvest</a>
+        <a href="dashboard.html" class="logo">Alba Invest</a>
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
@@ -25,7 +25,7 @@
         <li><a href="extrato.html" class="active"><i class="bi bi-list-ul"></i> Extrato</a></li>
         <li><a href="documentos.html"><i class="bi bi-folder"></i> Documentos</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -37,21 +37,21 @@
       <div class="page-header">
         <div>
           <h1 class="page-title">Extrato</h1>
-          <p class="text-muted">Historico de todas as transacoes</p>
+          <p class="text-muted">Histórico de todas as transações</p>
         </div>
-        <button class="btn btn-outline" onclick="showModal('exportandoModal')">Exportar PDF</button>
+        <button class="btn btn-outline" onclick="Modals.export('pdf', 'extrato')">Exportar PDF</button>
       </div>
 
       <!-- Filters -->
       <div class="card mb-20">
         <div class="flex gap-20" style="flex-wrap: wrap;">
           <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 150px;">
-            <label class="form-label">Periodo</label>
+            <label class="form-label">Período</label>
             <select class="form-input">
-              <option>Ultimos 30 dias</option>
-              <option>Ultimos 90 dias</option>
+              <option>Últimos 30 dias</option>
+              <option>Últimos 90 dias</option>
               <option>Este ano</option>
-              <option>Todo o periodo</option>
+              <option>Todo o período</option>
             </select>
           </div>
           <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 150px;">
@@ -59,7 +59,7 @@
             <select class="form-input">
               <option>Todos</option>
               <option>Investimentos</option>
-              <option>Desistencias</option>
+              <option>Desistências</option>
               <option>Estornos</option>
             </select>
           </div>
@@ -67,7 +67,7 @@
             <label class="form-label">Empresa</label>
             <select class="form-input">
               <option>Todas</option>
-              <option>TechStart Inovacao</option>
+              <option>TechStart Inovação</option>
               <option>EcoFood Organicos</option>
               <option>HealthTech Solutions</option>
             </select>
@@ -82,7 +82,7 @@
           <div class="kpi-value" style="color: var(--success);">R$ 15.000</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Desistencias</div>
+          <div class="kpi-label">Desistências</div>
           <div class="kpi-value" style="color: var(--warning);">R$ 2.000</div>
         </div>
         <div class="kpi-card">
@@ -98,7 +98,7 @@
             <thead>
               <tr>
                 <th>Data</th>
-                <th>Descricao</th>
+                <th>Descrição</th>
                 <th>Empresa</th>
                 <th>Valor</th>
                 <th>Status</th>
@@ -107,52 +107,52 @@
             <tbody>
               <tr>
                 <td data-label="Data">19/01/2026</td>
-                <td data-label="Descricao"><strong>Investimento</strong><br><small class="text-muted">#INV-2026-00128</small></td>
-                <td data-label="Empresa">TechStart Inovacao</td>
+                <td data-label="Descrição"><strong>Investimento</strong><br><small class="text-muted">#INV-00128</small></td>
+                <td data-label="Empresa">TechStart Inovação</td>
                 <td data-label="Valor" style="color: var(--danger);">- R$ 5.000,00</td>
-                <td data-label="Status"><span class="badge badge-warning">Em desistencia</span></td>
+                <td data-label="Status"><span class="badge badge-warning">Em desistência</span></td>
               </tr>
               <tr>
                 <td data-label="Data">15/01/2026</td>
-                <td data-label="Descricao"><strong>Investimento</strong><br><small class="text-muted">#INV-2026-00115</small></td>
-                <td data-label="Empresa">TechStart Inovacao</td>
+                <td data-label="Descrição"><strong>Investimento</strong><br><small class="text-muted">#INV-00115</small></td>
+                <td data-label="Empresa">TechStart Inovação</td>
                 <td data-label="Valor" style="color: var(--danger);">- R$ 5.000,00</td>
                 <td data-label="Status"><span class="badge badge-success">Confirmado</span></td>
               </tr>
               <tr>
                 <td data-label="Data">10/01/2026</td>
-                <td data-label="Descricao"><strong>Investimento</strong><br><small class="text-muted">#INV-2026-00098</small></td>
+                <td data-label="Descrição"><strong>Investimento</strong><br><small class="text-muted">#INV-00098</small></td>
                 <td data-label="Empresa">EcoFood Organicos</td>
                 <td data-label="Valor" style="color: var(--danger);">- R$ 3.000,00</td>
                 <td data-label="Status"><span class="badge badge-success">Confirmado</span></td>
               </tr>
               <tr style="background: #dcfce7;">
                 <td data-label="Data">08/01/2026</td>
-                <td data-label="Descricao"><strong>Estorno (Desistencia)</strong><br><small class="text-muted">#EST-2026-00012</small></td>
+                <td data-label="Descrição"><strong>Estorno (Desistência)</strong><br><small class="text-muted">#EST-00012</small></td>
                 <td data-label="Empresa">HealthTech Solutions</td>
                 <td data-label="Valor" style="color: var(--success);">+ R$ 2.000,00</td>
-                <td data-label="Status"><span class="badge badge-success">Concluido</span></td>
+                <td data-label="Status"><span class="badge badge-success">Concluído</span></td>
               </tr>
               <tr>
                 <td data-label="Data">05/01/2026</td>
-                <td data-label="Descricao"><strong>Investimento</strong><br><small class="text-muted">#INV-2026-00075</small></td>
+                <td data-label="Descrição"><strong>Investimento</strong><br><small class="text-muted">#INV-00075</small></td>
                 <td data-label="Empresa">HealthTech Solutions</td>
                 <td data-label="Valor" style="color: var(--danger);">- R$ 7.000,00</td>
                 <td data-label="Status"><span class="badge badge-success">Confirmado</span></td>
               </tr>
               <tr>
                 <td data-label="Data">03/01/2026</td>
-                <td data-label="Descricao"><strong>Desistencia Solicitada</strong><br><small class="text-muted">#DES-2026-00005</small></td>
+                <td data-label="Descrição"><strong>Desistência Solicitada</strong><br><small class="text-muted">#DES-00005</small></td>
                 <td data-label="Empresa">HealthTech Solutions</td>
                 <td data-label="Valor">R$ 2.000,00</td>
                 <td data-label="Status"><span class="badge badge-secondary">Processado</span></td>
               </tr>
               <tr>
                 <td data-label="Data">02/01/2026</td>
-                <td data-label="Descricao"><strong>Investimento</strong><br><small class="text-muted">#INV-2026-00045</small></td>
+                <td data-label="Descrição"><strong>Investimento</strong><br><small class="text-muted">#INV-00045</small></td>
                 <td data-label="Empresa">HealthTech Solutions</td>
                 <td data-label="Valor" style="color: var(--danger);">- R$ 2.000,00</td>
-                <td data-label="Status"><span class="badge badge-secondary">Desistencia</span></td>
+                <td data-label="Status"><span class="badge badge-secondary">Desistência</span></td>
               </tr>
             </tbody>
           </table>
@@ -167,13 +167,13 @@
           </nav>
         </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
@@ -185,12 +185,18 @@
       <div style="padding: 30px;">
         <i class="bi bi-file-earmark-pdf" style="font-size: 3rem; color: var(--success);"></i>
         <h3 style="margin: 15px 0;">Exportando PDF</h3>
-        <p class="text-muted">O extrato esta sendo exportado para PDF.</p>
+        <p class="text-muted">O extrato está sendo exportado para PDF.</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('exportandoModal')">OK</button>
       </div>
     </div>
   </div>
 
   <script src="../../js/app.js"></script>
+  
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
 </body>
 </html>

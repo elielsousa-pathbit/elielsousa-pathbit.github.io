@@ -11,26 +11,26 @@
   <div class="dashboard">
     <div class="mobile-header">
       <div style="display: flex; align-items: center; gap: 10px;">
-        <a href="../../index.html" class="logo" style="color: var(--primary);">CrowdInvest</a>
+        <a href="dashboard.html" class="logo" style="color: var(--primary);">CrowdInvest</a>
         <span class="badge badge-warning">Admin</span>
       </div>
     </div>
 
     <aside class="sidebar sidebar-dark">
       <div class="sidebar-logo">
-        <a href="../../index.html" class="logo" style="color: white;">CrowdInvest</a>
+        <a href="dashboard.html" class="logo" style="color: white;">CrowdInvest</a>
         <span class="badge badge-warning" style="margin-left: 10px;">Admin</span>
       </div>
       <ul class="sidebar-menu">
         <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
         <li><a href="ofertas.html" class="active"><i class="bi bi-megaphone"></i> Ofertas</a></li>
         <li><a href="clientes.html"><i class="bi bi-people"></i> Clientes</a></li>
-        <li><a href="kyc-fila.html"><i class="bi bi-person-check"></i> Validacao Cadastro</a></li>
-        <li><a href="moderacao.html"><i class="bi bi-shield-check"></i> Moderacao</a></li>
+        <li><a href="kyc-fila.html"><i class="bi bi-person-check"></i> Validação Cadastro</a></li>
+        <li><a href="moderacao.html"><i class="bi bi-shield-check"></i> Moderação</a></li>
         <li><a href="parceiros.html"><i class="bi bi-building"></i> Parceiros</a></li>
         <li><a href="imposto-renda.html"><i class="bi bi-file-earmark-text"></i> Imposto de Renda</a></li>
-        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatorios</a></li>
-        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configuracoes</a></li>
+        <li><a href="relatorios.html"><i class="bi bi-bar-chart"></i> Relatórios</a></li>
+        <li><a href="configuracoes.html"><i class="bi bi-gear"></i> Configurações</a></li>
         <li><a href="../admin-login.html"><i class="bi bi-box-arrow-left"></i> Sair</a></li>
       </ul>
     </aside>
@@ -41,10 +41,10 @@
 
       <div class="page-header">
         <div>
-          <h1 class="page-title">Gestao de Ofertas</h1>
+          <h1 class="page-title">Gestão de Ofertas</h1>
           <p class="text-muted">Pipeline completo de ofertas RCVM 88/2022</p>
         </div>
-        <div class="flex gap-10">
+        <div class="header-user-info">
           <button class="btn btn-outline" onclick="toggleView()">
             <i class="bi bi-grid"></i> Grid
           </button>
@@ -57,9 +57,9 @@
       <!-- KPIs -->
       <div class="kpi-grid" style="margin-bottom: 30px;">
         <div class="kpi-card">
-          <div class="kpi-label">Pendentes Analise</div>
+          <div class="kpi-label">Pendentes Análise</div>
           <div class="kpi-value" style="color: var(--warning);">5</div>
-          <div class="kpi-change"><i class="bi bi-clock"></i> aguardando</div>
+          <div class="kpi-change"><i class="bi bi-clock"></i> águardando</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">Ofertas Ativas</div>
@@ -94,16 +94,20 @@
         </button>
       </div>
 
-      <!-- Pendentes - Para Analise -->
+      <!-- Pendentes - Para Análise -->
       <div id="pendentes" class="tab-content">
         <div class="alert alert-warning mb-20">
-          <i class="bi bi-exclamation-triangle"></i> <strong>5 ofertas aguardando sua analise.</strong> Prazo medio de analise: 5 dias uteis (RCVM 88/2022).
+          <i class="bi bi-exclamation-triangle"></i>
+          <div>
+            <strong>5 ofertas aguardando sua analise.</strong><br>
+            Prazo medio de analise: 5 dias uteis (RCVM 88/2022).
+          </div>
         </div>
 
         <div class="card">
           <div class="card-header flex-between">
-            <h3 class="card-title"><i class="bi bi-hourglass-split"></i> Ofertas Pendentes de Analise</h3>
-            <div class="flex gap-10">
+            <h3 class="card-title"><i class="bi bi-hourglass-split"></i> Ofertas Pendentes de Análise</h3>
+            <div class="header-user-info">
               <select class="form-input" style="width: auto;">
                 <option>Mais Antigas Primeiro</option>
                 <option>Mais Recentes Primeiro</option>
@@ -119,23 +123,23 @@
                   <th>Parceiro</th>
                   <th>Meta</th>
                   <th>Submetida</th>
-                  <th>Dias Aguardando</th>
+                  <th>Dias Águardando</th>
                   <th>Status</th>
-                  <th>Acoes</th>
+                  <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style="background: #fef3c7;">
                   <td data-label="Oferta">
                     <strong>MedTech Diagnosticos</strong>
-                    <br><small class="text-muted">Saude / Diagnosticos</small>
+                    <br><small class="text-muted">Saúde / Diagnosticos</small>
                   </td>
                   <td data-label="Parceiro">MedTech SA</td>
                   <td data-label="Meta">R$ 1.200.000</td>
                   <td data-label="Submetida">14/01/2026</td>
-                  <td data-label="Aguardando" style="color: var(--danger);"><strong>5 dias</strong></td>
-                  <td data-label="Status"><span class="badge badge-warning"><i class="bi bi-clock"></i> Aguardando</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Águardando" style="color: var(--danger);"><strong>5 dias</strong></td>
+                  <td data-label="Status"><span class="badge badge-warning"><i class="bi bi-clock"></i> Águardando</span></td>
+                  <td data-label="Ações">
                     <a href="oferta-analise.html" class="btn btn-primary btn-sm"><i class="bi bi-search"></i> Analisar</a>
                   </td>
                 </tr>
@@ -147,9 +151,9 @@
                   <td data-label="Parceiro">AgriSmart LTDA</td>
                   <td data-label="Meta">R$ 600.000</td>
                   <td data-label="Submetida">15/01/2026</td>
-                  <td data-label="Aguardando">4 dias</td>
-                  <td data-label="Status"><span class="badge badge-warning"><i class="bi bi-clock"></i> Aguardando</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Águardando">4 dias</td>
+                  <td data-label="Status"><span class="badge badge-warning"><i class="bi bi-clock"></i> Águardando</span></td>
+                  <td data-label="Ações">
                     <a href="oferta-analise.html" class="btn btn-outline btn-sm"><i class="bi bi-search"></i> Analisar</a>
                   </td>
                 </tr>
@@ -158,12 +162,12 @@
                     <strong>EduPlay</strong>
                     <br><small class="text-muted">EdTech</small>
                   </td>
-                  <td data-label="Parceiro">EduPlay Educacao</td>
+                  <td data-label="Parceiro">EduPlay Educação</td>
                   <td data-label="Meta">R$ 400.000</td>
                   <td data-label="Submetida">16/01/2026</td>
-                  <td data-label="Aguardando">3 dias</td>
-                  <td data-label="Status"><span class="badge badge-info"><i class="bi bi-file-earmark-check"></i> Em Analise</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Águardando">3 dias</td>
+                  <td data-label="Status"><span class="badge badge-info"><i class="bi bi-file-earmark-check"></i> Em Análise</span></td>
+                  <td data-label="Ações">
                     <a href="oferta-analise.html" class="btn btn-outline btn-sm"><i class="bi bi-search"></i> Continuar</a>
                   </td>
                 </tr>
@@ -175,9 +179,9 @@
                   <td data-label="Parceiro">LogiTech LTDA</td>
                   <td data-label="Meta">R$ 800.000</td>
                   <td data-label="Submetida">17/01/2026</td>
-                  <td data-label="Aguardando">2 dias</td>
-                  <td data-label="Status"><span class="badge badge-warning"><i class="bi bi-clock"></i> Aguardando</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Águardando">2 dias</td>
+                  <td data-label="Status"><span class="badge badge-warning"><i class="bi bi-clock"></i> Águardando</span></td>
+                  <td data-label="Ações">
                     <a href="oferta-analise.html" class="btn btn-outline btn-sm"><i class="bi bi-search"></i> Analisar</a>
                   </td>
                 </tr>
@@ -189,9 +193,9 @@
                   <td data-label="Parceiro">GreenEnergy SA</td>
                   <td data-label="Meta">R$ 2.000.000</td>
                   <td data-label="Submetida">18/01/2026</td>
-                  <td data-label="Aguardando">1 dia</td>
+                  <td data-label="Águardando">1 dia</td>
                   <td data-label="Status"><span class="badge badge-secondary"><i class="bi bi-inbox"></i> Na Fila</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="oferta-analise.html" class="btn btn-outline btn-sm"><i class="bi bi-search"></i> Analisar</a>
                   </td>
                 </tr>
@@ -205,8 +209,8 @@
       <div id="ativas" class="tab-content" style="display: none;">
         <div class="card">
           <div class="card-header flex-between">
-            <h3 class="card-title"><i class="bi bi-broadcast"></i> Ofertas em Captacao</h3>
-            <div class="flex gap-10">
+            <h3 class="card-title"><i class="bi bi-broadcast"></i> Ofertas em Captação</h3>
+            <div class="header-user-info">
               <input type="text" class="form-input" placeholder="Buscar oferta..." style="width: 200px;">
               <button class="btn btn-outline btn-sm"><i class="bi bi-download"></i> Exportar</button>
             </div>
@@ -222,7 +226,7 @@
                   <th>Clientes</th>
                   <th>Dias Restantes</th>
                   <th>Status</th>
-                  <th>Acoes</th>
+                  <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
@@ -231,7 +235,7 @@
                     <div class="flex gap-10" style="align-items: center;">
                       <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #059669, #047857); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">TS</div>
                       <div>
-                        <strong>TechStart Inovacao</strong>
+                        <strong>TechStart Inovação</strong>
                         <br><small class="text-muted">Tecnologia / SaaS</small>
                       </div>
                     </div>
@@ -248,7 +252,7 @@
                   <td data-label="Clientes">127</td>
                   <td data-label="Dias Restantes"><strong>23</strong></td>
                   <td data-label="Status"><span class="badge badge-success"><i class="bi bi-check-circle"></i> Saudavel</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="oferta-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i> Ver</a>
                   </td>
                 </tr>
@@ -258,7 +262,7 @@
                       <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #22c55e, #16a34a); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">EF</div>
                       <div>
                         <strong>EcoFood Organicos</strong>
-                        <br><small class="text-muted">Alimentacao</small>
+                        <br><small class="text-muted">Alimentação</small>
                       </div>
                     </div>
                   </td>
@@ -274,7 +278,7 @@
                   <td data-label="Clientes">89</td>
                   <td data-label="Dias Restantes"><strong>45</strong></td>
                   <td data-label="Status"><span class="badge badge-success"><i class="bi bi-check-circle"></i> Saudavel</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="oferta-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i> Ver</a>
                   </td>
                 </tr>
@@ -284,7 +288,7 @@
                       <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">HT</div>
                       <div>
                         <strong>HealthTech Solutions</strong>
-                        <br><small class="text-muted">Saude</small>
+                        <br><small class="text-muted">Saúde</small>
                       </div>
                     </div>
                   </td>
@@ -300,7 +304,7 @@
                   <td data-label="Clientes">203</td>
                   <td data-label="Dias Restantes" style="color: var(--danger);"><strong>12</strong></td>
                   <td data-label="Status"><span class="badge badge-warning"><i class="bi bi-exclamation-triangle"></i> Finalizando</span></td>
-                  <td data-label="Acoes">
+                  <td data-label="Ações">
                     <a href="oferta-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i> Ver</a>
                   </td>
                 </tr>
@@ -315,7 +319,7 @@
         <div class="card">
           <div class="card-header flex-between">
             <h3 class="card-title"><i class="bi bi-check-circle"></i> Ofertas Concluidas</h3>
-            <div class="flex gap-10">
+            <div class="header-user-info">
               <select class="form-input" style="width: auto;">
                 <option>Todos os Anos</option>
                 <option>2026</option>
@@ -334,9 +338,9 @@
                   <th>Meta</th>
                   <th>Captado</th>
                   <th>Clientes</th>
-                  <th>Periodo</th>
+                  <th>Período</th>
                   <th>Resultado</th>
-                  <th>Acoes</th>
+                  <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
@@ -346,9 +350,9 @@
                   <td data-label="Meta">R$ 400.000</td>
                   <td data-label="Captado" style="color: var(--success);">R$ 420.000</td>
                   <td data-label="Clientes">156</td>
-                  <td data-label="Periodo">Out-Dez 2024</td>
+                  <td data-label="Período">Out-Dez 2024</td>
                   <td data-label="Resultado"><span class="badge badge-success"><i class="bi bi-trophy"></i> Sucesso</span></td>
-                  <td data-label="Acoes"><a href="oferta-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a></td>
+                  <td data-label="Ações"><a href="oferta-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a></td>
                 </tr>
                 <tr>
                   <td data-label="Oferta"><strong>SmartHome IoT</strong></td>
@@ -356,9 +360,9 @@
                   <td data-label="Meta">R$ 600.000</td>
                   <td data-label="Captado" style="color: var(--success);">R$ 750.000</td>
                   <td data-label="Clientes">289</td>
-                  <td data-label="Periodo">Set-Nov 2024</td>
+                  <td data-label="Período">Set-Nov 2024</td>
                   <td data-label="Resultado"><span class="badge badge-success"><i class="bi bi-trophy"></i> Sucesso</span></td>
-                  <td data-label="Acoes"><a href="oferta-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a></td>
+                  <td data-label="Ações"><a href="oferta-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a></td>
                 </tr>
                 <tr>
                   <td data-label="Oferta"><strong>PetCare Plus</strong></td>
@@ -366,9 +370,9 @@
                   <td data-label="Meta">R$ 350.000</td>
                   <td data-label="Captado">R$ 280.000</td>
                   <td data-label="Clientes">112</td>
-                  <td data-label="Periodo">Ago-Out 2024</td>
+                  <td data-label="Período">Ago-Out 2024</td>
                   <td data-label="Resultado"><span class="badge badge-info"><i class="bi bi-check"></i> Meta Minima</span></td>
-                  <td data-label="Acoes"><a href="oferta-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a></td>
+                  <td data-label="Ações"><a href="oferta-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a></td>
                 </tr>
               </tbody>
             </table>
@@ -402,7 +406,7 @@
                   <th>Captado</th>
                   <th>Data Cancelamento</th>
                   <th>Motivo</th>
-                  <th>Acoes</th>
+                  <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
@@ -412,8 +416,8 @@
                   <td data-label="Meta">R$ 500.000</td>
                   <td data-label="Captado">R$ 45.000</td>
                   <td data-label="Data Cancelamento">15/11/2024</td>
-                  <td data-label="Motivo"><span class="badge badge-danger"><i class="bi bi-x"></i> Meta Nao Atingida</span></td>
-                  <td data-label="Acoes"><a href="oferta-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a></td>
+                  <td data-label="Motivo"><span class="badge badge-danger"><i class="bi bi-x"></i> Meta Não Atingida</span></td>
+                  <td data-label="Ações"><a href="oferta-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a></td>
                 </tr>
                 <tr>
                   <td data-label="Oferta"><strong>TravelBuddy</strong></td>
@@ -421,8 +425,8 @@
                   <td data-label="Meta">R$ 300.000</td>
                   <td data-label="Captado">R$ 0</td>
                   <td data-label="Data Cancelamento">20/09/2024</td>
-                  <td data-label="Motivo"><span class="badge badge-secondary"><i class="bi bi-x"></i> Desistencia Parceiro</span></td>
-                  <td data-label="Acoes"><a href="oferta-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a></td>
+                  <td data-label="Motivo"><span class="badge badge-secondary"><i class="bi bi-x"></i> Desistência Parceiro</span></td>
+                  <td data-label="Ações"><a href="oferta-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a></td>
                 </tr>
                 <tr>
                   <td data-label="Oferta"><strong>GameStudio XYZ</strong></td>
@@ -431,33 +435,34 @@
                   <td data-label="Captado">R$ 120.000</td>
                   <td data-label="Data Cancelamento">05/07/2024</td>
                   <td data-label="Motivo"><span class="badge badge-danger"><i class="bi bi-x"></i> Irregularidades</span></td>
-                  <td data-label="Acoes"><a href="oferta-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a></td>
+                  <td data-label="Ações"><a href="oferta-detalhe.html" class="btn btn-outline btn-sm"><i class="bi bi-eye"></i></a></td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
-      <!-- Disclaimer Regulatorio CVM -->
+      <!-- Disclaimer Regulatório CVM -->
       <div class="dashboard-disclaimer">
         <div class="cvm-badge"><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</div>
-        <p>CrowdInvest Plataforma de Investimento Ltda. CNPJ: 00.000.000/0001-00. Plataforma de financiamento coletivo de investimento (crowdfunding) autorizada pela Comissao de Valores Mobiliarios (CVM) conforme Resolucao RCVM 88/2022.</p>
+        <p>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA (Alba Capital). CNPJ: 43.413.213/0001-58. Plataforma de investimentos alternativos autorizada pela Comissão de Valores Mobiliários (CVM) conforme Resolução RCVM 88/2022.</p><p style="font-size: 0.8rem; margin-top: 8px;"><i class="bi bi-envelope"></i> contato@albainvest.com.br | <i class="bi bi-whatsapp"></i> (11) 7380-9085</p>
         <div class="warning-text">
           <i class="bi bi-exclamation-triangle"></i>
-          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada nao garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
+          <span>Investimentos em startups e pequenas empresas envolvem riscos significativos, incluindo perda total do capital investido. Rentabilidade passada não garante rentabilidade futura. Leia atentamente o material da oferta antes de investir.</span>
         </div>
       </div>
     </main>
   </div>
 
   <script src="../../js/app.js"></script>
+  
   <!-- Toggle View Modal -->
   <div class="modal-overlay" id="toggleViewModal" style="display: none;">
     <div class="modal text-center" style="max-width: 400px;">
       <div style="padding: 30px;">
         <i class="bi bi-check-circle" style="font-size: 3rem; color: var(--success);"></i>
-        <h3 style="margin: 15px 0;">Visualizacao Alternada</h3>
-        <p class="text-muted">Alternando para visualizacao em grid...</p>
+        <h3 style="margin: 15px 0;">Visualização Alternada</h3>
+        <p class="text-muted">Alternando para visualização em grid...</p>
         <button class="btn btn-primary mt-20" onclick="hideModal('toggleViewModal')">OK</button>
       </div>
     </div>
@@ -468,5 +473,6 @@
       showModal('toggleViewModal');
     }
   </script>
+
 </body>
 </html>
