@@ -83,11 +83,11 @@
 }
 
 .portal-card.parceiro:hover {
-  border-color: #059669;
+  border-color: var(--primary);
 }
 
 .portal-card.admin:hover {
-  border-color: #1e293b;
+  border-color: var(--text);
 }
 
 .portal-icon {
@@ -107,11 +107,11 @@
 }
 
 .portal-icon.parceiro {
-  background: linear-gradient(135deg, #059669, #047857);
+  background: linear-gradient(135deg, var(--primary), #047857);
 }
 
 .portal-icon.admin {
-  background: linear-gradient(135deg, #1e293b, #0f172a);
+  background: linear-gradient(135deg, var(--text), var(--accent));
 }
 
 .portal-card h3 {
@@ -154,12 +154,12 @@
 }
 
 .portal-card.parceiro .portal-btn {
-  background: #059669;
+  background: var(--primary);
   color: white;
 }
 
 .portal-card.admin .portal-btn {
-  background: #1e293b;
+  background: var(--text);
   color: white;
 }
 
@@ -287,7 +287,7 @@
 
 .pricing-icon.partner {
   background: linear-gradient(135deg, rgba(5, 150, 105, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
-  color: #059669;
+  color: var(--primary);
 }
 
 .pricing-card h3 {
@@ -315,7 +315,7 @@
 
 .pricing-value.contact {
   font-size: 1.5rem;
-  color: #059669;
+  color: var(--primary);
 }
 
 .pricing-features {
@@ -339,7 +339,7 @@
 }
 
 .pricing-features li i.bi-check-circle-fill {
-  color: #059669;
+  color: var(--primary);
 }
 
 .pricing-features li i.bi-info-circle-fill {
@@ -467,7 +467,7 @@
 }
 
 .fees-table .free-badge {
-  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, #047857 100%);
   color: white;
   padding: 4px 12px;
   border-radius: 100px;
@@ -835,7 +835,7 @@
 
 .report-icon.green {
   background: rgba(5, 150, 105, 0.1);
-  color: #059669;
+  color: var(--primary);
 }
 
 .report-icon.purple {
@@ -1654,7 +1654,7 @@ a.btn-glass:visited {
 
 .notification-banner.payment-received .notification-banner-icon {
   background: rgba(16, 185, 129, 0.15);
-  color: #059669;
+  color: var(--primary);
 }
 
 /* Banner informativo */
@@ -1882,7 +1882,7 @@ a.btn-glass:visited {
 
 .theme-parceiro .auth-box .btn-outline:hover {
   background: #f0fdf4;
-  border-color: #059669;
+  border-color: var(--primary);
   color: var(--text);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(5, 150, 105, 0.15);

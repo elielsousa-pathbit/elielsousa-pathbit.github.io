@@ -1,0 +1,24 @@
+/* Responsive Logo Logic */
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .logo-desktop {
+    display: none !important;
+  }
+  .logo-mobile {
+    display: block !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .logo-desktop {
+    display: block !important;
+  }
+  .logo-mobile {
+    display: none !important;
+  }
+}

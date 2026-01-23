@@ -6,7 +6,7 @@
 
 /* Sidebar do admin - Slate escuro */
 .theme-admin .sidebar {
-  background: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #020617 100%);
+  background: linear-gradient(180deg, var(--accent) 0%, var(--text) 50%, #020617 100%);
 }
 
 .theme-admin .sidebar-logo .logo {
@@ -17,19 +17,20 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
-.theme-admin .sidebar-menu a:hover,
-.theme-admin .sidebar-menu a.active {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-}
-
 .theme-admin .sidebar-menu a.active::before {
   background: #f59e0b;
 }
 
+/* Accent for hover/active */
+.theme-admin .sidebar-menu a:hover,
+.theme-admin .sidebar-menu a.active {
+  background: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+}
+
 /* Loading spinner */
 .theme-admin .loading-spinner {
-  border-top-color: #0f172a;
+  border-top-color: var(--accent);
 }
 
 /* Pagination */
@@ -42,19 +43,25 @@
 }
 
 /* Cards e destaques */
+/* Cards e destaques */
 .theme-admin .highlight-card {
-  border-color: var(--primary-light);
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.05) 0%, rgba(30, 41, 59, 0.05) 100%);
+  border-left: 4px solid #f59e0b;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-radius: var(--radius);
+  /* Removed full border to match soft surface style */
 }
 
 /* Botoes especiais admin */
 .theme-admin .btn-portal {
-  background: var(--primary-gradient);
-  color: white;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: var(--accent);
+  font-weight: 700;
+  border: none;
 }
 
 .theme-admin .btn-portal:hover {
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.3);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+  transform: translateY(-2px);
 }
 
 /* Status badges admin */
@@ -75,13 +82,14 @@
 
 /* KPI cards */
 .theme-admin .kpi-card-total {
-  border-left-color: #0f172a;
+  border-left-color: var(--accent);
 }
 
 /* Charts accent */
+/* Charts accent */
 .theme-admin .chart-primary {
-  fill: #0f172a;
-  stroke: #0f172a;
+  fill: #f59e0b;
+  stroke: #f59e0b;
 }
 
 /* Admin action buttons */
@@ -108,6 +116,17 @@
 /* Mobile menu admin */
 @media (max-width: 768px) {
   .theme-admin .sidebar.open {
-    box-shadow: 5px 0 30px rgba(15, 23, 42, 0.4);
+    box-shadow: 5px 0 30px rgba(15, 23, 42, 0.5);
   }
+}
+
+/* Search bar override */
+.theme-admin .search-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+.theme-admin .search-box:focus-within {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
 }

@@ -76,9 +76,11 @@
 }
 
 /* Cards e destaques */
+/* Cards e destaques - Soft Surface */
 .theme-parceiro .highlight-card {
-  border-color: var(--primary-light);
-  background: linear-gradient(135deg, rgba(4, 120, 87, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.08);
 }
 
 /* Botoes especiais parceiro */
@@ -87,8 +89,18 @@
   color: white;
 }
 
+.theme-parceiro .btn-portal {
+  background: white;
+  color: #047857;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  font-weight: 600;
+}
+
 .theme-parceiro .btn-portal:hover {
-  box-shadow: 0 10px 30px rgba(4, 120, 87, 0.3);
+  background: #047857;
+  color: white;
+  box-shadow: 0 4px 15px rgba(4, 120, 87, 0.2);
+  transform: translateY(-2px);
 }
 
 /* Status badges parceiro */
@@ -141,6 +153,13 @@
 /* Mobile menu parceiro */
 @media (max-width: 768px) {
   .theme-parceiro .sidebar.open {
-    box-shadow: 5px 0 30px rgba(4, 120, 87, 0.3);
+    box-shadow: 5px 0 30px rgba(0,0,0, 0.1);
   }
+}
+
+/* Input Focus Override */
+.theme-parceiro .form-control:focus,
+.theme-parceiro .form-select:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
 }

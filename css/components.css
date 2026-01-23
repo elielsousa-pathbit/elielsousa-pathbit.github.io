@@ -415,7 +415,7 @@
 
 .badge-status--success {
   background: rgba(5, 150, 105, 0.1);
-  color: #059669;
+  color: var(--primary);
 }
 
 .badge-status--warning {
@@ -440,7 +440,7 @@
 
 .badge-status--active {
   background: rgba(5, 150, 105, 0.1);
-  color: #059669;
+  color: var(--primary);
 }
 
 .badge-status--pending {
@@ -637,7 +637,7 @@
 
 .activity-card-icon--success {
   background: rgba(5, 150, 105, 0.1);
-  color: #059669;
+  color: var(--primary);
 }
 
 .activity-card-icon--warning {
@@ -718,7 +718,7 @@
 
 .stat-card-change--positive {
   background: rgba(5, 150, 105, 0.1);
-  color: #059669;
+  color: var(--primary);
 }
 
 .stat-card-change--negative {

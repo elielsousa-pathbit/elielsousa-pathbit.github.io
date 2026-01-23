@@ -1,163 +1,138 @@
 /* ==============================================
-   RCVM 88 - DESIGN SYSTEM VARIABLES
-   Plataforma de Investimentos Alternativos
+   RCVM 88 - DESIGN SYSTEM VARIABLES (V2.0 REDESIGN)
+   Marcar: ALBA INVEST (Orange/Terracotta/Rust)
+   Estilo: Premium, Glassmorphism, Modern
    ============================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+/* Tipografia Moderna: Outfit (Titulos) + Plus Jakarta Sans (Corpo) */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 :root {
   /* ==============================================
-     PRIMARY PALETTE - Azul Profissional (Default)
+     PRIMARY PALETTE - ALBA SUNSET (Laranja/Terracota)
+     Hex Codes from Manual de Marca
      ============================================== */
-  --primary: #1e40af;
-  --primary-dark: #1e3a8a;
-  --primary-light: #3b82f6;
-  --primary-gradient: linear-gradient(135deg, #1e40af 0%, #0f172a 100%);
+  --primary: #F26716;        /* Laranja Vibrante / Foco */
+  --primary-dark: #cc520e;   /* Darker shade for hovers/gradients */
+  --primary-light: #f58442;  /* Lighter shade */
+  
+  /* Gradient Premium */
+  --primary-gradient: linear-gradient(135deg, #F26716 0%, #d65810 100%);
+  --primary-glow: 0 8px 32px rgba(242, 103, 22, 0.25);
 
   /* ==============================================
-     ACCENT - Dourado/Ouro Premium
+     ACCENT - Complementar Vermelho Terroso
+     Hex Code from Manual de Marca
      ============================================== */
-  --accent: #d97706;
-  --accent-light: #f59e0b;
-  --accent-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  --accent: #AF1D00;         /* Vermelho Terroso */
+  --accent-light: #cf3a1d;   /* Lighter accent */
+  --accent-soft: #fff1ee;    /* Soft background for accent contexts */
 
   /* ==============================================
-     SECONDARY & NEUTRAL
+     SEMANTIC COLORS (Modernized but aligned)
      ============================================== */
-  --secondary: #475569;
-  --secondary-light: #64748b;
+  --success: #10b981;        /* Emerald-500 (Kept for functional success states only) */
+  --warning: #f59e0b;        /* Amber-500 */
+  --danger: #ef4444;         /* Red-500 */
+  --info: #0ea5e9;           /* Sky-500 */
 
   /* ==============================================
-     STATUS COLORS
+     BACKGROUND & SURFACES (Glassmorphism Ready)
      ============================================== */
-  --success: #059669;
-  --success-light: #10b981;
-  --warning: #d97706;
-  --warning-light: #f59e0b;
-  --danger: #dc2626;
-  --danger-light: #ef4444;
-  --info: #0284c7;
-  --info-light: #0ea5e9;
+  --bg: #fdfbf7;             /* Warm White / Stone-50 */
+  --bg-gradient: linear-gradient(180deg, #fff7ed 0%, #fdfbf7 100%); /* Orange-50 tint at top */
+  
+  /* Glassmorphism Variables */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  --glass-blur: blur(12px);
 
-  /* ==============================================
-     BACKGROUND & SURFACE
-     ============================================== */
-  --bg: #f8fafc;
-  --bg-gradient: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
   --card: #ffffff;
-  --card-hover: #f8fafc;
-
+  --card-hover: #ffffff;
+  
   /* ==============================================
      BORDERS
      ============================================== */
-  --border: #e2e8f0;
-  --border-light: #f1f5f9;
+  --border: #e7e5e4;         /* Stone-200 - Warm Grey */
+  --border-light: #f5f5f4;   /* Stone-100 - Very Light Warm Grey */
 
   /* ==============================================
-     TYPOGRAPHY
+     TYPOGRAPHY - Nova Hierarquia
      ============================================== */
-  --text: #0f172a;
-  --text-muted: #475569;
-  --text-light: #64748b;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  --text: #1d1d1d;           /* Cinza Médio (Manual: ##1d1d1d - fixed) */
+  --text-muted: #57534e;     /* Stone-600 */
+  --text-light: #a8a29e;     /* Stone-400 */
+  /* Cinza Claro from manual mapped to border/backgrounds mostly, or strict light text */
+  --gray-light: #d8d8d8;     
 
   /* ==============================================
-     SIZING - Border Radius
+     SIZING - Radius (More rounded for modern feel)
      ============================================== */
   --radius: 12px;
   --radius-sm: 8px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  --radius-lg: 20px;         /* Increased for Cards */
+  --radius-xl: 32px;         /* Buttons/Modals */
+  --radius-full: 9999px;     /* Pills */
 
   /* ==============================================
-     SHADOWS - Layered for Depth
+     SHADOWS - Soft & Colored
      ============================================== */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.04), 0 4px 6px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.06), 0 10px 10px rgba(0, 0, 0, 0.04);
-  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  
+  /* Colored Shadows for Key Elements */
+  --shadow-primary: 0 10px 30px -10px rgba(242, 103, 22, 0.4); /* Glow Laranja */
 
   /* ==============================================
      TRANSITIONS
      ============================================== */
-  --transition-fast: 0.15s ease;
-  --transition-normal: 0.25s ease;
-  --transition-slow: 0.4s ease;
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy */
 
   /* ==============================================
-     OFFER TYPE GRADIENTS (Padronizados)
+     OFFER TYPES (Mantendo código de cores do mercado)
      ============================================== */
-  --gradient-equity: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  --gradient-equity: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
   --gradient-cri: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
-  --gradient-cra: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-  --gradient-cr: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  --gradient-cra: linear-gradient(135deg, #10b981 0%, #047857 100%);
 
   /* ==============================================
-     OFFER TYPE COLORS (Solid)
+     SPACING Z-INDEX
      ============================================== */
-  --color-equity: #7c3aed;
-  --color-equity-dark: #6d28d9;
-  --color-cri: #0891b2;
-  --color-cri-dark: #0e7490;
-  --color-cra: #22c55e;
-  --color-cra-dark: #16a34a;
-  --color-cr: #8b5cf6;
-  --color-cr-dark: #7c3aed;
-
-  /* ==============================================
-     SPACING SCALE
-     ============================================== */
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
-  --space-2xl: 48px;
-
-  /* ==============================================
-     Z-INDEX SCALE
-     ============================================== */
-  --z-dropdown: 100;
-  --z-sticky: 200;
-  --z-fixed: 300;
-  --z-modal-backdrop: 400;
-  --z-modal: 500;
-  --z-popover: 600;
-  --z-tooltip: 700;
+  --z-header: 1000;
+  --z-overlay: 1050;
+  --z-modal: 1100;
 }
 
 /* ==============================================
-   THEME: INVESTIDOR - Azul Profissional
+   THEMES - Unified to Brand Identity
+   Themes are kept for structure but colors match Brand
    ============================================== */
 .theme-investidor {
-  --primary: #1e40af;
-  --primary-dark: #1e3a8a;
-  --primary-light: #3b82f6;
-  --primary-gradient: linear-gradient(135deg, #1e40af 0%, #0f172a 100%);
-  --shadow-glow: 0 0 30px rgba(30, 64, 175, 0.2);
-  --portal-accent: #3b82f6;
+  --primary: #F26716;
+  --primary-dark: #cc520e;
+  --primary-gradient: linear-gradient(135deg, #F26716 0%, #d65810 100%);
+  --portal-accent: #F26716;
 }
 
-/* ==============================================
-   THEME: PARCEIRO - Verde Empresarial
-   ============================================== */
+/* Replaced Green with Brand Orange/Red/Neutral variant or kept strictly neutral */
 .theme-parceiro {
-  --primary: #047857;
-  --primary-dark: #065f46;
-  --primary-light: #059669;
-  --primary-gradient: linear-gradient(135deg, #047857 0%, #064e3b 100%);
-  --shadow-glow: 0 0 30px rgba(4, 120, 87, 0.2);
-  --portal-accent: #10b981;
+  --primary: #F26716; /* Unified */
+  --primary-dark: #AF1D00; /* Use Accent/Secondary brand color for depth */
+  --primary-gradient: linear-gradient(135deg, #F26716 0%, #AF1D00 100%);
+  --portal-accent: #AF1D00;
 }
 
-/* ==============================================
-   THEME: ADMIN - Slate Profissional
-   ============================================== */
+/* Replaced Dark Blue with Brand Dark Neutral or Brand Accent */
 .theme-admin {
-  --primary: #0f172a;
-  --primary-dark: #020617;
-  --primary-light: #1e293b;
-  --primary-gradient: linear-gradient(135deg, #0f172a 0%, #020617 100%);
-  --shadow-glow: 0 0 30px rgba(15, 23, 42, 0.25);
-  --portal-accent: #475569;
+  --primary: #AF1D00; /* Use Accent for Admin distinction */
+  --primary-gradient: linear-gradient(135deg, #AF1D00 0%, #1d1d1d 100%);
 }

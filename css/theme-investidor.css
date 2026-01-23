@@ -6,7 +6,7 @@
 
 /* Sidebar do investidor */
 .theme-investidor .sidebar {
-  background: linear-gradient(180deg, #1e40af 0%, #1e3a8a 50%, #0f172a 100%);
+  background: linear-gradient(180deg, #ea580c 0%, #c2410c 50%, #9a3412 100%);
 }
 
 .theme-investidor .sidebar-logo .logo {
@@ -29,7 +29,7 @@
 
 /* Loading spinner */
 .theme-investidor .loading-spinner {
-  border-top-color: #1e40af;
+  border-top-color: #ea580c;
 }
 
 /* Pagination */
@@ -44,7 +44,7 @@
 /* Cards e destaques */
 .theme-investidor .highlight-card {
   border-color: var(--primary-light);
-  background: linear-gradient(135deg, rgba(30, 64, 175, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(234, 88, 12, 0.05) 0%, rgba(249, 115, 22, 0.05) 100%);
 }
 
 /* Botoes especiais investidor */
@@ -54,29 +54,29 @@
 }
 
 .theme-investidor .btn-portal:hover {
-  box-shadow: 0 10px 30px rgba(30, 64, 175, 0.3);
+  box-shadow: 0 10px 30px rgba(234, 88, 12, 0.3);
 }
 
 /* Status badges investidor */
 .theme-investidor .status-invested {
-  background: linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
-  color: #1e40af;
+  background: linear-gradient(135deg, rgba(234, 88, 12, 0.1) 0%, rgba(249, 115, 22, 0.1) 100%);
+  color: #c2410c;
 }
 
 /* KPI cards */
 .theme-investidor .kpi-card-investido {
-  border-left-color: #1e40af;
+  border-left-color: #ea580c;
 }
 
 /* Charts accent */
 .theme-investidor .chart-primary {
-  fill: #1e40af;
-  stroke: #1e40af;
+  fill: #ea580c;
+  stroke: #ea580c;
 }
 
 /* Mobile menu investidor */
 @media (max-width: 768px) {
   .theme-investidor .sidebar.open {
-    box-shadow: 5px 0 30px rgba(30, 64, 175, 0.3);
+    box-shadow: 5px 0 30px rgba(234, 88, 12, 0.3);
   }
 }
