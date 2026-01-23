@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro Distribuidor - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="theme-parceiro">
+  <div class="auth-page" style="background: linear-gradient(135deg, #1e3a8a, #1e40af); min-height: 100vh; padding: 40px 20px;">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <!-- Header -->
+      <div class="text-center" style="color: white; margin-bottom: 30px;">
+        <a href="../index.html" class="logo" style="font-size: 1.75rem; color: white !important; -webkit-text-fill-color: white; display: block; margin-bottom: 8px;">CrowdInvest</a>
+        <span style="font-size: 0.85rem; opacity: 0.8;"><i class="bi bi-diagram-3"></i> Cadastro de Distribuidor</span>
+      </div>
+
+      <!-- Progress Steps -->
+      <div class="card" style="padding: 20px 30px; margin-bottom: 25px; border-radius: var(--radius-lg);">
+        <div class="steps">
+          <div class="step active">
+            <div class="step-number">1</div>
+            <div class="step-label">Apresentação</div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-label">Empresa</div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-label">Responsável</div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-label">Documentos</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Card - Apresentação -->
+      <div class="card" style="padding: 40px; border-radius: var(--radius-xl);">
+        <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 30px;">
+          <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #1e40af, #3b82f6); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+            <i class="bi bi-diagram-3"></i>
+          </div>
+          <div>
+            <h1 style="font-size: 1.5rem; margin-bottom: 5px;">Bem-vindo ao Programa de Distribuidores</h1>
+            <p class="text-muted">Antes de começar, confira as informações importantes sobre a parceria.</p>
+          </div>
+        </div>
+
+        <!-- O que você pode fazer -->
+        <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); border-radius: var(--radius); padding: 25px; margin-bottom: 25px;">
+          <h3 style="font-size: 1.1rem; margin-bottom: 15px; color: #1e40af;"><i class="bi bi-rocket-takeoff"></i> O que você podera fazer</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <i class="bi bi-check-circle-fill" style="color: #1e40af;"></i>
+              <span>Distribuir ofertas de investimento para sua base</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <i class="bi bi-check-circle-fill" style="color: #1e40af;"></i>
+              <span>Receber comissões sobre cada captação</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <i class="bi bi-check-circle-fill" style="color: #1e40af;"></i>
+              <span>Acessar dashboard completo de gestão</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <i class="bi bi-check-circle-fill" style="color: #1e40af;"></i>
+              <span>Utilizar materiais de apoio comercial</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <i class="bi bi-check-circle-fill" style="color: #1e40af;"></i>
+              <span>Integrar via API com seus sistemas</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <i class="bi bi-check-circle-fill" style="color: #1e40af;"></i>
+              <span>Contar com suporte dedicado</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Requisitos -->
+        <div style="background: #fef3c7; border-radius: var(--radius); padding: 25px; margin-bottom: 25px;">
+          <h3 style="font-size: 1.1rem; margin-bottom: 15px; color: #92400e;"><i class="bi bi-clipboard-check"></i> Requisitos para aprovação</h3>
+          <ul style="margin: 0; padding-left: 20px; color: #78350f;">
+            <li style="margin-bottom: 8px;">CNPJ ativo e regularizado</li>
+            <li style="margin-bottom: 8px;">Objeto social compativel com distribuição de valores mobiliários</li>
+            <li style="margin-bottom: 8px;">Contrato social ou estatuto atualizado</li>
+            <li style="margin-bottom: 8px;">Documentos dos socios/administradores</li>
+            <li>Comprovante de endereco da empresa</li>
+          </ul>
+        </div>
+
+        <!-- Comissões -->
+        <div style="background: var(--bg); border-radius: var(--radius); padding: 25px; margin-bottom: 30px;">
+          <h3 style="font-size: 1.1rem; margin-bottom: 15px;"><i class="bi bi-cash-stack"></i> Modelo de Remuneração</h3>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+            <div style="text-align: center; padding: 15px; background: white; border-radius: var(--radius);">
+              <div style="font-size: 1.75rem; font-weight: 700; color: var(--primary);">2-4%</div>
+              <div class="text-muted" style="font-size: 0.85rem;">Equity</div>
+            </div>
+            <div style="text-align: center; padding: 15px; background: white; border-radius: var(--radius);">
+              <div style="font-size: 1.75rem; font-weight: 700; color: var(--success);">0.5-1%</div>
+              <div class="text-muted" style="font-size: 0.85rem;">CRI/CRA</div>
+            </div>
+            <div style="text-align: center; padding: 15px; background: white; border-radius: var(--radius);">
+              <div style="font-size: 1.75rem; font-weight: 700; color: #7c3aed;">1-2%</div>
+              <div class="text-muted" style="font-size: 0.85rem;">CR</div>
+            </div>
+          </div>
+          <p class="text-muted text-center" style="margin-top: 15px; font-size: 0.85rem;">
+            * Valores variam de acordo com o volume e tipo de oferta
+          </p>
+        </div>
+
+        <!-- Termos -->
+        <div class="form-group">
+          <label style="display: flex; align-items: flex-start; gap: 10px;">
+            <input type="checkbox" id="aceiteTermos" style="margin-top: 4px;" required>
+            <span class="text-muted" style="font-size: 0.875rem;">
+              Li e compreendi as informações acima. Estou ciente dos requisitos e desejo prosseguir com o cadastro de Distribuidor.
+            </span>
+          </label>
+        </div>
+
+        <!-- Actions -->
+        <div style="display: flex; gap: 15px; justify-content: space-between; margin-top: 25px;">
+          <a href="parceiro-cadastro-tipo.html" class="btn btn-outline">
+            <i class="bi bi-arrow-left"></i> Voltar
+          </a>
+          <button type="button" class="btn btn-primary btn-lg" onclick="prosseguirCadastro()" id="btnProsseguir">
+            Prosseguir com Cadastro <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="text-center" style="margin-top: 25px; color: rgba(255,255,255,0.7); font-size: 0.85rem;">
+        <p><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+    function prosseguirCadastro() {
+      const aceite = document.getElementById('aceiteTermos');
+      if (!aceite.checked) {
+        Modals.warning('Atenção', 'Você precisa aceitar os termos para prosseguir.');
+        return;
+      }
+      window.location.href = 'parceiro-cadastro-distribuidor-empresa.html';
+    }
+  </script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

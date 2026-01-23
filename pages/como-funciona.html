@@ -3,176 +3,284 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Como Funciona - CrowdInvest</title>
+  <meta name="description" content="Entenda como funciona a plataforma CrowdInvest - Investimentos alternativos regulamentados pela CVM. Processo simples, seguro e transparente.">
+  <title>Como Funciona - CrowdInvest - Investimentos Alternativos</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/theme-investidor.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/responsive.css">
 </head>
-<body>
+<body class="theme-investidor has-fixed-header">
   <div class="page">
-    <!-- Header -->
-    <header class="header">
+    <!-- Site Header Wrapper (Fixed) -->
+    <div class="site-header-wrapper">
+      <!-- Announcement Bar -->
+      <div class="announcement-bar">
+        <i class="bi bi-megaphone-fill"></i>
+        Nova oferta disponível: TechStart Inovação - 78% captado!
+        <a href="login.html">Investir agora</a>
+      </div>
+
+      <!-- Header 2026 -->
+      <header class="header">
       <div class="container header-content">
-        <a href="../index.html" class="logo">CrowdInvest</a>
-        <button class="menu-toggle" onclick="toggleMobileMenu()">&#9776;</button>
+        <a href="../index.html" class="logo">Alba Invest</a>
+        <button class="menu-toggle" onclick="toggleMobileMenu()"><i class="bi bi-list"></i></button>
         <nav class="nav">
-          <a href="../index.html">Home</a>
-          <a href="ofertas.html">Ofertas</a>
-          <a href="como-funciona.html" style="color: var(--primary);">Como Funciona</a>
-          <a href="login.html" class="btn btn-outline">Entrar</a>
-          <a href="cadastro.html" class="btn btn-primary">Cadastrar</a>
+          <a href="../index.html">Início</a>
+          <a href="como-funciona.html" class="active">Como Funciona</a>
+          <a href="fale-conosco.html">Fale Conosco</a>
+          <a href="parceiros-landing.html" target="_blank">Parceiros</a>
+          <a href="portal.html" style="position: relative;">Portais <span style="font-size: 0.6rem; background: #f59e0b; color: #78350f; padding: 2px 4px; border-radius: 3px; margin-left: 4px; vertical-align: super;">TEMP</span></a>
+          <div class="nav-actions">
+            <a href="login.html" class="btn btn-outline">Entrar</a>
+            <a href="cadastro.html" class="btn btn-primary">Criar Conta</a>
+          </div>
         </nav>
       </div>
     </header>
+    </div><!-- /site-header-wrapper -->
     <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
 
-    <!-- Hero -->
-    <section class="hero" style="padding: 60px 0;">
+    <!-- Page Hero -->
+    <section class="hero" style="padding: 80px 0 60px;">
       <div class="container">
-        <h1>Como Funciona o Equity Crowdfunding</h1>
-        <p>Entenda o passo a passo para investir em startups brasileiras</p>
-      </div>
-    </section>
-
-    <!-- Steps -->
-    <section style="padding: 60px 0;">
-      <div class="container">
-        <div class="grid-2" style="gap: 60px; align-items: center; margin-bottom: 60px;">
-          <div>
-            <span class="badge badge-primary" style="font-size: 1.5rem; padding: 15px 25px; margin-bottom: 20px;">1</span>
-            <h2>Crie sua Conta</h2>
-            <p class="text-muted mt-20">Cadastro rapido e sem burocracia. Validamos sua identidade automaticamente atraves do Bureau de Dados (Serasa, SPC, Receita Federal).</p>
-            <ul style="margin-top: 20px; margin-left: 20px; color: var(--text-muted);">
-              <li>Apenas CPF - somente pessoas fisicas</li>
-              <li>Validacao automatica em segundos</li>
-              <li>Sem envio de documentos</li>
-              <li>2FA obrigatorio para seguranca</li>
-            </ul>
+        <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+          <div class="hero-badge">
+            <i class="bi bi-lightbulb"></i>
+            Processo Simples e Transparente
           </div>
-          <div class="card" style="background: var(--bg); text-align: center; padding: 40px;">
-            <div style="font-size: 5rem;">&#128100;</div>
-            <p class="text-muted">Cadastro validado automaticamente</p>
-          </div>
-        </div>
-
-        <div class="grid-2" style="gap: 60px; align-items: center; margin-bottom: 60px;">
-          <div class="card" style="background: var(--bg); text-align: center; padding: 40px;">
-            <div style="font-size: 5rem;">&#128269;</div>
-            <p class="text-muted">Analise as ofertas disponiveis</p>
-          </div>
-          <div>
-            <span class="badge badge-primary" style="font-size: 1.5rem; padding: 15px 25px; margin-bottom: 20px;">2</span>
-            <h2>Escolha uma Oferta</h2>
-            <p class="text-muted mt-20">Navegue pelas ofertas disponiveis e analise o material de cada empresa antes de investir.</p>
-            <ul style="margin-top: 20px; margin-left: 20px; color: var(--text-muted);">
-              <li>Acesso ao material completo da oferta</li>
-              <li>Informacoes sobre a empresa e equipe</li>
-              <li>Projecoes financeiras e riscos</li>
-              <li>Percentual de equity oferecido</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="grid-2" style="gap: 60px; align-items: center; margin-bottom: 60px;">
-          <div>
-            <span class="badge badge-primary" style="font-size: 1.5rem; padding: 15px 25px; margin-bottom: 20px;">3</span>
-            <h2>Invista via PIX</h2>
-            <p class="text-muted mt-20">Pagamento rapido e seguro via PIX. Investimento minimo a partir de R$ 500.</p>
-            <ul style="margin-top: 20px; margin-left: 20px; color: var(--text-muted);">
-              <li>Pagamento instantaneo via PIX</li>
-              <li>Limite anual de R$ 20.000 (RCVM 88)</li>
-              <li>5 dias para desistir sem custos</li>
-              <li>Confirmacao por e-mail</li>
-            </ul>
-          </div>
-          <div class="card" style="background: var(--bg); text-align: center; padding: 40px;">
-            <div style="font-size: 5rem;">&#128179;</div>
-            <p class="text-muted">PIX rapido e seguro</p>
-          </div>
-        </div>
-
-        <div class="grid-2" style="gap: 60px; align-items: center;">
-          <div class="card" style="background: var(--bg); text-align: center; padding: 40px;">
-            <div style="font-size: 5rem;">&#128200;</div>
-            <p class="text-muted">Acompanhe seu portfolio</p>
-          </div>
-          <div>
-            <span class="badge badge-primary" style="font-size: 1.5rem; padding: 15px 25px; margin-bottom: 20px;">4</span>
-            <h2>Acompanhe seus Investimentos</h2>
-            <p class="text-muted mt-20">Receba atualizacoes periodicas sobre as empresas em que voce investiu.</p>
-            <ul style="margin-top: 20px; margin-left: 20px; color: var(--text-muted);">
-              <li>Dashboard com todos seus investimentos</li>
-              <li>Atualizacoes trimestrais das empresas</li>
-              <li>Documentos de participacao societaria</li>
-              <li>Suporte dedicado</li>
-            </ul>
-          </div>
+          <h1 class="hero-title" style="font-size: 2.5rem;">
+            Como Funcionam os <span class="highlight">Investimentos Alternativos</span>
+          </h1>
+          <p class="hero-subtitle">
+            Entenda o passo a passo para investir em empresas brasileiras de forma segura, regulamentada pela CVM através da Resolução RCVM 88/2022.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- RCVM 88 -->
-    <section style="padding: 60px 0; background: var(--text); color: white;">
+    <!-- Steps Section -->
+    <section class="how" style="padding: 80px 0;">
       <div class="container">
-        <h2 class="text-center mb-30">Regulamentacao RCVM 88/2022</h2>
-        <div class="grid-2" style="gap: 40px;">
-          <div>
-            <h4 style="margin-bottom: 15px;">Para Investidores</h4>
-            <ul style="margin-left: 20px; opacity: 0.8;">
-              <li style="margin-bottom: 10px;">Limite anual de R$ 20.000 por investidor</li>
-              <li style="margin-bottom: 10px;">Direito de desistencia em 5 dias uteis</li>
-              <li style="margin-bottom: 10px;">Acesso ao material da oferta</li>
-              <li style="margin-bottom: 10px;">Participacao societaria (equity)</li>
+        <!-- Step 1 -->
+        <div class="how-step">
+          <div class="how-step-number">1</div>
+          <div class="how-step-content">
+            <div class="how-step-icon">
+              <i class="bi bi-person-plus"></i>
+            </div>
+            <h3>Crie sua Conta</h3>
+            <p>Cadastro rápido e sem burocracia. Validamos sua identidade automaticamente através de bureaus de dados.</p>
+            <ul class="feature-list">
+              <li><i class="bi bi-check-circle-fill"></i> Apenas CPF - somente pessoas físicas</li>
+              <li><i class="bi bi-check-circle-fill"></i> Validação automatica em segundos</li>
+              <li><i class="bi bi-check-circle-fill"></i> Sem envio de documentos</li>
+              <li><i class="bi bi-check-circle-fill"></i> Verificacao em duas etapas para seguranca</li>
             </ul>
           </div>
-          <div>
-            <h4 style="margin-bottom: 15px;">Para Empresas</h4>
-            <ul style="margin-left: 20px; opacity: 0.8;">
-              <li style="margin-bottom: 10px;">Captacao de ate R$ 15 milhoes por oferta</li>
-              <li style="margin-bottom: 10px;">Prazo maximo de 180 dias</li>
-              <li style="margin-bottom: 10px;">Dispensa de registro na CVM</li>
-              <li style="margin-bottom: 10px;">Sociedades empresarias de pequeno porte</li>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="how-step reverse">
+          <div class="how-step-number">2</div>
+          <div class="how-step-content">
+            <div class="how-step-icon">
+              <i class="bi bi-search"></i>
+            </div>
+            <h3>Escolha uma Oferta</h3>
+            <p>Navegue pelas ofertas disponíveis e análise o material completo de cada empresa antes de investir.</p>
+            <ul class="feature-list">
+              <li><i class="bi bi-check-circle-fill"></i> Acesso ao material completo da oferta</li>
+              <li><i class="bi bi-check-circle-fill"></i> Informações sobre a empresa e equipe</li>
+              <li><i class="bi bi-check-circle-fill"></i> Projecoes financeiras e riscos</li>
+              <li><i class="bi bi-check-circle-fill"></i> Percentual de equity oferecido</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="how-step">
+          <div class="how-step-number">3</div>
+          <div class="how-step-content">
+            <div class="how-step-icon">
+              <i class="bi bi-qr-code"></i>
+            </div>
+            <h3>Invista via PIX</h3>
+            <p>Pagamento rápido e seguro via PIX. Investimento mínimo a partir de R$ 500.</p>
+            <ul class="feature-list">
+              <li><i class="bi bi-check-circle-fill"></i> Pagamento instantaneo via PIX</li>
+              <li><i class="bi bi-check-circle-fill"></i> Limite anual de R$ 20.000 (RCVM 88)</li>
+              <li><i class="bi bi-check-circle-fill"></i> 5 dias para desistir sem custos</li>
+              <li><i class="bi bi-check-circle-fill"></i> Confirmação por e-mail</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="how-step reverse">
+          <div class="how-step-number">4</div>
+          <div class="how-step-content">
+            <div class="how-step-icon">
+              <i class="bi bi-graph-up-arrow"></i>
+            </div>
+            <h3>Acompanhe seus Investimentos</h3>
+            <p>Receba atualizações periodicas sobre as empresas em que você investiu.</p>
+            <ul class="feature-list">
+              <li><i class="bi bi-check-circle-fill"></i> Dashboard com todos seus investimentos</li>
+              <li><i class="bi bi-check-circle-fill"></i> Atualizações trimestrais das empresas</li>
+              <li><i class="bi bi-check-circle-fill"></i> Documentos de participação societária</li>
+              <li><i class="bi bi-check-circle-fill"></i> Suporte dedicado</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Risks -->
-    <section style="padding: 60px 0;">
+    <!-- Regulation Section -->
+    <section class="compliance">
       <div class="container">
-        <div class="card" style="border-left: 4px solid var(--warning);">
-          <h3>&#9888; Riscos do Investimento</h3>
-          <p class="text-muted mt-20">Investimentos em sociedades empresarias de pequeno porte sao de alto risco. Antes de investir, considere:</p>
-          <ul style="margin-top: 20px; margin-left: 20px; color: var(--text-muted);">
-            <li>Voce pode perder todo o capital investido</li>
-            <li>Nao ha garantia de retorno ou liquidez</li>
-            <li>O investimento pode nao ter mercado secundario</li>
-            <li>Startups tem alta taxa de mortalidade</li>
-            <li>Leia sempre o material da oferta antes de investir</li>
-          </ul>
+        <div class="text-center">
+          <div class="compliance-badge">
+            <i class="bi bi-shield-check"></i> Regulamentação CVM
+          </div>
+          <h2 class="compliance-title">Resolução RCVM 88/2022</h2>
+          <p class="compliance-subtitle">
+            Operamos dentro do marco regulatório estabelecido pela Comissão de Valores Mobiliários
+          </p>
+        </div>
+        <div class="compliance-grid">
+          <div class="compliance-card">
+            <div class="compliance-card-icon">
+              <i class="bi bi-person-check"></i>
+            </div>
+            <h4>Para Investidores</h4>
+            <ul>
+              <li><i class="bi bi-check2"></i> Limite anual de R$ 20.000</li>
+              <li><i class="bi bi-check2"></i> Direito de desistência em 5 dias úteis</li>
+              <li><i class="bi bi-check2"></i> Acesso completo ao material da oferta</li>
+              <li><i class="bi bi-check2"></i> Participação societária (equity)</li>
+              <li><i class="bi bi-check2"></i> Proteção regulatoria da CVM</li>
+            </ul>
+          </div>
+          <div class="compliance-card">
+            <div class="compliance-card-icon">
+              <i class="bi bi-building"></i>
+            </div>
+            <h4>Para Emissores</h4>
+            <ul>
+              <li><i class="bi bi-check2"></i> Captação de até R$ 15 milhoes por oferta</li>
+              <li><i class="bi bi-check2"></i> Prazo máximo de 180 dias</li>
+              <li><i class="bi bi-check2"></i> Dispensa de registro na CVM</li>
+              <li><i class="bi bi-check2"></i> Sociedades empresárias de pequeno porte</li>
+              <li><i class="bi bi-check2"></i> Processo simplificado de captação</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section style="padding: 60px 0; background: var(--primary); color: white; text-align: center;">
+    <!-- Risk Warning -->
+    <section class="risk-warning-section">
       <div class="container">
-        <h2>Pronto para comecar?</h2>
-        <p style="opacity: 0.9; margin: 20px 0;">Crie sua conta em minutos e comece a investir em startups brasileiras.</p>
-        <a href="cadastro.html" class="btn btn-lg" style="background: white; color: var(--primary);">Criar Conta Gratis</a>
+        <div class="risk-warning-card">
+          <div class="risk-warning-content">
+            <div class="risk-warning-icon">
+              <i class="bi bi-exclamation-triangle-fill"></i>
+            </div>
+            <div class="risk-warning-text">
+              <h3>Riscos do Investimento</h3>
+              <p>Investimentos em sociedades empresárias de pequeno porte são de alto risco. Antes de investir, considere:</p>
+              <ul class="feature-list">
+                <li><i class="bi bi-x-circle"></i> Você pode perder todo o capital investido</li>
+                <li><i class="bi bi-x-circle"></i> Não há garantia de retorno ou liquidez</li>
+                <li><i class="bi bi-x-circle"></i> O investimento pode não ter mercado secundário</li>
+                <li><i class="bi bi-x-circle"></i> Startups tem alta taxa de mortalidade</li>
+                <li><i class="bi bi-x-circle"></i> Leia sempre o material da oferta antes de investir</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Pronto para começar?</h2>
+          <p>Crie sua conta em minutos e comece a investir em empresas brasileiras com segurança e transparência.</p>
+          <div class="cta-buttons">
+            <a href="cadastro.html" class="btn-glow">
+              <i class="bi bi-rocket-takeoff"></i> Criar Conta Gratis
+            </a>
+            <a href="ofertas.html" class="btn-glass">
+              <i class="bi bi-collection"></i> Ver Ofertas
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h4>Alba Invest</h4>
+            <p>Plataforma de investimentos alternativos autorizada pela CVM.</p>
+            <div class="footer-social">
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h5>Para Investidores</h5>
+            <a href="login.html">Acessar Conta</a>
+            <a href="cadastro.html">Criar Conta</a>
+            <a href="como-funciona.html">Como Funciona</a>
+            <a href="material-didatico.html">Material Didático</a>
+          </div>
+          <div class="footer-column">
+            <h5>Transparência CVM</h5>
+            <a href="ofertas-encerradas.html">Ofertas Encerradas</a>
+            <a href="empresas-inadimplentes.html">Empresas Inadimplentes</a>
+            <a href="taxas-custos.html">Taxas e Custos</a>
+            <a href="material-didatico.html">Material Educativo</a>
+          </div>
+          <div class="footer-column">
+            <h5>Institucional</h5>
+            <a href="quem-somos.html">Quem Somos</a>
+            <a href="termos-de-uso.html">Termos de Uso</a>
+            <a href="politica-privacidade.html">Política de Privacidade</a>
+            <a href="fale-conosco.html">Fale Conosco</a>
+          </div>
+        </div>
         <div class="footer-bottom">
-          <p>2026 CrowdInvest. Plataforma autorizada pela CVM conforme RCVM 88/2022.</p>
-          <p>Investimentos envolvem riscos. Leia o material da oferta antes de investir.</p>
+          <div class="footer-contact">
+            <p><i class="bi bi-whatsapp"></i> Atendimento: <a href="https://wa.me/5511738090855" target="_blank" style="color: #10b981;">(11) 7380-9085</a> <span style="opacity: 0.7;">- Das 9h às 18h (dias úteis)</span></p>
+          </div>
+          <div class="footer-legal">
+            <p>Este website ("Site") e gerido e operado pela ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA ("Alba Invest"), CNPJ 43.413.213/0001-58, nos termos da Resolução CVM 88/2022.</p>
+            <p>As sociedades empresárias de pequeno porte e as ofertas apresentadas nesta plataforma estão automaticamente dispensadas de registro pela Comissão de Valores Mobiliários - CVM. A CVM não analisa previamente as ofertas. As ofertas realizadas não implicam por parte da CVM a garantia da veracidade das informações prestadas, de adequação a legislação vigente ou julgamento sobre a qualidade da sociedade empresaria de pequeno porte. Antes de aceitar uma oferta leia com atenção as informações essenciais da oferta, em especial a seção de alertas sobre riscos.</p>
+          </div>
+          <div class="footer-copy">
+            <p><strong>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA</strong> | CNPJ: 43.413.213/0001-58</p>
+            <p>Copyright 2026 - Todos os direitos reservados</p>
+          </div>
         </div>
       </div>
     </footer>
   </div>
 
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
   <script src="../js/app.js"></script>
+  <script src="../js/pages.js"></script>
 </body>
 </html>

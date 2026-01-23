@@ -8,34 +8,46 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <div class="auth-container">
-    <div class="auth-header">
-      <a href="../index.html" class="logo">CrowdInvest</a>
-    </div>
+  <div class="auth-page">
     <div class="auth-box">
+      <div class="auth-logo">
+        <a href="../index.html" class="logo">Alba Invest</a>
+      </div>
+
       <div class="text-center">
         <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--success), #16a34a); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
           <i class="bi bi-check-lg" style="font-size: 2.5rem; color: white;"></i>
         </div>
-        <h2>Senha Redefinida!</h2>
-        <p class="text-muted" style="margin-bottom: 30px;">
+        <h1 class="auth-title">Senha Redefinida!</h1>
+        <p class="auth-subtitle">
           Sua senha foi alterada com sucesso. Agora voce pode acessar sua conta com a nova senha.
         </p>
 
-        <div class="alert alert-success" style="text-align: left;">
+        <div class="alert alert-success mt-20" style="text-align: left;">
           <strong><i class="bi bi-shield-check"></i> Dicas de seguranca:</strong>
           <ul style="margin: 10px 0 0 20px; font-size: 0.875rem;">
             <li>Nao compartilhe sua senha com ninguem</li>
             <li>Use senhas diferentes para cada servico</li>
-            <li>Ative a autenticacao de dois fatores (2FA)</li>
+            <li>Ative a verificacao em duas etapas</li>
           </ul>
         </div>
 
         <a href="login.html" class="btn btn-primary btn-block btn-lg mt-20">Fazer Login</a>
       </div>
+
+      <!-- CVM Disclaimer -->
+      <div class="auth-disclaimer">
+        <p><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</p>
+        <p class="text-muted" style="font-size: 0.7rem;">Investimentos envolvem riscos. Leia o material da oferta antes de investir.</p>
+      </div>
     </div>
   </div>
 
   <script src="../js/app.js"></script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
 </body>
 </html>

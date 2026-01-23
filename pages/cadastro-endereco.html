@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Endereco - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="auth-page">
+    <div class="auth-box" style="max-width: 500px;">
+      <div class="auth-logo">
+        <a href="../index.html" class="logo">Alba Invest</a>
+      </div>
+      <h1 class="auth-title">Endereco</h1>
+      <p class="auth-subtitle">Precisamos do seu endereco para fins cadastrais</p>
+
+      <!-- Steps -->
+      <div class="steps">
+        <div class="step completed">
+          <div class="step-number"><i class="bi bi-check"></i></div>
+          <div class="step-label">Dados</div>
+        </div>
+        <div class="step active">
+          <div class="step-number">2</div>
+          <div class="step-label">Endereco</div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-label">Perfil</div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-label">Seguranca</div>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-label">Validacao</div>
+        </div>
+      </div>
+
+      <form id="enderecoForm" onsubmit="return submitForm('enderecoForm', 'cadastro-perfil.html')">
+        <div class="form-group">
+          <label class="form-label">CEP</label>
+          <div style="display: flex; gap: 10px;">
+            <input type="text" class="form-input" id="cep" placeholder="00000-000" value="01310-100" oninput="formatCEP(this); buscarCEP(this.value)" required style="flex: 1;">
+            <button type="button" class="btn btn-outline" onclick="buscarCEP(document.getElementById('cep').value)" style="white-space: nowrap;">
+              <i class="bi bi-search"></i> Buscar
+            </button>
+          </div>
+          <p class="form-hint">Digite o CEP para preencher automaticamente</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Logradouro</label>
+          <input type="text" class="form-input" id="logradouro" placeholder="Rua, Avenida, etc." value="Avenida Paulista" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Numero</label>
+            <input type="text" class="form-input" id="numero" placeholder="123" value="1000" required>
+          </div>
+          <div class="form-group" style="flex: 2;">
+            <label class="form-label">Complemento</label>
+            <input type="text" class="form-input" id="complemento" placeholder="Apto, Sala, etc." value="Sala 1001">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Bairro</label>
+          <input type="text" class="form-input" id="bairro" placeholder="Bairro" value="Bela Vista" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" style="flex: 2;">
+            <label class="form-label">Cidade</label>
+            <input type="text" class="form-input" id="cidade" placeholder="Cidade" value="Sao Paulo" required>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Estado</label>
+            <select class="form-input" id="estado" required>
+              <option value="">UF</option>
+              <option value="AC">AC</option>
+              <option value="AL">AL</option>
+              <option value="AP">AP</option>
+              <option value="AM">AM</option>
+              <option value="BA">BA</option>
+              <option value="CE">CE</option>
+              <option value="DF">DF</option>
+              <option value="ES">ES</option>
+              <option value="GO">GO</option>
+              <option value="MA">MA</option>
+              <option value="MT">MT</option>
+              <option value="MS">MS</option>
+              <option value="MG">MG</option>
+              <option value="PA">PA</option>
+              <option value="PB">PB</option>
+              <option value="PR">PR</option>
+              <option value="PE">PE</option>
+              <option value="PI">PI</option>
+              <option value="RJ">RJ</option>
+              <option value="RN">RN</option>
+              <option value="RS">RS</option>
+              <option value="RO">RO</option>
+              <option value="RR">RR</option>
+              <option value="SC">SC</option>
+              <option value="SP" selected>SP</option>
+              <option value="SE">SE</option>
+              <option value="TO">TO</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Continuar</button>
+      </form>
+
+      <div class="text-center mt-20">
+        <a href="cadastro.html" style="color: var(--text-muted); text-decoration: none;">
+          <i class="bi bi-arrow-left"></i> Voltar
+        </a>
+      </div>
+
+      <!-- CVM Disclaimer -->
+      <div class="auth-disclaimer">
+        <p><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</p>
+        <p class="text-muted" style="font-size: 0.7rem;">Investimentos envolvem riscos. Leia o material da oferta antes de investir.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+    function formatCEP(input) {
+      let value = input.value.replace(/\D/g, '');
+      if (value.length > 5) {
+        value = value.substring(0,5) + '-' + value.substring(5,8);
+      }
+      input.value = value;
+    }
+
+    function buscarCEP(cep) {
+      cep = cep.replace(/\D/g, '');
+      if (cep.length !== 8) return;
+      
+      // Simular busca de CEP (em producao usaria API ViaCEP)
+      // Exemplo: fetch(`https://viacep.com.br/ws/${cep}/json/`)
+      
+      // Dados simulados para demonstracao
+      const ceps = {
+        '01310100': { logradouro: 'Avenida Paulista', bairro: 'Bela Vista', cidade: 'Sao Paulo', estado: 'SP' },
+        '22041080': { logradouro: 'Avenida Atlantica', bairro: 'Copacabana', cidade: 'Rio de Janeiro', estado: 'RJ' },
+        '30130000': { logradouro: 'Praca Sete de Setembro', bairro: 'Centro', cidade: 'Belo Horizonte', estado: 'MG' }
+      };
+
+      const dados = ceps[cep];
+      if (dados) {
+        document.getElementById('logradouro').value = dados.logradouro;
+        document.getElementById('bairro').value = dados.bairro;
+        document.getElementById('cidade').value = dados.cidade;
+        document.getElementById('estado').value = dados.estado;
+      }
+    }
+  </script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

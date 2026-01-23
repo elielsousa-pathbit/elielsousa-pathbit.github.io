@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Configurar TOTP - Admin - CrowdInvest</title>
+  <title>Configurar Authenticator - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="theme-admin">
   <div class="auth-page" style="background: linear-gradient(135deg, #1e293b, #334155);">
     <div class="auth-box" style="max-width: 500px;">
       <div class="auth-logo">
-        <a href="../index.html" class="logo">CrowdInvest</a>
-        <p class="text-muted" style="margin-top: 5px;">Configuracao Inicial - Admin</p>
+        <a href="../index.html" class="logo">Alba Invest</a>
       </div>
       <h1 class="auth-title">Configurar Authenticator</h1>
-      <p class="auth-subtitle">Configure seu app de autenticacao TOTP</p>
+      <p class="auth-subtitle">Configure seu app de autenticação TOTP</p>
 
       <!-- Steps -->
       <div class="steps" style="margin-bottom: 30px;">
@@ -33,7 +33,11 @@
       </div>
 
       <div class="alert alert-info">
-        <strong>Passo 1:</strong> Escaneie o QR Code com seu app Authenticator
+        <i class="bi bi-info-circle"></i>
+        <div>
+          <strong>Passo 1:</strong><br>
+          Escaneie o QR Code com seu app Authenticator
+        </div>
       </div>
 
       <!-- QR Code -->
@@ -48,13 +52,13 @@
           </div>
         </div>
         <p class="text-muted" style="font-size: 0.875rem; margin-top: 15px;">
-          CrowdInvest Admin - admin@crowdinvest.com.br
+          CrowdInvest Admin - admin@albainvest.com.br
         </p>
       </div>
 
       <!-- Manual Code -->
       <div style="background: var(--bg); padding: 15px; border-radius: var(--radius); margin: 20px 0;">
-        <p class="text-muted" style="font-size: 0.75rem; margin-bottom: 8px;">Nao consegue escanear? Use o codigo manual:</p>
+        <p class="text-muted" style="font-size: 0.75rem; margin-bottom: 8px;">Não consegue escanear? Use o código manual:</p>
         <code style="font-size: 1rem; letter-spacing: 2px; word-break: break-all;">JBSWY3DPEHPK3PXP</code>
       </div>
 
@@ -69,14 +73,21 @@
         </div>
       </div>
 
-      <a href="admin-setup-totp-verify.html" class="btn btn-primary btn-block btn-lg">Proximo: Verificar Codigo</a>
+      <a href="admin-setup-totp-verify.html" class="btn btn-primary btn-block btn-lg">Próximo: Verificar Código</a>
 
       <div class="text-center mt-20">
         <a href="admin-login.html" style="color: var(--text-muted);">&larr; Voltar ao Login</a>
+      </div>
+
+      <!-- CVM Disclaimer -->
+      <div class="auth-disclaimer">
+        <p><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</p>
+        <p class="text-muted" style="font-size: 0.7rem;">Investimentos envolvem riscos. Leia o material da oferta antes de investir.</p>
       </div>
     </div>
   </div>
 
   <script src="../js/app.js"></script>
+
 </body>
 </html>

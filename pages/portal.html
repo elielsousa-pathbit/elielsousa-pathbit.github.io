@@ -6,165 +6,23 @@
   <title>Selecionar Portal - CrowdInvest</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../css/style.css">
-  <style>
-    .portal-page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background: var(--bg);
-    }
-    .portal-header {
-      padding: 20px 0;
-      background: white;
-      border-bottom: 1px solid var(--border);
-    }
-    .portal-header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .portal-content {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-    }
-    .portal-selection {
-      max-width: 900px;
-      width: 100%;
-      text-align: center;
-    }
-    .portal-selection h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    .portal-selection .subtitle {
-      color: var(--text-muted);
-      margin-bottom: 40px;
-    }
-    .portal-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-    }
-    .portal-card {
-      background: white;
-      border-radius: var(--radius);
-      padding: 30px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      border: 2px solid transparent;
-    }
-    .portal-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    }
-    .portal-card.investidor:hover {
-      border-color: var(--primary);
-    }
-    .portal-card.parceiro:hover {
-      border-color: #059669;
-    }
-    .portal-card.admin:hover {
-      border-color: #1e293b;
-    }
-    .portal-icon {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      font-size: 2rem;
-      color: white;
-    }
-    .portal-icon.investidor {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    }
-    .portal-icon.parceiro {
-      background: linear-gradient(135deg, #059669, #047857);
-    }
-    .portal-icon.admin {
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-    }
-    .portal-card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 10px;
-    }
-    .portal-card p {
-      color: var(--text-muted);
-      font-size: 0.875rem;
-      margin-bottom: 15px;
-      min-height: 40px;
-    }
-    .portal-card .portal-badge {
-      margin-bottom: 20px;
-    }
-    .portal-card .portal-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 24px;
-      border-radius: var(--radius);
-      font-weight: 500;
-      font-size: 0.875rem;
-    }
-    .portal-card.investidor .portal-btn {
-      background: var(--primary);
-      color: white;
-    }
-    .portal-card.parceiro .portal-btn {
-      background: #059669;
-      color: white;
-    }
-    .portal-card.admin .portal-btn {
-      background: #1e293b;
-      color: white;
-    }
-    .portal-footer {
-      text-align: center;
-      padding: 30px 20px;
-      background: white;
-      border-top: 1px solid var(--border);
-    }
-    .portal-footer p {
-      color: var(--text-muted);
-      font-size: 0.875rem;
-    }
-    .portal-footer a {
-      color: var(--primary);
-    }
-    .portal-info {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px 40px;
-    }
-    .portal-info .card {
-      background: white;
-    }
-
-    @media (max-width: 768px) {
-      .portal-cards {
-        grid-template-columns: 1fr;
-      }
-      .portal-selection h1 {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../css/theme-investidor.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/responsive.css">
 </head>
 <body>
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <i class="bi bi-megaphone-fill"></i>
+    Nova oferta disponível: TechStart Inovação - 78% captado!
+    <a href="login.html">Investir agora</a>
+  </div>
+
   <div class="portal-page">
     <!-- Header -->
     <header class="portal-header">
       <div class="container">
-        <a href="../index.html" class="logo">CrowdInvest</a>
+        <a href="../index.html" class="logo">Alba Invest</a>
         <a href="../index.html" class="text-muted" style="text-decoration: none;">
           <i class="bi bi-arrow-left"></i> Voltar ao site
         </a>
@@ -186,7 +44,7 @@
             <h3>Investidor</h3>
             <p>Acesse para ver ofertas, investir e acompanhar seu portfolio.</p>
             <div class="portal-badge">
-              <span class="badge badge-info"><i class="bi bi-shield-check"></i> Verificacao por Email/SMS/WhatsApp</span>
+              <span class="badge badge-info"><i class="bi bi-shield-check"></i> Verificação por Email/SMS/WhatsApp</span>
             </div>
             <span class="portal-btn">
               <i class="bi bi-box-arrow-in-right"></i> Acessar Portal
@@ -199,9 +57,9 @@
               <i class="bi bi-building"></i>
             </div>
             <h3>Parceiro / Empresa</h3>
-            <p>Gerencie sua oferta, acompanhe investidores e captacao.</p>
+            <p>Gerencie sua oferta, acompanhe investidores e captação.</p>
             <div class="portal-badge">
-              <span class="badge badge-success"><i class="bi bi-shield-check"></i> Verificacao por Email/SMS/WhatsApp</span>
+              <span class="badge badge-success"><i class="bi bi-shield-check"></i> Verificação por Email/SMS/WhatsApp</span>
             </div>
             <span class="portal-btn">
               <i class="bi bi-box-arrow-in-right"></i> Acessar Portal
@@ -216,7 +74,7 @@
             <h3>Administrador</h3>
             <p>Painel administrativo da plataforma. Acesso restrito.</p>
             <div class="portal-badge">
-              <span class="badge badge-warning"><i class="bi bi-phone"></i> Verificacao por Aplicativo</span>
+              <span class="badge badge-warning"><i class="bi bi-phone"></i> Verificação por Aplicativo</span>
             </div>
             <span class="portal-btn">
               <i class="bi bi-box-arrow-in-right"></i> Acessar Portal
@@ -235,25 +93,25 @@
             <thead>
               <tr>
                 <th>Portal</th>
-                <th>Descricao</th>
-                <th>Verificacao de Acesso</th>
+                <th>Descrição</th>
+                <th>Verificação de Acesso</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><strong><i class="bi bi-wallet2" style="color: var(--primary);"></i> Investidor</strong></td>
-                <td>Pessoas fisicas que desejam investir em startups</td>
-                <td>Codigo por Email, SMS ou WhatsApp</td>
+                <td>Pessoas físicas que desejam investir em startups</td>
+                <td>Código por Email, SMS ou WhatsApp</td>
               </tr>
               <tr>
                 <td><strong><i class="bi bi-building" style="color: #059669;"></i> Parceiro</strong></td>
                 <td>Empresas emissoras de ofertas na plataforma</td>
-                <td>Codigo por Email, SMS ou WhatsApp</td>
+                <td>Código por Email, SMS ou WhatsApp</td>
               </tr>
               <tr>
                 <td><strong><i class="bi bi-shield-lock" style="color: #1e293b;"></i> Admin</strong></td>
-                <td>Equipe de operacoes da plataforma</td>
-                <td>Codigo por aplicativo (Google/Microsoft Authenticator)</td>
+                <td>Equipe de operações da plataforma</td>
+                <td>Código por aplicativo (Google/Microsoft Authenticator)</td>
               </tr>
             </tbody>
           </table>
@@ -262,11 +120,61 @@
     </div>
 
     <!-- Footer -->
-    <footer class="portal-footer">
-      <p>Novo na plataforma? <a href="cadastro.html">Criar conta de investidor</a></p>
-      <p style="margin-top: 10px;">2026 CrowdInvest - Plataforma regulamentada pela CVM (RCVM 88/2022)</p>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h4>Alba Invest</h4>
+            <p>Plataforma de investimentos alternativos autorizada pela CVM.</p>
+            <div class="footer-social">
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h5>Para Investidores</h5>
+            <a href="login.html">Acessar Conta</a>
+            <a href="cadastro.html">Criar Conta</a>
+            <a href="como-funciona.html">Como Funciona</a>
+            <a href="material-didatico.html">Material Didático</a>
+          </div>
+          <div class="footer-column">
+            <h5>Transparência CVM</h5>
+            <a href="ofertas-encerradas.html">Ofertas Encerradas</a>
+            <a href="empresas-inadimplentes.html">Empresas Inadimplentes</a>
+            <a href="taxas-custos.html">Taxas e Custos</a>
+            <a href="material-didatico.html">Material Educativo</a>
+          </div>
+          <div class="footer-column">
+            <h5>Institucional</h5>
+            <a href="quem-somos.html">Quem Somos</a>
+            <a href="termos-de-uso.html">Termos de Uso</a>
+            <a href="politica-privacidade.html">Política de Privacidade</a>
+            <a href="fale-conosco.html">Fale Conosco</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-contact">
+            <p><i class="bi bi-whatsapp"></i> Atendimento: <a href="https://wa.me/5511738090855" target="_blank" style="color: #10b981;">(11) 7380-9085</a> <span style="opacity: 0.7;">- Das 9h às 18h (dias úteis)</span></p>
+          </div>
+          <div class="footer-legal">
+            <p>Este website ("Site") e gerido e operado pela ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA ("Alba Invest"), CNPJ 43.413.213/0001-58, nos termos da Resolução CVM 88/2022.</p>
+            <p>As sociedades empresárias de pequeno porte e as ofertas apresentadas nesta plataforma estão automaticamente dispensadas de registro pela Comissão de Valores Mobiliários - CVM. A CVM não analisa previamente as ofertas. As ofertas realizadas não implicam por parte da CVM a garantia da veracidade das informações prestadas, de adequação a legislação vigente ou julgamento sobre a qualidade da sociedade empresaria de pequeno porte. Antes de aceitar uma oferta leia com atenção as informações essenciais da oferta, em especial a seção de alertas sobre riscos.</p>
+          </div>
+          <div class="footer-copy">
+            <p><strong>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA</strong> | CNPJ: 43.413.213/0001-58</p>
+            <p>Copyright 2026 - Todos os direitos reservados</p>
+          </div>
+        </div>
+      </div>
     </footer>
   </div>
+
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
 
   <script src="../js/app.js"></script>
 </body>

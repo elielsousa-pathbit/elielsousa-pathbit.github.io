@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro Distribuidor - Dados da Empresa - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="theme-parceiro">
+  <div class="auth-page" style="background: linear-gradient(135deg, #7c2d12, #c2410c); min-height: 100vh; padding: 40px 20px;">
+    <div style="max-width: 700px; margin: 0 auto;">
+      <!-- Header -->
+      <div class="text-center" style="color: white; margin-bottom: 30px;">
+        <a href="../index.html" class="logo" style="font-size: 1.75rem; color: white !important; -webkit-text-fill-color: white; display: block; margin-bottom: 8px;">CrowdInvest</a>
+        <span style="font-size: 0.85rem; opacity: 0.8;"><i class="bi bi-person-workspace"></i> Cadastro de Distribuidor</span>
+      </div>
+
+      <!-- Progress Steps -->
+      <div class="card" style="padding: 20px 30px; margin-bottom: 25px; border-radius: var(--radius-lg);">
+        <div class="steps">
+          <div class="step completed">
+            <div class="step-number"><i class="bi bi-check"></i></div>
+            <div class="step-label">Apresentação</div>
+          </div>
+          <div class="step active">
+            <div class="step-number">2</div>
+            <div class="step-label">Empresa</div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-label">Responsável</div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-label">Documentos</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Card -->
+      <div class="card" style="padding: 40px; border-radius: var(--radius-xl);">
+        <h2 style="font-size: 1.35rem; margin-bottom: 25px;"><i class="bi bi-building"></i> Dados da Empresa / Escritorio</h2>
+
+        <!-- Tipo de Cadastro -->
+        <div style="display: flex; gap: 15px; margin-bottom: 25px;">
+          <label style="flex: 1; display: flex; align-items: center; gap: 10px; padding: 15px; border: 2px solid var(--primary); border-radius: var(--radius); cursor: pointer; background: rgba(194, 65, 12, 0.05);">
+            <input type="radio" name="tipoCadastro" value="pj" checked>
+            <div>
+              <strong>Pessoa Jurídica</strong>
+              <small class="text-muted" style="display: block;">Escritorio ou empresa de assessoria</small>
+            </div>
+          </label>
+          <label style="flex: 1; display: flex; align-items: center; gap: 10px; padding: 15px; border: 2px solid var(--border); border-radius: var(--radius); cursor: pointer;">
+            <input type="radio" name="tipoCadastro" value="pf">
+            <div>
+              <strong>Pessoa Fisica</strong>
+              <small class="text-muted" style="display: block;">Distribuidor autônomo</small>
+            </div>
+          </label>
+        </div>
+
+        <form id="empresaForm" onsubmit="return submitForm('empresaForm', 'parceiro-cadastro-assessor-responsavel.html')">
+          <div class="form-group">
+            <label class="form-label">CNPJ</label>
+            <input type="text" class="form-input" placeholder="43.413.213/0001-58" value="55.666.777/0001-88" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Razao Social</label>
+            <input type="text" class="form-input" placeholder="Razao social da empresa" value="Premium Investimentos Ltda" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Nome Fantasia / Escritorio</label>
+            <input type="text" class="form-input" placeholder="Nome fantasia" value="Premium Invest">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="form-group">
+              <label class="form-label">Data de Fundação</label>
+              <input type="date" class="form-input" value="2019-02-01" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Vinculo Institucional</label>
+              <select class="form-input" required>
+                <option value="">Selecione...</option>
+                <option value="btg">BTG Pactual</option>
+                <option value="xp" selected>XP Investimentos</option>
+                <option value="genial">Genial</option>
+                <option value="orama">Orama</option>
+                <option value="autônomo">Autônomo</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Número de Distribuidores no Escritorio</label>
+            <select class="form-input" required>
+              <option value="">Selecione...</option>
+              <option value="1">Apenas eu (autônomo)</option>
+              <option value="2-5" selected>2 a 5 assessores</option>
+              <option value="6-10">6 a 10 assessores</option>
+              <option value="11-20">11 a 20 assessores</option>
+              <option value="20+">Mais de 20 assessores</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Volume Estimado de AuC (Ativos sob Custodia)</label>
+            <select class="form-input" required>
+              <option value="">Selecione...</option>
+              <option value="<10m">Até R$ 10 milhoes</option>
+              <option value="10-50m" selected>R$ 10 a 50 milhoes</option>
+              <option value="50-100m">R$ 50 a 100 milhoes</option>
+              <option value="100-500m">R$ 100 a 500 milhoes</option>
+              <option value=">500m">Mais de R$ 500 milhoes</option>
+            </select>
+          </div>
+
+          <hr style="margin: 25px 0; border: none; border-top: 1px solid var(--border);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 20px;"><i class="bi bi-geo-alt"></i> Endereco</h3>
+
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 15px;">
+            <div class="form-group">
+              <label class="form-label">CEP</label>
+              <input type="text" class="form-input" placeholder="00000-000" value="80250-100" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Logradouro</label>
+              <input type="text" class="form-input" placeholder="Rua, Av, etc" value="Av. Sete de Setembro" required>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 15px;">
+            <div class="form-group">
+              <label class="form-label">Número</label>
+              <input type="text" class="form-input" placeholder="Nº" value="4456" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Complemento</label>
+              <input type="text" class="form-input" placeholder="Sala, Andar..." value="Sala 805">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Bairro</label>
+              <input type="text" class="form-input" placeholder="Bairro" value="Batel" required>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 15px;">
+            <div class="form-group">
+              <label class="form-label">Cidade</label>
+              <input type="text" class="form-input" placeholder="Cidade" value="Curitiba" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">UF</label>
+              <select class="form-input" required>
+                <option value="SP">SP</option>
+                <option value="RJ">RJ</option>
+                <option value="MG">MG</option>
+                <option value="PR" selected>PR</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div style="display: flex; gap: 15px; justify-content: space-between; margin-top: 30px;">
+            <a href="parceiro-cadastro-assessor.html" class="btn btn-outline">
+              <i class="bi bi-arrow-left"></i> Voltar
+            </a>
+            <button type="submit" class="btn btn-primary btn-lg" style="background: linear-gradient(135deg, #c2410c, #f97316);">
+              Próximo <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Footer -->
+      <div class="text-center" style="margin-top: 25px; color: rgba(255,255,255,0.7); font-size: 0.85rem;">
+        <p><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ofertas Encerradas - Histórico completo de ofertas realizadas na CrowdInvest com resultados e performance.">
+  <title>Ofertas Encerradas - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="theme-investidor has-fixed-header">
+  <div class="page">
+    <!-- Site Header Wrapper (Fixed) -->
+    <div class="site-header-wrapper">
+      <!-- Announcement Bar -->
+      <div class="announcement-bar">
+        <i class="bi bi-megaphone-fill"></i>
+        Nova oferta disponível: TechStart Inovação - 78% captado!
+        <a href="login.html">Investir agora</a>
+      </div>
+
+      <!-- Header 2026 -->
+      <header class="header">
+        <div class="container header-content">
+          <a href="../index.html" class="logo">Alba Invest</a>
+          <button class="menu-toggle" onclick="toggleMobileMenu()"><i class="bi bi-list"></i></button>
+          <nav class="nav">
+            <a href="../index.html">Início</a>
+            <a href="como-funciona.html">Como Funciona</a>
+            <a href="fale-conosco.html">Fale Conosco</a>
+            <a href="parceiros-landing.html" target="_blank">Parceiros</a>
+            <a href="portal.html" style="position: relative;">Portais <span style="font-size: 0.6rem; background: #f59e0b; color: #78350f; padding: 2px 4px; border-radius: 3px; margin-left: 4px; vertical-align: super;">TEMP</span></a>
+            <div class="nav-actions">
+              <a href="login.html" class="btn btn-outline">Entrar</a>
+              <a href="cadastro.html" class="btn btn-primary">Criar Conta</a>
+            </div>
+          </nav>
+        </div>
+      </header>
+    </div><!-- /site-header-wrapper -->
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <!-- Hero -->
+    <section style="background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%); color: white; padding: 60px 0;">
+      <div class="container text-center">
+        <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 10px;">Ofertas Encerradas</h1>
+        <p style="opacity: 0.8; max-width: 600px; margin: 0 auto;">Histórico completo de ofertas realizadas na plataforma</p>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section style="padding: 40px 0; background: #f8fafc;">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px;">
+          <div class="card text-center" style="padding: 25px;">
+            <div style="font-size: 2rem; font-weight: 800; color: #1e40af;">47</div>
+            <div class="text-muted" style="font-size: 0.9rem;">Ofertas Realizadas</div>
+          </div>
+          <div class="card text-center" style="padding: 25px;">
+            <div style="font-size: 2rem; font-weight: 800; color: #047857;">R$ 28,5M</div>
+            <div class="text-muted" style="font-size: 0.9rem;">Total Captado</div>
+          </div>
+          <div class="card text-center" style="padding: 25px;">
+            <div style="font-size: 2rem; font-weight: 800; color: #c2410c;">3.840</div>
+            <div class="text-muted" style="font-size: 0.9rem;">Investidores</div>
+          </div>
+          <div class="card text-center" style="padding: 25px;">
+            <div style="font-size: 2rem; font-weight: 800; color: #7c3aed;">89%</div>
+            <div class="text-muted" style="font-size: 0.9rem;">Taxa de Sucesso</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section style="padding: 30px 0 0;">
+      <div class="container">
+        <div class="card" style="padding: 20px;">
+          <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 200px;">
+              <input type="text" placeholder="Buscar por empresa..." class="form-control" style="width: 100%;">
+            </div>
+            <select class="form-control" style="width: auto; min-width: 150px;">
+              <option>Todos os anos</option>
+              <option>2026</option>
+              <option>2025</option>
+              <option>2024</option>
+              <option>2023</option>
+            </select>
+            <select class="form-control" style="width: auto; min-width: 150px;">
+              <option>Todos os setores</option>
+              <option>Tecnologia</option>
+              <option>Energia</option>
+              <option>Agronegócio</option>
+              <option>Saúde</option>
+              <option>Varejo</option>
+            </select>
+            <select class="form-control" style="width: auto; min-width: 150px;">
+              <option>Todos os tipos</option>
+              <option>Equity</option>
+              <option>Divida</option>
+              <option>Conversivel</option>
+            </select>
+            <select class="form-control" style="width: auto; min-width: 150px;">
+              <option>Todos os status</option>
+              <option>Sucesso</option>
+              <option>Parcial</option>
+              <option>Cancelada</option>
+            </select>
+            <div style="border-left: 1px solid var(--border); padding-left: 15px; display: flex; gap: 8px;">
+              <button onclick="Modals.export('pdf', 'ofertas-encerradas')" class="btn btn-sm" style="background: #dc2626; color: white; padding: 8px 12px;" title="Exportar PDF">
+                <i class="bi bi-file-pdf"></i> PDF
+              </button>
+              <button onclick="Modals.export('excel', 'ofertas-encerradas')" class="btn btn-sm" style="background: #047857; color: white; padding: 8px 12px;" title="Exportar Excel">
+                <i class="bi bi-file-excel"></i> Excel
+              </button>
+              <button onclick="Modals.export('csv', 'ofertas-encerradas')" class="btn btn-sm" style="background: #6366f1; color: white; padding: 8px 12px;" title="Exportar CSV">
+                <i class="bi bi-filetype-csv"></i> CSV
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Offers List -->
+    <section style="padding: 40px 0 60px;">
+      <div class="container">
+
+        <!-- Offer 1 - Success -->
+        <div class="card" style="margin-bottom: 20px; overflow: hidden;">
+          <div style="display: flex;">
+            <div style="width: 200px; min-height: 180px; background: linear-gradient(135deg, #047857, #10b981); display: flex; align-items: center; justify-content: center; flex-direction: column; color: white; padding: 20px;">
+              <i class="bi bi-check-circle-fill" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+              <span style="font-weight: 700;">SUCESSO</span>
+              <span style="font-size: 0.8rem; opacity: 0.9;">Meta atingida</span>
+            </div>
+            <div style="flex: 1; padding: 25px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                <div>
+                  <span style="background: #dbeafe; color: #1e40af; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">TECNOLOGIA</span>
+                  <span style="background: #d1fae5; color: #047857; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-left: 8px;">EQUITY</span>
+                </div>
+                <span class="text-muted" style="font-size: 0.85rem;">Encerrada em 15/11/2025</span>
+              </div>
+              <h3 style="margin-bottom: 8px;">TechStartup Inovações S.A.</h3>
+              <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 20px;">Plataforma SaaS de gestão empresarial para PMEs com foco em automação de processos financeiros.</p>
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">CAPTADO</div>
+                  <div style="font-weight: 700; color: #047857;">R$ 1.200.000</div>
+                </div>
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">META</div>
+                  <div style="font-weight: 700;">R$ 1.000.000</div>
+                </div>
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">INVESTIDORES</div>
+                  <div style="font-weight: 700;">187</div>
+                </div>
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">RENTABILIDADE</div>
+                  <div style="font-weight: 700; color: #047857;">+45% (realizada)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Offer 2 - Success -->
+        <div class="card" style="margin-bottom: 20px; overflow: hidden;">
+          <div style="display: flex;">
+            <div style="width: 200px; min-height: 180px; background: linear-gradient(135deg, #047857, #10b981); display: flex; align-items: center; justify-content: center; flex-direction: column; color: white; padding: 20px;">
+              <i class="bi bi-check-circle-fill" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+              <span style="font-weight: 700;">SUCESSO</span>
+              <span style="font-size: 0.8rem; opacity: 0.9;">Meta atingida</span>
+            </div>
+            <div style="flex: 1; padding: 25px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                <div>
+                  <span style="background: #fef3c7; color: #92400e; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">ENERGIA</span>
+                  <span style="background: #e0e7ff; color: #3730a3; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-left: 8px;">DIVIDA</span>
+                </div>
+                <span class="text-muted" style="font-size: 0.85rem;">Encerrada em 28/10/2025</span>
+              </div>
+              <h3 style="margin-bottom: 8px;">SolarTech Energia Renovavel</h3>
+              <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 20px;">Projeto de usina solar fotovoltaica de 5MW no interior de Minas Gerais com contratos de venda de energia já firmados.</p>
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">CAPTADO</div>
+                  <div style="font-weight: 700; color: #047857;">R$ 2.500.000</div>
+                </div>
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">META</div>
+                  <div style="font-weight: 700;">R$ 2.500.000</div>
+                </div>
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">INVESTIDORES</div>
+                  <div style="font-weight: 700;">312</div>
+                </div>
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">RENTABILIDADE</div>
+                  <div style="font-weight: 700; color: #047857;">CDI + 6% a.a.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Offer 3 - Partial -->
+        <div class="card" style="margin-bottom: 20px; overflow: hidden;">
+          <div style="display: flex;">
+            <div style="width: 200px; min-height: 180px; background: linear-gradient(135deg, #d97706, #f59e0b); display: flex; align-items: center; justify-content: center; flex-direction: column; color: white; padding: 20px;">
+              <i class="bi bi-dash-circle-fill" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+              <span style="font-weight: 700;">PARCIAL</span>
+              <span style="font-size: 0.8rem; opacity: 0.9;">Meta minima</span>
+            </div>
+            <div style="flex: 1; padding: 25px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                <div>
+                  <span style="background: #fce7f3; color: #9d174d; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">SAUDE</span>
+                  <span style="background: #d1fae5; color: #047857; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-left: 8px;">EQUITY</span>
+                </div>
+                <span class="text-muted" style="font-size: 0.85rem;">Encerrada em 10/09/2025</span>
+              </div>
+              <h3 style="margin-bottom: 8px;">MedTech Solutions</h3>
+              <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 20px;">Startup de telemedicina com plataforma propria de consultas online e integração com laboratorios.</p>
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">CAPTADO</div>
+                  <div style="font-weight: 700; color: #d97706;">R$ 680.000</div>
+                </div>
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">META</div>
+                  <div style="font-weight: 700;">R$ 1.000.000</div>
+                </div>
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">INVESTIDORES</div>
+                  <div style="font-weight: 700;">89</div>
+                </div>
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">RENTABILIDADE</div>
+                  <div class="text-muted" style="font-size: 0.9rem;">Em andamento</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Offer 4 - Success -->
+        <div class="card" style="margin-bottom: 20px; overflow: hidden;">
+          <div style="display: flex;">
+            <div style="width: 200px; min-height: 180px; background: linear-gradient(135deg, #047857, #10b981); display: flex; align-items: center; justify-content: center; flex-direction: column; color: white; padding: 20px;">
+              <i class="bi bi-check-circle-fill" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+              <span style="font-weight: 700;">SUCESSO</span>
+              <span style="font-size: 0.8rem; opacity: 0.9;">Meta atingida</span>
+            </div>
+            <div style="flex: 1; padding: 25px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                <div>
+                  <span style="background: #dcfce7; color: #166534; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">AGRONEGOCIO</span>
+                  <span style="background: #e0e7ff; color: #3730a3; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-left: 8px;">DIVIDA</span>
+                </div>
+                <span class="text-muted" style="font-size: 0.85rem;">Encerrada em 22/07/2025</span>
+              </div>
+              <h3 style="margin-bottom: 8px;">AgroTech Irrigação Inteligente</h3>
+              <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 20px;">Sistema de irrigação com IoT para otimização do uso de água em propriedades rurais do Centro-Oeste.</p>
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">CAPTADO</div>
+                  <div style="font-weight: 700; color: #047857;">R$ 800.000</div>
+                </div>
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">META</div>
+                  <div style="font-weight: 700;">R$ 750.000</div>
+                </div>
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">INVESTIDORES</div>
+                  <div style="font-weight: 700;">156</div>
+                </div>
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">RENTABILIDADE</div>
+                  <div style="font-weight: 700; color: #047857;">IPCA + 10% a.a.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Offer 5 - Cancelled -->
+        <div class="card" style="margin-bottom: 20px; overflow: hidden;">
+          <div style="display: flex;">
+            <div style="width: 200px; min-height: 180px; background: linear-gradient(135deg, #991b1b, #dc2626); display: flex; align-items: center; justify-content: center; flex-direction: column; color: white; padding: 20px;">
+              <i class="bi bi-x-circle-fill" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+              <span style="font-weight: 700;">CANCELADA</span>
+              <span style="font-size: 0.8rem; opacity: 0.9;">Não atingiu mínimo</span>
+            </div>
+            <div style="flex: 1; padding: 25px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                <div>
+                  <span style="background: #fee2e2; color: #991b1b; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">VAREJO</span>
+                  <span style="background: #d1fae5; color: #047857; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-left: 8px;">EQUITY</span>
+                </div>
+                <span class="text-muted" style="font-size: 0.85rem;">Cancelada em 05/06/2025</span>
+              </div>
+              <h3 style="margin-bottom: 8px;">FastDelivery Logistica</h3>
+              <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 20px;">Startup de logistica last-mile para e-commerce com foco em entregas no mesmo dia.</p>
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">CAPTADO</div>
+                  <div style="font-weight: 700; color: #991b1b;">R$ 180.000</div>
+                </div>
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">META MINIMA</div>
+                  <div style="font-weight: 700;">R$ 400.000</div>
+                </div>
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">INVESTIDORES</div>
+                  <div style="font-weight: 700;">23</div>
+                </div>
+                <div>
+                  <div class="text-muted" style="font-size: 0.75rem;">STATUS</div>
+                  <div style="font-weight: 700; color: #991b1b;">Valores devolvidos</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Págination -->
+        <div style="display: flex; justify-content: center; gap: 8px; margin-top: 40px;">
+          <button class="btn btn-outline" disabled><i class="bi bi-chevron-left"></i></button>
+          <button class="btn btn-primary">1</button>
+          <button class="btn btn-outline">2</button>
+          <button class="btn btn-outline">3</button>
+          <button class="btn btn-outline">4</button>
+          <button class="btn btn-outline">5</button>
+          <button class="btn btn-outline"><i class="bi bi-chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Box -->
+    <section style="padding: 0 0 60px;">
+      <div class="container">
+        <div class="alert alert-info">
+          <i class="bi bi-info-circle"></i>
+          <div>
+            <strong>Transparencia:</strong><br>
+            Conforme exigido pela Resolucao CVM 88/2022, mantemos o historico completo de todas as ofertas realizadas, incluindo aquelas que nao atingiram suas metas. Os valores referentes a ofertas canceladas foram integralmente devolvidos aos investidores.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h4>Alba Invest</h4>
+            <p>Plataforma de investimentos alternativos autorizada pela CVM.</p>
+            <div class="footer-social">
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h5>Para Investidores</h5>
+            <a href="login.html">Acessar Conta</a>
+            <a href="cadastro.html">Criar Conta</a>
+            <a href="como-funciona.html">Como Funciona</a>
+            <a href="material-didatico.html">Material Didático</a>
+          </div>
+          <div class="footer-column">
+            <h5>Transparência CVM</h5>
+            <a href="ofertas-encerradas.html">Ofertas Encerradas</a>
+            <a href="empresas-inadimplentes.html">Empresas Inadimplentes</a>
+            <a href="taxas-custos.html">Taxas e Custos</a>
+            <a href="material-didatico.html">Material Educativo</a>
+          </div>
+          <div class="footer-column">
+            <h5>Institucional</h5>
+            <a href="quem-somos.html">Quem Somos</a>
+            <a href="termos-de-uso.html">Termos de Uso</a>
+            <a href="politica-privacidade.html">Política de Privacidade</a>
+            <a href="fale-conosco.html">Fale Conosco</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-contact">
+            <p><i class="bi bi-whatsapp"></i> Atendimento: <a href="https://wa.me/5511738090855" target="_blank" style="color: #10b981;">(11) 7380-9085</a> <span style="opacity: 0.7;">- Das 9h às 18h (dias úteis)</span></p>
+          </div>
+          <div class="footer-legal">
+            <p>Este website ("Site") e gerido e operado pela ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA ("Alba Invest"), CNPJ 43.413.213/0001-58, nos termos da Resolução CVM 88/2022.</p>
+            <p>As sociedades empresárias de pequeno porte e as ofertas apresentadas nesta plataforma estão automaticamente dispensadas de registro pela Comissão de Valores Mobiliários - CVM. A CVM não analisa previamente as ofertas. As ofertas realizadas não implicam por parte da CVM a garantia da veracidade das informações prestadas, de adequação a legislação vigente ou julgamento sobre a qualidade da sociedade empresaria de pequeno porte. Antes de aceitar uma oferta leia com atenção as informações essenciais da oferta, em especial a seção de alertas sobre riscos.</p>
+          </div>
+          <div class="footer-copy">
+            <p><strong>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA</strong> | CNPJ: 43.413.213/0001-58</p>
+            <p>Copyright 2026 - Todos os direitos reservados</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

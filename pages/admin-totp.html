@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TOTP - Admin - CrowdInvest</title>
+  <title>Codigo do Authenticator - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="theme-admin">
   <div class="auth-page" style="background: linear-gradient(135deg, #1e293b, #334155);">
     <div class="auth-box">
       <div class="auth-logo">
-        <a href="../index.html" class="logo">CrowdInvest</a>
-        <p class="text-muted" style="margin-top: 5px;">Painel Administrativo</p>
+        <a href="../index.html" class="logo">Alba Invest</a>
       </div>
-      <h1 class="auth-title">Codigo do Authenticator</h1>
-      <p class="auth-subtitle">Digite o codigo de 6 digitos do seu app</p>
+      <h1 class="auth-title">Código do Authenticator</h1>
+      <p class="auth-subtitle">Digite o código de 6 digitos do seu app</p>
 
       <div style="text-align: center; margin: 20px 0;">
-        <span style="font-size: 3rem;">&#128274;</span>
+        <span style="font-size: 3rem; color: var(--primary);"><i class="bi bi-shield-lock-fill"></i></span>
       </div>
 
       <form id="totpForm" onsubmit="return submitForm('totpForm', 'admin/dashboard.html')">
@@ -31,7 +31,7 @@
         </div>
 
         <p class="text-center text-muted mb-20" style="font-size: 0.875rem;">
-          Abra o Google Authenticator ou Microsoft Authenticator e digite o codigo atual
+          Abra o Google Authenticator ou Microsoft Authenticator e digite o código atual
         </p>
 
         <button type="submit" class="btn btn-primary btn-block btn-lg">Verificar</button>
@@ -42,12 +42,22 @@
       </div>
 
       <div class="alert alert-info mt-20" style="font-size: 0.875rem;">
-        <strong>Problemas com o codigo?</strong><br>
-        Use um dos codigos de recuperacao offline ou entre em contato com o suporte.
+        <i class="bi bi-question-circle"></i>
+        <div>
+          <strong>Problemas com o código?</strong><br>
+          Use um dos códigos de recuperação offline ou entre em contato com o suporte.
+        </div>
+      </div>
+
+      <!-- CVM Disclaimer -->
+      <div class="auth-disclaimer">
+        <p><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</p>
+        <p class="text-muted" style="font-size: 0.7rem;">Investimentos envolvem riscos. Leia o material da oferta antes de investir.</p>
       </div>
     </div>
   </div>
 
   <script src="../js/app.js"></script>
+
 </body>
 </html>

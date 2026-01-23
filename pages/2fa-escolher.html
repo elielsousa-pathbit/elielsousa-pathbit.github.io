@@ -3,62 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Escolher 2FA - CrowdInvest</title>
+  <title>Codigo de Seguranca - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   <div class="auth-page">
     <div class="auth-box">
       <div class="auth-logo">
-        <a href="../index.html" class="logo">CrowdInvest</a>
+        <a href="../index.html" class="logo">Alba Invest</a>
       </div>
-      <h1 class="auth-title">Verificacao em 2 Etapas</h1>
-      <p class="auth-subtitle">Escolha como deseja receber o codigo de verificacao</p>
+      <h1 class="auth-title">Codigo de Seguranca</h1>
+      <p class="auth-subtitle">Escolha como deseja receber o código de verificação</p>
 
       <div class="alert alert-info">
-        <strong>Seguranca</strong><br>
-        A verificacao em duas etapas protege sua conta contra acessos nao autorizados.
+        <i class="bi bi-shield-check"></i>
+        <div>
+          <strong>Segurança:</strong><br>
+          A verificação em duas etapas protege sua conta contra acessos não autorizados.
+        </div>
       </div>
 
       <form id="methodForm" onsubmit="return submitForm('methodForm', '2fa-codigo.html')">
         <div class="method-options">
           <label class="method-option selected" onclick="selectMethod(this)">
             <input type="radio" name="method" value="email" checked>
-            <span class="method-icon">&#9993;</span>
+            <span class="method-icon"><i class="bi bi-envelope"></i></span>
             <div class="method-info">
               <h4>E-mail</h4>
-              <p>Enviar codigo para j***@email.com</p>
+              <p>Enviar código para j***@email.com</p>
             </div>
           </label>
 
           <label class="method-option" onclick="selectMethod(this)">
             <input type="radio" name="method" value="sms">
-            <span class="method-icon">&#128241;</span>
+            <span class="method-icon"><i class="bi bi-phone"></i></span>
             <div class="method-info">
               <h4>SMS</h4>
-              <p>Enviar codigo para (11) 9****-8888</p>
+              <p>Enviar código para (11) 9****-8888</p>
             </div>
           </label>
 
           <label class="method-option" onclick="selectMethod(this)">
             <input type="radio" name="method" value="whatsapp">
-            <span class="method-icon">&#128172;</span>
+            <span class="method-icon"><i class="bi bi-whatsapp"></i></span>
             <div class="method-info">
               <h4>WhatsApp</h4>
-              <p>Enviar codigo para (11) 9****-8888</p>
+              <p>Enviar código para (11) 9****-8888</p>
             </div>
           </label>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-block btn-lg">Enviar Codigo</button>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Enviar Código</button>
       </form>
 
       <div class="text-center mt-20">
         <a href="login.html" style="color: var(--text-muted);">&larr; Voltar ao login</a>
       </div>
+
+      <!-- CVM Disclaimer -->
+      <div class="auth-disclaimer">
+        <p><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</p>
+        <p class="text-muted" style="font-size: 0.7rem;">Investimentos envolvem riscos. Leia o material da oferta antes de investir.</p>
+      </div>
     </div>
   </div>
 
   <script src="../js/app.js"></script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
 </body>
 </html>

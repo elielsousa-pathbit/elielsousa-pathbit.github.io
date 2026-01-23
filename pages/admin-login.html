@@ -11,21 +11,23 @@
   <div class="auth-page" style="background: linear-gradient(135deg, #1e293b, #334155);">
     <div class="auth-box">
       <div class="auth-logo">
-        <a href="../index.html" class="logo">CrowdInvest</a>
-        <p class="text-muted" style="margin-top: 5px;">Painel Administrativo</p>
+        <a href="../index.html" class="logo">Alba Invest</a>
       </div>
       <h1 class="auth-title">Login Admin</h1>
       <p class="auth-subtitle">Acesso restrito a administradores</p>
 
       <div class="alert alert-warning">
-        <strong><i class="bi bi-shield-lock"></i> Verificacao por Aplicativo Obrigatoria</strong><br>
-        Este acesso requer Google Authenticator ou similar.
+        <i class="bi bi-shield-lock"></i>
+        <div>
+          <strong>Verificação por Aplicativo Obrigatória</strong><br>
+          Este acesso requer Google Authenticator ou similar.
+        </div>
       </div>
 
       <form id="adminLoginForm" onsubmit="return submitForm('adminLoginForm', 'admin-totp.html')">
         <div class="form-group">
           <label class="form-label">E-mail Corporativo</label>
-          <input type="email" class="form-input" placeholder="admin@crowdinvest.com.br" value="admin@crowdinvest.com.br" required>
+          <input type="email" class="form-input" placeholder="admin@albainvest.com.br" value="admin@albainvest.com.br" required>
         </div>
 
         <div class="form-group">
@@ -43,13 +45,23 @@
       </div>
 
       <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border);">
-        <p class="text-center text-muted" style="font-size: 0.75rem;">
-          Primeiro acesso? <a href="admin-setup-totp.html" style="color: var(--primary);">Configurar Authenticator</a>
+        <a href="admin-setup-totp.html" class="btn btn-outline btn-block" style="font-size: 0.9rem;">
+          <i class="bi bi-person-plus"></i> Primeiro acesso? Clique Aqui!
+        </a>
+        <p class="text-center text-muted" style="font-size: 0.7rem; margin-top: 8px;">
+          Configure seu autenticador para acessar o painel
         </p>
+      </div>
+
+      <!-- CVM Disclaimer -->
+      <div class="auth-disclaimer">
+        <p><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</p>
+        <p class="text-muted" style="font-size: 0.7rem;">Investimentos envolvem riscos. Leia o material da oferta antes de investir.</p>
       </div>
     </div>
   </div>
 
   <script src="../js/app.js"></script>
+
 </body>
 </html>

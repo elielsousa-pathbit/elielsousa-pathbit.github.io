@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro Emissor - Dados da Empresa - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="theme-parceiro">
+  <div class="auth-page" style="background: linear-gradient(135deg, #5b21b6, #7c3aed); min-height: 100vh; padding: 40px 20px;">
+    <div style="max-width: 700px; margin: 0 auto;">
+      <!-- Header -->
+      <div class="text-center" style="color: white; margin-bottom: 30px;">
+        <a href="../index.html" class="logo" style="font-size: 1.75rem; color: white !important; -webkit-text-fill-color: white; display: block; margin-bottom: 8px;">CrowdInvest</a>
+        <span style="font-size: 0.85rem; opacity: 0.8;"><i class="bi bi-rocket-takeoff"></i> Cadastro de Emissor</span>
+      </div>
+
+      <!-- Progress Steps -->
+      <div class="card" style="padding: 20px 30px; margin-bottom: 25px; border-radius: var(--radius-lg);">
+        <div class="steps">
+          <div class="step completed">
+            <div class="step-number"><i class="bi bi-check"></i></div>
+            <div class="step-label">Apresentacao</div>
+          </div>
+          <div class="step active">
+            <div class="step-number">2</div>
+            <div class="step-label">Empresa</div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-label">Responsavel</div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-label">Documentos</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Card -->
+      <div class="card" style="padding: 40px; border-radius: var(--radius-xl);">
+        <h2 style="font-size: 1.35rem; margin-bottom: 25px;"><i class="bi bi-building"></i> Dados da Empresa Emissora</h2>
+
+        <form id="empresaForm" onsubmit="return submitForm('empresaForm', 'parceiro-cadastro-emissor-responsavel.html')">
+          <div class="form-group">
+            <label class="form-label">CNPJ da Empresa *</label>
+            <input type="text" class="form-input" placeholder="43.413.213/0001-58" value="12.345.678/0001-90" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Razao Social *</label>
+            <input type="text" class="form-input" placeholder="Razao social da empresa" value="TechStart Inovacao LTDA" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Nome Fantasia</label>
+            <input type="text" class="form-input" placeholder="Nome fantasia" value="TechStart">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="form-group">
+              <label class="form-label">Data de Constituicao *</label>
+              <input type="date" class="form-input" value="2021-03-15" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Tipo Societario *</label>
+              <select class="form-input" required>
+                <option value="">Selecione...</option>
+                <option value="ltda" selected>LTDA</option>
+                <option value="sa">Sociedade Anonima (S.A.)</option>
+                <option value="eireli">EIRELI</option>
+                <option value="mei">MEI</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Setor de Atuacao *</label>
+            <select class="form-input" id="setorAtuacao" required onchange="mostrarSegmentos()">
+              <option value="">Selecione o setor...</option>
+              <option value="tecnologia" selected>Tecnologia / SaaS</option>
+              <option value="agronegocio">Agronegocio</option>
+              <option value="imobiliario">Imobiliario</option>
+              <option value="energia">Energia</option>
+              <option value="saude">Saude</option>
+              <option value="educacao">Educacao</option>
+              <option value="varejo">Varejo / E-commerce</option>
+              <option value="industria">Industria</option>
+              <option value="servicos">Servicos</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Atividade Principal (CNAE) *</label>
+            <select class="form-input" required>
+              <option value="">Selecione...</option>
+              <option value="6201-5" selected>6201-5 - Desenvolvimento de programas de computador sob encomenda</option>
+              <option value="6202-3">6202-3 - Desenvolvimento e licenciamento de programas de computador</option>
+              <option value="6203-1">6203-1 - Desenvolvimento e licenciamento de software nao-customizavel</option>
+              <option value="6204-0">6204-0 - Consultoria em tecnologia da informacao</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="form-group">
+              <label class="form-label">Faturamento Anual (ultimo exercicio) *</label>
+              <select class="form-input" required>
+                <option value="">Selecione...</option>
+                <option value="ate-500k">Ate R$ 500.000</option>
+                <option value="500k-1m" selected>R$ 500.000 a R$ 1 milhao</option>
+                <option value="1m-5m">R$ 1 milhao a R$ 5 milhoes</option>
+                <option value="5m-10m">R$ 5 milhoes a R$ 10 milhoes</option>
+                <option value="acima-10m">Acima de R$ 10 milhoes</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Numero de Funcionarios *</label>
+              <select class="form-input" required>
+                <option value="">Selecione...</option>
+                <option value="1-5">1 a 5</option>
+                <option value="6-20" selected>6 a 20</option>
+                <option value="21-50">21 a 50</option>
+                <option value="51-100">51 a 100</option>
+                <option value="100+">Mais de 100</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Descricao da Empresa *</label>
+            <textarea class="form-input" rows="3" placeholder="Descreva brevemente o que sua empresa faz, seu modelo de negocio e diferenciais..." required>Desenvolvemos uma plataforma SaaS para gestao de startups, ajudando empreendedores a gerenciar operacoes, metricas e relacionamento com investidores de forma integrada.</textarea>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="form-group">
+              <label class="form-label">Website</label>
+              <input type="url" class="form-input" placeholder="https://seusite.com.br" value="https://techstart.com.br">
+            </div>
+            <div class="form-group">
+              <label class="form-label">LinkedIn da Empresa</label>
+              <input type="url" class="form-input" placeholder="https://linkedin.com/company/..." value="">
+            </div>
+          </div>
+
+          <hr style="margin: 25px 0; border: none; border-top: 1px solid var(--border);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 20px;"><i class="bi bi-geo-alt"></i> Endereco da Empresa</h3>
+
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 15px;">
+            <div class="form-group">
+              <label class="form-label">CEP *</label>
+              <input type="text" class="form-input" placeholder="00000-000" value="01310-100" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Logradouro *</label>
+              <input type="text" class="form-input" placeholder="Rua, Av, etc" value="Av. Paulista" required>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 15px;">
+            <div class="form-group">
+              <label class="form-label">Numero *</label>
+              <input type="text" class="form-input" placeholder="No" value="1000" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Complemento</label>
+              <input type="text" class="form-input" placeholder="Sala, Andar..." value="Sala 1501">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Bairro *</label>
+              <input type="text" class="form-input" placeholder="Bairro" value="Bela Vista" required>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 15px;">
+            <div class="form-group">
+              <label class="form-label">Cidade *</label>
+              <input type="text" class="form-input" placeholder="Cidade" value="Sao Paulo" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">UF *</label>
+              <select class="form-input" required>
+                <option value="SP" selected>SP</option>
+                <option value="RJ">RJ</option>
+                <option value="MG">MG</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div style="display: flex; gap: 15px; justify-content: space-between; margin-top: 30px;">
+            <a href="parceiro-cadastro-emissor.html" class="btn btn-outline">
+              <i class="bi bi-arrow-left"></i> Voltar
+            </a>
+            <button type="submit" class="btn btn-primary btn-lg" style="background: linear-gradient(135deg, #7c3aed, #a78bfa);">
+              Proximo <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Footer -->
+      <div class="text-center" style="margin-top: 25px; color: rgba(255,255,255,0.7); font-size: 0.85rem;">
+        <p><i class="bi bi-shield-check"></i> Plataforma autorizada CVM - RCVM 88/2022</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+    function mostrarSegmentos() {
+      // Logica para mostrar segmentos especificos baseado no setor
+      const setor = document.getElementById('setorAtuacao').value;
+      console.log('Setor selecionado:', setor);
+    }
+  </script>
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Empresas Inadimplentes - Transparência sobre empresas com obrigações pendentes na CrowdInvest.">
+  <title>Empresas Inadimplentes - CrowdInvest</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body class="theme-investidor has-fixed-header">
+  <div class="page">
+    <!-- Site Header Wrapper (Fixed) -->
+    <div class="site-header-wrapper">
+      <!-- Announcement Bar -->
+      <div class="announcement-bar">
+        <i class="bi bi-megaphone-fill"></i>
+        Nova oferta disponível: TechStart Inovação - 78% captado!
+        <a href="login.html">Investir agora</a>
+      </div>
+
+      <!-- Header 2026 -->
+      <header class="header">
+        <div class="container header-content">
+          <a href="../index.html" class="logo">Alba Invest</a>
+          <button class="menu-toggle" onclick="toggleMobileMenu()"><i class="bi bi-list"></i></button>
+          <nav class="nav">
+            <a href="../index.html">Início</a>
+            <a href="como-funciona.html">Como Funciona</a>
+            <a href="fale-conosco.html">Fale Conosco</a>
+            <a href="parceiros-landing.html" target="_blank">Parceiros</a>
+            <a href="portal.html" style="position: relative;">Portais <span style="font-size: 0.6rem; background: #f59e0b; color: #78350f; padding: 2px 4px; border-radius: 3px; margin-left: 4px; vertical-align: super;">TEMP</span></a>
+            <div class="nav-actions">
+              <a href="login.html" class="btn btn-outline">Entrar</a>
+              <a href="cadastro.html" class="btn btn-primary">Criar Conta</a>
+            </div>
+          </nav>
+        </div>
+      </header>
+    </div><!-- /site-header-wrapper -->
+    <div class="mobile-overlay" onclick="closeMobileMenus()"></div>
+
+    <!-- Hero -->
+    <section style="background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%); color: white; padding: 60px 0;">
+      <div class="container text-center">
+        <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 10px;">Empresas Inadimplentes</h1>
+        <p style="opacity: 0.9; max-width: 650px; margin: 0 auto;">Transparência sobre empresas com obrigações pendentes junto aos investidores</p>
+      </div>
+    </section>
+
+    <!-- Info Section -->
+    <section style="padding: 40px 0; background: #fef2f2;">
+      <div class="container">
+        <div style="max-width: 900px; margin: 0 auto;">
+          <div style="display: flex; gap: 20px; align-items: flex-start;">
+            <div style="min-width: 50px; height: 50px; background: #fee2e2; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+              <i class="bi bi-exclamation-triangle-fill" style="font-size: 1.5rem; color: #991b1b;"></i>
+            </div>
+            <div>
+              <h3 style="margin-bottom: 10px; color: #7f1d1d;">Sobre está Página</h3>
+              <p style="color: #991b1b; line-height: 1.7; margin-bottom: 0;">
+                Em conformidade com a Resolução CVM 88/2022, a CrowdInvest mantem está página atualizada com informações
+                sobre empresas que captaram recursos através da plataforma e que possuem obrigações pendentes junto aos
+                investidores. Esta é uma medida de transparência obrigatória que visa proteger e informar os investidores.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section style="padding: 40px 0;">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 800px; margin: 0 auto;">
+          <div class="card text-center" style="padding: 25px; border-left: 4px solid #dc2626;">
+            <div style="font-size: 2rem; font-weight: 800; color: #dc2626;">2</div>
+            <div class="text-muted" style="font-size: 0.9rem;">Empresas Inadimplentes</div>
+          </div>
+          <div class="card text-center" style="padding: 25px; border-left: 4px solid #f59e0b;">
+            <div style="font-size: 2rem; font-weight: 800; color: #f59e0b;">R$ 380K</div>
+            <div class="text-muted" style="font-size: 0.9rem;">Valor Total Pendente</div>
+          </div>
+          <div class="card text-center" style="padding: 25px; border-left: 4px solid #1e40af;">
+            <div style="font-size: 2rem; font-weight: 800; color: #1e40af;">47</div>
+            <div class="text-muted" style="font-size: 0.9rem;">Investidores Afetados</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Empresas List -->
+    <section style="padding: 0 0 60px;">
+      <div class="container">
+        <div style="max-width: 1000px; margin: 0 auto;">
+
+          <!-- Export Actions -->
+          <div style="display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 20px;">
+            <button onclick="Modals.export('pdf', 'empresas-inadimplentes')" class="btn btn-sm" style="background: #dc2626; color: white; padding: 8px 12px;" title="Exportar PDF">
+              <i class="bi bi-file-pdf"></i> PDF
+            </button>
+            <button onclick="Modals.export('excel', 'empresas-inadimplentes')" class="btn btn-sm" style="background: #047857; color: white; padding: 8px 12px;" title="Exportar Excel">
+              <i class="bi bi-file-excel"></i> Excel
+            </button>
+            <button onclick="Modals.export('csv', 'empresas-inadimplentes')" class="btn btn-sm" style="background: #6366f1; color: white; padding: 8px 12px;" title="Exportar CSV">
+              <i class="bi bi-filetype-csv"></i> CSV
+            </button>
+          </div>
+
+          <!-- Empresa 1 -->
+          <div class="card" style="margin-bottom: 25px; overflow: hidden; border-left: 4px solid #dc2626;">
+            <div style="padding: 30px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                <div>
+                  <span style="background: #fee2e2; color: #991b1b; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">
+                    <i class="bi bi-exclamation-circle"></i> INADIMPLENTE
+                  </span>
+                </div>
+                <span class="text-muted" style="font-size: 0.85rem;">Desde: 15/08/2025</span>
+              </div>
+
+              <h3 style="margin-bottom: 5px;">LogiExpress Transportes Ltda.</h3>
+              <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 20px;">CNPJ: 12.345.678/0001-90</p>
+
+              <div style="background: #f8fafc; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                  <div>
+                    <div class="text-muted" style="font-size: 0.75rem; margin-bottom: 5px;">VALOR CAPTADO</div>
+                    <div style="font-weight: 700;">R$ 500.000</div>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 0.75rem; margin-bottom: 5px;">VALOR PENDENTE</div>
+                    <div style="font-weight: 700; color: #dc2626;">R$ 230.000</div>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 0.75rem; margin-bottom: 5px;">INVESTIDORES</div>
+                    <div style="font-weight: 700;">28</div>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 0.75rem; margin-bottom: 5px;">TIPO DE OFERTA</div>
+                    <div style="font-weight: 700;">Divida (Debentures)</div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 20px;">
+                <h4 style="font-size: 0.9rem; margin-bottom: 10px; color: #64748b;">MOTIVO DA INADIMPLENCIA</h4>
+                <p class="text-muted" style="font-size: 0.9rem; line-height: 1.7;">
+                  A empresa deixou de honrar os pagamentos de juros previstos para o 3o trimestre de 2025.
+                  Após tentativas de contato e notificações formais, a empresa alegou dificuldades financeiras
+                  decorrentes de perda de contratos importantes. A CrowdInvest iníciou procedimentos de cobranca
+                  e acionou as garantias previstas no contrato.
+                </p>
+              </div>
+
+              <div style="margin-bottom: 20px;">
+                <h4 style="font-size: 0.9rem; margin-bottom: 10px; color: #64748b;">PROVIDENCIAS ADOTADAS</h4>
+                <ul style="color: var(--text-muted); line-height: 2; padding-left: 20px; font-size: 0.9rem;">
+                  <li>Notificação extrajudicial enviada em 20/08/2025</li>
+                  <li>Execucao de garantias iniciada em 15/09/2025</li>
+                  <li>Ação judicial de cobranca protocolada em 01/10/2025</li>
+                  <li>Investidores notificados por e-mail em 25/08/2025</li>
+                </ul>
+              </div>
+
+              <div style="background: #fef3c7; border-radius: 8px; padding: 15px;">
+                <p style="color: #92400e; font-size: 0.85rem; margin: 0;">
+                  <i class="bi bi-clock-history"></i> <strong>Última atualização:</strong> 10/01/2026 - Águardando decisao judicial sobre execucao de garantias.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Empresa 2 -->
+          <div class="card" style="margin-bottom: 25px; overflow: hidden; border-left: 4px solid #dc2626;">
+            <div style="padding: 30px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                <div>
+                  <span style="background: #fee2e2; color: #991b1b; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">
+                    <i class="bi bi-exclamation-circle"></i> INADIMPLENTE
+                  </span>
+                </div>
+                <span class="text-muted" style="font-size: 0.85rem;">Desde: 02/11/2025</span>
+              </div>
+
+              <h3 style="margin-bottom: 5px;">FoodTech Delivery S.A.</h3>
+              <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 20px;">CNPJ: 98.765.432/0001-10</p>
+
+              <div style="background: #f8fafc; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                  <div>
+                    <div class="text-muted" style="font-size: 0.75rem; margin-bottom: 5px;">VALOR CAPTADO</div>
+                    <div style="font-weight: 700;">R$ 350.000</div>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 0.75rem; margin-bottom: 5px;">VALOR PENDENTE</div>
+                    <div style="font-weight: 700; color: #dc2626;">R$ 150.000</div>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 0.75rem; margin-bottom: 5px;">INVESTIDORES</div>
+                    <div style="font-weight: 700;">19</div>
+                  </div>
+                  <div>
+                    <div class="text-muted" style="font-size: 0.75rem; margin-bottom: 5px;">TIPO DE OFERTA</div>
+                    <div style="font-weight: 700;">Conversivel</div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 20px;">
+                <h4 style="font-size: 0.9rem; margin-bottom: 10px; color: #64748b;">MOTIVO DA INADIMPLENCIA</h4>
+                <p class="text-muted" style="font-size: 0.9rem; line-height: 1.7;">
+                  A empresa não cumpriu com a obrigação de prestação de contas trimestral e não realizou o
+                  pagamento de dividendos mínimos previstos no contrato. A administração alegou reestruturação
+                  societária em andamento, porém não apresentou documentação comprobatoria adequada.
+                </p>
+              </div>
+
+              <div style="margin-bottom: 20px;">
+                <h4 style="font-size: 0.9rem; margin-bottom: 10px; color: #64748b;">PROVIDENCIAS ADOTADAS</h4>
+                <ul style="color: var(--text-muted); line-height: 2; padding-left: 20px; font-size: 0.9rem;">
+                  <li>Notificação extrajudicial enviada em 10/11/2025</li>
+                  <li>Reuniao com administração realizada em 25/11/2025</li>
+                  <li>Acordo de renegociação em análise</li>
+                  <li>Investidores notificados por e-mail em 15/11/2025</li>
+                </ul>
+              </div>
+
+              <div style="background: #fef3c7; border-radius: 8px; padding: 15px;">
+                <p style="color: #92400e; font-size: 0.85rem; margin: 0;">
+                  <i class="bi bi-clock-history"></i> <strong>Última atualização:</strong> 05/01/2026 - Em negociação de acordo para regularização dos pagamentos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- How We Act Section -->
+    <section style="padding: 60px 0; background: #f8fafc;">
+      <div class="container">
+        <div style="max-width: 900px; margin: 0 auto;">
+          <h2 class="text-center" style="margin-bottom: 40px;">Como Atuamos em Casos de Inadimplencia</h2>
+
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px;">
+            <div class="card" style="padding: 25px;">
+              <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                <div style="width: 45px; height: 45px; background: linear-gradient(135deg, #1e40af, #3b82f6); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                  <i class="bi bi-envelope-check" style="color: white; font-size: 1.25rem;"></i>
+                </div>
+                <h4 style="margin: 0;">1. Notificação</h4>
+              </div>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.7; margin: 0;">
+                Ao identificar atraso no cumprimento de obrigações, enviamos notificação formal a empresa
+                solicitando regularização em prazo determinado.
+              </p>
+            </div>
+
+            <div class="card" style="padding: 25px;">
+              <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                <div style="width: 45px; height: 45px; background: linear-gradient(135deg, #047857, #10b981); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                  <i class="bi bi-people" style="color: white; font-size: 1.25rem;"></i>
+                </div>
+                <h4 style="margin: 0;">2. Comunicação</h4>
+              </div>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.7; margin: 0;">
+                Mantemos os investidores informados sobre a situação através de comunicados por e-mail e
+                atualizações nesta página de transparência.
+              </p>
+            </div>
+
+            <div class="card" style="padding: 25px;">
+              <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                <div style="width: 45px; height: 45px; background: linear-gradient(135deg, #c2410c, #f97316); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                  <i class="bi bi-shield-check" style="color: white; font-size: 1.25rem;"></i>
+                </div>
+                <h4 style="margin: 0;">3. Garantias</h4>
+              </div>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.7; margin: 0;">
+                Quando aplicavel, iniciamos a execucao das garantias previstas nos contratos para
+                proteger os interesses dos investidores.
+              </p>
+            </div>
+
+            <div class="card" style="padding: 25px;">
+              <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                <div style="width: 45px; height: 45px; background: linear-gradient(135deg, #7c3aed, #a78bfa); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                  <i class="bi bi-bank" style="color: white; font-size: 1.25rem;"></i>
+                </div>
+                <h4 style="margin: 0;">4. Medidas Legais</h4>
+              </div>
+              <p class="text-muted" style="font-size: 0.9rem; line-height: 1.7; margin: 0;">
+                Se necessário, adotamos medidas judiciais para a cobranca dos valores devidos e
+                responsabilização dos administradores.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section style="padding: 60px 0;">
+      <div class="container">
+        <div class="card" style="max-width: 700px; margin: 0 auto; padding: 40px; text-align: center;">
+          <i class="bi bi-headset" style="font-size: 3rem; color: #1e40af; margin-bottom: 20px;"></i>
+          <h3 style="margin-bottom: 15px;">E investidor de alguma dessas empresas?</h3>
+          <p class="text-muted" style="margin-bottom: 25px;">
+            Nossa equipe de relacionamento está disponível para esclarecer dúvidas e fornecer
+            informações detalhadas sobre os procedimentos em andamento.
+          </p>
+          <div style="display: flex; gap: 15px; justify-content: center;">
+            <a href="mailto:investidor@albainvest.com.br" class="btn btn-outline">
+              <i class="bi bi-envelope"></i> investidor@albainvest.com.br
+            </a>
+            <a href="https://wa.me/5511738090855" target="_blank" class="btn btn-primary">
+              <i class="bi bi-whatsapp"></i> Falar no WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h4>Alba Invest</h4>
+            <p>Plataforma de investimentos alternativos autorizada pela CVM.</p>
+            <div class="footer-social">
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h5>Para Investidores</h5>
+            <a href="login.html">Acessar Conta</a>
+            <a href="cadastro.html">Criar Conta</a>
+            <a href="como-funciona.html">Como Funciona</a>
+            <a href="material-didatico.html">Material Didático</a>
+          </div>
+          <div class="footer-column">
+            <h5>Transparência CVM</h5>
+            <a href="ofertas-encerradas.html">Ofertas Encerradas</a>
+            <a href="empresas-inadimplentes.html">Empresas Inadimplentes</a>
+            <a href="taxas-custos.html">Taxas e Custos</a>
+            <a href="material-didatico.html">Material Educativo</a>
+          </div>
+          <div class="footer-column">
+            <h5>Institucional</h5>
+            <a href="quem-somos.html">Quem Somos</a>
+            <a href="termos-de-uso.html">Termos de Uso</a>
+            <a href="politica-privacidade.html">Política de Privacidade</a>
+            <a href="fale-conosco.html">Fale Conosco</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-contact">
+            <p><i class="bi bi-whatsapp"></i> Atendimento: <a href="https://wa.me/5511738090855" target="_blank" style="color: #10b981;">(11) 7380-9085</a> <span style="opacity: 0.7;">- Das 9h às 18h (dias úteis)</span></p>
+          </div>
+          <div class="footer-legal">
+            <p>Este website ("Site") e gerido e operado pela ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA ("Alba Invest"), CNPJ 43.413.213/0001-58, nos termos da Resolução CVM 88/2022.</p>
+            <p>As sociedades empresárias de pequeno porte e as ofertas apresentadas nesta plataforma estão automaticamente dispensadas de registro pela Comissão de Valores Mobiliários - CVM. A CVM não analisa previamente as ofertas. As ofertas realizadas não implicam por parte da CVM a garantia da veracidade das informações prestadas, de adequação a legislação vigente ou julgamento sobre a qualidade da sociedade empresaria de pequeno porte. Antes de aceitar uma oferta leia com atenção as informações essenciais da oferta, em especial a seção de alertas sobre riscos.</p>
+          </div>
+          <div class="footer-copy">
+            <p><strong>ALBA PLATAFORMA DE INVESTIMENTOS ALTERNATIVOS LTDA</strong> | CNPJ: 43.413.213/0001-58</p>
+            <p>Copyright 2026 - Todos os direitos reservados</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <a href="https://wa.me/5511738090855" target="_blank" class="floating-help-btn whatsapp" title="Atendimento WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span>Atendimento</span>
+  </a>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
