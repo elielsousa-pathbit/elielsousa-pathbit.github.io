@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Seja um parceiro CrowdInvest - Emissores, Originadores e Distribuidores. Capte recursos ou amplie seus negócios com investimentos alternativos.">
-  <title>Seja um Parceiro | CrowdInvest - Plataforma de Investimentos Alternativos</title>
+  <meta name="description" content="Seja um parceiro Alba Invest - Emissores, Originadores e Distribuidores. Capte recursos ou amplie seus negócios com investimentos alternativos.">
+  <title>Seja um Parceiro | Alba Invest - Plataforma de Investimentos Alternativos</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/pages.css">
   <style>
     /* Landing Page Parceiros - Estilo Profissional */
     .parceiros-hero {
-      background: linear-gradient(165deg, #064e3b 0%, #047857 40%, #10b981 100%);
+      background: var(--primary-gradient);
       color: white;
       padding: 100px 0 120px;
       position: relative;
@@ -24,7 +24,7 @@
       right: -20%;
       width: 800px;
       height: 800px;
-      background: radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
     }
     .parceiros-hero h1 {
       font-size: 3rem;
@@ -66,9 +66,9 @@
       font-size: 2rem;
       margin-bottom: 20px;
     }
-    .partner-icon.emissor { background: linear-gradient(135deg, #7c3aed, #a78bfa); color: white; }
-    .partner-icon.originador { background: linear-gradient(135deg, #047857, #10b981); color: white; }
-    .partner-icon.distribuidor { background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; }
+    .partner-icon.emissor { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; }
+    .partner-icon.originador { background: linear-gradient(135deg, var(--accent), var(--text)); color: white; }
+    .partner-icon.distribuidor { background: linear-gradient(135deg, var(--text-muted), var(--text)); color: white; }
     .partner-card h3 {
       font-size: 1.5rem;
       margin-bottom: 15px;
@@ -93,7 +93,7 @@
       color: var(--text);
     }
     .partner-features li i {
-      color: var(--success);
+      color: var(--primary);
     }
     .benefits-section {
       padding: 80px 0;
@@ -108,7 +108,7 @@
       width: 50px;
       height: 50px;
       border-radius: 12px;
-      background: linear-gradient(135deg, #047857, #10b981);
+      background: var(--primary-gradient);
       color: white;
       display: flex;
       align-items: center;
@@ -118,7 +118,7 @@
     }
     .cta-section {
       padding: 80px 0;
-      background: linear-gradient(135deg, #064e3b, #047857);
+      background: var(--accent);
       color: white;
       text-align: center;
     }
@@ -134,7 +134,7 @@
     }
     .btn-white {
       background: white;
-      color: #047857;
+      color: var(--primary);
       padding: 16px 32px;
       font-size: 1.1rem;
       font-weight: 600;
@@ -150,7 +150,7 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
     .header-parceiros {
-      background: rgba(6, 78, 59, 0.95);
+      background: rgba(242, 103, 22, 0.95);
       backdrop-filter: blur(12px);
       padding: 16px 0;
     }
@@ -183,7 +183,7 @@
     <div class="parceiros-header-wrapper">
       <header class="header-parceiros">
       <div class="container header-content">
-        <a href="parceiros-landing.html" class="logo">Alba Invest</a>
+        <a href="parceiros-landing.html" class="logo-container"><img src="../assets/logos/logo-white.png" alt="Alba Invest" style="height: 54px;"></a>
         <nav class="nav">
           <a href="../index.html">Voltar ao Site</a>
           <a href="#tipos-parceiro">Tipos de Parceiro</a>
@@ -202,10 +202,10 @@
         <div style="max-width: 700px; position: relative; z-index: 1;">
           <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.15); padding: 8px 16px; border-radius: 50px; margin-bottom: 20px;">
             <i class="bi bi-handshake"></i>
-            Programa de Parceiros CrowdInvest
+            Programa de Parceiros Alba Invest
           </div>
           <h1>Amplie seus Negócios com Investimentos Alternativos</h1>
-          <p>Seja um parceiro estratégico da CrowdInvest. Oferecemos estrutura completa para emissores captarem recursos, originadores encontrarem oportunidades e distribuidores expandirem suas operações.</p>
+          <p>Seja um parceiro estratégico da Alba Invest. Oferecemos estrutura completa para emissores captarem recursos, originadores encontrarem oportunidades e distribuidores expandirem suas operações.</p>
           <div style="display: flex; gap: 15px; flex-wrap: wrap;">
             <a href="#tipos-parceiro" class="btn-white">
               <i class="bi bi-arrow-down-circle"></i> Conhecer Opções
@@ -240,7 +240,7 @@
               <li><i class="bi bi-check-circle-fill"></i> Relacionamento com investidores</li>
               <li><i class="bi bi-check-circle-fill"></i> Conformidade RCVM 88</li>
             </ul>
-            <a href="parceiro-cadastro-emissor.html" class="btn btn-primary btn-block" style="background: linear-gradient(135deg, #7c3aed, #a78bfa);">
+            <a href="parceiro-cadastro-emissor.html" class="btn btn-primary btn-block">
               <i class="bi bi-arrow-right"></i> Quero Captar
             </a>
           </div>
@@ -259,7 +259,7 @@
               <li><i class="bi bi-check-circle-fill"></i> Pipeline de oportunidades</li>
               <li><i class="bi bi-check-circle-fill"></i> Relatórios de performance</li>
             </ul>
-            <a href="parceiro-cadastro-originador.html" class="btn btn-primary btn-block" style="background: linear-gradient(135deg, #047857, #10b981);">
+            <a href="parceiro-cadastro-originador.html" class="btn btn-primary btn-block">
               <i class="bi bi-arrow-right"></i> Quero Originar
             </a>
           </div>
@@ -292,7 +292,7 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
           <div>
             <div class="section-header" style="text-align: left; margin-bottom: 40px;">
-              <h2>Por que ser Parceiro CrowdInvest?</h2>
+              <h2>Por que ser Parceiro Alba Invest?</h2>
               <p>Oferecemos uma estrutura completa para você expandir seus negócios com segurança regulatoria.</p>
             </div>
             <div class="benefit-item">
@@ -331,19 +331,19 @@
             </div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
               <div style="text-align: center; padding: 20px; background: white; border-radius: var(--radius);">
-                <div style="font-size: 2rem; font-weight: 700; color: var(--success);">45+</div>
+                <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">45+</div>
                 <p class="text-muted" style="font-size: 0.875rem; margin: 0;">Ofertas concluidas</p>
               </div>
               <div style="text-align: center; padding: 20px; background: white; border-radius: var(--radius);">
-                <div style="font-size: 2rem; font-weight: 700; color: var(--success);">2.500+</div>
+                <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">2.500+</div>
                 <p class="text-muted" style="font-size: 0.875rem; margin: 0;">Investidores ativos</p>
               </div>
               <div style="text-align: center; padding: 20px; background: white; border-radius: var(--radius);">
-                <div style="font-size: 2rem; font-weight: 700; color: var(--success);">98%</div>
+                <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">98%</div>
                 <p class="text-muted" style="font-size: 0.875rem; margin: 0;">Taxa de sucesso</p>
               </div>
               <div style="text-align: center; padding: 20px; background: white; border-radius: var(--radius);">
-                <div style="font-size: 2rem; font-weight: 700; color: var(--success);">50+</div>
+                <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">50+</div>
                 <p class="text-muted" style="font-size: 0.875rem; margin: 0;">Parceiros ativos</p>
               </div>
             </div>
@@ -356,7 +356,7 @@
     <section class="cta-section">
       <div class="container">
         <h2>Pronto para Começar?</h2>
-        <p>Entre em contato com nossa equipe comercial e descubra como a parceria com a CrowdInvest pode impulsionar seus negócios.</p>
+        <p>Entre em contato com nossa equipe comercial e descubra como a parceria com a Alba Invest pode impulsionar seus negócios.</p>
         <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
           <a href="parceiro-login.html" class="btn-white">
             <i class="bi bi-rocket-takeoff"></i> Acessar Portal do Parceiro
@@ -369,7 +369,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer" style="background: #064e3b;">
+    <footer class="footer" style="background: var(--text);">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
